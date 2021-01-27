@@ -28,7 +28,7 @@ import java.io.IOException;
  * Count contains the counts for the set of values returned.
  */
 @ApiModel(description = "Count contains the counts for the set of values returned.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-12-09T17:00:28.474223+11:00[Australia/Sydney]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-27T15:56:05.707098+11:00[Australia/Sydney]")
 public class QueryAggregateResultCount {
   public static final String SERIALIZED_NAME_COUNTS = "counts";
   @SerializedName(SERIALIZED_NAME_COUNTS)

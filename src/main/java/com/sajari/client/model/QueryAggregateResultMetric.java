@@ -28,7 +28,7 @@ import java.io.IOException;
  * Metric represents the metric type requested, represented by an Enumeration Type.
  */
 @ApiModel(description = "Metric represents the metric type requested, represented by an Enumeration Type.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-12-09T17:00:28.474223+11:00[Australia/Sydney]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-27T15:56:05.707098+11:00[Australia/Sydney]")
 public class QueryAggregateResultMetric {
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)

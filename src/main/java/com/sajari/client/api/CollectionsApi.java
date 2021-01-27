@@ -32,7 +32,6 @@ import com.sajari.client.model.Error;
 import com.sajari.client.model.ListCollectionsResponse;
 import com.sajari.client.model.QueryCollectionRequest;
 import com.sajari.client.model.QueryCollectionResponse;
-import com.sajari.client.model.Status;
 
 import java.lang.reflect.Type;
 
@@ -471,7 +470,7 @@ public class CollectionsApi {
     /**
      * Build call for listCollections
      * @param pageSize The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
-     * @param pageToken A page token, received from a previous [ListCollections](/docs/api-reference#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api-reference#operation/ListCollections) must match the call that provided the page token. (optional)
+     * @param pageToken A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -536,7 +535,7 @@ public class CollectionsApi {
      * List collections
      * Retrieve a list of collections in the account.
      * @param pageSize The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
-     * @param pageToken A page token, received from a previous [ListCollections](/docs/api-reference#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api-reference#operation/ListCollections) must match the call that provided the page token. (optional)
+     * @param pageToken A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. (optional)
      * @return ListCollectionsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -559,7 +558,7 @@ public class CollectionsApi {
      * List collections
      * Retrieve a list of collections in the account.
      * @param pageSize The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
-     * @param pageToken A page token, received from a previous [ListCollections](/docs/api-reference#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api-reference#operation/ListCollections) must match the call that provided the page token. (optional)
+     * @param pageToken A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. (optional)
      * @return ApiResponse&lt;ListCollectionsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -583,7 +582,7 @@ public class CollectionsApi {
      * List collections (asynchronously)
      * Retrieve a list of collections in the account.
      * @param pageSize The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
-     * @param pageToken A page token, received from a previous [ListCollections](/docs/api-reference#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api-reference#operation/ListCollections) must match the call that provided the page token. (optional)
+     * @param pageToken A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -674,7 +673,7 @@ public class CollectionsApi {
 
     /**
      * Query collection
-     * Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://www.sajari.com/docs/user-guide/integrating-search/filters/) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+     * Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.sajari.com/user-guide/integrating-search/filters/) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
      * @param collectionId The collection to query, e.g. &#x60;my-collection&#x60;. (required)
      * @param queryCollectionRequest  (required)
      * @return QueryCollectionResponse
@@ -697,7 +696,7 @@ public class CollectionsApi {
 
     /**
      * Query collection
-     * Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://www.sajari.com/docs/user-guide/integrating-search/filters/) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+     * Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.sajari.com/user-guide/integrating-search/filters/) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
      * @param collectionId The collection to query, e.g. &#x60;my-collection&#x60;. (required)
      * @param queryCollectionRequest  (required)
      * @return ApiResponse&lt;QueryCollectionResponse&gt;
@@ -721,7 +720,7 @@ public class CollectionsApi {
 
     /**
      * Query collection (asynchronously)
-     * Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://www.sajari.com/docs/user-guide/integrating-search/filters/) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+     * Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.sajari.com/user-guide/integrating-search/filters/) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
      * @param collectionId The collection to query, e.g. &#x60;my-collection&#x60;. (required)
      * @param queryCollectionRequest  (required)
      * @param _callback The callback to be executed when the API call finishes

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Click is a token that corresponds to selecting a record from a result set. It is taken as an indication that this record is a good match for the corresponding request.
  */
 @ApiModel(description = "Click is a token that corresponds to selecting a record from a result set. It is taken as an indication that this record is a good match for the corresponding request.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-12-09T17:00:28.474223+11:00[Australia/Sydney]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-27T15:56:05.707098+11:00[Australia/Sydney]")
 public class QueryResultTokenClick {
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)

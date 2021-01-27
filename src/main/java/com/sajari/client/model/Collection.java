@@ -28,7 +28,7 @@ import java.time.OffsetDateTime;
 /**
  * Collection
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-12-09T17:00:28.474223+11:00[Australia/Sydney]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-27T15:56:05.707098+11:00[Australia/Sydney]")
 public class Collection {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -45,6 +45,10 @@ public class Collection {
   public static final String SERIALIZED_NAME_DISPLAY_NAME = "display_name";
   @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
   private String displayName;
+
+  public static final String SERIALIZED_NAME_AUTHORIZED_QUERY_DOMAINS = "authorized_query_domains";
+  @SerializedName(SERIALIZED_NAME_AUTHORIZED_QUERY_DOMAINS)
+  private java.util.List<String> authorizedQueryDomains = null;
 
 
    /**
@@ -111,6 +115,37 @@ public class Collection {
   }
 
 
+  public Collection authorizedQueryDomains(java.util.List<String> authorizedQueryDomains) {
+    
+    this.authorizedQueryDomains = authorizedQueryDomains;
+    return this;
+  }
+
+  public Collection addAuthorizedQueryDomainsItem(String authorizedQueryDomainsItem) {
+    if (this.authorizedQueryDomains == null) {
+      this.authorizedQueryDomains = new java.util.ArrayList<>();
+    }
+    this.authorizedQueryDomains.add(authorizedQueryDomainsItem);
+    return this;
+  }
+
+   /**
+   * The list of authorized query domains for the collection.  Client-side / browser requests to the [QueryCollection](/api#operation/QueryCollection) call can be made by any authorized query domain or any of its subdomains. This allows your interface to make search requests without having to provide an API key in the client-side request.
+   * @return authorizedQueryDomains
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The list of authorized query domains for the collection.  Client-side / browser requests to the [QueryCollection](/api#operation/QueryCollection) call can be made by any authorized query domain or any of its subdomains. This allows your interface to make search requests without having to provide an API key in the client-side request.")
+
+  public java.util.List<String> getAuthorizedQueryDomains() {
+    return authorizedQueryDomains;
+  }
+
+
+  public void setAuthorizedQueryDomains(java.util.List<String> authorizedQueryDomains) {
+    this.authorizedQueryDomains = authorizedQueryDomains;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -123,12 +158,13 @@ public class Collection {
     return Objects.equals(this.id, collection.id) &&
         Objects.equals(this.accountId, collection.accountId) &&
         Objects.equals(this.createTime, collection.createTime) &&
-        Objects.equals(this.displayName, collection.displayName);
+        Objects.equals(this.displayName, collection.displayName) &&
+        Objects.equals(this.authorizedQueryDomains, collection.authorizedQueryDomains);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, accountId, createTime, displayName);
+    return Objects.hash(id, accountId, createTime, displayName, authorizedQueryDomains);
   }
 
 
@@ -140,6 +176,7 @@ public class Collection {
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    authorizedQueryDomains: ").append(toIndentedString(authorizedQueryDomains)).append("\n");
     sb.append("}");
     return sb.toString();
   }

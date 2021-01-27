@@ -12,10 +12,10 @@ info:
   version: v4
   x-logo:
     altText: Sajari
-    url: /docs/api-reference/logo-full.png
+    url: https://cdn.sajari.net/v2/img/logo-full.svg
 externalDocs:
   description: Read more about the Sajari API
-  url: https://www.sajari.com/docs
+  url: https://docs.sajari.com
 servers:
 - url: https://api-gateway.sajari.com
 security:
@@ -127,12 +127,12 @@ paths:
         style: form
       - description: |-
           A page token, received from a previous
-          [ListCollections](/docs/api-reference#operation/ListCollections) call.
+          [ListCollections](/api#operation/ListCollections) call.
 
           Provide this to retrieve the subsequent page.
 
           When paginating, all other parameters provided to
-          [ListCollections](/docs/api-reference#operation/ListCollections) must match
+          [ListCollections](/api#operation/ListCollections) must match
           the call that provided the page token.
         explode: true
         in: query
@@ -151,24 +151,28 @@ paths:
         "401":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the request does not have valid authentication
             credentials.
         "403":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the user does not have permission to access the
             resource.
         "404":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the resource does not exist.
         "500":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the API encounters an internal error.
         default:
           content:
@@ -231,25 +235,28 @@ paths:
                       - field: collection_id
                         description: collection_id cannot be empty
               schema:
-                $ref: '#/components/schemas/Status'
+                $ref: '#/components/schemas/Error'
           description: Returned when the request contains violations for one or more
             fields.
         "401":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the request does not have valid authentication
             credentials.
         "403":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the user does not have permission to access the
             resource.
         "404":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the resource does not exist.
         "409":
           content:
@@ -260,12 +267,13 @@ paths:
                     code: 6
                     message: resource already exists
               schema:
-                $ref: '#/components/schemas/Status'
+                $ref: '#/components/schemas/Error'
           description: Returned when the collection already exists.
         "500":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the API encounters an internal error.
         default:
           content:
@@ -304,13 +312,15 @@ paths:
         "401":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the request does not have valid authentication
             credentials.
         "403":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the user does not have permission to access the
             resource.
         "404":
@@ -322,12 +332,13 @@ paths:
                     code: 5
                     message: resource not found
               schema:
-                $ref: '#/components/schemas/Status'
+                $ref: '#/components/schemas/Error'
           description: Returned when the collection was not found.
         "500":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the API encounters an internal error.
         default:
           content:
@@ -361,24 +372,28 @@ paths:
         "401":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the request does not have valid authentication
             credentials.
         "403":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the user does not have permission to access the
             resource.
         "404":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the resource does not exist.
         "500":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the API encounters an internal error.
         default:
           content:
@@ -434,13 +449,15 @@ paths:
         "401":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the request does not have valid authentication
             credentials.
         "403":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the user does not have permission to access the
             resource.
         "404":
@@ -452,12 +469,13 @@ paths:
                     code: 5
                     message: resource not found
               schema:
-                $ref: '#/components/schemas/Status'
+                $ref: '#/components/schemas/Error'
           description: Returned when the collection was not found.
         "500":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the API encounters an internal error.
         default:
           content:
@@ -500,12 +518,12 @@ paths:
         style: form
       - description: |-
           A page token, received from a previous
-          [ListPipelines](/docs/api-reference#operation/ListPipelines) call.
+          [ListPipelines](/api#operation/ListPipelines) call.
 
           Provide this to retrieve the subsequent page.
 
           When paginating, all other parameters provided to
-          [ListPipelines](/docs/api-reference#operation/ListPipelines) must match the
+          [ListPipelines](/api#operation/ListPipelines) must match the
           call that provided the page token.
         explode: true
         in: query
@@ -521,8 +539,8 @@ paths:
           The API defaults to the `BASIC` view.
            - BASIC: Include basic information including type, name, version and description
           but not the full step configuration. This is the default value (for both
-          [ListPipelines](/docs/api-reference#operation/ListPipelines) and
-          [GetPipeline](/docs/api-reference#operation/GetPipeline)).
+          [ListPipelines](/api#operation/ListPipelines) and
+          [GetPipeline](/api#operation/GetPipeline)).
            - FULL: Include the information from `BASIC`, plus full step
           configuration.
         explode: true
@@ -547,24 +565,28 @@ paths:
         "401":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the request does not have valid authentication
             credentials.
         "403":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the user does not have permission to access the
             resource.
         "404":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the resource does not exist.
         "500":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the API encounters an internal error.
         default:
           content:
@@ -622,32 +644,40 @@ paths:
         "401":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
             application/yaml:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the request does not have valid authentication
             credentials.
         "403":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
             application/yaml:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the user does not have permission to access the
             resource.
         "404":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
             application/yaml:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the resource does not exist.
         "500":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
             application/yaml:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the API encounters an internal error.
         default:
           content:
@@ -715,8 +745,8 @@ paths:
           The API defaults to the `BASIC` view.
            - BASIC: Include basic information including type, name, version and description
           but not the full step configuration. This is the default value (for both
-          [ListPipelines](/docs/api-reference#operation/ListPipelines) and
-          [GetPipeline](/docs/api-reference#operation/GetPipeline)).
+          [ListPipelines](/api#operation/ListPipelines) and
+          [GetPipeline](/api#operation/GetPipeline)).
            - FULL: Include the information from `BASIC`, plus full step configuration.
         explode: true
         in: query
@@ -755,32 +785,40 @@ paths:
         "401":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
             application/yaml:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the request does not have valid authentication
             credentials.
         "403":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
             application/yaml:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the user does not have permission to access the
             resource.
         "404":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
             application/yaml:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the resource does not exist.
         "500":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
             application/yaml:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the API encounters an internal error.
         default:
           content:
@@ -848,8 +886,8 @@ paths:
           The API defaults to the `BASIC` view.
            - BASIC: Include basic information including type, name, version and description
           but not the full step configuration. This is the default value (for both
-          [ListPipelines](/docs/api-reference#operation/ListPipelines) and
-          [GetPipeline](/docs/api-reference#operation/GetPipeline)).
+          [ListPipelines](/api#operation/ListPipelines) and
+          [GetPipeline](/api#operation/GetPipeline)).
            - FULL: Include the information from `BASIC`, plus full step configuration.
         explode: true
         in: query
@@ -888,17 +926,21 @@ paths:
         "401":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
             application/yaml:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the request does not have valid authentication
             credentials.
         "403":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
             application/yaml:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the user does not have permission to access the
             resource.
         "404":
@@ -910,17 +952,19 @@ paths:
                     code: 5
                     message: pipeline does not have a default version
               schema:
-                $ref: '#/components/schemas/Status'
+                $ref: '#/components/schemas/Error'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/Status'
+                $ref: '#/components/schemas/Error'
           description: Returned when the pipeline does not have a default version.
         "500":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
             application/yaml:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the API encounters an internal error.
         default:
           content:
@@ -994,24 +1038,28 @@ paths:
         "401":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the request does not have valid authentication
             credentials.
         "403":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the user does not have permission to access the
             resource.
         "404":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the resource does not exist.
         "500":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the API encounters an internal error.
         default:
           content:
@@ -1028,7 +1076,7 @@ paths:
     post:
       description: |-
         The batch version of the
-        [UpsertRecord](/docs/api-reference#operation/UpsertRecord) call.
+        [UpsertRecord](/api#operation/UpsertRecord) call.
       operationId: BatchUpsertRecords
       parameters:
       - description: The collection to upsert the records in, e.g. `my-collection`.
@@ -1055,24 +1103,28 @@ paths:
         "401":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the request does not have valid authentication
             credentials.
         "403":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the user does not have permission to access the
             resource.
         "404":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the resource does not exist.
         "500":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the API encounters an internal error.
         default:
           content:
@@ -1114,24 +1166,28 @@ paths:
         "401":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the request does not have valid authentication
             credentials.
         "403":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the user does not have permission to access the
             resource.
         "404":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the resource does not exist.
         "500":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the API encounters an internal error.
         default:
           content:
@@ -1173,24 +1229,28 @@ paths:
         "401":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the request does not have valid authentication
             credentials.
         "403":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the user does not have permission to access the
             resource.
         "404":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the resource does not exist.
         "500":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the API encounters an internal error.
         default:
           content:
@@ -1257,24 +1317,28 @@ paths:
         "401":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the request does not have valid authentication
             credentials.
         "403":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the user does not have permission to access the
             resource.
         "404":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the resource does not exist.
         "500":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the API encounters an internal error.
         default:
           content:
@@ -1317,12 +1381,12 @@ paths:
         style: form
       - description: |-
           A page token, received from a previous
-          [ListSchemaFields](/docs/api-reference#operation/ListSchemaFields) call.
+          [ListSchemaFields](/api#operation/ListSchemaFields) call.
 
           Provide this to retrieve the subsequent page.
 
           When paginating, all other parameters provided to
-          [ListSchemaFields](/docs/api-reference#operation/ListSchemaFields) must
+          [ListSchemaFields](/api#operation/ListSchemaFields) must
           match the call that provided the page token.
         explode: true
         in: query
@@ -1341,24 +1405,28 @@ paths:
         "401":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the request does not have valid authentication
             credentials.
         "403":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the user does not have permission to access the
             resource.
         "404":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the resource does not exist.
         "500":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the API encounters an internal error.
         default:
           content:
@@ -1399,24 +1467,28 @@ paths:
         "401":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the request does not have valid authentication
             credentials.
         "403":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the user does not have permission to access the
             resource.
         "404":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the resource does not exist.
         "500":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the API encounters an internal error.
         default:
           content:
@@ -1433,7 +1505,7 @@ paths:
     post:
       description: |-
         The batch version of the
-        [CreateSchemaField](/docs/api-reference#operation/CreateSchemaField) call.
+        [CreateSchemaField](/api#operation/CreateSchemaField) call.
       operationId: BatchCreateSchemaFields
       parameters:
       - description: The collection to create the schema fields in, e.g. `my-collection`.
@@ -1460,24 +1532,28 @@ paths:
         "401":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the request does not have valid authentication
             credentials.
         "403":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the user does not have permission to access the
             resource.
         "404":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the resource does not exist.
         "500":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the API encounters an internal error.
         default:
           content:
@@ -1552,32 +1628,40 @@ paths:
         "401":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
             application/yaml:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the request does not have valid authentication
             credentials.
         "403":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
             application/yaml:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the user does not have permission to access the
             resource.
         "404":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
             application/yaml:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the resource does not exist.
         "500":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
             application/yaml:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the API encounters an internal error.
         default:
           content:
@@ -1644,24 +1728,28 @@ paths:
         "401":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the request does not have valid authentication
             credentials.
         "403":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the user does not have permission to access the
             resource.
         "404":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the resource does not exist.
         "500":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the API encounters an internal error.
         default:
           content:
@@ -1690,7 +1778,7 @@ paths:
         For more information:
 
         - See [filtering
-        content](https://www.sajari.com/docs/user-guide/integrating-search/filters/)
+        content](https://docs.sajari.com/user-guide/integrating-search/filters/)
         - See [tracking in the Go
         SDK](https://github.com/sajari/sdk-go/blob/v2/session.go)
         - See [tracking in the JS
@@ -1721,24 +1809,28 @@ paths:
         "401":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the request does not have valid authentication
             credentials.
         "403":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the user does not have permission to access the
             resource.
         "404":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the resource does not exist.
         "500":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the API encounters an internal error.
         default:
           content:
@@ -1793,24 +1885,28 @@ paths:
         "401":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the request does not have valid authentication
             credentials.
         "403":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the user does not have permission to access the
             resource.
         "404":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the resource does not exist.
         "500":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Returned when the API encounters an internal error.
         default:
           content:
@@ -2645,6 +2741,9 @@ components:
     Collection:
       example:
         account_id: account_id
+        authorized_query_domains:
+        - authorized_query_domains
+        - authorized_query_domains
         create_time: 2000-01-23T04:56:07.000+00:00
         id: id
         display_name: display_name
@@ -2665,6 +2764,18 @@ components:
         display_name:
           description: The collection's display name. You can change this at any time.
           type: string
+        authorized_query_domains:
+          description: |-
+            The list of authorized query domains for the collection.
+
+            Client-side / browser requests to the
+            [QueryCollection](/api#operation/QueryCollection) call can
+            be made by any authorized query domain or any of its subdomains. This
+            allows your interface to make search requests without having to provide an
+            API key in the client-side request.
+          items:
+            type: string
+          type: array
       required:
       - display_name
       type: object
@@ -2909,8 +3020,8 @@ components:
         The API defaults to the `BASIC` view.
          - BASIC: Include basic information including type, name, version and description
         but not the full step configuration. This is the default value (for both
-        [ListPipelines](/docs/api-reference#operation/ListPipelines) and
-        [GetPipeline](/docs/api-reference#operation/GetPipeline)).
+        [ListPipelines](/api#operation/ListPipelines) and
+        [GetPipeline](/api#operation/GetPipeline)).
          - FULL: Include the information from `BASIC`, plus full step configuration.
       enum:
       - VIEW_UNSPECIFIED
@@ -2924,8 +3035,8 @@ components:
         The API defaults to the `BASIC` view.
          - BASIC: Include basic information including type, name, version and description
         but not the full step configuration. This is the default value (for both
-        [ListPipelines](/docs/api-reference#operation/ListPipelines) and
-        [GetPipeline](/docs/api-reference#operation/GetPipeline)).
+        [ListPipelines](/api#operation/ListPipelines) and
+        [GetPipeline](/api#operation/GetPipeline)).
          - FULL: Include the information from `BASIC`, plus full step configuration.
       enum:
       - VIEW_UNSPECIFIED
@@ -2948,10 +3059,16 @@ components:
         next_page_token: next_page_token
         collections:
         - account_id: account_id
+          authorized_query_domains:
+          - authorized_query_domains
+          - authorized_query_domains
           create_time: 2000-01-23T04:56:07.000+00:00
           id: id
           display_name: display_name
         - account_id: account_id
+          authorized_query_domains:
+          - authorized_query_domains
+          - authorized_query_domains
           create_time: 2000-01-23T04:56:07.000+00:00
           id: id
           display_name: display_name
@@ -2975,8 +3092,8 @@ components:
         The API defaults to the `BASIC` view.
          - BASIC: Include basic information including type, name, version and description
         but not the full step configuration. This is the default value (for both
-        [ListPipelines](/docs/api-reference#operation/ListPipelines) and
-        [GetPipeline](/docs/api-reference#operation/GetPipeline)).
+        [ListPipelines](/api#operation/ListPipelines) and
+        [GetPipeline](/api#operation/GetPipeline)).
          - FULL: Include the information from `BASIC`, plus full step
         configuration.
       enum:

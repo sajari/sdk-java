@@ -125,7 +125,7 @@ public class RecordsApi {
 
     /**
      * Batch upsert records
-     * The batch version of the [UpsertRecord](/docs/api-reference#operation/UpsertRecord) call.
+     * The batch version of the [UpsertRecord](/api#operation/UpsertRecord) call.
      * @param collectionId The collection to upsert the records in, e.g. &#x60;my-collection&#x60;. (required)
      * @param batchUpsertRecordsRequest  (required)
      * @return BatchUpsertRecordsResponse
@@ -148,7 +148,7 @@ public class RecordsApi {
 
     /**
      * Batch upsert records
-     * The batch version of the [UpsertRecord](/docs/api-reference#operation/UpsertRecord) call.
+     * The batch version of the [UpsertRecord](/api#operation/UpsertRecord) call.
      * @param collectionId The collection to upsert the records in, e.g. &#x60;my-collection&#x60;. (required)
      * @param batchUpsertRecordsRequest  (required)
      * @return ApiResponse&lt;BatchUpsertRecordsResponse&gt;
@@ -172,7 +172,7 @@ public class RecordsApi {
 
     /**
      * Batch upsert records (asynchronously)
-     * The batch version of the [UpsertRecord](/docs/api-reference#operation/UpsertRecord) call.
+     * The batch version of the [UpsertRecord](/api#operation/UpsertRecord) call.
      * @param collectionId The collection to upsert the records in, e.g. &#x60;my-collection&#x60;. (required)
      * @param batchUpsertRecordsRequest  (required)
      * @param _callback The callback to be executed when the API call finishes

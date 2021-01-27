@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * GeneratePipelinesResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-12-09T17:00:28.474223+11:00[Australia/Sydney]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-27T15:56:05.707098+11:00[Australia/Sydney]")
 public class GeneratePipelinesResponse {
   public static final String SERIALIZED_NAME_RECORD_PIPELINE = "record_pipeline";
   @SerializedName(SERIALIZED_NAME_RECORD_PIPELINE)

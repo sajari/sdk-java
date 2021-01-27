@@ -2,7 +2,7 @@
 
 Sajari API
 - API version: v4
-  - Build date: 2020-12-09T17:00:28.474223+11:00[Australia/Sydney]
+  - Build date: 2021-01-27T15:56:05.707098+11:00[Australia/Sydney]
 
 Sajari is a smart, highly-configurable, real-time search service that enables thousands of businesses worldwide to provide amazing search experiences on their websites, stores, and applications.
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.sajari</groupId>
   <artifactId>sajari-sdk-java-client</artifactId>
-  <version>v4</version>
+  <version>4.0.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.sajari:sajari-sdk-java-client:v4"
+compile "com.sajari:sajari-sdk-java-client:4.0.0"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/sajari-sdk-java-client-v4.jar`
+* `target/sajari-sdk-java-client-4.0.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
