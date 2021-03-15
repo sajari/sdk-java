@@ -2,7 +2,7 @@
 
 Sajari API
 - API version: v4
-  - Build date: 2021-01-27T15:56:05.707098+11:00[Australia/Sydney]
+  - Build date: 2021-03-15T11:55:52.592Z[GMT]
 
 Sajari is a smart, highly-configurable, real-time search service that enables thousands of businesses worldwide to provide amazing search experiences on their websites, stores, and applications.
 
@@ -162,6 +162,7 @@ Class | Method | HTTP request | Description
  - [ListPipelinesRequestView](docs/ListPipelinesRequestView.md)
  - [ListPipelinesResponse](docs/ListPipelinesResponse.md)
  - [ListSchemaFieldsResponse](docs/ListSchemaFieldsResponse.md)
+ - [PercentileDataPoint](docs/PercentileDataPoint.md)
  - [Pipeline](docs/Pipeline.md)
  - [PipelineStep](docs/PipelineStep.md)
  - [PipelineStepParamBinding](docs/PipelineStepParamBinding.md)
@@ -175,6 +176,7 @@ Class | Method | HTTP request | Description
  - [QueryAggregateResultCount](docs/QueryAggregateResultCount.md)
  - [QueryAggregateResultDate](docs/QueryAggregateResultDate.md)
  - [QueryAggregateResultMetric](docs/QueryAggregateResultMetric.md)
+ - [QueryAggregateResultPercentile](docs/QueryAggregateResultPercentile.md)
  - [QueryCollectionRequest](docs/QueryCollectionRequest.md)
  - [QueryCollectionRequestPipeline](docs/QueryCollectionRequestPipeline.md)
  - [QueryCollectionRequestTracking](docs/QueryCollectionRequestTracking.md)

@@ -233,7 +233,7 @@ paths:
                     - '@type': type.googleapis.com/google.rpc.BadRequest
                       field_violations:
                       - field: collection_id
-                        description: collection_id cannot be empty
+                        description: cannot be empty
               schema:
                 $ref: '#/components/schemas/Error'
           description: Returned when the request contains violations for one or more
@@ -1964,6 +1964,20 @@ components:
           format: int32
           type: integer
       type: object
+    PercentileDataPoint:
+      example:
+        value: 1.2315135367772556
+        point: 7.386281948385884
+      properties:
+        point:
+          description: The input point.
+          format: double
+          type: number
+        value:
+          description: The corresponding value for the given point.
+          format: double
+          type: number
+      type: object
     PipelineStep:
       description: Step creates a pipeline step.
       example:
@@ -2088,6 +2102,33 @@ components:
         value:
           format: double
           type: number
+      type: object
+    QueryAggregateResultPercentile:
+      description: |-
+        Percentile contains the data points returned in a percentile aggregate
+        step.
+      example:
+        percentiles:
+        - value: 1.2315135367772556
+          point: 7.386281948385884
+        - value: 1.2315135367772556
+          point: 7.386281948385884
+        cdf:
+        - value: 1.2315135367772556
+          point: 7.386281948385884
+        - value: 1.2315135367772556
+          point: 7.386281948385884
+      properties:
+        percentiles:
+          description: The percentile data points.
+          items:
+            $ref: '#/components/schemas/PercentileDataPoint'
+          type: array
+        cdf:
+          description: The cumulative distribution function (CDF) data points.
+          items:
+            $ref: '#/components/schemas/PercentileDataPoint'
+          type: array
       type: object
     QueryCollectionRequestTracking:
       example:
@@ -3285,6 +3326,17 @@ components:
         date:
           dates:
             key: 2
+        percentile:
+          percentiles:
+          - value: 1.2315135367772556
+            point: 7.386281948385884
+          - value: 1.2315135367772556
+            point: 7.386281948385884
+          cdf:
+          - value: 1.2315135367772556
+            point: 7.386281948385884
+          - value: 1.2315135367772556
+            point: 7.386281948385884
         metric:
           value: 1.4658129805029452
         buckets:
@@ -3312,10 +3364,11 @@ components:
           $ref: '#/components/schemas/QueryAggregateResultDate'
         analysis:
           $ref: '#/components/schemas/QueryAggregateResultAnalysis'
+        percentile:
+          $ref: '#/components/schemas/QueryAggregateResultPercentile'
       type: object
     QueryCollectionRequest:
-      description: QueryCollectionRequest is a request to perform a search using a
-        pipeline.
+      description: A request to perform a search using a pipeline.
       example:
         pipeline:
           name: name
@@ -3380,6 +3433,17 @@ components:
             date:
               dates:
                 key: 2
+            percentile:
+              percentiles:
+              - value: 1.2315135367772556
+                point: 7.386281948385884
+              - value: 1.2315135367772556
+                point: 7.386281948385884
+              cdf:
+              - value: 1.2315135367772556
+                point: 7.386281948385884
+              - value: 1.2315135367772556
+                point: 7.386281948385884
             metric:
               value: 1.4658129805029452
             buckets:
@@ -3401,6 +3465,17 @@ components:
             date:
               dates:
                 key: 2
+            percentile:
+              percentiles:
+              - value: 1.2315135367772556
+                point: 7.386281948385884
+              - value: 1.2315135367772556
+                point: 7.386281948385884
+              cdf:
+              - value: 1.2315135367772556
+                point: 7.386281948385884
+              - value: 1.2315135367772556
+                point: 7.386281948385884
             metric:
               value: 1.4658129805029452
             buckets:

@@ -2,7 +2,7 @@
 
 # QueryCollectionRequest
 
-QueryCollectionRequest is a request to perform a search using a pipeline.
+A request to perform a search using a pipeline.
 ## Properties
 
 Name | Type | Description | Notes

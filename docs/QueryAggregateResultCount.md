@@ -7,7 +7,7 @@ Count contains the counts for the set of values returned.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**counts** | **Map&lt;String, Integer&gt;** |  |  [optional]
+**counts** | **java.util.Map&lt;String, Integer&gt;** |  |  [optional]
 
 
 

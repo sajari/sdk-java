@@ -7,7 +7,7 @@ Buckets is a full set of buckets computed in an aggregation.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**buckets** | [**Map&lt;String, QueryAggregateResultBucketsBucket&gt;**](QueryAggregateResultBucketsBucket.md) |  |  [optional]
+**buckets** | [**java.util.Map&lt;String, QueryAggregateResultBucketsBucket&gt;**](QueryAggregateResultBucketsBucket.md) |  |  [optional]
 
 
 

@@ -27,10 +27,10 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * QueryCollectionRequest is a request to perform a search using a pipeline.
+ * A request to perform a search using a pipeline.
  */
-@ApiModel(description = "QueryCollectionRequest is a request to perform a search using a pipeline.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-27T15:56:05.707098+11:00[Australia/Sydney]")
+@ApiModel(description = "A request to perform a search using a pipeline.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-15T11:55:52.592Z[GMT]")
 public class QueryCollectionRequest {
   public static final String SERIALIZED_NAME_PIPELINE = "pipeline";
   @SerializedName(SERIALIZED_NAME_PIPELINE)

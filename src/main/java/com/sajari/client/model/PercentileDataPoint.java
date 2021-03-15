@@ -20,45 +20,67 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.sajari.client.model.SchemaField;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * BatchCreateSchemaFieldsRequest
+ * PercentileDataPoint
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-15T11:55:52.592Z[GMT]")
-public class BatchCreateSchemaFieldsRequest {
-  public static final String SERIALIZED_NAME_FIELDS = "fields";
-  @SerializedName(SERIALIZED_NAME_FIELDS)
-  private java.util.List<SchemaField> fields = new java.util.ArrayList<>();
+public class PercentileDataPoint {
+  public static final String SERIALIZED_NAME_POINT = "point";
+  @SerializedName(SERIALIZED_NAME_POINT)
+  private Double point;
+
+  public static final String SERIALIZED_NAME_VALUE = "value";
+  @SerializedName(SERIALIZED_NAME_VALUE)
+  private Double value;
 
 
-  public BatchCreateSchemaFieldsRequest fields(java.util.List<SchemaField> fields) {
+  public PercentileDataPoint point(Double point) {
     
-    this.fields = fields;
-    return this;
-  }
-
-  public BatchCreateSchemaFieldsRequest addFieldsItem(SchemaField fieldsItem) {
-    this.fields.add(fieldsItem);
+    this.point = point;
     return this;
   }
 
    /**
-   * A list of fields to create.  A maximum of 1000 fields can be created in a batch.
-   * @return fields
+   * The input point.
+   * @return point
   **/
-  @ApiModelProperty(required = true, value = "A list of fields to create.  A maximum of 1000 fields can be created in a batch.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The input point.")
 
-  public java.util.List<SchemaField> getFields() {
-    return fields;
+  public Double getPoint() {
+    return point;
   }
 
 
-  public void setFields(java.util.List<SchemaField> fields) {
-    this.fields = fields;
+  public void setPoint(Double point) {
+    this.point = point;
+  }
+
+
+  public PercentileDataPoint value(Double value) {
+    
+    this.value = value;
+    return this;
+  }
+
+   /**
+   * The corresponding value for the given point.
+   * @return value
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The corresponding value for the given point.")
+
+  public Double getValue() {
+    return value;
+  }
+
+
+  public void setValue(Double value) {
+    this.value = value;
   }
 
 
@@ -70,21 +92,23 @@ public class BatchCreateSchemaFieldsRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BatchCreateSchemaFieldsRequest batchCreateSchemaFieldsRequest = (BatchCreateSchemaFieldsRequest) o;
-    return Objects.equals(this.fields, batchCreateSchemaFieldsRequest.fields);
+    PercentileDataPoint percentileDataPoint = (PercentileDataPoint) o;
+    return Objects.equals(this.point, percentileDataPoint.point) &&
+        Objects.equals(this.value, percentileDataPoint.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fields);
+    return Objects.hash(point, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BatchCreateSchemaFieldsRequest {\n");
-    sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
+    sb.append("class PercentileDataPoint {\n");
+    sb.append("    point: ").append(toIndentedString(point)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -1,10 +1,22 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-GEN_PATH="$(pwd)/../"
+set -eo pipefail
+
+cd "$(dirname "$0")"
+
+function die() {
+    echo 1>&2 $*
+    exit 1
+}
+
+if [ -z "$GEN_PATH" ]; then
+    die "GEN_PATH must be set, e.g. /path/to/sajari/sdk-java"
+fi
+
 VERSION=4.0.0
 
-openapi-generator generate \
-  -i https://api-gateway.sajari.com/v4/openapi.json  \
+docker-entrypoint.sh generate \
+  -i /openapi.json  \
   -g java \
   -o $GEN_PATH \
   --artifact-version $VERSION \

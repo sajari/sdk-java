@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **buckets** | [**QueryAggregateResultBuckets**](QueryAggregateResultBuckets.md) |  |  [optional]
 **date** | [**QueryAggregateResultDate**](QueryAggregateResultDate.md) |  |  [optional]
 **analysis** | [**QueryAggregateResultAnalysis**](QueryAggregateResultAnalysis.md) |  |  [optional]
+**percentile** | [**QueryAggregateResultPercentile**](QueryAggregateResultPercentile.md) |  |  [optional]
 
 
 

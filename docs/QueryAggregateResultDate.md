@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**dates** | **Map&lt;String, Integer&gt;** |  |  [optional]
+**dates** | **java.util.Map&lt;String, Integer&gt;** |  |  [optional]
 
 
 

@@ -25,6 +25,7 @@ import com.sajari.client.model.QueryAggregateResultBuckets;
 import com.sajari.client.model.QueryAggregateResultCount;
 import com.sajari.client.model.QueryAggregateResultDate;
 import com.sajari.client.model.QueryAggregateResultMetric;
+import com.sajari.client.model.QueryAggregateResultPercentile;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -33,7 +34,7 @@ import java.io.IOException;
  * A query aggregate result contains results of aggregations.
  */
 @ApiModel(description = "A query aggregate result contains results of aggregations.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-27T15:56:05.707098+11:00[Australia/Sydney]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-15T11:55:52.592Z[GMT]")
 public class QueryAggregateResult {
   public static final String SERIALIZED_NAME_METRIC = "metric";
   @SerializedName(SERIALIZED_NAME_METRIC)
@@ -54,6 +55,10 @@ public class QueryAggregateResult {
   public static final String SERIALIZED_NAME_ANALYSIS = "analysis";
   @SerializedName(SERIALIZED_NAME_ANALYSIS)
   private QueryAggregateResultAnalysis analysis;
+
+  public static final String SERIALIZED_NAME_PERCENTILE = "percentile";
+  @SerializedName(SERIALIZED_NAME_PERCENTILE)
+  private QueryAggregateResultPercentile percentile;
 
 
   public QueryAggregateResult metric(QueryAggregateResultMetric metric) {
@@ -171,6 +176,29 @@ public class QueryAggregateResult {
   }
 
 
+  public QueryAggregateResult percentile(QueryAggregateResultPercentile percentile) {
+    
+    this.percentile = percentile;
+    return this;
+  }
+
+   /**
+   * Get percentile
+   * @return percentile
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public QueryAggregateResultPercentile getPercentile() {
+    return percentile;
+  }
+
+
+  public void setPercentile(QueryAggregateResultPercentile percentile) {
+    this.percentile = percentile;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -184,12 +212,13 @@ public class QueryAggregateResult {
         Objects.equals(this.count, queryAggregateResult.count) &&
         Objects.equals(this.buckets, queryAggregateResult.buckets) &&
         Objects.equals(this.date, queryAggregateResult.date) &&
-        Objects.equals(this.analysis, queryAggregateResult.analysis);
+        Objects.equals(this.analysis, queryAggregateResult.analysis) &&
+        Objects.equals(this.percentile, queryAggregateResult.percentile);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(metric, count, buckets, date, analysis);
+    return Objects.hash(metric, count, buckets, date, analysis, percentile);
   }
 
 
@@ -202,6 +231,7 @@ public class QueryAggregateResult {
     sb.append("    buckets: ").append(toIndentedString(buckets)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    analysis: ").append(toIndentedString(analysis)).append("\n");
+    sb.append("    percentile: ").append(toIndentedString(percentile)).append("\n");
     sb.append("}");
     return sb.toString();
   }

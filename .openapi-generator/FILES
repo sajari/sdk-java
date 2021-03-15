@@ -1,9 +1,7 @@
 .gitignore
-.travis.yml
 README.md
 api/openapi.yaml
 build.gradle
-build.sbt
 docs/BatchCreateSchemaFieldsRequest.md
 docs/BatchCreateSchemaFieldsResponse.md
 docs/BatchCreateSchemaFieldsResponseError.md
@@ -27,6 +25,7 @@ docs/ListCollectionsResponse.md
 docs/ListPipelinesRequestView.md
 docs/ListPipelinesResponse.md
 docs/ListSchemaFieldsResponse.md
+docs/PercentileDataPoint.md
 docs/Pipeline.md
 docs/PipelineStep.md
 docs/PipelineStepParamBinding.md
@@ -41,6 +40,7 @@ docs/QueryAggregateResultBucketsBucket.md
 docs/QueryAggregateResultCount.md
 docs/QueryAggregateResultDate.md
 docs/QueryAggregateResultMetric.md
+docs/QueryAggregateResultPercentile.md
 docs/QueryCollectionRequest.md
 docs/QueryCollectionRequestPipeline.md
 docs/QueryCollectionRequestTracking.md
@@ -115,6 +115,7 @@ src/main/java/com/sajari/client/model/ListCollectionsResponse.java
 src/main/java/com/sajari/client/model/ListPipelinesRequestView.java
 src/main/java/com/sajari/client/model/ListPipelinesResponse.java
 src/main/java/com/sajari/client/model/ListSchemaFieldsResponse.java
+src/main/java/com/sajari/client/model/PercentileDataPoint.java
 src/main/java/com/sajari/client/model/Pipeline.java
 src/main/java/com/sajari/client/model/PipelineStep.java
 src/main/java/com/sajari/client/model/PipelineStepParamBinding.java
@@ -128,6 +129,7 @@ src/main/java/com/sajari/client/model/QueryAggregateResultBucketsBucket.java
 src/main/java/com/sajari/client/model/QueryAggregateResultCount.java
 src/main/java/com/sajari/client/model/QueryAggregateResultDate.java
 src/main/java/com/sajari/client/model/QueryAggregateResultMetric.java
+src/main/java/com/sajari/client/model/QueryAggregateResultPercentile.java
 src/main/java/com/sajari/client/model/QueryCollectionRequest.java
 src/main/java/com/sajari/client/model/QueryCollectionRequestPipeline.java
 src/main/java/com/sajari/client/model/QueryCollectionRequestTracking.java
@@ -148,3 +150,5 @@ src/main/java/com/sajari/client/model/Status.java
 src/main/java/com/sajari/client/model/UpsertRecordRequest.java
 src/main/java/com/sajari/client/model/UpsertRecordRequestPipeline.java
 src/main/java/com/sajari/client/model/UpsertRecordResponse.java
+src/test/java/com/sajari/client/model/PercentileDataPointTest.java
+src/test/java/com/sajari/client/model/QueryAggregateResultPercentileTest.java
