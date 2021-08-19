@@ -2,6 +2,7 @@
 
 # ListCollectionsResponse
 
+
 ## Properties
 
 Name | Type | Description | Notes

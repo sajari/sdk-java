@@ -14,12 +14,12 @@
 package com.sajari.client.api;
 
 import com.sajari.client.ApiException;
-import com.sajari.client.model.Collection;
-import com.sajari.client.model.Error;
-import com.sajari.client.model.ListCollectionsResponse;
-import com.sajari.client.model.QueryCollectionRequest;
-import com.sajari.client.model.QueryCollectionResponse;
-import com.sajari.client.model.Status;
+import com.sajari.client.models.Collection;
+import com.sajari.client.models.Error;
+import com.sajari.client.models.ListCollectionsResponse;
+import com.sajari.client.models.QueryCollectionRequest;
+import com.sajari.client.models.QueryCollectionResponse;
+import com.sajari.client.models.Status;
 import org.junit.Test;
 import org.junit.Ignore;
 

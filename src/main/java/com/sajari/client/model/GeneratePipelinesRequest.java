@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * GeneratePipelinesRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-15T11:55:52.592Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-19T12:37:05.253753Z[Etc/UTC]")
 public class GeneratePipelinesRequest {
   public static final String SERIALIZED_NAME_SEARCHABLE_FIELDS = "searchable_fields";
   @SerializedName(SERIALIZED_NAME_SEARCHABLE_FIELDS)
@@ -53,6 +53,7 @@ public class GeneratePipelinesRequest {
    * Prioritized list of fields to search.
    * @return searchableFields
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Prioritized list of fields to search.")
 
   public java.util.List<String> getSearchableFields() {
@@ -113,7 +114,6 @@ public class GeneratePipelinesRequest {
   public int hashCode() {
     return Objects.hash(searchableFields, queryTrainingFields);
   }
-
 
   @Override
   public String toString() {

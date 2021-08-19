@@ -3,6 +3,7 @@
 # UpsertRecordRequestPipeline
 
 The pipeline to use when upserting the record.  If not provided the default record pipeline is used.
+
 ## Properties
 
 Name | Type | Description | Notes

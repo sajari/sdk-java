@@ -29,7 +29,7 @@ import java.io.IOException;
  * Buckets is a full set of buckets computed in an aggregation.
  */
 @ApiModel(description = "Buckets is a full set of buckets computed in an aggregation.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-15T11:55:52.592Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-19T12:37:05.253753Z[Etc/UTC]")
 public class QueryAggregateResultBuckets {
   public static final String SERIALIZED_NAME_BUCKETS = "buckets";
   @SerializedName(SERIALIZED_NAME_BUCKETS)
@@ -83,7 +83,6 @@ public class QueryAggregateResultBuckets {
   public int hashCode() {
     return Objects.hash(buckets);
   }
-
 
   @Override
   public String toString() {

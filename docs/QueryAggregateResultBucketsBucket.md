@@ -3,6 +3,7 @@
 # QueryAggregateResultBucketsBucket
 
 Bucket is the result of a bucket aggregate.
+
 ## Properties
 
 Name | Type | Description | Notes

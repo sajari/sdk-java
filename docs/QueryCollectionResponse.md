@@ -2,6 +2,7 @@
 
 # QueryCollectionResponse
 
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -11,8 +12,8 @@ Name | Type | Description | Notes
 **results** | [**java.util.List&lt;QueryResult&gt;**](QueryResult.md) | The results returned by the query. |  [optional]
 **totalSize** | **String** | The total number of results that match the query. |  [optional]
 **processingDuration** | **String** | The total time taken to perform the query. |  [optional]
-**aggregates** | [**java.util.Map&lt;String, QueryAggregateResult&gt;**](QueryAggregateResult.md) | The aggregates returned by the query. |  [optional]
-**aggregateFilters** | [**java.util.Map&lt;String, QueryAggregateResult&gt;**](QueryAggregateResult.md) | The aggregates run with filters. |  [optional]
+**aggregates** | [**Map&lt;String, QueryAggregateResult&gt;**](QueryAggregateResult.md) | The aggregates returned by the query. |  [optional]
+**aggregateFilters** | [**Map&lt;String, QueryAggregateResult&gt;**](QueryAggregateResult.md) | The aggregates run with filters. |  [optional]
 
 
 

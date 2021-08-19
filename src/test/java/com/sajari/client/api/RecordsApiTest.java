@@ -14,13 +14,13 @@
 package com.sajari.client.api;
 
 import com.sajari.client.ApiException;
-import com.sajari.client.model.BatchUpsertRecordsRequest;
-import com.sajari.client.model.BatchUpsertRecordsResponse;
-import com.sajari.client.model.DeleteRecordRequest;
-import com.sajari.client.model.Error;
-import com.sajari.client.model.GetRecordRequest;
-import com.sajari.client.model.UpsertRecordRequest;
-import com.sajari.client.model.UpsertRecordResponse;
+import com.sajari.client.models.BatchUpsertRecordsRequest;
+import com.sajari.client.models.BatchUpsertRecordsResponse;
+import com.sajari.client.models.DeleteRecordRequest;
+import com.sajari.client.models.Error;
+import com.sajari.client.models.GetRecordRequest;
+import com.sajari.client.models.UpsertRecordRequest;
+import com.sajari.client.models.UpsertRecordResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 

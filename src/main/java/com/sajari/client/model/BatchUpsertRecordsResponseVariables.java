@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * BatchUpsertRecordsResponseVariables
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-15T11:55:52.592Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-19T12:37:05.253753Z[Etc/UTC]")
 public class BatchUpsertRecordsResponseVariables {
   public static final String SERIALIZED_NAME_INDEX = "index";
   @SerializedName(SERIALIZED_NAME_INDEX)
@@ -101,7 +101,6 @@ public class BatchUpsertRecordsResponseVariables {
   public int hashCode() {
     return Objects.hash(index, variables);
   }
-
 
   @Override
   public String toString() {

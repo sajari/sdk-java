@@ -28,7 +28,7 @@ import java.io.IOException;
  * PosNeg is a pair of tokens which are used to mark a record as a good/bad result for a request.
  */
 @ApiModel(description = "PosNeg is a pair of tokens which are used to mark a record as a good/bad result for a request.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-15T11:55:52.592Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-19T12:37:05.253753Z[Etc/UTC]")
 public class QueryResultTokenPosNeg {
   public static final String SERIALIZED_NAME_POS = "pos";
   @SerializedName(SERIALIZED_NAME_POS)
@@ -102,7 +102,6 @@ public class QueryResultTokenPosNeg {
   public int hashCode() {
     return Objects.hash(pos, neg);
   }
-
 
   @Override
   public String toString() {

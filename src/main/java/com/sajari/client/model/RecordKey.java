@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * RecordKey
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-15T11:55:52.592Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-19T12:37:05.253753Z[Etc/UTC]")
 public class RecordKey {
   public static final String SERIALIZED_NAME_FIELD = "field";
   @SerializedName(SERIALIZED_NAME_FIELD)
@@ -48,6 +48,7 @@ public class RecordKey {
    * A field in your record that uniquely identifies it, e.g. &#x60;id&#x60;.
    * @return field
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "A field in your record that uniquely identifies it, e.g. `id`.")
 
   public String getField() {
@@ -70,6 +71,7 @@ public class RecordKey {
    * The value of &#x60;field&#x60; in your record, e.g. &#x60;b217a995-597c-410f-bef2-60e9f8c0aadd&#x60;.
    * @return value
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The value of `field` in your record, e.g. `b217a995-597c-410f-bef2-60e9f8c0aadd`.")
 
   public String getValue() {
@@ -99,7 +101,6 @@ public class RecordKey {
   public int hashCode() {
     return Objects.hash(field, value);
   }
-
 
   @Override
   public String toString() {

@@ -30,7 +30,7 @@ import java.io.IOException;
  * A request to perform a search using a pipeline.
  */
 @ApiModel(description = "A request to perform a search using a pipeline.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-15T11:55:52.592Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-19T12:37:05.253753Z[Etc/UTC]")
 public class QueryCollectionRequest {
   public static final String SERIALIZED_NAME_PIPELINE = "pipeline";
   @SerializedName(SERIALIZED_NAME_PIPELINE)
@@ -78,6 +78,7 @@ public class QueryCollectionRequest {
    * The initial values for the variables the pipeline operates on and transforms throughout its steps.  A typical variable is &#x60;q&#x60; which is the query the user entered, for example:  &#x60;&#x60;&#x60;json { \&quot;q\&quot;: \&quot;search terms\&quot; } &#x60;&#x60;&#x60;
    * @return variables
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The initial values for the variables the pipeline operates on and transforms throughout its steps.  A typical variable is `q` which is the query the user entered, for example:  ```json { \"q\": \"search terms\" } ```")
 
   public Object getVariables() {
@@ -131,7 +132,6 @@ public class QueryCollectionRequest {
   public int hashCode() {
     return Objects.hash(pipeline, variables, tracking);
   }
-
 
   @Override
   public String toString() {

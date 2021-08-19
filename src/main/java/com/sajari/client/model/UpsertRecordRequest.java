@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * UpsertRecordRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-15T11:55:52.592Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-19T12:37:05.253753Z[Etc/UTC]")
 public class UpsertRecordRequest {
   public static final String SERIALIZED_NAME_PIPELINE = "pipeline";
   @SerializedName(SERIALIZED_NAME_PIPELINE)
@@ -76,6 +76,7 @@ public class UpsertRecordRequest {
    * An object made up of field-value pairs that contains the record data.
    * @return record
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "An object made up of field-value pairs that contains the record data.")
 
   public Object getRecord() {
@@ -129,7 +130,6 @@ public class UpsertRecordRequest {
   public int hashCode() {
     return Objects.hash(pipeline, record, variables);
   }
-
 
   @Override
   public String toString() {

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * PercentileDataPoint
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-15T11:55:52.592Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-19T12:37:05.253753Z[Etc/UTC]")
 public class PercentileDataPoint {
   public static final String SERIALIZED_NAME_POINT = "point";
   @SerializedName(SERIALIZED_NAME_POINT)
@@ -101,7 +101,6 @@ public class PercentileDataPoint {
   public int hashCode() {
     return Objects.hash(point, value);
   }
-
 
   @Override
   public String toString() {

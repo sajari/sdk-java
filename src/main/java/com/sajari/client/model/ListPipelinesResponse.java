@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * ListPipelinesResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-15T11:55:52.592Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-19T12:37:05.253753Z[Etc/UTC]")
 public class ListPipelinesResponse {
   public static final String SERIALIZED_NAME_PIPELINES = "pipelines";
   @SerializedName(SERIALIZED_NAME_PIPELINES)
@@ -110,7 +110,6 @@ public class ListPipelinesResponse {
   public int hashCode() {
     return Objects.hash(pipelines, nextPageToken);
   }
-
 
   @Override
   public String toString() {

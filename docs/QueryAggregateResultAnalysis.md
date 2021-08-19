@@ -2,6 +2,7 @@
 
 # QueryAggregateResultAnalysis
 
+
 ## Properties
 
 Name | Type | Description | Notes

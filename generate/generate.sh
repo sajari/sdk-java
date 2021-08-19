@@ -12,6 +12,9 @@ function die() {
 if [ -z "$GEN_PATH" ]; then
     die "GEN_PATH must be set, e.g. /path/to/sajari/sdk-java"
 fi
+if [ -z "$TEMPLATES_PATH" ]; then
+    die "TEMPLATES_PATH must be set, e.g. /path/to/sajari/sdk-java/generate/templates"
+fi
 
 VERSION=4.0.0
 
@@ -19,6 +22,7 @@ docker-entrypoint.sh generate \
   -i /openapi.json  \
   -g java \
   -o $GEN_PATH \
+  -t $TEMPLATES_PATH \
   --artifact-version $VERSION \
   --http-user-agent "sajari-sdk-java-$VERSION" \
   --group-id com.sajari \
@@ -26,7 +30,7 @@ docker-entrypoint.sh generate \
   --git-repo-id sdk-java \
   --api-package com.sajari.client.api \
   --model-package com.sajari.client.model \
-  --additional-properties useGzipFeature=true \
+  --additional-properties useGzipFeature=false \
   --additional-properties licenseUrl="http://www.opensource.org/licenses/mit-license.php" \
   --additional-properties licenseName="MIT license" \
   --additional-properties fullJavaUtil=true \
@@ -41,15 +45,3 @@ docker-entrypoint.sh generate \
   --additional-properties developerName="Justin Koke" \
   --additional-properties developerOrganization="Sajari" \
   --additional-properties developerOrganizationUrl="https://www.sajari.com"
-
-
-
-#docker-entrypoint.sh generate \
-#    -i /openapi.json \
-#    -g java \
-#    --git-user-id sajari \
-#    --git-repo-id sdk-java \
-#    -t $TEMPLATES_PATH \
-#    --additional-properties invokerPackage=Sajari \
-#    --additional-properties artifactVersion=$VERSION \
-#    -o $GEN_PATH

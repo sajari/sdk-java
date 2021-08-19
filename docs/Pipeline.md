@@ -2,12 +2,13 @@
 
 # Pipeline
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**createTime** | [**OffsetDateTime**](OffsetDateTime.md) | Output only. Creation time of the pipeline. |  [optional] [readonly]
-**type** | [**PipelineType**](PipelineType.md) |  | 
+**createTime** | **OffsetDateTime** | Output only. Creation time of the pipeline. |  [optional] [readonly]
+**type** | **PipelineType** |  | 
 **name** | **String** | The pipeline&#39;s name.  Must start with an alphanumeric character followed by one or more alphanumeric, &#x60;_&#x60;, &#x60;-&#x60; or &#x60;.&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[a-zA-Z0-9][a-zA-Z0-9_\\-\\.]+$&#x60;. | 
 **version** | **String** | The pipeline&#39;s version.  Must start with an alphanumeric character followed by one or more alphanumeric, &#x60;_&#x60;, &#x60;-&#x60; or &#x60;.&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[a-zA-Z0-9][a-zA-Z0-9_\\-\\.]+$&#x60;. | 
 **description** | **String** | Description of the pipeline. |  [optional]

@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * QueryResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-15T11:55:52.592Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-19T12:37:05.253753Z[Etc/UTC]")
 public class QueryResult {
   public static final String SERIALIZED_NAME_RECORD = "record";
   @SerializedName(SERIALIZED_NAME_RECORD)
@@ -158,7 +158,6 @@ public class QueryResult {
   public int hashCode() {
     return Objects.hash(record, score, indexScore, token);
   }
-
 
   @Override
   public String toString() {

@@ -14,11 +14,11 @@
 package com.sajari.client.api;
 
 import com.sajari.client.ApiException;
-import com.sajari.client.model.BatchCreateSchemaFieldsRequest;
-import com.sajari.client.model.BatchCreateSchemaFieldsResponse;
-import com.sajari.client.model.Error;
-import com.sajari.client.model.ListSchemaFieldsResponse;
-import com.sajari.client.model.SchemaField;
+import com.sajari.client.models.BatchCreateSchemaFieldsRequest;
+import com.sajari.client.models.BatchCreateSchemaFieldsResponse;
+import com.sajari.client.models.Error;
+import com.sajari.client.models.ListSchemaFieldsResponse;
+import com.sajari.client.models.SchemaField;
 import org.junit.Test;
 import org.junit.Ignore;
 

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * QueryAggregateResultDate
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-15T11:55:52.592Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-19T12:37:05.253753Z[Etc/UTC]")
 public class QueryAggregateResultDate {
   public static final String SERIALIZED_NAME_DATES = "dates";
   @SerializedName(SERIALIZED_NAME_DATES)
@@ -81,7 +81,6 @@ public class QueryAggregateResultDate {
   public int hashCode() {
     return Objects.hash(dates);
   }
-
 
   @Override
   public String toString() {

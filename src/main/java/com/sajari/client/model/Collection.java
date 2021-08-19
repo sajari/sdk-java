@@ -28,7 +28,7 @@ import java.time.OffsetDateTime;
 /**
  * Collection
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-15T11:55:52.592Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-19T12:37:05.253753Z[Etc/UTC]")
 public class Collection {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -103,6 +103,7 @@ public class Collection {
    * The collection&#39;s display name. You can change this at any time.
    * @return displayName
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The collection's display name. You can change this at any time.")
 
   public String getDisplayName() {
@@ -166,7 +167,6 @@ public class Collection {
   public int hashCode() {
     return Objects.hash(id, accountId, createTime, displayName, authorizedQueryDomains);
   }
-
 
   @Override
   public String toString() {

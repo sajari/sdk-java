@@ -28,7 +28,7 @@ import java.io.IOException;
  * Bucket is the result of a bucket aggregate.
  */
 @ApiModel(description = "Bucket is the result of a bucket aggregate.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-15T11:55:52.592Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-19T12:37:05.253753Z[Etc/UTC]")
 public class QueryAggregateResultBucketsBucket {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -102,7 +102,6 @@ public class QueryAggregateResultBucketsBucket {
   public int hashCode() {
     return Objects.hash(name, count);
   }
-
 
   @Override
   public String toString() {

@@ -2,6 +2,7 @@
 
 # QueryResult
 
+
 ## Properties
 
 Name | Type | Description | Notes

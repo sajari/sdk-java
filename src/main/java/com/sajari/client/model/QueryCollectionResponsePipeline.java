@@ -28,7 +28,7 @@ import java.io.IOException;
  * The resolved query pipeline that was used to run the query.
  */
 @ApiModel(description = "The resolved query pipeline that was used to run the query.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-15T11:55:52.592Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-19T12:37:05.253753Z[Etc/UTC]")
 public class QueryCollectionResponsePipeline {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -102,7 +102,6 @@ public class QueryCollectionResponsePipeline {
   public int hashCode() {
     return Objects.hash(name, version);
   }
-
 
   @Override
   public String toString() {

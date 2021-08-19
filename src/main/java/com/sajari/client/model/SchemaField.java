@@ -30,7 +30,7 @@ import java.io.IOException;
  * SchemaField defines the properties of a field in the schema.
  */
 @ApiModel(description = "SchemaField defines the properties of a field in the schema.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-15T11:55:52.592Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-19T12:37:05.253753Z[Etc/UTC]")
 public class SchemaField {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -67,6 +67,7 @@ public class SchemaField {
    * The name of the field.
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of the field.")
 
   public String getName() {
@@ -112,6 +113,7 @@ public class SchemaField {
    * Get type
    * @return type
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
   public SchemaFieldType getType() {
@@ -134,6 +136,7 @@ public class SchemaField {
    * Get mode
    * @return mode
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
   public SchemaFieldMode getMode() {
@@ -213,7 +216,6 @@ public class SchemaField {
   public int hashCode() {
     return Objects.hash(name, description, type, mode, array, arrayLength);
   }
-
 
   @Override
   public String toString() {

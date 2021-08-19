@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * GetDefaultPipelineResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-15T11:55:52.592Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-19T12:37:05.253753Z[Etc/UTC]")
 public class GetDefaultPipelineResponse {
   public static final String SERIALIZED_NAME_PIPELINE = "pipeline";
   @SerializedName(SERIALIZED_NAME_PIPELINE)
@@ -73,7 +73,6 @@ public class GetDefaultPipelineResponse {
   public int hashCode() {
     return Objects.hash(pipeline);
   }
-
 
   @Override
   public String toString() {

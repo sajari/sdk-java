@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * QueryAggregateResultAnalysis
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-15T11:55:52.592Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-19T12:37:05.253753Z[Etc/UTC]")
 public class QueryAggregateResultAnalysis {
   public static final String SERIALIZED_NAME_COVERAGE = "coverage";
   @SerializedName(SERIALIZED_NAME_COVERAGE)
@@ -185,7 +185,6 @@ public class QueryAggregateResultAnalysis {
   public int hashCode() {
     return Objects.hash(coverage, cardinality, minLength, maxLength, avgLength);
   }
-
 
   @Override
   public String toString() {

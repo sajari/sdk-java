@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * BatchCreateSchemaFieldsRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-15T11:55:52.592Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-19T12:37:05.253753Z[Etc/UTC]")
 public class BatchCreateSchemaFieldsRequest {
   public static final String SERIALIZED_NAME_FIELDS = "fields";
   @SerializedName(SERIALIZED_NAME_FIELDS)
@@ -50,6 +50,7 @@ public class BatchCreateSchemaFieldsRequest {
    * A list of fields to create.  A maximum of 1000 fields can be created in a batch.
    * @return fields
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "A list of fields to create.  A maximum of 1000 fields can be created in a batch.")
 
   public java.util.List<SchemaField> getFields() {
@@ -78,7 +79,6 @@ public class BatchCreateSchemaFieldsRequest {
   public int hashCode() {
     return Objects.hash(fields);
   }
-
 
   @Override
   public String toString() {

@@ -14,15 +14,15 @@
 package com.sajari.client.api;
 
 import com.sajari.client.ApiException;
-import com.sajari.client.model.Error;
-import com.sajari.client.model.GeneratePipelinesRequest;
-import com.sajari.client.model.GeneratePipelinesResponse;
-import com.sajari.client.model.GetDefaultPipelineResponse;
-import com.sajari.client.model.ListPipelinesResponse;
-import com.sajari.client.model.Pipeline;
-import com.sajari.client.model.SetDefaultPipelineRequest;
-import com.sajari.client.model.SetDefaultVersionRequest;
-import com.sajari.client.model.Status;
+import com.sajari.client.models.Error;
+import com.sajari.client.models.GeneratePipelinesRequest;
+import com.sajari.client.models.GeneratePipelinesResponse;
+import com.sajari.client.models.GetDefaultPipelineResponse;
+import com.sajari.client.models.ListPipelinesResponse;
+import com.sajari.client.models.Pipeline;
+import com.sajari.client.models.SetDefaultPipelineRequest;
+import com.sajari.client.models.SetDefaultVersionRequest;
+import com.sajari.client.models.Status;
 import org.junit.Test;
 import org.junit.Ignore;
 

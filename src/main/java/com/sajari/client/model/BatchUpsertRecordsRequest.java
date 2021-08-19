@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * BatchUpsertRecordsRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-15T11:55:52.592Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-19T12:37:05.253753Z[Etc/UTC]")
 public class BatchUpsertRecordsRequest {
   public static final String SERIALIZED_NAME_PIPELINE = "pipeline";
   @SerializedName(SERIALIZED_NAME_PIPELINE)
@@ -81,6 +81,7 @@ public class BatchUpsertRecordsRequest {
    * A list of records to upsert.
    * @return records
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "A list of records to upsert.")
 
   public java.util.List<Object> getRecords() {
@@ -134,7 +135,6 @@ public class BatchUpsertRecordsRequest {
   public int hashCode() {
     return Objects.hash(pipeline, records, variables);
   }
-
 
   @Override
   public String toString() {

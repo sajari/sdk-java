@@ -3,6 +3,7 @@
 # QueryCollectionRequestPipeline
 
 The pipeline to use when querying the collection.  If not provided the default query pipeline is used.
+
 ## Properties
 
 Name | Type | Description | Notes

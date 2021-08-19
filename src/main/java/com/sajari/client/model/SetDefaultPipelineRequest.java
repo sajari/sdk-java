@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * SetDefaultPipelineRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-15T11:55:52.592Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-19T12:37:05.253753Z[Etc/UTC]")
 public class SetDefaultPipelineRequest {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -49,6 +49,7 @@ public class SetDefaultPipelineRequest {
    * Get type
    * @return type
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
   public PipelineType getType() {
@@ -71,6 +72,7 @@ public class SetDefaultPipelineRequest {
    * The name of the pipeline to use when not otherwise specified.
    * @return pipeline
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of the pipeline to use when not otherwise specified.")
 
   public String getPipeline() {
@@ -100,7 +102,6 @@ public class SetDefaultPipelineRequest {
   public int hashCode() {
     return Objects.hash(type, pipeline);
   }
-
 
   @Override
   public String toString() {

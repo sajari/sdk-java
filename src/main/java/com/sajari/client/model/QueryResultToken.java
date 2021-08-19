@@ -30,7 +30,7 @@ import java.io.IOException;
  * Tokens are used to carry ranking information for query results.
  */
 @ApiModel(description = "Tokens are used to carry ranking information for query results.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-15T11:55:52.592Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-19T12:37:05.253753Z[Etc/UTC]")
 public class QueryResultToken {
   public static final String SERIALIZED_NAME_CLICK = "click";
   @SerializedName(SERIALIZED_NAME_CLICK)
@@ -104,7 +104,6 @@ public class QueryResultToken {
   public int hashCode() {
     return Objects.hash(click, posNeg);
   }
-
 
   @Override
   public String toString() {

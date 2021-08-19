@@ -32,6 +32,8 @@ docker run --rm -it \
     -v $OPENAPI_PATH:/openapi.json \
     -v "$GEN_PATH":/gen \
     -v $(pwd)/generate.sh:/generate.sh \
+    -v $(pwd)/templates:/templates \
     -e GEN_PATH=/gen \
+    -e TEMPLATES_PATH=/templates \
     $img \
     ./generate.sh

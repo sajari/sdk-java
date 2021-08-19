@@ -2,6 +2,7 @@
 
 # BatchUpsertRecordsResponseVariables
 
+
 ## Properties
 
 Name | Type | Description | Notes

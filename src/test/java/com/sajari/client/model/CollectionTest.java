@@ -77,4 +77,12 @@ public class CollectionTest {
         // TODO: test displayName
     }
 
+    /**
+     * Test the property 'authorizedQueryDomains'
+     */
+    @Test
+    public void authorizedQueryDomainsTest() {
+        // TODO: test authorizedQueryDomains
+    }
+
 }

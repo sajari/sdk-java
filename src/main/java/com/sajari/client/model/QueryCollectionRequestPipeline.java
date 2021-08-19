@@ -28,7 +28,7 @@ import java.io.IOException;
  * The pipeline to use when querying the collection.  If not provided the default query pipeline is used.
  */
 @ApiModel(description = "The pipeline to use when querying the collection.  If not provided the default query pipeline is used.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-15T11:55:52.592Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-19T12:37:05.253753Z[Etc/UTC]")
 public class QueryCollectionRequestPipeline {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -49,6 +49,7 @@ public class QueryCollectionRequestPipeline {
    * The query pipeline&#39;s name, e.g. &#x60;my-pipeline&#x60;.
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The query pipeline's name, e.g. `my-pipeline`.")
 
   public String getName() {
@@ -101,7 +102,6 @@ public class QueryCollectionRequestPipeline {
   public int hashCode() {
     return Objects.hash(name, version);
   }
-
 
   @Override
   public String toString() {

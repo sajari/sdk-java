@@ -3,6 +3,7 @@
 # QueryAggregateResult
 
 A query aggregate result contains results of aggregations.
+
 ## Properties
 
 Name | Type | Description | Notes

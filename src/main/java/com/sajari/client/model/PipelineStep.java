@@ -29,7 +29,7 @@ import java.io.IOException;
  * Step creates a pipeline step.
  */
 @ApiModel(description = "Step creates a pipeline step.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-15T11:55:52.592Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-19T12:37:05.253753Z[Etc/UTC]")
 public class PipelineStep {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -66,6 +66,7 @@ public class PipelineStep {
    * ID of the step template.
    * @return id
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "ID of the step template.")
 
   public String getId() {
@@ -230,7 +231,6 @@ public class PipelineStep {
   public int hashCode() {
     return Objects.hash(id, title, description, params, condition, annotations);
   }
-
 
   @Override
   public String toString() {

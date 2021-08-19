@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * SetDefaultVersionRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-15T11:55:52.592Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-19T12:37:05.253753Z[Etc/UTC]")
 public class SetDefaultVersionRequest {
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
@@ -44,6 +44,7 @@ public class SetDefaultVersionRequest {
    * The version to use as a default for this pipeline, e.g. &#x60;42&#x60;.
    * @return version
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The version to use as a default for this pipeline, e.g. `42`.")
 
   public String getVersion() {
@@ -72,7 +73,6 @@ public class SetDefaultVersionRequest {
   public int hashCode() {
     return Objects.hash(version);
   }
-
 
   @Override
   public String toString() {

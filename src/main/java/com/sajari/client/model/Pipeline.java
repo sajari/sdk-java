@@ -30,7 +30,7 @@ import java.time.OffsetDateTime;
 /**
  * Pipeline
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-15T11:55:52.592Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-19T12:37:05.253753Z[Etc/UTC]")
 public class Pipeline {
   public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
   @SerializedName(SERIALIZED_NAME_CREATE_TIME)
@@ -93,6 +93,7 @@ public class Pipeline {
    * Get type
    * @return type
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
   public PipelineType getType() {
@@ -115,6 +116,7 @@ public class Pipeline {
    * The pipeline&#39;s name.  Must start with an alphanumeric character followed by one or more alphanumeric, &#x60;_&#x60;, &#x60;-&#x60; or &#x60;.&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[a-zA-Z0-9][a-zA-Z0-9_\\-\\.]+$&#x60;.
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The pipeline's name.  Must start with an alphanumeric character followed by one or more alphanumeric, `_`, `-` or `.` characters. Strictly speaking, it must match the regular expression: `^[a-zA-Z0-9][a-zA-Z0-9_\\-\\.]+$`.")
 
   public String getName() {
@@ -137,6 +139,7 @@ public class Pipeline {
    * The pipeline&#39;s version.  Must start with an alphanumeric character followed by one or more alphanumeric, &#x60;_&#x60;, &#x60;-&#x60; or &#x60;.&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[a-zA-Z0-9][a-zA-Z0-9_\\-\\.]+$&#x60;.
    * @return version
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The pipeline's version.  Must start with an alphanumeric character followed by one or more alphanumeric, `_`, `-` or `.` characters. Strictly speaking, it must match the regular expression: `^[a-zA-Z0-9][a-zA-Z0-9_\\-\\.]+$`.")
 
   public String getVersion() {
@@ -286,7 +289,6 @@ public class Pipeline {
   public int hashCode() {
     return Objects.hash(createTime, type, name, version, description, preSteps, postSteps, collectionDefault, defaultVersion);
   }
-
 
   @Override
   public String toString() {

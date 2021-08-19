@@ -23,6 +23,7 @@ import com.sajari.client.model.QueryAggregateResultBuckets;
 import com.sajari.client.model.QueryAggregateResultCount;
 import com.sajari.client.model.QueryAggregateResultDate;
 import com.sajari.client.model.QueryAggregateResultMetric;
+import com.sajari.client.model.QueryAggregateResultPercentile;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -87,6 +88,14 @@ public class QueryAggregateResultTest {
     @Test
     public void analysisTest() {
         // TODO: test analysis
+    }
+
+    /**
+     * Test the property 'percentile'
+     */
+    @Test
+    public void percentileTest() {
+        // TODO: test percentile
     }
 
 }

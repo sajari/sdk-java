@@ -87,6 +87,7 @@ public class PipelinesApi {
         java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
         java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
         java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
         final String[] localVarAccepts = {
             "application/json", "application/yaml"
         };
@@ -227,6 +228,7 @@ public class PipelinesApi {
         java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
         java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
         java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
         final String[] localVarAccepts = {
             "application/json", "application/yaml"
         };
@@ -364,13 +366,14 @@ public class PipelinesApi {
 
         java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
         java.util.List<Pair> localVarCollectionQueryParams = new java.util.ArrayList<Pair>();
+        java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+        java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+        java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
         if (type != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("type", type));
         }
 
-        java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
-        java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
-        java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -512,13 +515,14 @@ public class PipelinesApi {
 
         java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
         java.util.List<Pair> localVarCollectionQueryParams = new java.util.ArrayList<Pair>();
+        java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+        java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+        java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
         if (view != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("view", view));
         }
 
-        java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
-        java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
-        java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json", "application/yaml"
         };
@@ -673,13 +677,14 @@ public class PipelinesApi {
 
         java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
         java.util.List<Pair> localVarCollectionQueryParams = new java.util.ArrayList<Pair>();
+        java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+        java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+        java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
         if (view != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("view", view));
         }
 
-        java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
-        java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
-        java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json", "application/yaml"
         };
@@ -838,6 +843,10 @@ public class PipelinesApi {
 
         java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
         java.util.List<Pair> localVarCollectionQueryParams = new java.util.ArrayList<Pair>();
+        java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+        java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+        java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
         if (pageSize != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("page_size", pageSize));
         }
@@ -850,9 +859,6 @@ public class PipelinesApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("view", view));
         }
 
-        java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
-        java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
-        java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -994,6 +1000,7 @@ public class PipelinesApi {
         java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
         java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
         java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1138,6 +1145,7 @@ public class PipelinesApi {
         java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
         java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
         java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
         final String[] localVarAccepts = {
             "application/json"
         };
