@@ -35,7 +35,7 @@ docker-entrypoint.sh generate \
   --additional-properties licenseName="MIT license" \
   --additional-properties fullJavaUtil=true \
   --additional-properties dateLibrary=java8 \
-  --additional-properties artifactId=sajari-sdk-java-client \
+  --additional-properties artifactId=sdk-java-client \
   --additional-properties artifactUrl="https://github.com/sajari/sdk-java" \
   --additional-properties artifactDescription="Sajari SDK Java Client" \
   --additional-properties scmConnection="scm:git:git@github.com:sajari/sdk-java.git" \

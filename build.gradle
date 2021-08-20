@@ -41,8 +41,6 @@ publishing {
     }
     publications {
         gpr(MavenPublication) {
-            groupId = 'com.sajari'
-            artifactId = 'sajari-sdk-java-client'
             from(components.java)
         }
     }
