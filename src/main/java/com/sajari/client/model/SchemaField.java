@@ -30,7 +30,7 @@ import java.io.IOException;
  * SchemaField defines the properties of a field in the schema.
  */
 @ApiModel(description = "SchemaField defines the properties of a field in the schema.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-19T12:37:05.253753Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-20T00:31:03.336071Z[Etc/UTC]")
 public class SchemaField {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)

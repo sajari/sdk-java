@@ -116,6 +116,17 @@ public class ApiClient {
             builder.addInterceptor(interceptor);
         }
 
+        HttpLoggingInterceptor headerLogging = new HttpLoggingInterceptor();
+        headerLogging.setLevel(Level.HEADERS);
+        builder.addInterceptor(headerLogging);
+
+//        HttpLoggingInterceptor bodyLogging = new HttpLoggingInterceptor();
+//        headerLogging.setLevel(Level.BODY);
+//        builder.addInterceptor(bodyLogging);
+
+        // Enable gzip request compression
+//        builder.addInterceptor(new GzipRequestInterceptor());
+
         httpClient = builder.build();
     }
 

@@ -4,7 +4,7 @@ Sajari API
 
 - API version: v4
 
-    - Build date: 2021-08-19T12:37:05.253753Z[Etc/UTC]
+    - Build date: 2021-08-20T00:31:03.336071Z[Etc/UTC]
 
 Sajari is a smart, highly-configurable, real-time search service that enables thousands of businesses worldwide to provide amazing search experiences on their websites, stores, and applications.
 

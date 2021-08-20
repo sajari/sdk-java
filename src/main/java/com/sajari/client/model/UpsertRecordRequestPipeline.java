@@ -28,7 +28,7 @@ import java.io.IOException;
  * The pipeline to use when upserting the record.  If not provided the default record pipeline is used.
  */
 @ApiModel(description = "The pipeline to use when upserting the record.  If not provided the default record pipeline is used.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-19T12:37:05.253753Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-20T00:31:03.336071Z[Etc/UTC]")
 public class UpsertRecordRequestPipeline {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)

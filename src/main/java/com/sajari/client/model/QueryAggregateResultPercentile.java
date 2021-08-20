@@ -29,7 +29,7 @@ import java.io.IOException;
  * Percentile contains the data points returned in a percentile aggregate step.
  */
 @ApiModel(description = "Percentile contains the data points returned in a percentile aggregate step.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-19T12:37:05.253753Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-20T00:31:03.336071Z[Etc/UTC]")
 public class QueryAggregateResultPercentile {
   public static final String SERIALIZED_NAME_PERCENTILES = "percentiles";
   @SerializedName(SERIALIZED_NAME_PERCENTILES)
