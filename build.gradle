@@ -25,13 +25,25 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
 }
 
-repositories {
-    maven {
-        name = "GitHubPackages"
-        url = "https://maven.pkg.github.com/sajari/${rootProject.name}"
-        credentials {
-            username = System.getenv("USERNAME")
-            password = System.getenv("TOKEN")
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            // Replace OWNER and REPOSITORY with your GitHub username/repository
+            // (must be both lowercase according to the documenations)
+            url = uri("https://maven.pkg.github.com/sajari/sdk-java")
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+            }
+        }
+    }
+    publications {
+        gpr(MavenPublication) {
+            groupId = 'com.sajari'
+            artifactId = 'sajari-sdk-java-client'
+            from(components.java)
         }
     }
 }
