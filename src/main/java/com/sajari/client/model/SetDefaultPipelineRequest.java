@@ -13,116 +13,111 @@
 
 package com.sajari.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.sajari.client.model.PipelineType;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * SetDefaultPipelineRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-20T00:31:03.336071Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SetDefaultPipelineRequest {
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private PipelineType type = PipelineType.TYPE_UNSPECIFIED;
+    public static final String SERIALIZED_NAME_TYPE = "type";
+    @SerializedName(SERIALIZED_NAME_TYPE)
+    private PipelineType type = PipelineType.TYPE_UNSPECIFIED;
 
-  public static final String SERIALIZED_NAME_PIPELINE = "pipeline";
-  @SerializedName(SERIALIZED_NAME_PIPELINE)
-  private String pipeline;
-
-
-  public SetDefaultPipelineRequest type(PipelineType type) {
-    
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
-  public PipelineType getType() {
-    return type;
-  }
+    public static final String SERIALIZED_NAME_PIPELINE = "pipeline";
+    @SerializedName(SERIALIZED_NAME_PIPELINE)
+    private String pipeline;
 
 
-  public void setType(PipelineType type) {
-    this.type = type;
-  }
+    public SetDefaultPipelineRequest type(PipelineType type) {
 
-
-  public SetDefaultPipelineRequest pipeline(String pipeline) {
-    
-    this.pipeline = pipeline;
-    return this;
-  }
-
-   /**
-   * The name of the pipeline to use when not otherwise specified.
-   * @return pipeline
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The name of the pipeline to use when not otherwise specified.")
-
-  public String getPipeline() {
-    return pipeline;
-  }
-
-
-  public void setPipeline(String pipeline) {
-    this.pipeline = pipeline;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+        this.type = type;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get type
+     *
+     * @return type
+     **/
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "")
+
+    public PipelineType getType() {
+        return type;
     }
-    SetDefaultPipelineRequest setDefaultPipelineRequest = (SetDefaultPipelineRequest) o;
-    return Objects.equals(this.type, setDefaultPipelineRequest.type) &&
-        Objects.equals(this.pipeline, setDefaultPipelineRequest.pipeline);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(type, pipeline);
-  }
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SetDefaultPipelineRequest {\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    pipeline: ").append(toIndentedString(pipeline)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setType(PipelineType type) {
+        this.type = type;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    public SetDefaultPipelineRequest pipeline(String pipeline) {
+
+        this.pipeline = pipeline;
+        return this;
+    }
+
+    /**
+     * The name of the pipeline to use when not otherwise specified.
+     *
+     * @return pipeline
+     **/
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The name of the pipeline to use when not otherwise specified.")
+
+    public String getPipeline() {
+        return pipeline;
+    }
+
+
+    public void setPipeline(String pipeline) {
+        this.pipeline = pipeline;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        SetDefaultPipelineRequest setDefaultPipelineRequest = (SetDefaultPipelineRequest) o;
+        return Objects.equals(this.type, setDefaultPipelineRequest.type) &&
+                Objects.equals(this.pipeline, setDefaultPipelineRequest.pipeline);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(type, pipeline);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class SetDefaultPipelineRequest {\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    pipeline: ").append(toIndentedString(pipeline)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

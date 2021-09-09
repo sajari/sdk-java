@@ -13,12 +13,12 @@
 
 package com.sajari.client;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-20T00:31:03.336071Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Pair {
     private String name = "";
     private String value = "";
 
-    public Pair (String name, String value) {
+    public Pair(String name, String value) {
         setName(name);
         setValue(value);
     }

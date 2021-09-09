@@ -13,153 +13,149 @@
 
 package com.sajari.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.sajari.client.model.SchemaField;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * ListSchemaFieldsResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-20T00:31:03.336071Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ListSchemaFieldsResponse {
-  public static final String SERIALIZED_NAME_SCHEMA_FIELDS = "schema_fields";
-  @SerializedName(SERIALIZED_NAME_SCHEMA_FIELDS)
-  private java.util.List<SchemaField> schemaFields = null;
+    public static final String SERIALIZED_NAME_SCHEMA_FIELDS = "schema_fields";
+    @SerializedName(SERIALIZED_NAME_SCHEMA_FIELDS)
+    private java.util.List<SchemaField> schemaFields = null;
 
-  public static final String SERIALIZED_NAME_TOTAL_SIZE = "total_size";
-  @SerializedName(SERIALIZED_NAME_TOTAL_SIZE)
-  private Integer totalSize;
+    public static final String SERIALIZED_NAME_TOTAL_SIZE = "total_size";
+    @SerializedName(SERIALIZED_NAME_TOTAL_SIZE)
+    private Integer totalSize;
 
-  public static final String SERIALIZED_NAME_NEXT_PAGE_TOKEN = "next_page_token";
-  @SerializedName(SERIALIZED_NAME_NEXT_PAGE_TOKEN)
-  private String nextPageToken;
+    public static final String SERIALIZED_NAME_NEXT_PAGE_TOKEN = "next_page_token";
+    @SerializedName(SERIALIZED_NAME_NEXT_PAGE_TOKEN)
+    private String nextPageToken;
 
 
-  public ListSchemaFieldsResponse schemaFields(java.util.List<SchemaField> schemaFields) {
-    
-    this.schemaFields = schemaFields;
-    return this;
-  }
+    public ListSchemaFieldsResponse schemaFields(java.util.List<SchemaField> schemaFields) {
 
-  public ListSchemaFieldsResponse addSchemaFieldsItem(SchemaField schemaFieldsItem) {
-    if (this.schemaFields == null) {
-      this.schemaFields = new java.util.ArrayList<>();
+        this.schemaFields = schemaFields;
+        return this;
     }
-    this.schemaFields.add(schemaFieldsItem);
-    return this;
-  }
 
-   /**
-   * The schema fields.
-   * @return schemaFields
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The schema fields.")
-
-  public java.util.List<SchemaField> getSchemaFields() {
-    return schemaFields;
-  }
-
-
-  public void setSchemaFields(java.util.List<SchemaField> schemaFields) {
-    this.schemaFields = schemaFields;
-  }
-
-
-  public ListSchemaFieldsResponse totalSize(Integer totalSize) {
-    
-    this.totalSize = totalSize;
-    return this;
-  }
-
-   /**
-   * Maximum number of fields to return.
-   * @return totalSize
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Maximum number of fields to return.")
-
-  public Integer getTotalSize() {
-    return totalSize;
-  }
-
-
-  public void setTotalSize(Integer totalSize) {
-    this.totalSize = totalSize;
-  }
-
-
-  public ListSchemaFieldsResponse nextPageToken(String nextPageToken) {
-    
-    this.nextPageToken = nextPageToken;
-    return this;
-  }
-
-   /**
-   * A token, which can be sent as &#x60;page_token&#x60; to retrieve the next page.  If this field is omitted, there are no subsequent pages.
-   * @return nextPageToken
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "A token, which can be sent as `page_token` to retrieve the next page.  If this field is omitted, there are no subsequent pages.")
-
-  public String getNextPageToken() {
-    return nextPageToken;
-  }
-
-
-  public void setNextPageToken(String nextPageToken) {
-    this.nextPageToken = nextPageToken;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public ListSchemaFieldsResponse addSchemaFieldsItem(SchemaField schemaFieldsItem) {
+        if (this.schemaFields == null) {
+            this.schemaFields = new java.util.ArrayList<>();
+        }
+        this.schemaFields.add(schemaFieldsItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The schema fields.
+     *
+     * @return schemaFields
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "The schema fields.")
+
+    public java.util.List<SchemaField> getSchemaFields() {
+        return schemaFields;
     }
-    ListSchemaFieldsResponse listSchemaFieldsResponse = (ListSchemaFieldsResponse) o;
-    return Objects.equals(this.schemaFields, listSchemaFieldsResponse.schemaFields) &&
-        Objects.equals(this.totalSize, listSchemaFieldsResponse.totalSize) &&
-        Objects.equals(this.nextPageToken, listSchemaFieldsResponse.nextPageToken);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(schemaFields, totalSize, nextPageToken);
-  }
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ListSchemaFieldsResponse {\n");
-    sb.append("    schemaFields: ").append(toIndentedString(schemaFields)).append("\n");
-    sb.append("    totalSize: ").append(toIndentedString(totalSize)).append("\n");
-    sb.append("    nextPageToken: ").append(toIndentedString(nextPageToken)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setSchemaFields(java.util.List<SchemaField> schemaFields) {
+        this.schemaFields = schemaFields;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    public ListSchemaFieldsResponse totalSize(Integer totalSize) {
+
+        this.totalSize = totalSize;
+        return this;
+    }
+
+    /**
+     * Maximum number of fields to return.
+     *
+     * @return totalSize
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Maximum number of fields to return.")
+
+    public Integer getTotalSize() {
+        return totalSize;
+    }
+
+
+    public void setTotalSize(Integer totalSize) {
+        this.totalSize = totalSize;
+    }
+
+
+    public ListSchemaFieldsResponse nextPageToken(String nextPageToken) {
+
+        this.nextPageToken = nextPageToken;
+        return this;
+    }
+
+    /**
+     * A token, which can be sent as &#x60;page_token&#x60; to retrieve the next page.  If this field is omitted, there are no subsequent pages.
+     *
+     * @return nextPageToken
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "A token, which can be sent as `page_token` to retrieve the next page.  If this field is omitted, there are no subsequent pages.")
+
+    public String getNextPageToken() {
+        return nextPageToken;
+    }
+
+
+    public void setNextPageToken(String nextPageToken) {
+        this.nextPageToken = nextPageToken;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ListSchemaFieldsResponse listSchemaFieldsResponse = (ListSchemaFieldsResponse) o;
+        return Objects.equals(this.schemaFields, listSchemaFieldsResponse.schemaFields) &&
+                Objects.equals(this.totalSize, listSchemaFieldsResponse.totalSize) &&
+                Objects.equals(this.nextPageToken, listSchemaFieldsResponse.nextPageToken);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(schemaFields, totalSize, nextPageToken);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ListSchemaFieldsResponse {\n");
+        sb.append("    schemaFields: ").append(toIndentedString(schemaFields)).append("\n");
+        sb.append("    totalSize: ").append(toIndentedString(totalSize)).append("\n");
+        sb.append("    nextPageToken: ").append(toIndentedString(nextPageToken)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

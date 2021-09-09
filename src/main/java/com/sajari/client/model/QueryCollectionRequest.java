@@ -13,147 +13,143 @@
 
 package com.sajari.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.sajari.client.model.QueryCollectionRequestPipeline;
-import com.sajari.client.model.QueryCollectionRequestTracking;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * A request to perform a search using a pipeline.
  */
 @ApiModel(description = "A request to perform a search using a pipeline.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-20T00:31:03.336071Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class QueryCollectionRequest {
-  public static final String SERIALIZED_NAME_PIPELINE = "pipeline";
-  @SerializedName(SERIALIZED_NAME_PIPELINE)
-  private QueryCollectionRequestPipeline pipeline;
+    public static final String SERIALIZED_NAME_PIPELINE = "pipeline";
+    @SerializedName(SERIALIZED_NAME_PIPELINE)
+    private QueryCollectionRequestPipeline pipeline;
 
-  public static final String SERIALIZED_NAME_VARIABLES = "variables";
-  @SerializedName(SERIALIZED_NAME_VARIABLES)
-  private Object variables;
+    public static final String SERIALIZED_NAME_VARIABLES = "variables";
+    @SerializedName(SERIALIZED_NAME_VARIABLES)
+    private Object variables;
 
-  public static final String SERIALIZED_NAME_TRACKING = "tracking";
-  @SerializedName(SERIALIZED_NAME_TRACKING)
-  private QueryCollectionRequestTracking tracking;
-
-
-  public QueryCollectionRequest pipeline(QueryCollectionRequestPipeline pipeline) {
-    
-    this.pipeline = pipeline;
-    return this;
-  }
-
-   /**
-   * Get pipeline
-   * @return pipeline
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public QueryCollectionRequestPipeline getPipeline() {
-    return pipeline;
-  }
+    public static final String SERIALIZED_NAME_TRACKING = "tracking";
+    @SerializedName(SERIALIZED_NAME_TRACKING)
+    private QueryCollectionRequestTracking tracking;
 
 
-  public void setPipeline(QueryCollectionRequestPipeline pipeline) {
-    this.pipeline = pipeline;
-  }
+    public QueryCollectionRequest pipeline(QueryCollectionRequestPipeline pipeline) {
 
-
-  public QueryCollectionRequest variables(Object variables) {
-    
-    this.variables = variables;
-    return this;
-  }
-
-   /**
-   * The initial values for the variables the pipeline operates on and transforms throughout its steps.  A typical variable is &#x60;q&#x60; which is the query the user entered, for example:  &#x60;&#x60;&#x60;json { \&quot;q\&quot;: \&quot;search terms\&quot; } &#x60;&#x60;&#x60;
-   * @return variables
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The initial values for the variables the pipeline operates on and transforms throughout its steps.  A typical variable is `q` which is the query the user entered, for example:  ```json { \"q\": \"search terms\" } ```")
-
-  public Object getVariables() {
-    return variables;
-  }
-
-
-  public void setVariables(Object variables) {
-    this.variables = variables;
-  }
-
-
-  public QueryCollectionRequest tracking(QueryCollectionRequestTracking tracking) {
-    
-    this.tracking = tracking;
-    return this;
-  }
-
-   /**
-   * Get tracking
-   * @return tracking
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public QueryCollectionRequestTracking getTracking() {
-    return tracking;
-  }
-
-
-  public void setTracking(QueryCollectionRequestTracking tracking) {
-    this.tracking = tracking;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+        this.pipeline = pipeline;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get pipeline
+     *
+     * @return pipeline
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+
+    public QueryCollectionRequestPipeline getPipeline() {
+        return pipeline;
     }
-    QueryCollectionRequest queryCollectionRequest = (QueryCollectionRequest) o;
-    return Objects.equals(this.pipeline, queryCollectionRequest.pipeline) &&
-        Objects.equals(this.variables, queryCollectionRequest.variables) &&
-        Objects.equals(this.tracking, queryCollectionRequest.tracking);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(pipeline, variables, tracking);
-  }
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class QueryCollectionRequest {\n");
-    sb.append("    pipeline: ").append(toIndentedString(pipeline)).append("\n");
-    sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
-    sb.append("    tracking: ").append(toIndentedString(tracking)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setPipeline(QueryCollectionRequestPipeline pipeline) {
+        this.pipeline = pipeline;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    public QueryCollectionRequest variables(Object variables) {
+
+        this.variables = variables;
+        return this;
+    }
+
+    /**
+     * The initial values for the variables the pipeline operates on and transforms throughout its steps.  The most important variable is &#x60;q&#x60; which is the query the user entered, for example:  &#x60;&#x60;&#x60;json { \&quot;q\&quot;: \&quot;search terms\&quot; } &#x60;&#x60;&#x60;  To paginate through results, set the variables &#x60;page&#x60; and &#x60;resultsPerPage&#x60;, for example:  &#x60;&#x60;&#x60;json { \&quot;q\&quot;: \&quot;search terms\&quot;, \&quot;page\&quot;: 5, \&quot;resultsPerPage\&quot;: 20 } &#x60;&#x60;&#x60;  To sort results, set the variable &#x60;sort&#x60; to the name of one of your collection&#39;s schema fields, for example:  &#x60;&#x60;&#x60;json { \&quot;q\&quot;: \&quot;search terms\&quot;, \&quot;sort\&quot;: \&quot;name\&quot; } &#x60;&#x60;&#x60;  To sort in reverse, prefix the schema field with a minus sign &#x60;-&#x60;, for example:  &#x60;&#x60;&#x60;json { \&quot;q\&quot;: \&quot;search terms\&quot;, \&quot;sort\&quot;: \&quot;-name\&quot; } &#x60;&#x60;&#x60;
+     *
+     * @return variables
+     **/
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The initial values for the variables the pipeline operates on and transforms throughout its steps.  The most important variable is `q` which is the query the user entered, for example:  ```json { \"q\": \"search terms\" } ```  To paginate through results, set the variables `page` and `resultsPerPage`, for example:  ```json { \"q\": \"search terms\", \"page\": 5, \"resultsPerPage\": 20 } ```  To sort results, set the variable `sort` to the name of one of your collection's schema fields, for example:  ```json { \"q\": \"search terms\", \"sort\": \"name\" } ```  To sort in reverse, prefix the schema field with a minus sign `-`, for example:  ```json { \"q\": \"search terms\", \"sort\": \"-name\" } ```")
+
+    public Object getVariables() {
+        return variables;
+    }
+
+
+    public void setVariables(Object variables) {
+        this.variables = variables;
+    }
+
+
+    public QueryCollectionRequest tracking(QueryCollectionRequestTracking tracking) {
+
+        this.tracking = tracking;
+        return this;
+    }
+
+    /**
+     * Get tracking
+     *
+     * @return tracking
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+
+    public QueryCollectionRequestTracking getTracking() {
+        return tracking;
+    }
+
+
+    public void setTracking(QueryCollectionRequestTracking tracking) {
+        this.tracking = tracking;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        QueryCollectionRequest queryCollectionRequest = (QueryCollectionRequest) o;
+        return Objects.equals(this.pipeline, queryCollectionRequest.pipeline) &&
+                Objects.equals(this.variables, queryCollectionRequest.variables) &&
+                Objects.equals(this.tracking, queryCollectionRequest.tracking);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(pipeline, variables, tracking);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class QueryCollectionRequest {\n");
+        sb.append("    pipeline: ").append(toIndentedString(pipeline)).append("\n");
+        sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
+        sb.append("    tracking: ").append(toIndentedString(tracking)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

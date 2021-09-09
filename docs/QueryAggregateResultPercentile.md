@@ -1,5 +1,3 @@
-
-
 # QueryAggregateResultPercentile
 
 Percentile contains the data points returned in a percentile aggregate step.

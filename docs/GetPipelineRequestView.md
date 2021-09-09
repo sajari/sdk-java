@@ -1,9 +1,6 @@
-
-
 # GetPipelineRequestView
 
 ## Enum
-
 
 * `VIEW_UNSPECIFIED` (value: `"VIEW_UNSPECIFIED"`)
 

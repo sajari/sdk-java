@@ -13,94 +13,89 @@
 
 package com.sajari.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * QueryAggregateResultDate
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-20T00:31:03.336071Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class QueryAggregateResultDate {
-  public static final String SERIALIZED_NAME_DATES = "dates";
-  @SerializedName(SERIALIZED_NAME_DATES)
-  private java.util.Map<String, Integer> dates = null;
+    public static final String SERIALIZED_NAME_DATES = "dates";
+    @SerializedName(SERIALIZED_NAME_DATES)
+    private java.util.Map<String, Integer> dates = null;
 
 
-  public QueryAggregateResultDate dates(java.util.Map<String, Integer> dates) {
-    
-    this.dates = dates;
-    return this;
-  }
+    public QueryAggregateResultDate dates(java.util.Map<String, Integer> dates) {
 
-  public QueryAggregateResultDate putDatesItem(String key, Integer datesItem) {
-    if (this.dates == null) {
-      this.dates = new java.util.HashMap<>();
+        this.dates = dates;
+        return this;
     }
-    this.dates.put(key, datesItem);
-    return this;
-  }
 
-   /**
-   * Get dates
-   * @return dates
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public java.util.Map<String, Integer> getDates() {
-    return dates;
-  }
-
-
-  public void setDates(java.util.Map<String, Integer> dates) {
-    this.dates = dates;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public QueryAggregateResultDate putDatesItem(String key, Integer datesItem) {
+        if (this.dates == null) {
+            this.dates = new java.util.HashMap<>();
+        }
+        this.dates.put(key, datesItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get dates
+     *
+     * @return dates
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+
+    public java.util.Map<String, Integer> getDates() {
+        return dates;
     }
-    QueryAggregateResultDate queryAggregateResultDate = (QueryAggregateResultDate) o;
-    return Objects.equals(this.dates, queryAggregateResultDate.dates);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(dates);
-  }
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class QueryAggregateResultDate {\n");
-    sb.append("    dates: ").append(toIndentedString(dates)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setDates(java.util.Map<String, Integer> dates) {
+        this.dates = dates;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        QueryAggregateResultDate queryAggregateResultDate = (QueryAggregateResultDate) o;
+        return Objects.equals(this.dates, queryAggregateResultDate.dates);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(dates);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class QueryAggregateResultDate {\n");
+        sb.append("    dates: ").append(toIndentedString(dates)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

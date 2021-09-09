@@ -13,64 +13,60 @@
 
 package com.sajari.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
-
-import java.io.IOException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
+import java.io.IOException;
+
 /**
- *  - TYPE_UNSPECIFIED: Pipeline type not specified.  - RECORD: Record pipeline.  - QUERY: Query pipeline.
+ * - TYPE_UNSPECIFIED: Pipeline type not specified.  - RECORD: Record pipeline.  - QUERY: Query pipeline.
  */
 @JsonAdapter(PipelineType.Adapter.class)
 public enum PipelineType {
-  
-  TYPE_UNSPECIFIED("TYPE_UNSPECIFIED"),
-  
-  RECORD("RECORD"),
-  
-  QUERY("QUERY");
 
-  private String value;
+    TYPE_UNSPECIFIED("TYPE_UNSPECIFIED"),
 
-  PipelineType(String value) {
-    this.value = value;
-  }
+    RECORD("RECORD"),
 
-  public String getValue() {
-    return value;
-  }
+    QUERY("QUERY");
 
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
+    private String value;
 
-  public static PipelineType fromValue(String value) {
-    for (PipelineType b : PipelineType.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    PipelineType(String value) {
+        this.value = value;
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
 
-  public static class Adapter extends TypeAdapter<PipelineType> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final PipelineType enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
+    public String getValue() {
+        return value;
     }
 
     @Override
-    public PipelineType read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return PipelineType.fromValue(value);
+    public String toString() {
+        return String.valueOf(value);
     }
-  }
+
+    public static PipelineType fromValue(String value) {
+        for (PipelineType b : PipelineType.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<PipelineType> {
+        @Override
+        public void write(final JsonWriter jsonWriter, final PipelineType enumeration) throws IOException {
+            jsonWriter.value(enumeration.getValue());
+        }
+
+        @Override
+        public PipelineType read(final JsonReader jsonReader) throws IOException {
+            String value = jsonReader.nextString();
+            return PipelineType.fromValue(value);
+        }
+    }
 }
 

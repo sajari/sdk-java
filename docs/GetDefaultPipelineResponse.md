@@ -1,7 +1,4 @@
-
-
 # GetDefaultPipelineResponse
-
 
 ## Properties
 

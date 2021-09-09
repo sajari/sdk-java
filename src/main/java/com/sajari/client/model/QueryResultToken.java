@@ -13,118 +13,113 @@
 
 package com.sajari.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.sajari.client.model.QueryResultTokenClick;
-import com.sajari.client.model.QueryResultTokenPosNeg;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * Tokens are used to carry ranking information for query results.
  */
 @ApiModel(description = "Tokens are used to carry ranking information for query results.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-20T00:31:03.336071Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class QueryResultToken {
-  public static final String SERIALIZED_NAME_CLICK = "click";
-  @SerializedName(SERIALIZED_NAME_CLICK)
-  private QueryResultTokenClick click;
+    public static final String SERIALIZED_NAME_CLICK = "click";
+    @SerializedName(SERIALIZED_NAME_CLICK)
+    private QueryResultTokenClick click;
 
-  public static final String SERIALIZED_NAME_POS_NEG = "pos_neg";
-  @SerializedName(SERIALIZED_NAME_POS_NEG)
-  private QueryResultTokenPosNeg posNeg;
-
-
-  public QueryResultToken click(QueryResultTokenClick click) {
-    
-    this.click = click;
-    return this;
-  }
-
-   /**
-   * Get click
-   * @return click
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public QueryResultTokenClick getClick() {
-    return click;
-  }
+    public static final String SERIALIZED_NAME_POS_NEG = "pos_neg";
+    @SerializedName(SERIALIZED_NAME_POS_NEG)
+    private QueryResultTokenPosNeg posNeg;
 
 
-  public void setClick(QueryResultTokenClick click) {
-    this.click = click;
-  }
+    public QueryResultToken click(QueryResultTokenClick click) {
 
-
-  public QueryResultToken posNeg(QueryResultTokenPosNeg posNeg) {
-    
-    this.posNeg = posNeg;
-    return this;
-  }
-
-   /**
-   * Get posNeg
-   * @return posNeg
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public QueryResultTokenPosNeg getPosNeg() {
-    return posNeg;
-  }
-
-
-  public void setPosNeg(QueryResultTokenPosNeg posNeg) {
-    this.posNeg = posNeg;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+        this.click = click;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get click
+     *
+     * @return click
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+
+    public QueryResultTokenClick getClick() {
+        return click;
     }
-    QueryResultToken queryResultToken = (QueryResultToken) o;
-    return Objects.equals(this.click, queryResultToken.click) &&
-        Objects.equals(this.posNeg, queryResultToken.posNeg);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(click, posNeg);
-  }
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class QueryResultToken {\n");
-    sb.append("    click: ").append(toIndentedString(click)).append("\n");
-    sb.append("    posNeg: ").append(toIndentedString(posNeg)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setClick(QueryResultTokenClick click) {
+        this.click = click;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    public QueryResultToken posNeg(QueryResultTokenPosNeg posNeg) {
+
+        this.posNeg = posNeg;
+        return this;
+    }
+
+    /**
+     * Get posNeg
+     *
+     * @return posNeg
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+
+    public QueryResultTokenPosNeg getPosNeg() {
+        return posNeg;
+    }
+
+
+    public void setPosNeg(QueryResultTokenPosNeg posNeg) {
+        this.posNeg = posNeg;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        QueryResultToken queryResultToken = (QueryResultToken) o;
+        return Objects.equals(this.click, queryResultToken.click) &&
+                Objects.equals(this.posNeg, queryResultToken.posNeg);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(click, posNeg);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class QueryResultToken {\n");
+        sb.append("    click: ").append(toIndentedString(click)).append("\n");
+        sb.append("    posNeg: ").append(toIndentedString(posNeg)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

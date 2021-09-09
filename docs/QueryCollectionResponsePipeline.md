@@ -1,5 +1,3 @@
-
-
 # QueryCollectionResponsePipeline
 
 The resolved query pipeline that was used to run the query.

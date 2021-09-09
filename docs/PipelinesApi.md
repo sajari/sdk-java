@@ -13,16 +13,20 @@ Method | HTTP request | Description
 [**setDefaultPipeline**](PipelinesApi.md#setDefaultPipeline) | **POST** /v4/collections/{collection_id}:setDefaultPipeline | Set default pipeline
 [**setDefaultVersion**](PipelinesApi.md#setDefaultVersion) | **POST** /v4/collections/{collection_id}/pipelines/{type}/{name}:setDefaultVersion | Set default pipeline version
 
-
 <a name="createPipeline"></a>
+
 # **createPipeline**
+
 > Pipeline createPipeline(collectionId, pipeline)
 
 Create pipeline
 
-Create a new pipeline.  Pipelines are immutable once created. If you want to change a pipeline e.g. to add or change some steps, you need to create a new version of that pipeline.  To start using a new pipeline you need to update your record ingestion calls and/or your query calls to specify the new pipeline.  To create the pipeline from YAML, set the request&#39;s &#x60;Content-Type&#x60; header to &#x60;application/yaml&#x60; and submit the pipeline&#39;s YAML in the request body.
+Create a new pipeline. Pipelines are immutable once created. If you want to change a pipeline e.g. to add or change some steps, you need to create a new version of that pipeline.
+To start using a new pipeline you need to update your record ingestion calls and/or your query calls to specify the new pipeline. To create the pipeline from YAML, set the
+request&#39;s &#x60;Content-Type&#x60; header to &#x60;application/yaml&#x60; and submit the pipeline&#39;s YAML in the request body.
 
 ### Example
+
 ```java
 // Import classes:
 import com.sajari.client.ApiClient;
@@ -63,8 +67,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collectionId** | **String**| The collection to create the pipeline in, e.g. &#x60;my-collection&#x60;. |
- **pipeline** | [**Pipeline**](Pipeline.md)| The pipeline to create. |
+**collectionId** | **String**| The collection to create the pipeline in, e.g. &#x60;my-collection&#x60;. |
+**pipeline** | [**Pipeline**](Pipeline.md)| The pipeline to create. |
 
 ### Return type
 
@@ -76,10 +80,11 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/yaml
- - **Accept**: application/json, application/yaml
+- **Content-Type**: application/json, application/yaml
+- **Accept**: application/json, application/yaml
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
@@ -90,14 +95,19 @@ Name | Type | Description  | Notes
 **0** | An unexpected error response |  -  |
 
 <a name="generatePipelines"></a>
+
 # **generatePipelines**
+
 > GeneratePipelinesResponse generatePipelines(collectionId, generatePipelinesRequest)
 
 Generate pipelines
 
-Generate basic record, query and autocomplete pipeline templates. Use these templates as a starting point for your collection&#39;s pipelines.  This call returns a set of pipelines that you can pass directly to the create pipeline call.  The generated templates can be returned in JSON, the default, or YAML. To return the generated pipelines in YAML, set the request&#39;s &#x60;Accept&#x60; header to &#x60;application/yaml&#x60;. The three pipelines in the YAML response are separated by three dashes (&#x60;---&#x60;).
+Generate basic record, query and autocomplete pipeline templates. Use these templates as a starting point for your collection&#39;s pipelines. This call returns a set of pipelines
+that you can pass directly to the create pipeline call. The generated templates can be returned in JSON, the default, or YAML. To return the generated pipelines in YAML, set the
+request&#39;s &#x60;Accept&#x60; header to &#x60;application/yaml&#x60;. The three pipelines in the YAML response are separated by three dashes (&#x60;---&#x60;).
 
 ### Example
+
 ```java
 // Import classes:
 import com.sajari.client.ApiClient;
@@ -138,8 +148,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collectionId** | **String**| The collection, e.g. &#x60;my-collection&#x60;. |
- **generatePipelinesRequest** | [**GeneratePipelinesRequest**](GeneratePipelinesRequest.md)|  |
+**collectionId** | **String**| The collection, e.g. &#x60;my-collection&#x60;. |
+**generatePipelinesRequest** | [**GeneratePipelinesRequest**](GeneratePipelinesRequest.md)|  |
 
 ### Return type
 
@@ -151,10 +161,11 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json, application/yaml
+- **Content-Type**: application/json
+- **Accept**: application/json, application/yaml
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
@@ -165,14 +176,19 @@ Name | Type | Description  | Notes
 **0** | An unexpected error response |  -  |
 
 <a name="getDefaultPipeline"></a>
+
 # **getDefaultPipeline**
+
 > GetDefaultPipelineResponse getDefaultPipeline(collectionId, type)
 
 Get default pipeline
 
-Get the default pipeline for a collection.  Every collection has a default record pipeline and a default query pipeline.  When a pipeline is required to complete an operation, it can be omitted from the request if a default pipeline has been set. When adding a record to a collection, the default record pipeline is used if none is provided. When querying a collection, the default query pipeline is used if none is provided.
+Get the default pipeline for a collection. Every collection has a default record pipeline and a default query pipeline. When a pipeline is required to complete an operation, it can
+be omitted from the request if a default pipeline has been set. When adding a record to a collection, the default record pipeline is used if none is provided. When querying a
+collection, the default query pipeline is used if none is provided.
 
 ### Example
+
 ```java
 // Import classes:
 import com.sajari.client.ApiClient;
@@ -213,8 +229,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collectionId** | **String**| The collection to get the default query pipeline of, e.g. &#x60;my-collection&#x60;. |
- **type** | **String**| The type of the pipeline to get.   - TYPE_UNSPECIFIED: Pipeline type not specified.  - RECORD: Record pipeline.  - QUERY: Query pipeline. | [default to TYPE_UNSPECIFIED] [enum: TYPE_UNSPECIFIED, RECORD, QUERY]
+**collectionId** | **String**| The collection to get the default query pipeline of, e.g. &#x60;my-collection&#x60;. |
+**type** | **
+String**| The type of the pipeline to get. - TYPE_UNSPECIFIED: Pipeline type not specified. - RECORD: Record pipeline. - QUERY: Query pipeline. | [default to TYPE_UNSPECIFIED] [enum: TYPE_UNSPECIFIED, RECORD, QUERY]
 
 ### Return type
 
@@ -226,10 +243,11 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
@@ -240,14 +258,19 @@ Name | Type | Description  | Notes
 **0** | An unexpected error response |  -  |
 
 <a name="getDefaultVersion"></a>
+
 # **getDefaultVersion**
+
 > Pipeline getDefaultVersion(collectionId, type, name, view)
 
 Get default pipeline version
 
-Get the default version for a given pipeline.  The default version of a pipeline is used when a pipeline is referred to without specifying a version.  This allows you to change the pipeline version used for requests without having to change your code.  To retrieve the pipeline in YAML, set the request&#39;s &#x60;Accept&#x60; header to &#x60;application/yaml&#x60;.
+Get the default version for a given pipeline. The default version of a pipeline is used when a pipeline is referred to without specifying a version. This allows you to change the
+pipeline version used for requests without having to change your code. To retrieve the pipeline in YAML, set the request&#39;s &#x60;Accept&#x60; header to
+&#x60;application/yaml&#x60;.
 
 ### Example
+
 ```java
 // Import classes:
 import com.sajari.client.ApiClient;
@@ -290,10 +313,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collectionId** | **String**| The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;. |
- **type** | **String**| The type of the pipeline to get the default version of. | [enum: TYPE_UNSPECIFIED, RECORD, QUERY]
- **name** | **String**| The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;. |
- **view** | **String**| The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] [default to VIEW_UNSPECIFIED] [enum: VIEW_UNSPECIFIED, BASIC, FULL]
+**collectionId** | **String**| The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;. |
+**type** | **String**| The type of the pipeline to get the default version of. | [enum: TYPE_UNSPECIFIED, RECORD, QUERY]
+**name** | **String**| The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;. |
+**view** | **
+String**| The amount of information to include in the retrieved pipeline. - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view. - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)). - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] [default to VIEW_UNSPECIFIED] [enum: VIEW_UNSPECIFIED, BASIC, FULL]
 
 ### Return type
 
@@ -305,10 +329,11 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/yaml
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
@@ -319,14 +344,18 @@ Name | Type | Description  | Notes
 **0** | An unexpected error response |  -  |
 
 <a name="getPipeline"></a>
+
 # **getPipeline**
+
 > Pipeline getPipeline(collectionId, type, name, version, view)
 
 Get pipeline
 
-Retrieve the details of a pipeline. Supply the type, name and version.  To retrieve the pipeline in YAML, set the request&#39;s &#x60;Accept&#x60; header to &#x60;application/yaml&#x60;.
+Retrieve the details of a pipeline. Supply the type, name and version. To retrieve the pipeline in YAML, set the request&#39;s &#x60;Accept&#x60; header to
+&#x60;application/yaml&#x60;.
 
 ### Example
+
 ```java
 // Import classes:
 import com.sajari.client.ApiClient;
@@ -370,11 +399,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collectionId** | **String**| The collection that owns the pipeline, e.g. &#x60;my-collection&#x60;. |
- **type** | **String**| The type of the pipeline to retrieve. | [enum: TYPE_UNSPECIFIED, RECORD, QUERY]
- **name** | **String**| The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;. |
- **version** | **String**| The version of the pipeline to retrieve, e.g. &#x60;42&#x60;. |
- **view** | **String**| The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] [default to VIEW_UNSPECIFIED] [enum: VIEW_UNSPECIFIED, BASIC, FULL]
+**collectionId** | **String**| The collection that owns the pipeline, e.g. &#x60;my-collection&#x60;. |
+**type** | **String**| The type of the pipeline to retrieve. | [enum: TYPE_UNSPECIFIED, RECORD, QUERY]
+**name** | **String**| The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;. |
+**version** | **String**| The version of the pipeline to retrieve, e.g. &#x60;42&#x60;. |
+**view** | **
+String**| The amount of information to include in the retrieved pipeline. - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view. - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)). - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] [default to VIEW_UNSPECIFIED] [enum: VIEW_UNSPECIFIED, BASIC, FULL]
 
 ### Return type
 
@@ -386,10 +416,11 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/yaml
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
@@ -400,7 +431,9 @@ Name | Type | Description  | Notes
 **0** | An unexpected error response |  -  |
 
 <a name="listPipelines"></a>
+
 # **listPipelines**
+
 > ListPipelinesResponse listPipelines(collectionId, pageSize, pageToken, view)
 
 List pipelines
@@ -408,6 +441,7 @@ List pipelines
 Retrieve a list of pipelines.
 
 ### Example
+
 ```java
 // Import classes:
 import com.sajari.client.ApiClient;
@@ -450,10 +484,13 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collectionId** | **String**| The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. |
- **pageSize** | **Integer**| The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. | [optional]
- **pageToken** | **String**| A page token, received from a previous [ListPipelines](/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/api#operation/ListPipelines) must match the call that provided the page token. | [optional]
- **view** | **String**| The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] [default to VIEW_UNSPECIFIED] [enum: VIEW_UNSPECIFIED, BASIC, FULL]
+**collectionId** | **String**| The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. |
+**pageSize** | **
+Integer**| The maximum number of pipelines to return. The service may return fewer than this value. If unspecified, at most 50 pipelines are returned. The maximum value is 1000; values above 1000 are coerced to 1000. | [optional]
+**pageToken** | **
+String**| A page token, received from a previous [ListPipelines](/api#operation/ListPipelines) call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to [ListPipelines](/api#operation/ListPipelines) must match the call that provided the page token. | [optional]
+**view** | **
+String**| The amount of information to include in each retrieved pipeline. - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view. - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)). - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] [default to VIEW_UNSPECIFIED] [enum: VIEW_UNSPECIFIED, BASIC, FULL]
 
 ### Return type
 
@@ -465,10 +502,11 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
@@ -479,14 +517,19 @@ Name | Type | Description  | Notes
 **0** | An unexpected error response |  -  |
 
 <a name="setDefaultPipeline"></a>
+
 # **setDefaultPipeline**
+
 > Object setDefaultPipeline(collectionId, setDefaultPipelineRequest)
 
 Set default pipeline
 
-Set the default pipeline for a collection.  Every collection has a default record pipeline and a default query pipeline.  When a pipeline is required to complete an operation, it can be omitted from the request if a default pipeline has been set. When adding a record to a collection, the default record pipeline is used if none is provided. When querying a collection, the default query pipeline is used if none is provided.  Once a default pipeline has been set it cannot be cleared, only set to another pipeline.
+Set the default pipeline for a collection. Every collection has a default record pipeline and a default query pipeline. When a pipeline is required to complete an operation, it can
+be omitted from the request if a default pipeline has been set. When adding a record to a collection, the default record pipeline is used if none is provided. When querying a
+collection, the default query pipeline is used if none is provided. Once a default pipeline has been set it cannot be cleared, only set to another pipeline.
 
 ### Example
+
 ```java
 // Import classes:
 import com.sajari.client.ApiClient;
@@ -527,8 +570,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collectionId** | **String**| The collection to set the default query pipeline of, e.g. &#x60;my-collection&#x60;. |
- **setDefaultPipelineRequest** | [**SetDefaultPipelineRequest**](SetDefaultPipelineRequest.md)|  |
+**collectionId** | **String**| The collection to set the default query pipeline of, e.g. &#x60;my-collection&#x60;. |
+**setDefaultPipelineRequest** | [**SetDefaultPipelineRequest**](SetDefaultPipelineRequest.md)|  |
 
 ### Return type
 
@@ -540,10 +583,11 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
@@ -554,14 +598,18 @@ Name | Type | Description  | Notes
 **0** | An unexpected error response |  -  |
 
 <a name="setDefaultVersion"></a>
+
 # **setDefaultVersion**
+
 > Object setDefaultVersion(collectionId, type, name, setDefaultVersionRequest)
 
 Set default pipeline version
 
-Set the default version for a given pipeline.  The default version of a pipeline is used when a pipeline is referred to without specifying a version.  This allows you to change the pipeline version used for requests without having to change your code.
+Set the default version for a given pipeline. The default version of a pipeline is used when a pipeline is referred to without specifying a version. This allows you to change the
+pipeline version used for requests without having to change your code.
 
 ### Example
+
 ```java
 // Import classes:
 import com.sajari.client.ApiClient;
@@ -604,10 +652,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collectionId** | **String**| The collection that owns the pipeline to set the default version of, e.g. &#x60;my-collection&#x60;. |
- **type** | **String**| The type of the pipeline to set the default version of. | [enum: TYPE_UNSPECIFIED, RECORD, QUERY]
- **name** | **String**| The name of the pipeline to set the default version of, e.g. &#x60;my-pipeline&#x60;. |
- **setDefaultVersionRequest** | [**SetDefaultVersionRequest**](SetDefaultVersionRequest.md)|  |
+**collectionId** | **String**| The collection that owns the pipeline to set the default version of, e.g. &#x60;my-collection&#x60;. |
+**type** | **String**| The type of the pipeline to set the default version of. | [enum: TYPE_UNSPECIFIED, RECORD, QUERY]
+**name** | **String**| The name of the pipeline to set the default version of, e.g. &#x60;my-pipeline&#x60;. |
+**setDefaultVersionRequest** | [**SetDefaultVersionRequest**](SetDefaultVersionRequest.md)|  |
 
 ### Return type
 
@@ -619,10 +667,11 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |

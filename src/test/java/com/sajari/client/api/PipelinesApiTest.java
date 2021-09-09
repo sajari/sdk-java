@@ -14,9 +14,15 @@
 package com.sajari.client.api;
 
 import com.sajari.client.ApiException;
-import com.sajari.client.model.*;
-import org.junit.Test;
+import com.sajari.client.model.GeneratePipelinesRequest;
+import com.sajari.client.model.GeneratePipelinesResponse;
+import com.sajari.client.model.GetDefaultPipelineResponse;
+import com.sajari.client.model.ListPipelinesResponse;
+import com.sajari.client.model.Pipeline;
+import com.sajari.client.model.SetDefaultPipelineRequest;
+import com.sajari.client.model.SetDefaultVersionRequest;
 import org.junit.Ignore;
+import org.junit.Test;
 
 
 /**
@@ -27,14 +33,13 @@ public class PipelinesApiTest {
 
     private final PipelinesApi api = new PipelinesApi();
 
-    
+
     /**
      * Create pipeline
-     *
+     * <p>
      * Create a new pipeline.  Pipelines are immutable once created. If you want to change a pipeline e.g. to add or change some steps, you need to create a new version of that pipeline.  To start using a new pipeline you need to update your record ingestion calls and/or your query calls to specify the new pipeline.  To create the pipeline from YAML, set the request&#39;s &#x60;Content-Type&#x60; header to &#x60;application/yaml&#x60; and submit the pipeline&#39;s YAML in the request body.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void createPipelineTest() throws ApiException {
@@ -44,14 +49,13 @@ public class PipelinesApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * Generate pipelines
-     *
+     * <p>
      * Generate basic record, query and autocomplete pipeline templates. Use these templates as a starting point for your collection&#39;s pipelines.  This call returns a set of pipelines that you can pass directly to the create pipeline call.  The generated templates can be returned in JSON, the default, or YAML. To return the generated pipelines in YAML, set the request&#39;s &#x60;Accept&#x60; header to &#x60;application/yaml&#x60;. The three pipelines in the YAML response are separated by three dashes (&#x60;---&#x60;).
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void generatePipelinesTest() throws ApiException {
@@ -61,14 +65,13 @@ public class PipelinesApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * Get default pipeline
-     *
+     * <p>
      * Get the default pipeline for a collection.  Every collection has a default record pipeline and a default query pipeline.  When a pipeline is required to complete an operation, it can be omitted from the request if a default pipeline has been set. When adding a record to a collection, the default record pipeline is used if none is provided. When querying a collection, the default query pipeline is used if none is provided.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getDefaultPipelineTest() throws ApiException {
@@ -78,14 +81,13 @@ public class PipelinesApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * Get default pipeline version
-     *
+     * <p>
      * Get the default version for a given pipeline.  The default version of a pipeline is used when a pipeline is referred to without specifying a version.  This allows you to change the pipeline version used for requests without having to change your code.  To retrieve the pipeline in YAML, set the request&#39;s &#x60;Accept&#x60; header to &#x60;application/yaml&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getDefaultVersionTest() throws ApiException {
@@ -97,14 +99,13 @@ public class PipelinesApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * Get pipeline
-     *
+     * <p>
      * Retrieve the details of a pipeline. Supply the type, name and version.  To retrieve the pipeline in YAML, set the request&#39;s &#x60;Accept&#x60; header to &#x60;application/yaml&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getPipelineTest() throws ApiException {
@@ -117,14 +118,13 @@ public class PipelinesApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * List pipelines
-     *
+     * <p>
      * Retrieve a list of pipelines.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listPipelinesTest() throws ApiException {
@@ -136,14 +136,13 @@ public class PipelinesApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * Set default pipeline
-     *
+     * <p>
      * Set the default pipeline for a collection.  Every collection has a default record pipeline and a default query pipeline.  When a pipeline is required to complete an operation, it can be omitted from the request if a default pipeline has been set. When adding a record to a collection, the default record pipeline is used if none is provided. When querying a collection, the default query pipeline is used if none is provided.  Once a default pipeline has been set it cannot be cleared, only set to another pipeline.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void setDefaultPipelineTest() throws ApiException {
@@ -153,14 +152,13 @@ public class PipelinesApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * Set default pipeline version
-     *
+     * <p>
      * Set the default version for a given pipeline.  The default version of a pipeline is used when a pipeline is referred to without specifying a version.  This allows you to change the pipeline version used for requests without having to change your code.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void setDefaultVersionTest() throws ApiException {
@@ -172,5 +170,5 @@ public class PipelinesApiTest {
 
         // TODO: test validations
     }
-    
+
 }

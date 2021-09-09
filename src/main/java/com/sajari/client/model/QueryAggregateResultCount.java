@@ -13,95 +13,91 @@
 
 package com.sajari.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * Count contains the counts for the set of values returned.
  */
 @ApiModel(description = "Count contains the counts for the set of values returned.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-20T00:31:03.336071Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class QueryAggregateResultCount {
-  public static final String SERIALIZED_NAME_COUNTS = "counts";
-  @SerializedName(SERIALIZED_NAME_COUNTS)
-  private java.util.Map<String, Integer> counts = null;
+    public static final String SERIALIZED_NAME_COUNTS = "counts";
+    @SerializedName(SERIALIZED_NAME_COUNTS)
+    private java.util.Map<String, Integer> counts = null;
 
 
-  public QueryAggregateResultCount counts(java.util.Map<String, Integer> counts) {
-    
-    this.counts = counts;
-    return this;
-  }
+    public QueryAggregateResultCount counts(java.util.Map<String, Integer> counts) {
 
-  public QueryAggregateResultCount putCountsItem(String key, Integer countsItem) {
-    if (this.counts == null) {
-      this.counts = new java.util.HashMap<>();
+        this.counts = counts;
+        return this;
     }
-    this.counts.put(key, countsItem);
-    return this;
-  }
 
-   /**
-   * Get counts
-   * @return counts
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public java.util.Map<String, Integer> getCounts() {
-    return counts;
-  }
-
-
-  public void setCounts(java.util.Map<String, Integer> counts) {
-    this.counts = counts;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public QueryAggregateResultCount putCountsItem(String key, Integer countsItem) {
+        if (this.counts == null) {
+            this.counts = new java.util.HashMap<>();
+        }
+        this.counts.put(key, countsItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get counts
+     *
+     * @return counts
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+
+    public java.util.Map<String, Integer> getCounts() {
+        return counts;
     }
-    QueryAggregateResultCount queryAggregateResultCount = (QueryAggregateResultCount) o;
-    return Objects.equals(this.counts, queryAggregateResultCount.counts);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(counts);
-  }
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class QueryAggregateResultCount {\n");
-    sb.append("    counts: ").append(toIndentedString(counts)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setCounts(java.util.Map<String, Integer> counts) {
+        this.counts = counts;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        QueryAggregateResultCount queryAggregateResultCount = (QueryAggregateResultCount) o;
+        return Objects.equals(this.counts, queryAggregateResultCount.counts);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(counts);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class QueryAggregateResultCount {\n");
+        sb.append("    counts: ").append(toIndentedString(counts)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

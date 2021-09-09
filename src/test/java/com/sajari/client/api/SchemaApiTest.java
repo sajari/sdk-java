@@ -18,8 +18,8 @@ import com.sajari.client.model.BatchCreateSchemaFieldsRequest;
 import com.sajari.client.model.BatchCreateSchemaFieldsResponse;
 import com.sajari.client.model.ListSchemaFieldsResponse;
 import com.sajari.client.model.SchemaField;
-import org.junit.Test;
 import org.junit.Ignore;
+import org.junit.Test;
 
 
 /**
@@ -30,14 +30,13 @@ public class SchemaApiTest {
 
     private final SchemaApi api = new SchemaApi();
 
-    
+
     /**
      * Batch create schema fields
-     *
+     * <p>
      * The batch version of the [CreateSchemaField](/docs/api-reference#operation/CreateSchemaField) call.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void batchCreateSchemaFieldsTest() throws ApiException {
@@ -47,14 +46,13 @@ public class SchemaApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * Create schema field
-     *
+     * <p>
      * Create a new field in your collection&#39;s schema.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void createSchemaFieldTest() throws ApiException {
@@ -64,14 +62,13 @@ public class SchemaApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * List schema fields
-     *
+     * <p>
      * Retrieve a list of schema fields in the collection.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listSchemaFieldsTest() throws ApiException {
@@ -82,5 +79,5 @@ public class SchemaApiTest {
 
         // TODO: test validations
     }
-    
+
 }

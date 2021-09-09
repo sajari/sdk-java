@@ -13,72 +13,68 @@
 
 package com.sajari.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
-
-import java.io.IOException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
+import java.io.IOException;
 
 /**
  * Type represents the underlying data type of the field.   - TYPE_UNSPECIFIED: Type not specified.  - STRING: String values.  - INTEGER: Integer values (64-bit).  - FLOAT: Floating point values (32-bit).  - DOUBLE: Double floating point values (64-bit).  - BOOLEAN: Boolean values.  - TIMESTAMP: Timestamp values.
  */
 @JsonAdapter(SchemaFieldType.Adapter.class)
 public enum SchemaFieldType {
-  
-  TYPE_UNSPECIFIED("TYPE_UNSPECIFIED"),
-  
-  STRING("STRING"),
-  
-  INTEGER("INTEGER"),
-  
-  FLOAT("FLOAT"),
-  
-  DOUBLE("DOUBLE"),
-  
-  BOOLEAN("BOOLEAN"),
-  
-  TIMESTAMP("TIMESTAMP");
 
-  private String value;
+    TYPE_UNSPECIFIED("TYPE_UNSPECIFIED"),
 
-  SchemaFieldType(String value) {
-    this.value = value;
-  }
+    STRING("STRING"),
 
-  public String getValue() {
-    return value;
-  }
+    INTEGER("INTEGER"),
 
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
+    FLOAT("FLOAT"),
 
-  public static SchemaFieldType fromValue(String value) {
-    for (SchemaFieldType b : SchemaFieldType.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    DOUBLE("DOUBLE"),
+
+    BOOLEAN("BOOLEAN"),
+
+    TIMESTAMP("TIMESTAMP");
+
+    private String value;
+
+    SchemaFieldType(String value) {
+        this.value = value;
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
 
-  public static class Adapter extends TypeAdapter<SchemaFieldType> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final SchemaFieldType enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
+    public String getValue() {
+        return value;
     }
 
     @Override
-    public SchemaFieldType read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return SchemaFieldType.fromValue(value);
+    public String toString() {
+        return String.valueOf(value);
     }
-  }
+
+    public static SchemaFieldType fromValue(String value) {
+        for (SchemaFieldType b : SchemaFieldType.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<SchemaFieldType> {
+        @Override
+        public void write(final JsonWriter jsonWriter, final SchemaFieldType enumeration) throws IOException {
+            jsonWriter.value(enumeration.getValue());
+        }
+
+        @Override
+        public SchemaFieldType read(final JsonReader jsonReader) throws IOException {
+            String value = jsonReader.nextString();
+            return SchemaFieldType.fromValue(value);
+        }
+    }
 }
 

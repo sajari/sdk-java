@@ -13,145 +13,141 @@
 
 package com.sajari.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.sajari.client.model.Pipeline;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * GeneratePipelinesResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-20T00:31:03.336071Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GeneratePipelinesResponse {
-  public static final String SERIALIZED_NAME_RECORD_PIPELINE = "record_pipeline";
-  @SerializedName(SERIALIZED_NAME_RECORD_PIPELINE)
-  private Pipeline recordPipeline;
+    public static final String SERIALIZED_NAME_RECORD_PIPELINE = "record_pipeline";
+    @SerializedName(SERIALIZED_NAME_RECORD_PIPELINE)
+    private Pipeline recordPipeline;
 
-  public static final String SERIALIZED_NAME_QUERY_PIPELINE = "query_pipeline";
-  @SerializedName(SERIALIZED_NAME_QUERY_PIPELINE)
-  private Pipeline queryPipeline;
+    public static final String SERIALIZED_NAME_QUERY_PIPELINE = "query_pipeline";
+    @SerializedName(SERIALIZED_NAME_QUERY_PIPELINE)
+    private Pipeline queryPipeline;
 
-  public static final String SERIALIZED_NAME_AUTOCOMPLETE_PIPELINE = "autocomplete_pipeline";
-  @SerializedName(SERIALIZED_NAME_AUTOCOMPLETE_PIPELINE)
-  private Pipeline autocompletePipeline;
-
-
-  public GeneratePipelinesResponse recordPipeline(Pipeline recordPipeline) {
-    
-    this.recordPipeline = recordPipeline;
-    return this;
-  }
-
-   /**
-   * Get recordPipeline
-   * @return recordPipeline
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Pipeline getRecordPipeline() {
-    return recordPipeline;
-  }
+    public static final String SERIALIZED_NAME_AUTOCOMPLETE_PIPELINE = "autocomplete_pipeline";
+    @SerializedName(SERIALIZED_NAME_AUTOCOMPLETE_PIPELINE)
+    private Pipeline autocompletePipeline;
 
 
-  public void setRecordPipeline(Pipeline recordPipeline) {
-    this.recordPipeline = recordPipeline;
-  }
+    public GeneratePipelinesResponse recordPipeline(Pipeline recordPipeline) {
 
-
-  public GeneratePipelinesResponse queryPipeline(Pipeline queryPipeline) {
-    
-    this.queryPipeline = queryPipeline;
-    return this;
-  }
-
-   /**
-   * Get queryPipeline
-   * @return queryPipeline
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Pipeline getQueryPipeline() {
-    return queryPipeline;
-  }
-
-
-  public void setQueryPipeline(Pipeline queryPipeline) {
-    this.queryPipeline = queryPipeline;
-  }
-
-
-  public GeneratePipelinesResponse autocompletePipeline(Pipeline autocompletePipeline) {
-    
-    this.autocompletePipeline = autocompletePipeline;
-    return this;
-  }
-
-   /**
-   * Get autocompletePipeline
-   * @return autocompletePipeline
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Pipeline getAutocompletePipeline() {
-    return autocompletePipeline;
-  }
-
-
-  public void setAutocompletePipeline(Pipeline autocompletePipeline) {
-    this.autocompletePipeline = autocompletePipeline;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+        this.recordPipeline = recordPipeline;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get recordPipeline
+     *
+     * @return recordPipeline
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+
+    public Pipeline getRecordPipeline() {
+        return recordPipeline;
     }
-    GeneratePipelinesResponse generatePipelinesResponse = (GeneratePipelinesResponse) o;
-    return Objects.equals(this.recordPipeline, generatePipelinesResponse.recordPipeline) &&
-        Objects.equals(this.queryPipeline, generatePipelinesResponse.queryPipeline) &&
-        Objects.equals(this.autocompletePipeline, generatePipelinesResponse.autocompletePipeline);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(recordPipeline, queryPipeline, autocompletePipeline);
-  }
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class GeneratePipelinesResponse {\n");
-    sb.append("    recordPipeline: ").append(toIndentedString(recordPipeline)).append("\n");
-    sb.append("    queryPipeline: ").append(toIndentedString(queryPipeline)).append("\n");
-    sb.append("    autocompletePipeline: ").append(toIndentedString(autocompletePipeline)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setRecordPipeline(Pipeline recordPipeline) {
+        this.recordPipeline = recordPipeline;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    public GeneratePipelinesResponse queryPipeline(Pipeline queryPipeline) {
+
+        this.queryPipeline = queryPipeline;
+        return this;
+    }
+
+    /**
+     * Get queryPipeline
+     *
+     * @return queryPipeline
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+
+    public Pipeline getQueryPipeline() {
+        return queryPipeline;
+    }
+
+
+    public void setQueryPipeline(Pipeline queryPipeline) {
+        this.queryPipeline = queryPipeline;
+    }
+
+
+    public GeneratePipelinesResponse autocompletePipeline(Pipeline autocompletePipeline) {
+
+        this.autocompletePipeline = autocompletePipeline;
+        return this;
+    }
+
+    /**
+     * Get autocompletePipeline
+     *
+     * @return autocompletePipeline
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+
+    public Pipeline getAutocompletePipeline() {
+        return autocompletePipeline;
+    }
+
+
+    public void setAutocompletePipeline(Pipeline autocompletePipeline) {
+        this.autocompletePipeline = autocompletePipeline;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        GeneratePipelinesResponse generatePipelinesResponse = (GeneratePipelinesResponse) o;
+        return Objects.equals(this.recordPipeline, generatePipelinesResponse.recordPipeline) &&
+                Objects.equals(this.queryPipeline, generatePipelinesResponse.queryPipeline) &&
+                Objects.equals(this.autocompletePipeline, generatePipelinesResponse.autocompletePipeline);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(recordPipeline, queryPipeline, autocompletePipeline);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class GeneratePipelinesResponse {\n");
+        sb.append("    recordPipeline: ").append(toIndentedString(recordPipeline)).append("\n");
+        sb.append("    queryPipeline: ").append(toIndentedString(queryPipeline)).append("\n");
+        sb.append("    autocompletePipeline: ").append(toIndentedString(autocompletePipeline)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

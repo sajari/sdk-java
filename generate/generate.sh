@@ -44,4 +44,5 @@ docker-entrypoint.sh generate \
   --additional-properties developerEmail="dev@sajari.com" \
   --additional-properties developerName="Justin Koke" \
   --additional-properties developerOrganization="Sajari" \
-  --additional-properties developerOrganizationUrl="https://www.sajari.com"
+  --additional-properties developerOrganizationUrl="https://www.sajari.com" \
+  --additional-properties hideGenerationTimestamp=true

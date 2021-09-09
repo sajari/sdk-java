@@ -13,96 +13,91 @@
 
 package com.sajari.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.sajari.client.model.QueryAggregateResultBucketsBucket;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * Buckets is a full set of buckets computed in an aggregation.
  */
 @ApiModel(description = "Buckets is a full set of buckets computed in an aggregation.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-20T00:31:03.336071Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class QueryAggregateResultBuckets {
-  public static final String SERIALIZED_NAME_BUCKETS = "buckets";
-  @SerializedName(SERIALIZED_NAME_BUCKETS)
-  private java.util.Map<String, QueryAggregateResultBucketsBucket> buckets = null;
+    public static final String SERIALIZED_NAME_BUCKETS = "buckets";
+    @SerializedName(SERIALIZED_NAME_BUCKETS)
+    private java.util.Map<String, QueryAggregateResultBucketsBucket> buckets = null;
 
 
-  public QueryAggregateResultBuckets buckets(java.util.Map<String, QueryAggregateResultBucketsBucket> buckets) {
-    
-    this.buckets = buckets;
-    return this;
-  }
+    public QueryAggregateResultBuckets buckets(java.util.Map<String, QueryAggregateResultBucketsBucket> buckets) {
 
-  public QueryAggregateResultBuckets putBucketsItem(String key, QueryAggregateResultBucketsBucket bucketsItem) {
-    if (this.buckets == null) {
-      this.buckets = new java.util.HashMap<>();
+        this.buckets = buckets;
+        return this;
     }
-    this.buckets.put(key, bucketsItem);
-    return this;
-  }
 
-   /**
-   * Get buckets
-   * @return buckets
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public java.util.Map<String, QueryAggregateResultBucketsBucket> getBuckets() {
-    return buckets;
-  }
-
-
-  public void setBuckets(java.util.Map<String, QueryAggregateResultBucketsBucket> buckets) {
-    this.buckets = buckets;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public QueryAggregateResultBuckets putBucketsItem(String key, QueryAggregateResultBucketsBucket bucketsItem) {
+        if (this.buckets == null) {
+            this.buckets = new java.util.HashMap<>();
+        }
+        this.buckets.put(key, bucketsItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get buckets
+     *
+     * @return buckets
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+
+    public java.util.Map<String, QueryAggregateResultBucketsBucket> getBuckets() {
+        return buckets;
     }
-    QueryAggregateResultBuckets queryAggregateResultBuckets = (QueryAggregateResultBuckets) o;
-    return Objects.equals(this.buckets, queryAggregateResultBuckets.buckets);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(buckets);
-  }
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class QueryAggregateResultBuckets {\n");
-    sb.append("    buckets: ").append(toIndentedString(buckets)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setBuckets(java.util.Map<String, QueryAggregateResultBucketsBucket> buckets) {
+        this.buckets = buckets;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        QueryAggregateResultBuckets queryAggregateResultBuckets = (QueryAggregateResultBuckets) o;
+        return Objects.equals(this.buckets, queryAggregateResultBuckets.buckets);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(buckets);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class QueryAggregateResultBuckets {\n");
+        sb.append("    buckets: ").append(toIndentedString(buckets)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

@@ -13,124 +13,119 @@
 
 package com.sajari.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.sajari.client.model.Collection;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * ListCollectionsResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-20T00:31:03.336071Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ListCollectionsResponse {
-  public static final String SERIALIZED_NAME_COLLECTIONS = "collections";
-  @SerializedName(SERIALIZED_NAME_COLLECTIONS)
-  private java.util.List<Collection> collections = null;
+    public static final String SERIALIZED_NAME_COLLECTIONS = "collections";
+    @SerializedName(SERIALIZED_NAME_COLLECTIONS)
+    private java.util.List<Collection> collections = null;
 
-  public static final String SERIALIZED_NAME_NEXT_PAGE_TOKEN = "next_page_token";
-  @SerializedName(SERIALIZED_NAME_NEXT_PAGE_TOKEN)
-  private String nextPageToken;
+    public static final String SERIALIZED_NAME_NEXT_PAGE_TOKEN = "next_page_token";
+    @SerializedName(SERIALIZED_NAME_NEXT_PAGE_TOKEN)
+    private String nextPageToken;
 
 
-  public ListCollectionsResponse collections(java.util.List<Collection> collections) {
-    
-    this.collections = collections;
-    return this;
-  }
+    public ListCollectionsResponse collections(java.util.List<Collection> collections) {
 
-  public ListCollectionsResponse addCollectionsItem(Collection collectionsItem) {
-    if (this.collections == null) {
-      this.collections = new java.util.ArrayList<>();
+        this.collections = collections;
+        return this;
     }
-    this.collections.add(collectionsItem);
-    return this;
-  }
 
-   /**
-   * The collections from the specified account.
-   * @return collections
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The collections from the specified account.")
-
-  public java.util.List<Collection> getCollections() {
-    return collections;
-  }
-
-
-  public void setCollections(java.util.List<Collection> collections) {
-    this.collections = collections;
-  }
-
-
-  public ListCollectionsResponse nextPageToken(String nextPageToken) {
-    
-    this.nextPageToken = nextPageToken;
-    return this;
-  }
-
-   /**
-   * A token, which can be sent as &#x60;page_token&#x60; to retrieve the next page.  If this field is omitted, there are no subsequent pages.
-   * @return nextPageToken
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "A token, which can be sent as `page_token` to retrieve the next page.  If this field is omitted, there are no subsequent pages.")
-
-  public String getNextPageToken() {
-    return nextPageToken;
-  }
-
-
-  public void setNextPageToken(String nextPageToken) {
-    this.nextPageToken = nextPageToken;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public ListCollectionsResponse addCollectionsItem(Collection collectionsItem) {
+        if (this.collections == null) {
+            this.collections = new java.util.ArrayList<>();
+        }
+        this.collections.add(collectionsItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The collections from the specified account.
+     *
+     * @return collections
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "The collections from the specified account.")
+
+    public java.util.List<Collection> getCollections() {
+        return collections;
     }
-    ListCollectionsResponse listCollectionsResponse = (ListCollectionsResponse) o;
-    return Objects.equals(this.collections, listCollectionsResponse.collections) &&
-        Objects.equals(this.nextPageToken, listCollectionsResponse.nextPageToken);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(collections, nextPageToken);
-  }
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ListCollectionsResponse {\n");
-    sb.append("    collections: ").append(toIndentedString(collections)).append("\n");
-    sb.append("    nextPageToken: ").append(toIndentedString(nextPageToken)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setCollections(java.util.List<Collection> collections) {
+        this.collections = collections;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    public ListCollectionsResponse nextPageToken(String nextPageToken) {
+
+        this.nextPageToken = nextPageToken;
+        return this;
+    }
+
+    /**
+     * A token, which can be sent as &#x60;page_token&#x60; to retrieve the next page.  If this field is omitted, there are no subsequent pages.
+     *
+     * @return nextPageToken
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "A token, which can be sent as `page_token` to retrieve the next page.  If this field is omitted, there are no subsequent pages.")
+
+    public String getNextPageToken() {
+        return nextPageToken;
+    }
+
+
+    public void setNextPageToken(String nextPageToken) {
+        this.nextPageToken = nextPageToken;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ListCollectionsResponse listCollectionsResponse = (ListCollectionsResponse) o;
+        return Objects.equals(this.collections, listCollectionsResponse.collections) &&
+                Objects.equals(this.nextPageToken, listCollectionsResponse.nextPageToken);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(collections, nextPageToken);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ListCollectionsResponse {\n");
+        sb.append("    collections: ").append(toIndentedString(collections)).append("\n");
+        sb.append("    nextPageToken: ").append(toIndentedString(nextPageToken)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

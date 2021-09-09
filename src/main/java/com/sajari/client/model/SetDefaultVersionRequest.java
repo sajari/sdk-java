@@ -13,86 +13,81 @@
 
 package com.sajari.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * SetDefaultVersionRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-20T00:31:03.336071Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SetDefaultVersionRequest {
-  public static final String SERIALIZED_NAME_VERSION = "version";
-  @SerializedName(SERIALIZED_NAME_VERSION)
-  private String version;
+    public static final String SERIALIZED_NAME_VERSION = "version";
+    @SerializedName(SERIALIZED_NAME_VERSION)
+    private String version;
 
 
-  public SetDefaultVersionRequest version(String version) {
-    
-    this.version = version;
-    return this;
-  }
+    public SetDefaultVersionRequest version(String version) {
 
-   /**
-   * The version to use as a default for this pipeline, e.g. &#x60;42&#x60;.
-   * @return version
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The version to use as a default for this pipeline, e.g. `42`.")
-
-  public String getVersion() {
-    return version;
-  }
-
-
-  public void setVersion(String version) {
-    this.version = version;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+        this.version = version;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The version to use as a default for this pipeline, e.g. &#x60;42&#x60;.
+     *
+     * @return version
+     **/
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The version to use as a default for this pipeline, e.g. `42`.")
+
+    public String getVersion() {
+        return version;
     }
-    SetDefaultVersionRequest setDefaultVersionRequest = (SetDefaultVersionRequest) o;
-    return Objects.equals(this.version, setDefaultVersionRequest.version);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(version);
-  }
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SetDefaultVersionRequest {\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setVersion(String version) {
+        this.version = version;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        SetDefaultVersionRequest setDefaultVersionRequest = (SetDefaultVersionRequest) o;
+        return Objects.equals(this.version, setDefaultVersionRequest.version);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(version);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class SetDefaultVersionRequest {\n");
+        sb.append("    version: ").append(toIndentedString(version)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

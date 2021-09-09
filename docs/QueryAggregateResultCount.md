@@ -1,5 +1,3 @@
-
-
 # QueryAggregateResultCount
 
 Count contains the counts for the set of values returned.

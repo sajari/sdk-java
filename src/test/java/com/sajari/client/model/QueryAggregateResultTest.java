@@ -13,28 +13,7 @@
 
 package com.sajari.client.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.sajari.client.model.QueryAggregateResultAnalysis;
-import com.sajari.client.model.QueryAggregateResultBuckets;
-import com.sajari.client.model.QueryAggregateResultCount;
-import com.sajari.client.model.QueryAggregateResultDate;
-import com.sajari.client.model.QueryAggregateResultMetric;
-import com.sajari.client.model.QueryAggregateResultPercentile;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Model tests for QueryAggregateResult

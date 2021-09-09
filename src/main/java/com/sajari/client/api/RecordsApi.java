@@ -13,24 +13,16 @@
 
 package com.sajari.client.api;
 
+import com.google.gson.reflect.TypeToken;
 import com.sajari.client.ApiCallback;
 import com.sajari.client.ApiClient;
 import com.sajari.client.ApiException;
 import com.sajari.client.ApiResponse;
 import com.sajari.client.Configuration;
 import com.sajari.client.Pair;
-import com.sajari.client.ProgressRequestBody;
-import com.sajari.client.ProgressResponseBody;
-
-import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
-
 import com.sajari.client.model.BatchUpsertRecordsRequest;
 import com.sajari.client.model.BatchUpsertRecordsResponse;
 import com.sajari.client.model.DeleteRecordRequest;
-import com.sajari.client.model.Error;
 import com.sajari.client.model.GetRecordRequest;
 import com.sajari.client.model.UpsertRecordRequest;
 import com.sajari.client.model.UpsertRecordResponse;
@@ -58,28 +50,28 @@ public class RecordsApi {
 
     /**
      * Build call for batchUpsertRecords
-     * @param collectionId The collection to upsert the records in, e.g. &#x60;my-collection&#x60;. (required)
-     * @param batchUpsertRecordsRequest  (required)
-     * @param _callback Callback for upload/download progress
+     *
+     * @param collectionId              The collection to upsert the records in, e.g. &#x60;my-collection&#x60;. (required)
+     * @param batchUpsertRecordsRequest (required)
+     * @param _callback                 Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call batchUpsertRecordsCall(String collectionId, BatchUpsertRecordsRequest batchUpsertRecordsRequest, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = batchUpsertRecordsRequest;
 
         // create path and map variables
         String localVarPath = "/v4/collections/{collection_id}/records:batchUpsert"
-            .replaceAll("\\{" + "collection_id" + "\\}", localVarApiClient.escapeString(collectionId.toString()));
+                .replaceAll("\\{" + "collection_id" + "\\}", localVarApiClient.escapeString(collectionId.toString()));
 
         java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
         java.util.List<Pair> localVarCollectionQueryParams = new java.util.ArrayList<Pair>();
@@ -88,7 +80,7 @@ public class RecordsApi {
         java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -96,28 +88,28 @@ public class RecordsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
+        String[] localVarAuthNames = new String[]{"BasicAuth"};
         return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call batchUpsertRecordsValidateBeforeCall(String collectionId, BatchUpsertRecordsRequest batchUpsertRecordsRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
             throw new ApiException("Missing the required parameter 'collectionId' when calling batchUpsertRecords(Async)");
         }
-        
+
         // verify the required parameter 'batchUpsertRecordsRequest' is set
         if (batchUpsertRecordsRequest == null) {
             throw new ApiException("Missing the required parameter 'batchUpsertRecordsRequest' when calling batchUpsertRecords(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = batchUpsertRecordsCall(collectionId, batchUpsertRecordsRequest, _callback);
         return localVarCall;
@@ -127,20 +119,20 @@ public class RecordsApi {
     /**
      * Batch upsert records
      * The batch version of the [UpsertRecord](/api#operation/UpsertRecord) call.
-     * @param collectionId The collection to upsert the records in, e.g. &#x60;my-collection&#x60;. (required)
-     * @param batchUpsertRecordsRequest  (required)
+     *
+     * @param collectionId              The collection to upsert the records in, e.g. &#x60;my-collection&#x60;. (required)
+     * @param batchUpsertRecordsRequest (required)
      * @return BatchUpsertRecordsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public BatchUpsertRecordsResponse batchUpsertRecords(String collectionId, BatchUpsertRecordsRequest batchUpsertRecordsRequest) throws ApiException {
         ApiResponse<BatchUpsertRecordsResponse> localVarResp = batchUpsertRecordsWithHttpInfo(collectionId, batchUpsertRecordsRequest);
@@ -150,77 +142,80 @@ public class RecordsApi {
     /**
      * Batch upsert records
      * The batch version of the [UpsertRecord](/api#operation/UpsertRecord) call.
-     * @param collectionId The collection to upsert the records in, e.g. &#x60;my-collection&#x60;. (required)
-     * @param batchUpsertRecordsRequest  (required)
+     *
+     * @param collectionId              The collection to upsert the records in, e.g. &#x60;my-collection&#x60;. (required)
+     * @param batchUpsertRecordsRequest (required)
      * @return ApiResponse&lt;BatchUpsertRecordsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<BatchUpsertRecordsResponse> batchUpsertRecordsWithHttpInfo(String collectionId, BatchUpsertRecordsRequest batchUpsertRecordsRequest) throws ApiException {
         okhttp3.Call localVarCall = batchUpsertRecordsValidateBeforeCall(collectionId, batchUpsertRecordsRequest, null);
-        Type localVarReturnType = new TypeToken<BatchUpsertRecordsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<BatchUpsertRecordsResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Batch upsert records (asynchronously)
      * The batch version of the [UpsertRecord](/api#operation/UpsertRecord) call.
-     * @param collectionId The collection to upsert the records in, e.g. &#x60;my-collection&#x60;. (required)
-     * @param batchUpsertRecordsRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
+     *
+     * @param collectionId              The collection to upsert the records in, e.g. &#x60;my-collection&#x60;. (required)
+     * @param batchUpsertRecordsRequest (required)
+     * @param _callback                 The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call batchUpsertRecordsAsync(String collectionId, BatchUpsertRecordsRequest batchUpsertRecordsRequest, final ApiCallback<BatchUpsertRecordsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = batchUpsertRecordsValidateBeforeCall(collectionId, batchUpsertRecordsRequest, _callback);
-        Type localVarReturnType = new TypeToken<BatchUpsertRecordsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<BatchUpsertRecordsResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for deleteRecord
-     * @param collectionId The collection that contains the record to delete, e.g. &#x60;my-collection&#x60;. (required)
-     * @param deleteRecordRequest  (required)
-     * @param _callback Callback for upload/download progress
+     *
+     * @param collectionId        The collection that contains the record to delete, e.g. &#x60;my-collection&#x60;. (required)
+     * @param deleteRecordRequest (required)
+     * @param _callback           Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call deleteRecordCall(String collectionId, DeleteRecordRequest deleteRecordRequest, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = deleteRecordRequest;
 
         // create path and map variables
         String localVarPath = "/v4/collections/{collection_id}/records:delete"
-            .replaceAll("\\{" + "collection_id" + "\\}", localVarApiClient.escapeString(collectionId.toString()));
+                .replaceAll("\\{" + "collection_id" + "\\}", localVarApiClient.escapeString(collectionId.toString()));
 
         java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
         java.util.List<Pair> localVarCollectionQueryParams = new java.util.ArrayList<Pair>();
@@ -229,7 +224,7 @@ public class RecordsApi {
         java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -237,28 +232,28 @@ public class RecordsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
+        String[] localVarAuthNames = new String[]{"BasicAuth"};
         return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteRecordValidateBeforeCall(String collectionId, DeleteRecordRequest deleteRecordRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
             throw new ApiException("Missing the required parameter 'collectionId' when calling deleteRecord(Async)");
         }
-        
+
         // verify the required parameter 'deleteRecordRequest' is set
         if (deleteRecordRequest == null) {
             throw new ApiException("Missing the required parameter 'deleteRecordRequest' when calling deleteRecord(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteRecordCall(collectionId, deleteRecordRequest, _callback);
         return localVarCall;
@@ -268,20 +263,20 @@ public class RecordsApi {
     /**
      * Delete record
      * Delete a record with the given key.
-     * @param collectionId The collection that contains the record to delete, e.g. &#x60;my-collection&#x60;. (required)
-     * @param deleteRecordRequest  (required)
+     *
+     * @param collectionId        The collection that contains the record to delete, e.g. &#x60;my-collection&#x60;. (required)
+     * @param deleteRecordRequest (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public Object deleteRecord(String collectionId, DeleteRecordRequest deleteRecordRequest) throws ApiException {
         ApiResponse<Object> localVarResp = deleteRecordWithHttpInfo(collectionId, deleteRecordRequest);
@@ -291,77 +286,80 @@ public class RecordsApi {
     /**
      * Delete record
      * Delete a record with the given key.
-     * @param collectionId The collection that contains the record to delete, e.g. &#x60;my-collection&#x60;. (required)
-     * @param deleteRecordRequest  (required)
+     *
+     * @param collectionId        The collection that contains the record to delete, e.g. &#x60;my-collection&#x60;. (required)
+     * @param deleteRecordRequest (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<Object> deleteRecordWithHttpInfo(String collectionId, DeleteRecordRequest deleteRecordRequest) throws ApiException {
         okhttp3.Call localVarCall = deleteRecordValidateBeforeCall(collectionId, deleteRecordRequest, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<Object>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Delete record (asynchronously)
      * Delete a record with the given key.
-     * @param collectionId The collection that contains the record to delete, e.g. &#x60;my-collection&#x60;. (required)
-     * @param deleteRecordRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
+     *
+     * @param collectionId        The collection that contains the record to delete, e.g. &#x60;my-collection&#x60;. (required)
+     * @param deleteRecordRequest (required)
+     * @param _callback           The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call deleteRecordAsync(String collectionId, DeleteRecordRequest deleteRecordRequest, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteRecordValidateBeforeCall(collectionId, deleteRecordRequest, _callback);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<Object>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getRecord
-     * @param collectionId The collection that contains the record to retrieve, e.g. &#x60;my-collection&#x60;. (required)
-     * @param getRecordRequest  (required)
-     * @param _callback Callback for upload/download progress
+     *
+     * @param collectionId     The collection that contains the record to retrieve, e.g. &#x60;my-collection&#x60;. (required)
+     * @param getRecordRequest (required)
+     * @param _callback        Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getRecordCall(String collectionId, GetRecordRequest getRecordRequest, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = getRecordRequest;
 
         // create path and map variables
         String localVarPath = "/v4/collections/{collection_id}/records:get"
-            .replaceAll("\\{" + "collection_id" + "\\}", localVarApiClient.escapeString(collectionId.toString()));
+                .replaceAll("\\{" + "collection_id" + "\\}", localVarApiClient.escapeString(collectionId.toString()));
 
         java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
         java.util.List<Pair> localVarCollectionQueryParams = new java.util.ArrayList<Pair>();
@@ -370,7 +368,7 @@ public class RecordsApi {
         java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -378,28 +376,28 @@ public class RecordsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
+        String[] localVarAuthNames = new String[]{"BasicAuth"};
         return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getRecordValidateBeforeCall(String collectionId, GetRecordRequest getRecordRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
             throw new ApiException("Missing the required parameter 'collectionId' when calling getRecord(Async)");
         }
-        
+
         // verify the required parameter 'getRecordRequest' is set
         if (getRecordRequest == null) {
             throw new ApiException("Missing the required parameter 'getRecordRequest' when calling getRecord(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getRecordCall(collectionId, getRecordRequest, _callback);
         return localVarCall;
@@ -409,20 +407,20 @@ public class RecordsApi {
     /**
      * Get record
      * Retrieve a record with the given key.
-     * @param collectionId The collection that contains the record to retrieve, e.g. &#x60;my-collection&#x60;. (required)
-     * @param getRecordRequest  (required)
+     *
+     * @param collectionId     The collection that contains the record to retrieve, e.g. &#x60;my-collection&#x60;. (required)
+     * @param getRecordRequest (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public Object getRecord(String collectionId, GetRecordRequest getRecordRequest) throws ApiException {
         ApiResponse<Object> localVarResp = getRecordWithHttpInfo(collectionId, getRecordRequest);
@@ -432,77 +430,80 @@ public class RecordsApi {
     /**
      * Get record
      * Retrieve a record with the given key.
-     * @param collectionId The collection that contains the record to retrieve, e.g. &#x60;my-collection&#x60;. (required)
-     * @param getRecordRequest  (required)
+     *
+     * @param collectionId     The collection that contains the record to retrieve, e.g. &#x60;my-collection&#x60;. (required)
+     * @param getRecordRequest (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<Object> getRecordWithHttpInfo(String collectionId, GetRecordRequest getRecordRequest) throws ApiException {
         okhttp3.Call localVarCall = getRecordValidateBeforeCall(collectionId, getRecordRequest, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<Object>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get record (asynchronously)
      * Retrieve a record with the given key.
-     * @param collectionId The collection that contains the record to retrieve, e.g. &#x60;my-collection&#x60;. (required)
-     * @param getRecordRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
+     *
+     * @param collectionId     The collection that contains the record to retrieve, e.g. &#x60;my-collection&#x60;. (required)
+     * @param getRecordRequest (required)
+     * @param _callback        The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getRecordAsync(String collectionId, GetRecordRequest getRecordRequest, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getRecordValidateBeforeCall(collectionId, getRecordRequest, _callback);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<Object>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for upsertRecord
-     * @param collectionId The collection to upsert the record in, e.g. &#x60;my-collection&#x60;. (required)
-     * @param upsertRecordRequest  (required)
-     * @param _callback Callback for upload/download progress
+     *
+     * @param collectionId        The collection to upsert the record in, e.g. &#x60;my-collection&#x60;. (required)
+     * @param upsertRecordRequest (required)
+     * @param _callback           Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call upsertRecordCall(String collectionId, UpsertRecordRequest upsertRecordRequest, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = upsertRecordRequest;
 
         // create path and map variables
         String localVarPath = "/v4/collections/{collection_id}/records:upsert"
-            .replaceAll("\\{" + "collection_id" + "\\}", localVarApiClient.escapeString(collectionId.toString()));
+                .replaceAll("\\{" + "collection_id" + "\\}", localVarApiClient.escapeString(collectionId.toString()));
 
         java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
         java.util.List<Pair> localVarCollectionQueryParams = new java.util.ArrayList<Pair>();
@@ -511,7 +512,7 @@ public class RecordsApi {
         java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -519,28 +520,28 @@ public class RecordsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
+        String[] localVarAuthNames = new String[]{"BasicAuth"};
         return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call upsertRecordValidateBeforeCall(String collectionId, UpsertRecordRequest upsertRecordRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
             throw new ApiException("Missing the required parameter 'collectionId' when calling upsertRecord(Async)");
         }
-        
+
         // verify the required parameter 'upsertRecordRequest' is set
         if (upsertRecordRequest == null) {
             throw new ApiException("Missing the required parameter 'upsertRecordRequest' when calling upsertRecord(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = upsertRecordCall(collectionId, upsertRecordRequest, _callback);
         return localVarCall;
@@ -550,20 +551,20 @@ public class RecordsApi {
     /**
      * Upsert record
      * If the record does not exist in your collection it is inserted. If it does exist it is updated.  If no pipeline is specified, the default record pipeline is used to process the record.  If the record is inserted, the response contains the key of the inserted record. You can use this if you need to retrieve or delete the record. If the record is updated, the response does not contain a key. Callers can use this as a signal to determine if the record is inserted/created or updated.  For example, to add a single product from your ecommerce store to a collection, use the following call:  &#x60;&#x60;&#x60;json {   \&quot;pipeline\&quot;: {     \&quot;name\&quot;: \&quot;my-pipeline\&quot;,     \&quot;version\&quot;: \&quot;1\&quot;   },   \&quot;record\&quot;: {     \&quot;id\&quot;: \&quot;54hdc7h2334h\&quot;,     \&quot;name\&quot;: \&quot;Smart TV\&quot;,     \&quot;price\&quot;: 1999,     \&quot;brand\&quot;: \&quot;Acme\&quot;,     \&quot;description\&quot;: \&quot;...\&quot;,     \&quot;in_stock\&quot;: true   } } &#x60;&#x60;&#x60;
-     * @param collectionId The collection to upsert the record in, e.g. &#x60;my-collection&#x60;. (required)
-     * @param upsertRecordRequest  (required)
+     *
+     * @param collectionId        The collection to upsert the record in, e.g. &#x60;my-collection&#x60;. (required)
+     * @param upsertRecordRequest (required)
      * @return UpsertRecordResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public UpsertRecordResponse upsertRecord(String collectionId, UpsertRecordRequest upsertRecordRequest) throws ApiException {
         ApiResponse<UpsertRecordResponse> localVarResp = upsertRecordWithHttpInfo(collectionId, upsertRecordRequest);
@@ -573,50 +574,52 @@ public class RecordsApi {
     /**
      * Upsert record
      * If the record does not exist in your collection it is inserted. If it does exist it is updated.  If no pipeline is specified, the default record pipeline is used to process the record.  If the record is inserted, the response contains the key of the inserted record. You can use this if you need to retrieve or delete the record. If the record is updated, the response does not contain a key. Callers can use this as a signal to determine if the record is inserted/created or updated.  For example, to add a single product from your ecommerce store to a collection, use the following call:  &#x60;&#x60;&#x60;json {   \&quot;pipeline\&quot;: {     \&quot;name\&quot;: \&quot;my-pipeline\&quot;,     \&quot;version\&quot;: \&quot;1\&quot;   },   \&quot;record\&quot;: {     \&quot;id\&quot;: \&quot;54hdc7h2334h\&quot;,     \&quot;name\&quot;: \&quot;Smart TV\&quot;,     \&quot;price\&quot;: 1999,     \&quot;brand\&quot;: \&quot;Acme\&quot;,     \&quot;description\&quot;: \&quot;...\&quot;,     \&quot;in_stock\&quot;: true   } } &#x60;&#x60;&#x60;
-     * @param collectionId The collection to upsert the record in, e.g. &#x60;my-collection&#x60;. (required)
-     * @param upsertRecordRequest  (required)
+     *
+     * @param collectionId        The collection to upsert the record in, e.g. &#x60;my-collection&#x60;. (required)
+     * @param upsertRecordRequest (required)
      * @return ApiResponse&lt;UpsertRecordResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<UpsertRecordResponse> upsertRecordWithHttpInfo(String collectionId, UpsertRecordRequest upsertRecordRequest) throws ApiException {
         okhttp3.Call localVarCall = upsertRecordValidateBeforeCall(collectionId, upsertRecordRequest, null);
-        Type localVarReturnType = new TypeToken<UpsertRecordResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<UpsertRecordResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Upsert record (asynchronously)
      * If the record does not exist in your collection it is inserted. If it does exist it is updated.  If no pipeline is specified, the default record pipeline is used to process the record.  If the record is inserted, the response contains the key of the inserted record. You can use this if you need to retrieve or delete the record. If the record is updated, the response does not contain a key. Callers can use this as a signal to determine if the record is inserted/created or updated.  For example, to add a single product from your ecommerce store to a collection, use the following call:  &#x60;&#x60;&#x60;json {   \&quot;pipeline\&quot;: {     \&quot;name\&quot;: \&quot;my-pipeline\&quot;,     \&quot;version\&quot;: \&quot;1\&quot;   },   \&quot;record\&quot;: {     \&quot;id\&quot;: \&quot;54hdc7h2334h\&quot;,     \&quot;name\&quot;: \&quot;Smart TV\&quot;,     \&quot;price\&quot;: 1999,     \&quot;brand\&quot;: \&quot;Acme\&quot;,     \&quot;description\&quot;: \&quot;...\&quot;,     \&quot;in_stock\&quot;: true   } } &#x60;&#x60;&#x60;
-     * @param collectionId The collection to upsert the record in, e.g. &#x60;my-collection&#x60;. (required)
-     * @param upsertRecordRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
+     *
+     * @param collectionId        The collection to upsert the record in, e.g. &#x60;my-collection&#x60;. (required)
+     * @param upsertRecordRequest (required)
+     * @param _callback           The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call upsertRecordAsync(String collectionId, UpsertRecordRequest upsertRecordRequest, final ApiCallback<UpsertRecordResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = upsertRecordValidateBeforeCall(collectionId, upsertRecordRequest, _callback);
-        Type localVarReturnType = new TypeToken<UpsertRecordResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<UpsertRecordResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

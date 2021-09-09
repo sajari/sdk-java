@@ -1,5 +1,3 @@
-
-
 # QueryAggregateResult
 
 A query aggregate result contains results of aggregations.

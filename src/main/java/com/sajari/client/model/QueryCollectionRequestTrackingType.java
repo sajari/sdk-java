@@ -13,66 +13,62 @@
 
 package com.sajari.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
-
-import java.io.IOException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
+import java.io.IOException;
+
 /**
- *  - TYPE_UNSPECIFIED: The default / unset value. The API defaults to &#x60;NONE&#x60; tracking.  - NONE: No tracking.  - CLICK: Click tracking.  A click token will be generated for each result. Results which do not receive clicks will fall down rankings, and similarly low-ranked records which receive clicks will be moved up the rankings.  - POS_NEG: Pos/neg tracking.  Pos/neg tokens will be generated for each result. Each record in the result set can be marked with pos/neg value for the search. This is then fed back into the ranking algorithm to improve future results. Unlike &#x60;CLICK&#x60;, if no tokens are reported for records then no action is taken.
+ * - TYPE_UNSPECIFIED: The default / unset value. The API defaults to &#x60;NONE&#x60; tracking.  - NONE: No tracking.  - CLICK: Click tracking.  A click token will be generated for each result. Results which do not receive clicks will fall down rankings, and similarly low-ranked records which receive clicks will be moved up the rankings.  - POS_NEG: Pos/neg tracking.  Pos/neg tokens will be generated for each result. Each record in the result set can be marked with pos/neg value for the search. This is then fed back into the ranking algorithm to improve future results. Unlike &#x60;CLICK&#x60;, if no tokens are reported for records then no action is taken.
  */
 @JsonAdapter(QueryCollectionRequestTrackingType.Adapter.class)
 public enum QueryCollectionRequestTrackingType {
-  
-  TYPE_UNSPECIFIED("TYPE_UNSPECIFIED"),
-  
-  NONE("NONE"),
-  
-  CLICK("CLICK"),
-  
-  POS_NEG("POS_NEG");
 
-  private String value;
+    TYPE_UNSPECIFIED("TYPE_UNSPECIFIED"),
 
-  QueryCollectionRequestTrackingType(String value) {
-    this.value = value;
-  }
+    NONE("NONE"),
 
-  public String getValue() {
-    return value;
-  }
+    CLICK("CLICK"),
 
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
+    POS_NEG("POS_NEG");
 
-  public static QueryCollectionRequestTrackingType fromValue(String value) {
-    for (QueryCollectionRequestTrackingType b : QueryCollectionRequestTrackingType.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    private String value;
+
+    QueryCollectionRequestTrackingType(String value) {
+        this.value = value;
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
 
-  public static class Adapter extends TypeAdapter<QueryCollectionRequestTrackingType> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final QueryCollectionRequestTrackingType enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
+    public String getValue() {
+        return value;
     }
 
     @Override
-    public QueryCollectionRequestTrackingType read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return QueryCollectionRequestTrackingType.fromValue(value);
+    public String toString() {
+        return String.valueOf(value);
     }
-  }
+
+    public static QueryCollectionRequestTrackingType fromValue(String value) {
+        for (QueryCollectionRequestTrackingType b : QueryCollectionRequestTrackingType.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<QueryCollectionRequestTrackingType> {
+        @Override
+        public void write(final JsonWriter jsonWriter, final QueryCollectionRequestTrackingType enumeration) throws IOException {
+            jsonWriter.value(enumeration.getValue());
+        }
+
+        @Override
+        public QueryCollectionRequestTrackingType read(final JsonReader jsonReader) throws IOException {
+            String value = jsonReader.nextString();
+            return QueryCollectionRequestTrackingType.fromValue(value);
+        }
+    }
 }
 

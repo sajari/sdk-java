@@ -13,184 +13,177 @@
 
 package com.sajari.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
 import java.time.OffsetDateTime;
+import java.util.Objects;
 
 /**
  * Collection
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-20T00:31:03.336071Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Collection {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
+    public static final String SERIALIZED_NAME_ID = "id";
+    @SerializedName(SERIALIZED_NAME_ID)
+    private String id;
 
-  public static final String SERIALIZED_NAME_ACCOUNT_ID = "account_id";
-  @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
-  private String accountId;
+    public static final String SERIALIZED_NAME_ACCOUNT_ID = "account_id";
+    @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
+    private String accountId;
 
-  public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
-  @SerializedName(SERIALIZED_NAME_CREATE_TIME)
-  private OffsetDateTime createTime;
+    public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
+    @SerializedName(SERIALIZED_NAME_CREATE_TIME)
+    private OffsetDateTime createTime;
 
-  public static final String SERIALIZED_NAME_DISPLAY_NAME = "display_name";
-  @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
-  private String displayName;
+    public static final String SERIALIZED_NAME_DISPLAY_NAME = "display_name";
+    @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
+    private String displayName;
 
-  public static final String SERIALIZED_NAME_AUTHORIZED_QUERY_DOMAINS = "authorized_query_domains";
-  @SerializedName(SERIALIZED_NAME_AUTHORIZED_QUERY_DOMAINS)
-  private java.util.List<String> authorizedQueryDomains = null;
-
-
-   /**
-   * Output only. The collection&#39;s ID.
-   * @return id
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Output only. The collection's ID.")
-
-  public String getId() {
-    return id;
-  }
+    public static final String SERIALIZED_NAME_AUTHORIZED_QUERY_DOMAINS = "authorized_query_domains";
+    @SerializedName(SERIALIZED_NAME_AUTHORIZED_QUERY_DOMAINS)
+    private java.util.List<String> authorizedQueryDomains = null;
 
 
+    /**
+     * Output only. The collection&#39;s ID.
+     *
+     * @return id
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Output only. The collection's ID.")
 
-
-   /**
-   * Output only. The ID of the account that owns this collection.
-   * @return accountId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Output only. The ID of the account that owns this collection.")
-
-  public String getAccountId() {
-    return accountId;
-  }
-
-
-
-
-   /**
-   * Output only. Creation time of the collection.
-   * @return createTime
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Output only. Creation time of the collection.")
-
-  public OffsetDateTime getCreateTime() {
-    return createTime;
-  }
-
-
-
-
-  public Collection displayName(String displayName) {
-    
-    this.displayName = displayName;
-    return this;
-  }
-
-   /**
-   * The collection&#39;s display name. You can change this at any time.
-   * @return displayName
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The collection's display name. You can change this at any time.")
-
-  public String getDisplayName() {
-    return displayName;
-  }
-
-
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
-  }
-
-
-  public Collection authorizedQueryDomains(java.util.List<String> authorizedQueryDomains) {
-    
-    this.authorizedQueryDomains = authorizedQueryDomains;
-    return this;
-  }
-
-  public Collection addAuthorizedQueryDomainsItem(String authorizedQueryDomainsItem) {
-    if (this.authorizedQueryDomains == null) {
-      this.authorizedQueryDomains = new java.util.ArrayList<>();
+    public String getId() {
+        return id;
     }
-    this.authorizedQueryDomains.add(authorizedQueryDomainsItem);
-    return this;
-  }
-
-   /**
-   * The list of authorized query domains for the collection.  Client-side / browser requests to the [QueryCollection](/api#operation/QueryCollection) call can be made by any authorized query domain or any of its subdomains. This allows your interface to make search requests without having to provide an API key in the client-side request.
-   * @return authorizedQueryDomains
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The list of authorized query domains for the collection.  Client-side / browser requests to the [QueryCollection](/api#operation/QueryCollection) call can be made by any authorized query domain or any of its subdomains. This allows your interface to make search requests without having to provide an API key in the client-side request.")
-
-  public java.util.List<String> getAuthorizedQueryDomains() {
-    return authorizedQueryDomains;
-  }
 
 
-  public void setAuthorizedQueryDomains(java.util.List<String> authorizedQueryDomains) {
-    this.authorizedQueryDomains = authorizedQueryDomains;
-  }
+    /**
+     * Output only. The ID of the account that owns this collection.
+     *
+     * @return accountId
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Output only. The ID of the account that owns this collection.")
 
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public String getAccountId() {
+        return accountId;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+
+    /**
+     * Output only. Creation time of the collection.
+     *
+     * @return createTime
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Output only. Creation time of the collection.")
+
+    public OffsetDateTime getCreateTime() {
+        return createTime;
     }
-    Collection collection = (Collection) o;
-    return Objects.equals(this.id, collection.id) &&
-        Objects.equals(this.accountId, collection.accountId) &&
-        Objects.equals(this.createTime, collection.createTime) &&
-        Objects.equals(this.displayName, collection.displayName) &&
-        Objects.equals(this.authorizedQueryDomains, collection.authorizedQueryDomains);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, accountId, createTime, displayName, authorizedQueryDomains);
-  }
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Collection {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
-    sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-    sb.append("    authorizedQueryDomains: ").append(toIndentedString(authorizedQueryDomains)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+    public Collection displayName(String displayName) {
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+        this.displayName = displayName;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * The collection&#39;s display name. You can change this at any time.
+     *
+     * @return displayName
+     **/
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The collection's display name. You can change this at any time.")
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
+    }
+
+
+    public Collection authorizedQueryDomains(java.util.List<String> authorizedQueryDomains) {
+
+        this.authorizedQueryDomains = authorizedQueryDomains;
+        return this;
+    }
+
+    public Collection addAuthorizedQueryDomainsItem(String authorizedQueryDomainsItem) {
+        if (this.authorizedQueryDomains == null) {
+            this.authorizedQueryDomains = new java.util.ArrayList<>();
+        }
+        this.authorizedQueryDomains.add(authorizedQueryDomainsItem);
+        return this;
+    }
+
+    /**
+     * The list of authorized query domains for the collection.  Client-side / browser requests to the [QueryCollection](/api#operation/QueryCollection) call can be made by any authorized query domain or any of its subdomains. This allows your interface to make search requests without having to provide an API key in the client-side request.
+     *
+     * @return authorizedQueryDomains
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "The list of authorized query domains for the collection.  Client-side / browser requests to the [QueryCollection](/api#operation/QueryCollection) call can be made by any authorized query domain or any of its subdomains. This allows your interface to make search requests without having to provide an API key in the client-side request.")
+
+    public java.util.List<String> getAuthorizedQueryDomains() {
+        return authorizedQueryDomains;
+    }
+
+
+    public void setAuthorizedQueryDomains(java.util.List<String> authorizedQueryDomains) {
+        this.authorizedQueryDomains = authorizedQueryDomains;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Collection collection = (Collection) o;
+        return Objects.equals(this.id, collection.id) &&
+                Objects.equals(this.accountId, collection.accountId) &&
+                Objects.equals(this.createTime, collection.createTime) &&
+                Objects.equals(this.displayName, collection.displayName) &&
+                Objects.equals(this.authorizedQueryDomains, collection.authorizedQueryDomains);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, accountId, createTime, displayName, authorizedQueryDomains);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class Collection {\n");
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+        sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+        sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+        sb.append("    authorizedQueryDomains: ").append(toIndentedString(authorizedQueryDomains)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

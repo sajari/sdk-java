@@ -1,9 +1,6 @@
-
-
 # SchemaFieldMode
 
 ## Enum
-
 
 * `MODE_UNSPECIFIED` (value: `"MODE_UNSPECIFIED"`)
 

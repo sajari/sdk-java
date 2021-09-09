@@ -13,115 +13,111 @@
 
 package com.sajari.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * RecordKey
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-20T00:31:03.336071Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RecordKey {
-  public static final String SERIALIZED_NAME_FIELD = "field";
-  @SerializedName(SERIALIZED_NAME_FIELD)
-  private String field;
+    public static final String SERIALIZED_NAME_FIELD = "field";
+    @SerializedName(SERIALIZED_NAME_FIELD)
+    private String field;
 
-  public static final String SERIALIZED_NAME_VALUE = "value";
-  @SerializedName(SERIALIZED_NAME_VALUE)
-  private String value;
-
-
-  public RecordKey field(String field) {
-    
-    this.field = field;
-    return this;
-  }
-
-   /**
-   * A field in your record that uniquely identifies it, e.g. &#x60;id&#x60;.
-   * @return field
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A field in your record that uniquely identifies it, e.g. `id`.")
-
-  public String getField() {
-    return field;
-  }
+    public static final String SERIALIZED_NAME_VALUE = "value";
+    @SerializedName(SERIALIZED_NAME_VALUE)
+    private String value;
 
 
-  public void setField(String field) {
-    this.field = field;
-  }
+    public RecordKey field(String field) {
 
-
-  public RecordKey value(String value) {
-    
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * The value of &#x60;field&#x60; in your record, e.g. &#x60;b217a995-597c-410f-bef2-60e9f8c0aadd&#x60;.
-   * @return value
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The value of `field` in your record, e.g. `b217a995-597c-410f-bef2-60e9f8c0aadd`.")
-
-  public String getValue() {
-    return value;
-  }
-
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+        this.field = field;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * A field in your record that uniquely identifies it, e.g. &#x60;id&#x60;.
+     *
+     * @return field
+     **/
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "A field in your record that uniquely identifies it, e.g. `id`.")
+
+    public String getField() {
+        return field;
     }
-    RecordKey recordKey = (RecordKey) o;
-    return Objects.equals(this.field, recordKey.field) &&
-        Objects.equals(this.value, recordKey.value);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(field, value);
-  }
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class RecordKey {\n");
-    sb.append("    field: ").append(toIndentedString(field)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setField(String field) {
+        this.field = field;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    public RecordKey value(String value) {
+
+        this.value = value;
+        return this;
+    }
+
+    /**
+     * The value of &#x60;field&#x60; in your record, e.g. &#x60;b217a995-597c-410f-bef2-60e9f8c0aadd&#x60;.
+     *
+     * @return value
+     **/
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The value of `field` in your record, e.g. `b217a995-597c-410f-bef2-60e9f8c0aadd`.")
+
+    public String getValue() {
+        return value;
+    }
+
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        RecordKey recordKey = (RecordKey) o;
+        return Objects.equals(this.field, recordKey.field) &&
+                Objects.equals(this.value, recordKey.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(field, value);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class RecordKey {\n");
+        sb.append("    field: ").append(toIndentedString(field)).append("\n");
+        sb.append("    value: ").append(toIndentedString(value)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

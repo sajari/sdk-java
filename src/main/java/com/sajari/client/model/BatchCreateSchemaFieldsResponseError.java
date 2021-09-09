@@ -13,116 +13,111 @@
 
 package com.sajari.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.sajari.client.model.Status;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * BatchCreateSchemaFieldsResponseError
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-20T00:31:03.336071Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class BatchCreateSchemaFieldsResponseError {
-  public static final String SERIALIZED_NAME_INDEX = "index";
-  @SerializedName(SERIALIZED_NAME_INDEX)
-  private Integer index;
+    public static final String SERIALIZED_NAME_INDEX = "index";
+    @SerializedName(SERIALIZED_NAME_INDEX)
+    private Integer index;
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
-  private Status status;
-
-
-  public BatchCreateSchemaFieldsResponseError index(Integer index) {
-    
-    this.index = index;
-    return this;
-  }
-
-   /**
-   * Index of the schema field in &#x60;fields&#x60; that this error corresponds to.
-   * @return index
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Index of the schema field in `fields` that this error corresponds to.")
-
-  public Integer getIndex() {
-    return index;
-  }
+    public static final String SERIALIZED_NAME_STATUS = "status";
+    @SerializedName(SERIALIZED_NAME_STATUS)
+    private Status status;
 
 
-  public void setIndex(Integer index) {
-    this.index = index;
-  }
+    public BatchCreateSchemaFieldsResponseError index(Integer index) {
 
-
-  public BatchCreateSchemaFieldsResponseError status(Status status) {
-    
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Status getStatus() {
-    return status;
-  }
-
-
-  public void setStatus(Status status) {
-    this.status = status;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+        this.index = index;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Index of the schema field in &#x60;fields&#x60; that this error corresponds to.
+     *
+     * @return index
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Index of the schema field in `fields` that this error corresponds to.")
+
+    public Integer getIndex() {
+        return index;
     }
-    BatchCreateSchemaFieldsResponseError batchCreateSchemaFieldsResponseError = (BatchCreateSchemaFieldsResponseError) o;
-    return Objects.equals(this.index, batchCreateSchemaFieldsResponseError.index) &&
-        Objects.equals(this.status, batchCreateSchemaFieldsResponseError.status);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(index, status);
-  }
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class BatchCreateSchemaFieldsResponseError {\n");
-    sb.append("    index: ").append(toIndentedString(index)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setIndex(Integer index) {
+        this.index = index;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    public BatchCreateSchemaFieldsResponseError status(Status status) {
+
+        this.status = status;
+        return this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return status
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+
+    public Status getStatus() {
+        return status;
+    }
+
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        BatchCreateSchemaFieldsResponseError batchCreateSchemaFieldsResponseError = (BatchCreateSchemaFieldsResponseError) o;
+        return Objects.equals(this.index, batchCreateSchemaFieldsResponseError.index) &&
+                Objects.equals(this.status, batchCreateSchemaFieldsResponseError.status);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(index, status);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class BatchCreateSchemaFieldsResponseError {\n");
+        sb.append("    index: ").append(toIndentedString(index)).append("\n");
+        sb.append("    status: ").append(toIndentedString(status)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

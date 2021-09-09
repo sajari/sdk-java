@@ -1,7 +1,4 @@
-
-
 # GetRecordRequest
-
 
 ## Properties
 

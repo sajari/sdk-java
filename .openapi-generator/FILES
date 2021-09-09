@@ -14,6 +14,7 @@ docs/Collection.md
 docs/CollectionsApi.md
 docs/DeleteRecordRequest.md
 docs/Error.md
+docs/EventsApi.md
 docs/GeneratePipelinesRequest.md
 docs/GeneratePipelinesResponse.md
 docs/GetDefaultPipelineResponse.md
@@ -56,6 +57,7 @@ docs/SchemaApi.md
 docs/SchemaField.md
 docs/SchemaFieldMode.md
 docs/SchemaFieldType.md
+docs/SendEventRequest.md
 docs/SetDefaultPipelineRequest.md
 docs/SetDefaultVersionRequest.md
 docs/Status.md
@@ -82,6 +84,7 @@ src/main/java/com/sajari/client/ServerConfiguration.java
 src/main/java/com/sajari/client/ServerVariable.java
 src/main/java/com/sajari/client/StringUtil.java
 src/main/java/com/sajari/client/api/CollectionsApi.java
+src/main/java/com/sajari/client/api/EventsApi.java
 src/main/java/com/sajari/client/api/PipelinesApi.java
 src/main/java/com/sajari/client/api/RecordsApi.java
 src/main/java/com/sajari/client/api/SchemaApi.java
@@ -140,6 +143,7 @@ src/main/java/com/sajari/client/model/RecordKey.java
 src/main/java/com/sajari/client/model/SchemaField.java
 src/main/java/com/sajari/client/model/SchemaFieldMode.java
 src/main/java/com/sajari/client/model/SchemaFieldType.java
+src/main/java/com/sajari/client/model/SendEventRequest.java
 src/main/java/com/sajari/client/model/SetDefaultPipelineRequest.java
 src/main/java/com/sajari/client/model/SetDefaultVersionRequest.java
 src/main/java/com/sajari/client/model/Status.java

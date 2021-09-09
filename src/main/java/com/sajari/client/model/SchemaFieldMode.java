@@ -13,66 +13,62 @@
 
 package com.sajari.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
-
-import java.io.IOException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
+import java.io.IOException;
 
 /**
  * Mode is an enumeration of modes for a field.   - MODE_UNSPECIFIED: Mode not specified.  - NULLABLE: Nullable fields do not need to be specified.  - REQUIRED: Required fields must be specified and cannot be null.  - UNIQUE: Unique fields must be specified and must be unique.
  */
 @JsonAdapter(SchemaFieldMode.Adapter.class)
 public enum SchemaFieldMode {
-  
-  MODE_UNSPECIFIED("MODE_UNSPECIFIED"),
-  
-  NULLABLE("NULLABLE"),
-  
-  REQUIRED("REQUIRED"),
-  
-  UNIQUE("UNIQUE");
 
-  private String value;
+    MODE_UNSPECIFIED("MODE_UNSPECIFIED"),
 
-  SchemaFieldMode(String value) {
-    this.value = value;
-  }
+    NULLABLE("NULLABLE"),
 
-  public String getValue() {
-    return value;
-  }
+    REQUIRED("REQUIRED"),
 
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
+    UNIQUE("UNIQUE");
 
-  public static SchemaFieldMode fromValue(String value) {
-    for (SchemaFieldMode b : SchemaFieldMode.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    private String value;
+
+    SchemaFieldMode(String value) {
+        this.value = value;
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
 
-  public static class Adapter extends TypeAdapter<SchemaFieldMode> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final SchemaFieldMode enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
+    public String getValue() {
+        return value;
     }
 
     @Override
-    public SchemaFieldMode read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return SchemaFieldMode.fromValue(value);
+    public String toString() {
+        return String.valueOf(value);
     }
-  }
+
+    public static SchemaFieldMode fromValue(String value) {
+        for (SchemaFieldMode b : SchemaFieldMode.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<SchemaFieldMode> {
+        @Override
+        public void write(final JsonWriter jsonWriter, final SchemaFieldMode enumeration) throws IOException {
+            jsonWriter.value(enumeration.getValue());
+        }
+
+        @Override
+        public SchemaFieldMode read(final JsonReader jsonReader) throws IOException {
+            String value = jsonReader.nextString();
+            return SchemaFieldMode.fromValue(value);
+        }
+    }
 }
 

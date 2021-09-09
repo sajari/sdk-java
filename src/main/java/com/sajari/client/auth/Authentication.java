@@ -15,14 +15,14 @@ package com.sajari.client.auth;
 
 import com.sajari.client.Pair;
 
-import java.util.Map;
 import java.util.List;
+import java.util.Map;
 
 public interface Authentication {
     /**
      * Apply authentication settings to header and query params.
      *
-     * @param queryParams List of query parameters
+     * @param queryParams  List of query parameters
      * @param headerParams Map of header parameters
      * @param cookieParams Map of cookie parameters
      */

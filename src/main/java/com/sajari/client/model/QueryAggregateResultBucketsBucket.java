@@ -13,116 +13,113 @@
 
 package com.sajari.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * Bucket is the result of a bucket aggregate.
  */
 @ApiModel(description = "Bucket is the result of a bucket aggregate.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-20T00:31:03.336071Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class QueryAggregateResultBucketsBucket {
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+    public static final String SERIALIZED_NAME_NAME = "name";
+    @SerializedName(SERIALIZED_NAME_NAME)
+    private String name;
 
-  public static final String SERIALIZED_NAME_COUNT = "count";
-  @SerializedName(SERIALIZED_NAME_COUNT)
-  private Integer count;
-
-
-  public QueryAggregateResultBucketsBucket name(String name) {
-    
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Name of bucket.
-   * @return name
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of bucket.")
-
-  public String getName() {
-    return name;
-  }
+    public static final String SERIALIZED_NAME_COUNT = "count";
+    @SerializedName(SERIALIZED_NAME_COUNT)
+    private Integer count;
 
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    public QueryAggregateResultBucketsBucket name(String name) {
 
-
-  public QueryAggregateResultBucketsBucket count(Integer count) {
-    
-    this.count = count;
-    return this;
-  }
-
-   /**
-   * Number of records in the bucket.
-   * @return count
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of records in the bucket.")
-
-  public Integer getCount() {
-    return count;
-  }
-
-
-  public void setCount(Integer count) {
-    this.count = count;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+        this.name = name;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Name of bucket.
+     *
+     * @return name
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Name of bucket.")
+
+    public String getName() {
+        return name;
     }
-    QueryAggregateResultBucketsBucket queryAggregateResultBucketsBucket = (QueryAggregateResultBucketsBucket) o;
-    return Objects.equals(this.name, queryAggregateResultBucketsBucket.name) &&
-        Objects.equals(this.count, queryAggregateResultBucketsBucket.count);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(name, count);
-  }
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class QueryAggregateResultBucketsBucket {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    count: ").append(toIndentedString(count)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setName(String name) {
+        this.name = name;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    public QueryAggregateResultBucketsBucket count(Integer count) {
+
+        this.count = count;
+        return this;
+    }
+
+    /**
+     * Number of records in the bucket.
+     *
+     * @return count
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Number of records in the bucket.")
+
+    public Integer getCount() {
+        return count;
+    }
+
+
+    public void setCount(Integer count) {
+        this.count = count;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        QueryAggregateResultBucketsBucket queryAggregateResultBucketsBucket = (QueryAggregateResultBucketsBucket) o;
+        return Objects.equals(this.name, queryAggregateResultBucketsBucket.name) &&
+                Objects.equals(this.count, queryAggregateResultBucketsBucket.count);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, count);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class QueryAggregateResultBucketsBucket {\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    count: ").append(toIndentedString(count)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

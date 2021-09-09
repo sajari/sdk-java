@@ -1,7 +1,4 @@
-
-
 # UpsertRecordResponse
-
 
 ## Properties
 

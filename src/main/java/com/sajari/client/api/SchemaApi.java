@@ -13,23 +13,15 @@
 
 package com.sajari.client.api;
 
+import com.google.gson.reflect.TypeToken;
 import com.sajari.client.ApiCallback;
 import com.sajari.client.ApiClient;
 import com.sajari.client.ApiException;
 import com.sajari.client.ApiResponse;
 import com.sajari.client.Configuration;
 import com.sajari.client.Pair;
-import com.sajari.client.ProgressRequestBody;
-import com.sajari.client.ProgressResponseBody;
-
-import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
-
 import com.sajari.client.model.BatchCreateSchemaFieldsRequest;
 import com.sajari.client.model.BatchCreateSchemaFieldsResponse;
-import com.sajari.client.model.Error;
 import com.sajari.client.model.ListSchemaFieldsResponse;
 import com.sajari.client.model.SchemaField;
 
@@ -56,28 +48,28 @@ public class SchemaApi {
 
     /**
      * Build call for batchCreateSchemaFields
-     * @param collectionId The collection to create the schema fields in, e.g. &#x60;my-collection&#x60;. (required)
-     * @param batchCreateSchemaFieldsRequest  (required)
-     * @param _callback Callback for upload/download progress
+     *
+     * @param collectionId                   The collection to create the schema fields in, e.g. &#x60;my-collection&#x60;. (required)
+     * @param batchCreateSchemaFieldsRequest (required)
+     * @param _callback                      Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call batchCreateSchemaFieldsCall(String collectionId, BatchCreateSchemaFieldsRequest batchCreateSchemaFieldsRequest, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = batchCreateSchemaFieldsRequest;
 
         // create path and map variables
         String localVarPath = "/v4/collections/{collection_id}/schemaFields:batchCreate"
-            .replaceAll("\\{" + "collection_id" + "\\}", localVarApiClient.escapeString(collectionId.toString()));
+                .replaceAll("\\{" + "collection_id" + "\\}", localVarApiClient.escapeString(collectionId.toString()));
 
         java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
         java.util.List<Pair> localVarCollectionQueryParams = new java.util.ArrayList<Pair>();
@@ -86,7 +78,7 @@ public class SchemaApi {
         java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -94,28 +86,28 @@ public class SchemaApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
+        String[] localVarAuthNames = new String[]{"BasicAuth"};
         return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call batchCreateSchemaFieldsValidateBeforeCall(String collectionId, BatchCreateSchemaFieldsRequest batchCreateSchemaFieldsRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
             throw new ApiException("Missing the required parameter 'collectionId' when calling batchCreateSchemaFields(Async)");
         }
-        
+
         // verify the required parameter 'batchCreateSchemaFieldsRequest' is set
         if (batchCreateSchemaFieldsRequest == null) {
             throw new ApiException("Missing the required parameter 'batchCreateSchemaFieldsRequest' when calling batchCreateSchemaFields(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = batchCreateSchemaFieldsCall(collectionId, batchCreateSchemaFieldsRequest, _callback);
         return localVarCall;
@@ -125,20 +117,20 @@ public class SchemaApi {
     /**
      * Batch create schema fields
      * The batch version of the [CreateSchemaField](/api#operation/CreateSchemaField) call.
-     * @param collectionId The collection to create the schema fields in, e.g. &#x60;my-collection&#x60;. (required)
-     * @param batchCreateSchemaFieldsRequest  (required)
+     *
+     * @param collectionId                   The collection to create the schema fields in, e.g. &#x60;my-collection&#x60;. (required)
+     * @param batchCreateSchemaFieldsRequest (required)
      * @return BatchCreateSchemaFieldsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public BatchCreateSchemaFieldsResponse batchCreateSchemaFields(String collectionId, BatchCreateSchemaFieldsRequest batchCreateSchemaFieldsRequest) throws ApiException {
         ApiResponse<BatchCreateSchemaFieldsResponse> localVarResp = batchCreateSchemaFieldsWithHttpInfo(collectionId, batchCreateSchemaFieldsRequest);
@@ -148,77 +140,80 @@ public class SchemaApi {
     /**
      * Batch create schema fields
      * The batch version of the [CreateSchemaField](/api#operation/CreateSchemaField) call.
-     * @param collectionId The collection to create the schema fields in, e.g. &#x60;my-collection&#x60;. (required)
-     * @param batchCreateSchemaFieldsRequest  (required)
+     *
+     * @param collectionId                   The collection to create the schema fields in, e.g. &#x60;my-collection&#x60;. (required)
+     * @param batchCreateSchemaFieldsRequest (required)
      * @return ApiResponse&lt;BatchCreateSchemaFieldsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<BatchCreateSchemaFieldsResponse> batchCreateSchemaFieldsWithHttpInfo(String collectionId, BatchCreateSchemaFieldsRequest batchCreateSchemaFieldsRequest) throws ApiException {
         okhttp3.Call localVarCall = batchCreateSchemaFieldsValidateBeforeCall(collectionId, batchCreateSchemaFieldsRequest, null);
-        Type localVarReturnType = new TypeToken<BatchCreateSchemaFieldsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<BatchCreateSchemaFieldsResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Batch create schema fields (asynchronously)
      * The batch version of the [CreateSchemaField](/api#operation/CreateSchemaField) call.
-     * @param collectionId The collection to create the schema fields in, e.g. &#x60;my-collection&#x60;. (required)
-     * @param batchCreateSchemaFieldsRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
+     *
+     * @param collectionId                   The collection to create the schema fields in, e.g. &#x60;my-collection&#x60;. (required)
+     * @param batchCreateSchemaFieldsRequest (required)
+     * @param _callback                      The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call batchCreateSchemaFieldsAsync(String collectionId, BatchCreateSchemaFieldsRequest batchCreateSchemaFieldsRequest, final ApiCallback<BatchCreateSchemaFieldsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = batchCreateSchemaFieldsValidateBeforeCall(collectionId, batchCreateSchemaFieldsRequest, _callback);
-        Type localVarReturnType = new TypeToken<BatchCreateSchemaFieldsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<BatchCreateSchemaFieldsResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for createSchemaField
+     *
      * @param collectionId The collection to create a schema field in, e.g. &#x60;my-collection&#x60;. (required)
-     * @param schemaField The schema field to create. (required)
-     * @param _callback Callback for upload/download progress
+     * @param schemaField  The schema field to create. (required)
+     * @param _callback    Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call createSchemaFieldCall(String collectionId, SchemaField schemaField, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = schemaField;
 
         // create path and map variables
         String localVarPath = "/v4/collections/{collection_id}/schemaFields"
-            .replaceAll("\\{" + "collection_id" + "\\}", localVarApiClient.escapeString(collectionId.toString()));
+                .replaceAll("\\{" + "collection_id" + "\\}", localVarApiClient.escapeString(collectionId.toString()));
 
         java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
         java.util.List<Pair> localVarCollectionQueryParams = new java.util.ArrayList<Pair>();
@@ -227,7 +222,7 @@ public class SchemaApi {
         java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -235,28 +230,28 @@ public class SchemaApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
+        String[] localVarAuthNames = new String[]{"BasicAuth"};
         return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createSchemaFieldValidateBeforeCall(String collectionId, SchemaField schemaField, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
             throw new ApiException("Missing the required parameter 'collectionId' when calling createSchemaField(Async)");
         }
-        
+
         // verify the required parameter 'schemaField' is set
         if (schemaField == null) {
             throw new ApiException("Missing the required parameter 'schemaField' when calling createSchemaField(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createSchemaFieldCall(collectionId, schemaField, _callback);
         return localVarCall;
@@ -266,20 +261,20 @@ public class SchemaApi {
     /**
      * Create schema field
      * Create a new field in your collection&#39;s schema.
+     *
      * @param collectionId The collection to create a schema field in, e.g. &#x60;my-collection&#x60;. (required)
-     * @param schemaField The schema field to create. (required)
+     * @param schemaField  The schema field to create. (required)
      * @return SchemaField
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public SchemaField createSchemaField(String collectionId, SchemaField schemaField) throws ApiException {
         ApiResponse<SchemaField> localVarResp = createSchemaFieldWithHttpInfo(collectionId, schemaField);
@@ -289,78 +284,81 @@ public class SchemaApi {
     /**
      * Create schema field
      * Create a new field in your collection&#39;s schema.
+     *
      * @param collectionId The collection to create a schema field in, e.g. &#x60;my-collection&#x60;. (required)
-     * @param schemaField The schema field to create. (required)
+     * @param schemaField  The schema field to create. (required)
      * @return ApiResponse&lt;SchemaField&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<SchemaField> createSchemaFieldWithHttpInfo(String collectionId, SchemaField schemaField) throws ApiException {
         okhttp3.Call localVarCall = createSchemaFieldValidateBeforeCall(collectionId, schemaField, null);
-        Type localVarReturnType = new TypeToken<SchemaField>(){}.getType();
+        Type localVarReturnType = new TypeToken<SchemaField>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Create schema field (asynchronously)
      * Create a new field in your collection&#39;s schema.
+     *
      * @param collectionId The collection to create a schema field in, e.g. &#x60;my-collection&#x60;. (required)
-     * @param schemaField The schema field to create. (required)
-     * @param _callback The callback to be executed when the API call finishes
+     * @param schemaField  The schema field to create. (required)
+     * @param _callback    The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call createSchemaFieldAsync(String collectionId, SchemaField schemaField, final ApiCallback<SchemaField> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createSchemaFieldValidateBeforeCall(collectionId, schemaField, _callback);
-        Type localVarReturnType = new TypeToken<SchemaField>(){}.getType();
+        Type localVarReturnType = new TypeToken<SchemaField>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for listSchemaFields
+     *
      * @param collectionId The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;. (required)
-     * @param pageSize The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param pageToken A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)
-     * @param _callback Callback for upload/download progress
+     * @param pageSize     The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
+     * @param pageToken    A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)
+     * @param _callback    Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call listSchemaFieldsCall(String collectionId, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v4/collections/{collection_id}/schemaFields"
-            .replaceAll("\\{" + "collection_id" + "\\}", localVarApiClient.escapeString(collectionId.toString()));
+                .replaceAll("\\{" + "collection_id" + "\\}", localVarApiClient.escapeString(collectionId.toString()));
 
         java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
         java.util.List<Pair> localVarCollectionQueryParams = new java.util.ArrayList<Pair>();
@@ -377,7 +375,7 @@ public class SchemaApi {
         }
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -385,23 +383,23 @@ public class SchemaApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
+        String[] localVarAuthNames = new String[]{"BasicAuth"};
         return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listSchemaFieldsValidateBeforeCall(String collectionId, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
             throw new ApiException("Missing the required parameter 'collectionId' when calling listSchemaFields(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listSchemaFieldsCall(collectionId, pageSize, pageToken, _callback);
         return localVarCall;
@@ -411,21 +409,21 @@ public class SchemaApi {
     /**
      * List schema fields
      * Retrieve a list of schema fields in the collection.
+     *
      * @param collectionId The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;. (required)
-     * @param pageSize The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param pageToken A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)
+     * @param pageSize     The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
+     * @param pageToken    A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)
      * @return ListSchemaFieldsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public ListSchemaFieldsResponse listSchemaFields(String collectionId, Integer pageSize, String pageToken) throws ApiException {
         ApiResponse<ListSchemaFieldsResponse> localVarResp = listSchemaFieldsWithHttpInfo(collectionId, pageSize, pageToken);
@@ -435,52 +433,54 @@ public class SchemaApi {
     /**
      * List schema fields
      * Retrieve a list of schema fields in the collection.
+     *
      * @param collectionId The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;. (required)
-     * @param pageSize The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param pageToken A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)
+     * @param pageSize     The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
+     * @param pageToken    A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)
      * @return ApiResponse&lt;ListSchemaFieldsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<ListSchemaFieldsResponse> listSchemaFieldsWithHttpInfo(String collectionId, Integer pageSize, String pageToken) throws ApiException {
         okhttp3.Call localVarCall = listSchemaFieldsValidateBeforeCall(collectionId, pageSize, pageToken, null);
-        Type localVarReturnType = new TypeToken<ListSchemaFieldsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListSchemaFieldsResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List schema fields (asynchronously)
      * Retrieve a list of schema fields in the collection.
+     *
      * @param collectionId The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;. (required)
-     * @param pageSize The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param pageToken A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)
-     * @param _callback The callback to be executed when the API call finishes
+     * @param pageSize     The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
+     * @param pageToken    A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)
+     * @param _callback    The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call listSchemaFieldsAsync(String collectionId, Integer pageSize, String pageToken, final ApiCallback<ListSchemaFieldsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listSchemaFieldsValidateBeforeCall(collectionId, pageSize, pageToken, _callback);
-        Type localVarReturnType = new TypeToken<ListSchemaFieldsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListSchemaFieldsResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

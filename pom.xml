@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.sajari</groupId>
-    <artifactId>sajari-sdk-java-client</artifactId>
+    <artifactId>sdk-java-client</artifactId>
     <packaging>jar</packaging>
-    <name>sajari-sdk-java-client</name>
-    <version>4.0.0</version>
+    <name>sdk-java-client</name>
+    <version>4.1.0</version>
     <url>https://github.com/sajari/sdk-java</url>
     <description>Sajari SDK Java Client</description>
     <scm>
@@ -33,7 +33,7 @@
 
     <build>
         <plugins>
-           <plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>

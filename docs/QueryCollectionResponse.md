@@ -1,7 +1,4 @@
-
-
 # QueryCollectionResponse
-
 
 ## Properties
 

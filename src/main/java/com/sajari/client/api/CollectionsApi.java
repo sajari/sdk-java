@@ -13,22 +13,14 @@
 
 package com.sajari.client.api;
 
+import com.google.gson.reflect.TypeToken;
 import com.sajari.client.ApiCallback;
 import com.sajari.client.ApiClient;
 import com.sajari.client.ApiException;
 import com.sajari.client.ApiResponse;
 import com.sajari.client.Configuration;
 import com.sajari.client.Pair;
-import com.sajari.client.ProgressRequestBody;
-import com.sajari.client.ProgressResponseBody;
-
-import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
-
 import com.sajari.client.model.Collection;
-import com.sajari.client.model.Error;
 import com.sajari.client.model.ListCollectionsResponse;
 import com.sajari.client.model.QueryCollectionRequest;
 import com.sajari.client.model.QueryCollectionResponse;
@@ -56,23 +48,23 @@ public class CollectionsApi {
 
     /**
      * Build call for createCollection
+     *
      * @param collectionId The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or &#x60;-&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[A-Za-z][A-Za-z0-9\\-]*$&#x60;. (required)
-     * @param collection Details of the collection to create. (required)
-     * @param _callback Callback for upload/download progress
+     * @param collection   Details of the collection to create. (required)
+     * @param _callback    Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Returned when the request contains violations for one or more fields. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Returned when the collection already exists. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Returned when the request contains violations for one or more fields. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> Returned when the collection already exists. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call createCollectionCall(String collectionId, Collection collection, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = collection;
@@ -91,7 +83,7 @@ public class CollectionsApi {
         }
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -99,28 +91,28 @@ public class CollectionsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
+        String[] localVarAuthNames = new String[]{"BasicAuth"};
         return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createCollectionValidateBeforeCall(String collectionId, Collection collection, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
             throw new ApiException("Missing the required parameter 'collectionId' when calling createCollection(Async)");
         }
-        
+
         // verify the required parameter 'collection' is set
         if (collection == null) {
             throw new ApiException("Missing the required parameter 'collection' when calling createCollection(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createCollectionCall(collectionId, collection, _callback);
         return localVarCall;
@@ -130,22 +122,22 @@ public class CollectionsApi {
     /**
      * Create collection
      * Create an empty collection.  Before records can be added to a collection, the schema and pipelines for the collection have to be set up. Consider setting up new collections via the Sajari Console, which handles the creation of the schema and pipelines for you.
+     *
      * @param collectionId The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or &#x60;-&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[A-Za-z][A-Za-z0-9\\-]*$&#x60;. (required)
-     * @param collection Details of the collection to create. (required)
+     * @param collection   Details of the collection to create. (required)
      * @return Collection
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Returned when the request contains violations for one or more fields. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Returned when the collection already exists. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Returned when the request contains violations for one or more fields. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> Returned when the collection already exists. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public Collection createCollection(String collectionId, Collection collection) throws ApiException {
         ApiResponse<Collection> localVarResp = createCollectionWithHttpInfo(collectionId, collection);
@@ -155,80 +147,83 @@ public class CollectionsApi {
     /**
      * Create collection
      * Create an empty collection.  Before records can be added to a collection, the schema and pipelines for the collection have to be set up. Consider setting up new collections via the Sajari Console, which handles the creation of the schema and pipelines for you.
+     *
      * @param collectionId The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or &#x60;-&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[A-Za-z][A-Za-z0-9\\-]*$&#x60;. (required)
-     * @param collection Details of the collection to create. (required)
+     * @param collection   Details of the collection to create. (required)
      * @return ApiResponse&lt;Collection&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Returned when the request contains violations for one or more fields. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Returned when the collection already exists. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Returned when the request contains violations for one or more fields. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> Returned when the collection already exists. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<Collection> createCollectionWithHttpInfo(String collectionId, Collection collection) throws ApiException {
         okhttp3.Call localVarCall = createCollectionValidateBeforeCall(collectionId, collection, null);
-        Type localVarReturnType = new TypeToken<Collection>(){}.getType();
+        Type localVarReturnType = new TypeToken<Collection>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Create collection (asynchronously)
      * Create an empty collection.  Before records can be added to a collection, the schema and pipelines for the collection have to be set up. Consider setting up new collections via the Sajari Console, which handles the creation of the schema and pipelines for you.
+     *
      * @param collectionId The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or &#x60;-&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[A-Za-z][A-Za-z0-9\\-]*$&#x60;. (required)
-     * @param collection Details of the collection to create. (required)
-     * @param _callback The callback to be executed when the API call finishes
+     * @param collection   Details of the collection to create. (required)
+     * @param _callback    The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Returned when the request contains violations for one or more fields. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Returned when the collection already exists. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Returned when the request contains violations for one or more fields. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> Returned when the collection already exists. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call createCollectionAsync(String collectionId, Collection collection, final ApiCallback<Collection> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createCollectionValidateBeforeCall(collectionId, collection, _callback);
-        Type localVarReturnType = new TypeToken<Collection>(){}.getType();
+        Type localVarReturnType = new TypeToken<Collection>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for deleteCollection
+     *
      * @param collectionId The collection to delete, e.g. &#x60;my-collection&#x60;. (required)
-     * @param _callback Callback for upload/download progress
+     * @param _callback    Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the collection was not found. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the collection was not found. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call deleteCollectionCall(String collectionId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v4/collections/{collection_id}"
-            .replaceAll("\\{" + "collection_id" + "\\}", localVarApiClient.escapeString(collectionId.toString()));
+                .replaceAll("\\{" + "collection_id" + "\\}", localVarApiClient.escapeString(collectionId.toString()));
 
         java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
         java.util.List<Pair> localVarCollectionQueryParams = new java.util.ArrayList<Pair>();
@@ -237,7 +232,7 @@ public class CollectionsApi {
         java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -245,23 +240,23 @@ public class CollectionsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
+        String[] localVarAuthNames = new String[]{"BasicAuth"};
         return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteCollectionValidateBeforeCall(String collectionId, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
             throw new ApiException("Missing the required parameter 'collectionId' when calling deleteCollection(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteCollectionCall(collectionId, _callback);
         return localVarCall;
@@ -270,20 +265,20 @@ public class CollectionsApi {
 
     /**
      * Delete collection
-     * Delete a collection and all of its associated data.  &gt; Note: this operation cannot be reversed.
+     * Delete a collection and all of its associated data.  &gt; Note: This operation cannot be reversed.
+     *
      * @param collectionId The collection to delete, e.g. &#x60;my-collection&#x60;. (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the collection was not found. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the collection was not found. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public Object deleteCollection(String collectionId) throws ApiException {
         ApiResponse<Object> localVarResp = deleteCollectionWithHttpInfo(collectionId);
@@ -292,75 +287,78 @@ public class CollectionsApi {
 
     /**
      * Delete collection
-     * Delete a collection and all of its associated data.  &gt; Note: this operation cannot be reversed.
+     * Delete a collection and all of its associated data.  &gt; Note: This operation cannot be reversed.
+     *
      * @param collectionId The collection to delete, e.g. &#x60;my-collection&#x60;. (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the collection was not found. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the collection was not found. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<Object> deleteCollectionWithHttpInfo(String collectionId) throws ApiException {
         okhttp3.Call localVarCall = deleteCollectionValidateBeforeCall(collectionId, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<Object>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Delete collection (asynchronously)
-     * Delete a collection and all of its associated data.  &gt; Note: this operation cannot be reversed.
+     * Delete a collection and all of its associated data.  &gt; Note: This operation cannot be reversed.
+     *
      * @param collectionId The collection to delete, e.g. &#x60;my-collection&#x60;. (required)
-     * @param _callback The callback to be executed when the API call finishes
+     * @param _callback    The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the collection was not found. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the collection was not found. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call deleteCollectionAsync(String collectionId, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteCollectionValidateBeforeCall(collectionId, _callback);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<Object>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getCollection
+     *
      * @param collectionId The collection to retrieve, e.g. &#x60;my-collection&#x60;. (required)
-     * @param _callback Callback for upload/download progress
+     * @param _callback    Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getCollectionCall(String collectionId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v4/collections/{collection_id}"
-            .replaceAll("\\{" + "collection_id" + "\\}", localVarApiClient.escapeString(collectionId.toString()));
+                .replaceAll("\\{" + "collection_id" + "\\}", localVarApiClient.escapeString(collectionId.toString()));
 
         java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
         java.util.List<Pair> localVarCollectionQueryParams = new java.util.ArrayList<Pair>();
@@ -369,7 +367,7 @@ public class CollectionsApi {
         java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -377,23 +375,23 @@ public class CollectionsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
+        String[] localVarAuthNames = new String[]{"BasicAuth"};
         return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getCollectionValidateBeforeCall(String collectionId, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
             throw new ApiException("Missing the required parameter 'collectionId' when calling getCollection(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getCollectionCall(collectionId, _callback);
         return localVarCall;
@@ -403,19 +401,19 @@ public class CollectionsApi {
     /**
      * Get collection
      * Retrieve the details of a collection.
+     *
      * @param collectionId The collection to retrieve, e.g. &#x60;my-collection&#x60;. (required)
      * @return Collection
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public Collection getCollection(String collectionId) throws ApiException {
         ApiResponse<Collection> localVarResp = getCollectionWithHttpInfo(collectionId);
@@ -425,68 +423,71 @@ public class CollectionsApi {
     /**
      * Get collection
      * Retrieve the details of a collection.
+     *
      * @param collectionId The collection to retrieve, e.g. &#x60;my-collection&#x60;. (required)
      * @return ApiResponse&lt;Collection&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<Collection> getCollectionWithHttpInfo(String collectionId) throws ApiException {
         okhttp3.Call localVarCall = getCollectionValidateBeforeCall(collectionId, null);
-        Type localVarReturnType = new TypeToken<Collection>(){}.getType();
+        Type localVarReturnType = new TypeToken<Collection>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get collection (asynchronously)
      * Retrieve the details of a collection.
+     *
      * @param collectionId The collection to retrieve, e.g. &#x60;my-collection&#x60;. (required)
-     * @param _callback The callback to be executed when the API call finishes
+     * @param _callback    The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getCollectionAsync(String collectionId, final ApiCallback<Collection> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCollectionValidateBeforeCall(collectionId, _callback);
-        Type localVarReturnType = new TypeToken<Collection>(){}.getType();
+        Type localVarReturnType = new TypeToken<Collection>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for listCollections
-     * @param pageSize The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
+     *
+     * @param pageSize  The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
      * @param pageToken A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call listCollectionsCall(Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
@@ -509,7 +510,7 @@ public class CollectionsApi {
         }
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -517,18 +518,18 @@ public class CollectionsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
+        String[] localVarAuthNames = new String[]{"BasicAuth"};
         return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listCollectionsValidateBeforeCall(Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
-        
+
 
         okhttp3.Call localVarCall = listCollectionsCall(pageSize, pageToken, _callback);
         return localVarCall;
@@ -538,20 +539,20 @@ public class CollectionsApi {
     /**
      * List collections
      * Retrieve a list of collections in the account.
-     * @param pageSize The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
+     *
+     * @param pageSize  The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
      * @param pageToken A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. (optional)
      * @return ListCollectionsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public ListCollectionsResponse listCollections(Integer pageSize, String pageToken) throws ApiException {
         ApiResponse<ListCollectionsResponse> localVarResp = listCollectionsWithHttpInfo(pageSize, pageToken);
@@ -561,77 +562,80 @@ public class CollectionsApi {
     /**
      * List collections
      * Retrieve a list of collections in the account.
-     * @param pageSize The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
+     *
+     * @param pageSize  The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
      * @param pageToken A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. (optional)
      * @return ApiResponse&lt;ListCollectionsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<ListCollectionsResponse> listCollectionsWithHttpInfo(Integer pageSize, String pageToken) throws ApiException {
         okhttp3.Call localVarCall = listCollectionsValidateBeforeCall(pageSize, pageToken, null);
-        Type localVarReturnType = new TypeToken<ListCollectionsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListCollectionsResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List collections (asynchronously)
      * Retrieve a list of collections in the account.
-     * @param pageSize The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
+     *
+     * @param pageSize  The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
      * @param pageToken A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call listCollectionsAsync(Integer pageSize, String pageToken, final ApiCallback<ListCollectionsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listCollectionsValidateBeforeCall(pageSize, pageToken, _callback);
-        Type localVarReturnType = new TypeToken<ListCollectionsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListCollectionsResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for queryCollection
-     * @param collectionId The collection to query, e.g. &#x60;my-collection&#x60;. (required)
-     * @param queryCollectionRequest  (required)
-     * @param _callback Callback for upload/download progress
+     *
+     * @param collectionId           The collection to query, e.g. &#x60;my-collection&#x60;. (required)
+     * @param queryCollectionRequest (required)
+     * @param _callback              Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call queryCollectionCall(String collectionId, QueryCollectionRequest queryCollectionRequest, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = queryCollectionRequest;
 
         // create path and map variables
         String localVarPath = "/v4/collections/{collection_id}:queryCollection"
-            .replaceAll("\\{" + "collection_id" + "\\}", localVarApiClient.escapeString(collectionId.toString()));
+                .replaceAll("\\{" + "collection_id" + "\\}", localVarApiClient.escapeString(collectionId.toString()));
 
         java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
         java.util.List<Pair> localVarCollectionQueryParams = new java.util.ArrayList<Pair>();
@@ -640,7 +644,7 @@ public class CollectionsApi {
         java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -648,28 +652,28 @@ public class CollectionsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
+        String[] localVarAuthNames = new String[]{"BasicAuth"};
         return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call queryCollectionValidateBeforeCall(String collectionId, QueryCollectionRequest queryCollectionRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
             throw new ApiException("Missing the required parameter 'collectionId' when calling queryCollection(Async)");
         }
-        
+
         // verify the required parameter 'queryCollectionRequest' is set
         if (queryCollectionRequest == null) {
             throw new ApiException("Missing the required parameter 'queryCollectionRequest' when calling queryCollection(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = queryCollectionCall(collectionId, queryCollectionRequest, _callback);
         return localVarCall;
@@ -679,20 +683,20 @@ public class CollectionsApi {
     /**
      * Query collection
      * Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.sajari.com/user-guide/integrating-search/filters/) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
-     * @param collectionId The collection to query, e.g. &#x60;my-collection&#x60;. (required)
-     * @param queryCollectionRequest  (required)
+     *
+     * @param collectionId           The collection to query, e.g. &#x60;my-collection&#x60;. (required)
+     * @param queryCollectionRequest (required)
      * @return QueryCollectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public QueryCollectionResponse queryCollection(String collectionId, QueryCollectionRequest queryCollectionRequest) throws ApiException {
         ApiResponse<QueryCollectionResponse> localVarResp = queryCollectionWithHttpInfo(collectionId, queryCollectionRequest);
@@ -702,78 +706,81 @@ public class CollectionsApi {
     /**
      * Query collection
      * Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.sajari.com/user-guide/integrating-search/filters/) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
-     * @param collectionId The collection to query, e.g. &#x60;my-collection&#x60;. (required)
-     * @param queryCollectionRequest  (required)
+     *
+     * @param collectionId           The collection to query, e.g. &#x60;my-collection&#x60;. (required)
+     * @param queryCollectionRequest (required)
      * @return ApiResponse&lt;QueryCollectionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<QueryCollectionResponse> queryCollectionWithHttpInfo(String collectionId, QueryCollectionRequest queryCollectionRequest) throws ApiException {
         okhttp3.Call localVarCall = queryCollectionValidateBeforeCall(collectionId, queryCollectionRequest, null);
-        Type localVarReturnType = new TypeToken<QueryCollectionResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<QueryCollectionResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Query collection (asynchronously)
      * Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.sajari.com/user-guide/integrating-search/filters/) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
-     * @param collectionId The collection to query, e.g. &#x60;my-collection&#x60;. (required)
-     * @param queryCollectionRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
+     *
+     * @param collectionId           The collection to query, e.g. &#x60;my-collection&#x60;. (required)
+     * @param queryCollectionRequest (required)
+     * @param _callback              The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call queryCollectionAsync(String collectionId, QueryCollectionRequest queryCollectionRequest, final ApiCallback<QueryCollectionResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = queryCollectionValidateBeforeCall(collectionId, queryCollectionRequest, _callback);
-        Type localVarReturnType = new TypeToken<QueryCollectionResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<QueryCollectionResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for updateCollection
+     *
      * @param collectionId The collection to update, e.g. &#x60;my-collection&#x60;. (required)
-     * @param collection Details of the collection to update. (required)
-     * @param updateMask The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)
-     * @param _callback Callback for upload/download progress
+     * @param collection   Details of the collection to update. (required)
+     * @param updateMask   The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)
+     * @param _callback    Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the collection was not found. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the collection was not found. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call updateCollectionCall(String collectionId, Collection collection, String updateMask, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = collection;
 
         // create path and map variables
         String localVarPath = "/v4/collections/{collection_id}"
-            .replaceAll("\\{" + "collection_id" + "\\}", localVarApiClient.escapeString(collectionId.toString()));
+                .replaceAll("\\{" + "collection_id" + "\\}", localVarApiClient.escapeString(collectionId.toString()));
 
         java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
         java.util.List<Pair> localVarCollectionQueryParams = new java.util.ArrayList<Pair>();
@@ -786,7 +793,7 @@ public class CollectionsApi {
         }
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -794,28 +801,28 @@ public class CollectionsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
+        String[] localVarAuthNames = new String[]{"BasicAuth"};
         return localVarApiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateCollectionValidateBeforeCall(String collectionId, Collection collection, String updateMask, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
             throw new ApiException("Missing the required parameter 'collectionId' when calling updateCollection(Async)");
         }
-        
+
         // verify the required parameter 'collection' is set
         if (collection == null) {
             throw new ApiException("Missing the required parameter 'collection' when calling updateCollection(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = updateCollectionCall(collectionId, collection, updateMask, _callback);
         return localVarCall;
@@ -825,21 +832,21 @@ public class CollectionsApi {
     /**
      * Update collection
      * Update the details of a collection.
+     *
      * @param collectionId The collection to update, e.g. &#x60;my-collection&#x60;. (required)
-     * @param collection Details of the collection to update. (required)
-     * @param updateMask The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)
+     * @param collection   Details of the collection to update. (required)
+     * @param updateMask   The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)
      * @return Collection
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the collection was not found. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the collection was not found. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public Collection updateCollection(String collectionId, Collection collection, String updateMask) throws ApiException {
         ApiResponse<Collection> localVarResp = updateCollectionWithHttpInfo(collectionId, collection, updateMask);
@@ -849,52 +856,54 @@ public class CollectionsApi {
     /**
      * Update collection
      * Update the details of a collection.
+     *
      * @param collectionId The collection to update, e.g. &#x60;my-collection&#x60;. (required)
-     * @param collection Details of the collection to update. (required)
-     * @param updateMask The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)
+     * @param collection   Details of the collection to update. (required)
+     * @param updateMask   The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)
      * @return ApiResponse&lt;Collection&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the collection was not found. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the collection was not found. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<Collection> updateCollectionWithHttpInfo(String collectionId, Collection collection, String updateMask) throws ApiException {
         okhttp3.Call localVarCall = updateCollectionValidateBeforeCall(collectionId, collection, updateMask, null);
-        Type localVarReturnType = new TypeToken<Collection>(){}.getType();
+        Type localVarReturnType = new TypeToken<Collection>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Update collection (asynchronously)
      * Update the details of a collection.
+     *
      * @param collectionId The collection to update, e.g. &#x60;my-collection&#x60;. (required)
-     * @param collection Details of the collection to update. (required)
-     * @param updateMask The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)
-     * @param _callback The callback to be executed when the API call finishes
+     * @param collection   Details of the collection to update. (required)
+     * @param updateMask   The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)
+     * @param _callback    The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Returned when the collection was not found. </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Returned when the collection was not found. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call updateCollectionAsync(String collectionId, Collection collection, String updateMask, final ApiCallback<Collection> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateCollectionValidateBeforeCall(collectionId, collection, updateMask, _callback);
-        Type localVarReturnType = new TypeToken<Collection>(){}.getType();
+        Type localVarReturnType = new TypeToken<Collection>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

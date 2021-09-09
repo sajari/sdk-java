@@ -13,16 +13,17 @@
 
 package com.sajari.client;
 
-import java.util.Map;
 import java.util.List;
+import java.util.Map;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-20T00:31:03.336071Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApiException extends Exception {
     private int code = 0;
     private Map<String, List<String>> responseHeaders = null;
     private String responseBody = null;
 
-    public ApiException() {}
+    public ApiException() {
+    }
 
     public ApiException(Throwable throwable) {
         super(throwable);

@@ -1,7 +1,4 @@
-
-
 # DeleteRecordRequest
-
 
 ## Properties
 

@@ -9,9 +9,10 @@ Method | HTTP request | Description
 [**getRecord**](RecordsApi.md#getRecord) | **POST** /v4/collections/{collection_id}/records:get | Get record
 [**upsertRecord**](RecordsApi.md#upsertRecord) | **POST** /v4/collections/{collection_id}/records:upsert | Upsert record
 
-
 <a name="batchUpsertRecords"></a>
+
 # **batchUpsertRecords**
+
 > BatchUpsertRecordsResponse batchUpsertRecords(collectionId, batchUpsertRecordsRequest)
 
 Batch upsert records
@@ -19,6 +20,7 @@ Batch upsert records
 The batch version of the [UpsertRecord](/api#operation/UpsertRecord) call.
 
 ### Example
+
 ```java
 // Import classes:
 import com.sajari.client.ApiClient;
@@ -59,8 +61,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collectionId** | **String**| The collection to upsert the records in, e.g. &#x60;my-collection&#x60;. |
- **batchUpsertRecordsRequest** | [**BatchUpsertRecordsRequest**](BatchUpsertRecordsRequest.md)|  |
+**collectionId** | **String**| The collection to upsert the records in, e.g. &#x60;my-collection&#x60;. |
+**batchUpsertRecordsRequest** | [**BatchUpsertRecordsRequest**](BatchUpsertRecordsRequest.md)|  |
 
 ### Return type
 
@@ -72,10 +74,11 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
@@ -86,7 +89,9 @@ Name | Type | Description  | Notes
 **0** | An unexpected error response |  -  |
 
 <a name="deleteRecord"></a>
+
 # **deleteRecord**
+
 > Object deleteRecord(collectionId, deleteRecordRequest)
 
 Delete record
@@ -94,6 +99,7 @@ Delete record
 Delete a record with the given key.
 
 ### Example
+
 ```java
 // Import classes:
 import com.sajari.client.ApiClient;
@@ -134,8 +140,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collectionId** | **String**| The collection that contains the record to delete, e.g. &#x60;my-collection&#x60;. |
- **deleteRecordRequest** | [**DeleteRecordRequest**](DeleteRecordRequest.md)|  |
+**collectionId** | **String**| The collection that contains the record to delete, e.g. &#x60;my-collection&#x60;. |
+**deleteRecordRequest** | [**DeleteRecordRequest**](DeleteRecordRequest.md)|  |
 
 ### Return type
 
@@ -147,10 +153,11 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
@@ -161,7 +168,9 @@ Name | Type | Description  | Notes
 **0** | An unexpected error response |  -  |
 
 <a name="getRecord"></a>
+
 # **getRecord**
+
 > Object getRecord(collectionId, getRecordRequest)
 
 Get record
@@ -169,6 +178,7 @@ Get record
 Retrieve a record with the given key.
 
 ### Example
+
 ```java
 // Import classes:
 import com.sajari.client.ApiClient;
@@ -209,8 +219,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collectionId** | **String**| The collection that contains the record to retrieve, e.g. &#x60;my-collection&#x60;. |
- **getRecordRequest** | [**GetRecordRequest**](GetRecordRequest.md)|  |
+**collectionId** | **String**| The collection that contains the record to retrieve, e.g. &#x60;my-collection&#x60;. |
+**getRecordRequest** | [**GetRecordRequest**](GetRecordRequest.md)|  |
 
 ### Return type
 
@@ -222,10 +232,11 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
@@ -236,14 +247,22 @@ Name | Type | Description  | Notes
 **0** | An unexpected error response |  -  |
 
 <a name="upsertRecord"></a>
+
 # **upsertRecord**
+
 > UpsertRecordResponse upsertRecord(collectionId, upsertRecordRequest)
 
 Upsert record
 
-If the record does not exist in your collection it is inserted. If it does exist it is updated.  If no pipeline is specified, the default record pipeline is used to process the record.  If the record is inserted, the response contains the key of the inserted record. You can use this if you need to retrieve or delete the record. If the record is updated, the response does not contain a key. Callers can use this as a signal to determine if the record is inserted/created or updated.  For example, to add a single product from your ecommerce store to a collection, use the following call:  &#x60;&#x60;&#x60;json {   \&quot;pipeline\&quot;: {     \&quot;name\&quot;: \&quot;my-pipeline\&quot;,     \&quot;version\&quot;: \&quot;1\&quot;   },   \&quot;record\&quot;: {     \&quot;id\&quot;: \&quot;54hdc7h2334h\&quot;,     \&quot;name\&quot;: \&quot;Smart TV\&quot;,     \&quot;price\&quot;: 1999,     \&quot;brand\&quot;: \&quot;Acme\&quot;,     \&quot;description\&quot;: \&quot;...\&quot;,     \&quot;in_stock\&quot;: true   } } &#x60;&#x60;&#x60;
+If the record does not exist in your collection it is inserted. If it does exist it is updated. If no pipeline is specified, the default record pipeline is used to process the
+record. If the record is inserted, the response contains the key of the inserted record. You can use this if you need to retrieve or delete the record. If the record is updated,
+the response does not contain a key. Callers can use this as a signal to determine if the record is inserted/created or updated. For example, to add a single product from your
+ecommerce store to a collection, use the following call:  ```json { "pipeline": { "name": "my-pipeline", "version":
+"1" }, "record": { "id": "54hdc7h2334h", "name": "Smart TV", "price": 1999, "brand":
+"Acme", "description": "...", "in_stock": true } } ```
 
 ### Example
+
 ```java
 // Import classes:
 import com.sajari.client.ApiClient;
@@ -284,8 +303,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collectionId** | **String**| The collection to upsert the record in, e.g. &#x60;my-collection&#x60;. |
- **upsertRecordRequest** | [**UpsertRecordRequest**](UpsertRecordRequest.md)|  |
+**collectionId** | **String**| The collection to upsert the record in, e.g. &#x60;my-collection&#x60;. |
+**upsertRecordRequest** | [**UpsertRecordRequest**](UpsertRecordRequest.md)|  |
 
 ### Return type
 
@@ -297,10 +316,11 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |

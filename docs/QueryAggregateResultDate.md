@@ -1,7 +1,4 @@
-
-
 # QueryAggregateResultDate
-
 
 ## Properties
 

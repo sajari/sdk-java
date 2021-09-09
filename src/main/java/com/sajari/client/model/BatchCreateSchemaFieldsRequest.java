@@ -13,92 +13,86 @@
 
 package com.sajari.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.sajari.client.model.SchemaField;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * BatchCreateSchemaFieldsRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-20T00:31:03.336071Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class BatchCreateSchemaFieldsRequest {
-  public static final String SERIALIZED_NAME_FIELDS = "fields";
-  @SerializedName(SERIALIZED_NAME_FIELDS)
-  private java.util.List<SchemaField> fields = new java.util.ArrayList<>();
+    public static final String SERIALIZED_NAME_FIELDS = "fields";
+    @SerializedName(SERIALIZED_NAME_FIELDS)
+    private java.util.List<SchemaField> fields = new java.util.ArrayList<>();
 
 
-  public BatchCreateSchemaFieldsRequest fields(java.util.List<SchemaField> fields) {
-    
-    this.fields = fields;
-    return this;
-  }
+    public BatchCreateSchemaFieldsRequest fields(java.util.List<SchemaField> fields) {
 
-  public BatchCreateSchemaFieldsRequest addFieldsItem(SchemaField fieldsItem) {
-    this.fields.add(fieldsItem);
-    return this;
-  }
-
-   /**
-   * A list of fields to create.  A maximum of 1000 fields can be created in a batch.
-   * @return fields
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A list of fields to create.  A maximum of 1000 fields can be created in a batch.")
-
-  public java.util.List<SchemaField> getFields() {
-    return fields;
-  }
-
-
-  public void setFields(java.util.List<SchemaField> fields) {
-    this.fields = fields;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+        this.fields = fields;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public BatchCreateSchemaFieldsRequest addFieldsItem(SchemaField fieldsItem) {
+        this.fields.add(fieldsItem);
+        return this;
     }
-    BatchCreateSchemaFieldsRequest batchCreateSchemaFieldsRequest = (BatchCreateSchemaFieldsRequest) o;
-    return Objects.equals(this.fields, batchCreateSchemaFieldsRequest.fields);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(fields);
-  }
+    /**
+     * A list of fields to create.  A maximum of 1000 fields can be created in a batch.
+     *
+     * @return fields
+     **/
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "A list of fields to create.  A maximum of 1000 fields can be created in a batch.")
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class BatchCreateSchemaFieldsRequest {\n");
-    sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public java.util.List<SchemaField> getFields() {
+        return fields;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    public void setFields(java.util.List<SchemaField> fields) {
+        this.fields = fields;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        BatchCreateSchemaFieldsRequest batchCreateSchemaFieldsRequest = (BatchCreateSchemaFieldsRequest) o;
+        return Objects.equals(this.fields, batchCreateSchemaFieldsRequest.fields);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fields);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class BatchCreateSchemaFieldsRequest {\n");
+        sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

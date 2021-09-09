@@ -13,153 +13,149 @@
 
 package com.sajari.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.sajari.client.model.ProtobufAny;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * Error
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-20T00:31:03.336071Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Error {
-  public static final String SERIALIZED_NAME_CODE = "code";
-  @SerializedName(SERIALIZED_NAME_CODE)
-  private Integer code;
+    public static final String SERIALIZED_NAME_CODE = "code";
+    @SerializedName(SERIALIZED_NAME_CODE)
+    private Integer code;
 
-  public static final String SERIALIZED_NAME_MESSAGE = "message";
-  @SerializedName(SERIALIZED_NAME_MESSAGE)
-  private String message;
+    public static final String SERIALIZED_NAME_MESSAGE = "message";
+    @SerializedName(SERIALIZED_NAME_MESSAGE)
+    private String message;
 
-  public static final String SERIALIZED_NAME_DETAILS = "details";
-  @SerializedName(SERIALIZED_NAME_DETAILS)
-  private java.util.List<ProtobufAny> details = null;
-
-
-  public Error code(Integer code) {
-    
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Get code
-   * @return code
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Integer getCode() {
-    return code;
-  }
+    public static final String SERIALIZED_NAME_DETAILS = "details";
+    @SerializedName(SERIALIZED_NAME_DETAILS)
+    private java.util.List<ProtobufAny> details = null;
 
 
-  public void setCode(Integer code) {
-    this.code = code;
-  }
+    public Error code(Integer code) {
 
-
-  public Error message(String message) {
-    
-    this.message = message;
-    return this;
-  }
-
-   /**
-   * Get message
-   * @return message
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getMessage() {
-    return message;
-  }
-
-
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-
-  public Error details(java.util.List<ProtobufAny> details) {
-    
-    this.details = details;
-    return this;
-  }
-
-  public Error addDetailsItem(ProtobufAny detailsItem) {
-    if (this.details == null) {
-      this.details = new java.util.ArrayList<>();
+        this.code = code;
+        return this;
     }
-    this.details.add(detailsItem);
-    return this;
-  }
 
-   /**
-   * Get details
-   * @return details
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+    /**
+     * Get code
+     *
+     * @return code
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
 
-  public java.util.List<ProtobufAny> getDetails() {
-    return details;
-  }
-
-
-  public void setDetails(java.util.List<ProtobufAny> details) {
-    this.details = details;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public Integer getCode() {
+        return code;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+
+    public void setCode(Integer code) {
+        this.code = code;
     }
-    Error error = (Error) o;
-    return Objects.equals(this.code, error.code) &&
-        Objects.equals(this.message, error.message) &&
-        Objects.equals(this.details, error.details);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(code, message, details);
-  }
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Error {\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    details: ").append(toIndentedString(details)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+    public Error message(String message) {
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+        this.message = message;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * Get message
+     *
+     * @return message
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+
+    public String getMessage() {
+        return message;
+    }
+
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+
+    public Error details(java.util.List<ProtobufAny> details) {
+
+        this.details = details;
+        return this;
+    }
+
+    public Error addDetailsItem(ProtobufAny detailsItem) {
+        if (this.details == null) {
+            this.details = new java.util.ArrayList<>();
+        }
+        this.details.add(detailsItem);
+        return this;
+    }
+
+    /**
+     * Get details
+     *
+     * @return details
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+
+    public java.util.List<ProtobufAny> getDetails() {
+        return details;
+    }
+
+
+    public void setDetails(java.util.List<ProtobufAny> details) {
+        this.details = details;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Error error = (Error) o;
+        return Objects.equals(this.code, error.code) &&
+                Objects.equals(this.message, error.message) &&
+                Objects.equals(this.details, error.details);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code, message, details);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class Error {\n");
+        sb.append("    code: ").append(toIndentedString(code)).append("\n");
+        sb.append("    message: ").append(toIndentedString(message)).append("\n");
+        sb.append("    details: ").append(toIndentedString(details)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

@@ -14,9 +14,14 @@
 package com.sajari.client.api;
 
 import com.sajari.client.ApiException;
-import com.sajari.client.model.*;
-import org.junit.Test;
+import com.sajari.client.model.BatchUpsertRecordsRequest;
+import com.sajari.client.model.BatchUpsertRecordsResponse;
+import com.sajari.client.model.DeleteRecordRequest;
+import com.sajari.client.model.GetRecordRequest;
+import com.sajari.client.model.UpsertRecordRequest;
+import com.sajari.client.model.UpsertRecordResponse;
 import org.junit.Ignore;
+import org.junit.Test;
 
 
 /**
@@ -27,14 +32,13 @@ public class RecordsApiTest {
 
     private final RecordsApi api = new RecordsApi();
 
-    
+
     /**
      * Batch upsert records
-     *
+     * <p>
      * The batch version of the [UpsertRecord](/docs/api-reference#operation/UpsertRecord) call.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void batchUpsertRecordsTest() throws ApiException {
@@ -44,14 +48,13 @@ public class RecordsApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * Delete record
-     *
+     * <p>
      * Delete a record with the given key.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void deleteRecordTest() throws ApiException {
@@ -61,14 +64,13 @@ public class RecordsApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * Get record
-     *
+     * <p>
      * Retrieve a record with the given key.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getRecordTest() throws ApiException {
@@ -78,14 +80,13 @@ public class RecordsApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * Upsert record
-     *
+     * <p>
      * If the record does not exist in your collection it is inserted. If it does exist it is updated.  If no pipeline is specified, the default record pipeline is used to process the record.  For example, to add a single product from your ecommerce store to a collection, use the following call:  &#x60;&#x60;&#x60;json {   \&quot;pipeline\&quot;: {     \&quot;name\&quot;: \&quot;my-pipeline\&quot;,     \&quot;version\&quot;: \&quot;1\&quot;   },   \&quot;record\&quot;: {     \&quot;id\&quot;: \&quot;54hdc7h2334h\&quot;,     \&quot;name\&quot;: \&quot;Smart TV\&quot;,     \&quot;price\&quot;: 1999,     \&quot;brand\&quot;: \&quot;Acme\&quot;,     \&quot;description\&quot;: \&quot;...\&quot;,     \&quot;in_stock\&quot;: true   } } &#x60;&#x60;&#x60;
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void upsertRecordTest() throws ApiException {
@@ -95,5 +96,5 @@ public class RecordsApiTest {
 
         // TODO: test validations
     }
-    
+
 }

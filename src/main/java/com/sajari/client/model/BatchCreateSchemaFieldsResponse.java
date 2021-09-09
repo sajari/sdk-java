@@ -13,133 +13,127 @@
 
 package com.sajari.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.sajari.client.model.BatchCreateSchemaFieldsResponseError;
-import com.sajari.client.model.SchemaField;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * BatchCreateSchemaFieldsResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-20T00:31:03.336071Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class BatchCreateSchemaFieldsResponse {
-  public static final String SERIALIZED_NAME_FIELDS = "fields";
-  @SerializedName(SERIALIZED_NAME_FIELDS)
-  private java.util.List<SchemaField> fields = null;
+    public static final String SERIALIZED_NAME_FIELDS = "fields";
+    @SerializedName(SERIALIZED_NAME_FIELDS)
+    private java.util.List<SchemaField> fields = null;
 
-  public static final String SERIALIZED_NAME_ERRORS = "errors";
-  @SerializedName(SERIALIZED_NAME_ERRORS)
-  private java.util.List<BatchCreateSchemaFieldsResponseError> errors = null;
+    public static final String SERIALIZED_NAME_ERRORS = "errors";
+    @SerializedName(SERIALIZED_NAME_ERRORS)
+    private java.util.List<BatchCreateSchemaFieldsResponseError> errors = null;
 
 
-  public BatchCreateSchemaFieldsResponse fields(java.util.List<SchemaField> fields) {
-    
-    this.fields = fields;
-    return this;
-  }
+    public BatchCreateSchemaFieldsResponse fields(java.util.List<SchemaField> fields) {
 
-  public BatchCreateSchemaFieldsResponse addFieldsItem(SchemaField fieldsItem) {
-    if (this.fields == null) {
-      this.fields = new java.util.ArrayList<>();
+        this.fields = fields;
+        return this;
     }
-    this.fields.add(fieldsItem);
-    return this;
-  }
 
-   /**
-   * Schema fields created.
-   * @return fields
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Schema fields created.")
-
-  public java.util.List<SchemaField> getFields() {
-    return fields;
-  }
-
-
-  public void setFields(java.util.List<SchemaField> fields) {
-    this.fields = fields;
-  }
-
-
-  public BatchCreateSchemaFieldsResponse errors(java.util.List<BatchCreateSchemaFieldsResponseError> errors) {
-    
-    this.errors = errors;
-    return this;
-  }
-
-  public BatchCreateSchemaFieldsResponse addErrorsItem(BatchCreateSchemaFieldsResponseError errorsItem) {
-    if (this.errors == null) {
-      this.errors = new java.util.ArrayList<>();
+    public BatchCreateSchemaFieldsResponse addFieldsItem(SchemaField fieldsItem) {
+        if (this.fields == null) {
+            this.fields = new java.util.ArrayList<>();
+        }
+        this.fields.add(fieldsItem);
+        return this;
     }
-    this.errors.add(errorsItem);
-    return this;
-  }
 
-   /**
-   * Errors that occurred.
-   * @return errors
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Errors that occurred.")
+    /**
+     * Schema fields created.
+     *
+     * @return fields
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Schema fields created.")
 
-  public java.util.List<BatchCreateSchemaFieldsResponseError> getErrors() {
-    return errors;
-  }
-
-
-  public void setErrors(java.util.List<BatchCreateSchemaFieldsResponseError> errors) {
-    this.errors = errors;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public java.util.List<SchemaField> getFields() {
+        return fields;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+
+    public void setFields(java.util.List<SchemaField> fields) {
+        this.fields = fields;
     }
-    BatchCreateSchemaFieldsResponse batchCreateSchemaFieldsResponse = (BatchCreateSchemaFieldsResponse) o;
-    return Objects.equals(this.fields, batchCreateSchemaFieldsResponse.fields) &&
-        Objects.equals(this.errors, batchCreateSchemaFieldsResponse.errors);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(fields, errors);
-  }
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class BatchCreateSchemaFieldsResponse {\n");
-    sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
-    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+    public BatchCreateSchemaFieldsResponse errors(java.util.List<BatchCreateSchemaFieldsResponseError> errors) {
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+        this.errors = errors;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public BatchCreateSchemaFieldsResponse addErrorsItem(BatchCreateSchemaFieldsResponseError errorsItem) {
+        if (this.errors == null) {
+            this.errors = new java.util.ArrayList<>();
+        }
+        this.errors.add(errorsItem);
+        return this;
+    }
+
+    /**
+     * Errors that occurred.
+     *
+     * @return errors
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Errors that occurred.")
+
+    public java.util.List<BatchCreateSchemaFieldsResponseError> getErrors() {
+        return errors;
+    }
+
+
+    public void setErrors(java.util.List<BatchCreateSchemaFieldsResponseError> errors) {
+        this.errors = errors;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        BatchCreateSchemaFieldsResponse batchCreateSchemaFieldsResponse = (BatchCreateSchemaFieldsResponse) o;
+        return Objects.equals(this.fields, batchCreateSchemaFieldsResponse.fields) &&
+                Objects.equals(this.errors, batchCreateSchemaFieldsResponse.errors);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fields, errors);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class BatchCreateSchemaFieldsResponse {\n");
+        sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
+        sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

@@ -1,5 +1,3 @@
-
-
 # QueryAggregateResultBucketsBucket
 
 Bucket is the result of a bucket aggregate.

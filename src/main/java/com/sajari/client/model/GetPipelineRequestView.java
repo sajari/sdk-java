@@ -13,64 +13,60 @@
 
 package com.sajari.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
-
-import java.io.IOException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
+import java.io.IOException;
+
 /**
- *  - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration.
+ * - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration.
  */
 @JsonAdapter(GetPipelineRequestView.Adapter.class)
 public enum GetPipelineRequestView {
-  
-  VIEW_UNSPECIFIED("VIEW_UNSPECIFIED"),
-  
-  BASIC("BASIC"),
-  
-  FULL("FULL");
 
-  private String value;
+    VIEW_UNSPECIFIED("VIEW_UNSPECIFIED"),
 
-  GetPipelineRequestView(String value) {
-    this.value = value;
-  }
+    BASIC("BASIC"),
 
-  public String getValue() {
-    return value;
-  }
+    FULL("FULL");
 
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
+    private String value;
 
-  public static GetPipelineRequestView fromValue(String value) {
-    for (GetPipelineRequestView b : GetPipelineRequestView.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    GetPipelineRequestView(String value) {
+        this.value = value;
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
 
-  public static class Adapter extends TypeAdapter<GetPipelineRequestView> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final GetPipelineRequestView enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
+    public String getValue() {
+        return value;
     }
 
     @Override
-    public GetPipelineRequestView read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return GetPipelineRequestView.fromValue(value);
+    public String toString() {
+        return String.valueOf(value);
     }
-  }
+
+    public static GetPipelineRequestView fromValue(String value) {
+        for (GetPipelineRequestView b : GetPipelineRequestView.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<GetPipelineRequestView> {
+        @Override
+        public void write(final JsonWriter jsonWriter, final GetPipelineRequestView enumeration) throws IOException {
+            jsonWriter.value(enumeration.getValue());
+        }
+
+        @Override
+        public GetPipelineRequestView read(final JsonReader jsonReader) throws IOException {
+            String value = jsonReader.nextString();
+            return GetPipelineRequestView.fromValue(value);
+        }
+    }
 }
 

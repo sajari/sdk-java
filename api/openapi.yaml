@@ -17,130 +17,130 @@ externalDocs:
   description: Read more about the Sajari API
   url: https://docs.sajari.com
 servers:
-- url: https://api-gateway.sajari.com
+  - url: https://api-gateway.sajari.com
 security:
-- BasicAuth: []
+  - BasicAuth: [ ]
 tags:
-- description: |-
-    Collections store the records that you want to search through.
+  - description: |-
+      Collections store the records that you want to search through.
 
-    They also contain the configuration associated with your data including pipelines, rules, synonyms, authorized domains and analytics. Each collection has an associated schema that designates field names, field types, and whether a field's data is indexed for text search.
+      They also contain the configuration associated with your data including pipelines, rules, synonyms, authorized domains and analytics. Each collection has an associated schema that designates field names, field types, and whether a field's data is indexed for text search.
 
-    Create a collection for every new set of related records that you want to search through.
-  name: Collections
-- description: |-
-    In Sajari, you configure your search algorithm using pipelines.
+      Create a collection for every new set of related records that you want to search through.
+    name: Collections
+  - description: |-
+      In Sajari, you configure your search algorithm using pipelines.
 
-    Pipelines are easily configurable YAML-based scripts that define a series of steps that are executed sequentially when indexing a record, using a record pipeline, or performing a query, using a query pipeline.
-  name: Pipelines
-- description: |-
-    A schema describes the set of fields that records in a collection can have.
+      Pipelines are easily configurable YAML-based scripts that define a series of steps that are executed sequentially when indexing a record, using a record pipeline, or performing a query, using a query pipeline.
+    name: Pipelines
+  - description: |-
+      A schema describes the set of fields that records in a collection can have.
 
-    It is made up of a list of schema fields. Each schema field has a name, associated data type and mode.
+      It is made up of a list of schema fields. Each schema field has a name, associated data type and mode.
 
-    For example, the following record:
+      For example, the following record:
 
-    ```json
-    {
-      "id": "54hdc7h2334h",
-      "name": "Smart TV",
-      "price": 1999,
-      "brand": "Acme",
-      "in_stock": true,
-      "tags": ["TV", "Smart TV"],
-      "create_time": "2006-01-02T15:04:05Z07:00"
-    }
-    ```
+      ```json
+      {
+        "id": "54hdc7h2334h",
+        "name": "Smart TV",
+        "price": 1999,
+        "brand": "Acme",
+        "in_stock": true,
+        "tags": ["TV", "Smart TV"],
+        "create_time": "2006-01-02T15:04:05Z07:00"
+      }
+      ```
 
-    Requires the following schema fields:
+      Requires the following schema fields:
 
-    - `id`, of type **STRING** and mode **UNIQUE**
-    - `name`, of type **STRING**
-    - `price`, of type **FLOAT**
-    - `brand`, of type **STRING**
-    - `in_stock`, of type **BOOLEAN**
-    - `tags`, of type array of **STRING**
-    - `create_time`, of type **TIMESTAMP**
+      - `id`, of type **STRING** and mode **UNIQUE**
+      - `name`, of type **STRING**
+      - `price`, of type **FLOAT**
+      - `brand`, of type **STRING**
+      - `in_stock`, of type **BOOLEAN**
+      - `tags`, of type array of **STRING**
+      - `create_time`, of type **TIMESTAMP**
 
-    Type can be one of the following:
+      Type can be one of the following:
 
-    - **STRING**
-    - **INTEGER**
-    - **BOOLEAN**
-    - **FLOAT**
-    - **DOUBLE**
-    - **TIMESTAMP**, in [RFC3339](https://tools.ietf.org/html/rfc3339) format
-    - Array of **STRING**
-    - Array of **INTEGER**
-    - Array of **BOOLEAN**
-    - Array of **FLOAT**
-    - Array of **DOUBLE**
-    - Array of **TIMESTAMP**
+      - **STRING**
+      - **INTEGER**
+      - **BOOLEAN**
+      - **FLOAT**
+      - **DOUBLE**
+      - **TIMESTAMP**, in [RFC3339](https://tools.ietf.org/html/rfc3339) format
+      - Array of **STRING**
+      - Array of **INTEGER**
+      - Array of **BOOLEAN**
+      - Array of **FLOAT**
+      - Array of **DOUBLE**
+      - Array of **TIMESTAMP**
 
-    Mode can be one of the following:
+      Mode can be one of the following:
 
-    - **NULLABLE**, indicates a record field-value pair can be null
-    - **REQUIRED**, indicates a record field-value pair is required
-    - **UNIQUE**, indicates a record field-value pair must be unique across all records in the collection
-  name: Schema
-- description: |-
-    A record is a single entry in a collection, made up of field-value pairs.
+      - **NULLABLE**, indicates a record field-value pair can be null
+      - **REQUIRED**, indicates a record field-value pair is required
+      - **UNIQUE**, indicates a record field-value pair must be unique across all records in the collection
+    name: Schema
+  - description: |-
+      A record is a single entry in a collection, made up of field-value pairs.
 
-    For example in the following record:
+      For example in the following record:
 
-    ```json
-    {
-      "name": "Kim Jones"
-    }
-    ```
+      ```json
+      {
+        "name": "Kim Jones"
+      }
+      ```
 
-    There is one field-value pair. The field is `name` and the value is `"Kim Jones"`.
+      There is one field-value pair. The field is `name` and the value is `"Kim Jones"`.
 
-    Records are analogous to rows in a database. Records can represent:
+      Records are analogous to rows in a database. Records can represent:
 
-    - Webpages
-    - Standard documents e.g. HTML, PDF, Microsoft Word Document
-    - Custom data objects, if your data is not webpages or documents
+      - Webpages
+      - Standard documents e.g. HTML, PDF, Microsoft Word Document
+      - Custom data objects, if your data is not webpages or documents
 
-    The set of fields a record can have is known as its schema. Webpages indexed via Sajari's web crawler have a predefined schema that can be extended with custom fields. For custom records, you can define your own schema.
-  name: Records
+      The set of fields a record can have is known as its schema. Webpages indexed via Sajari's web crawler have a predefined schema that can be extended with custom fields. For custom records, you can define your own schema.
+    name: Records
 paths:
   /v4/collections:
     get:
       description: Retrieve a list of collections in the account.
       operationId: ListCollections
       parameters:
-      - description: |-
-          The maximum number of collections to return. The service may return fewer
-          than this value.
+        - description: |-
+            The maximum number of collections to return. The service may return fewer
+            than this value.
 
-          If unspecified, at most 50 collections are returned.
+            If unspecified, at most 50 collections are returned.
 
-          The maximum value is 100; values above 100 are coerced to 100.
-        explode: true
-        in: query
-        name: page_size
-        required: false
-        schema:
-          format: int32
-          type: integer
-        style: form
-      - description: |-
-          A page token, received from a previous
-          [ListCollections](/api#operation/ListCollections) call.
+            The maximum value is 100; values above 100 are coerced to 100.
+          explode: true
+          in: query
+          name: page_size
+          required: false
+          schema:
+            format: int32
+            type: integer
+          style: form
+        - description: |-
+            A page token, received from a previous
+            [ListCollections](/api#operation/ListCollections) call.
 
-          Provide this to retrieve the subsequent page.
+            Provide this to retrieve the subsequent page.
 
-          When paginating, all other parameters provided to
-          [ListCollections](/api#operation/ListCollections) must match
-          the call that provided the page token.
-        explode: true
-        in: query
-        name: page_token
-        required: false
-        schema:
-          type: string
-        style: form
+            When paginating, all other parameters provided to
+            [ListCollections](/api#operation/ListCollections) must match
+            the call that provided the page token.
+          explode: true
+          in: query
+          name: page_token
+          required: false
+          schema:
+            type: string
+          style: form
       responses:
         "200":
           content:
@@ -182,7 +182,7 @@ paths:
           description: An unexpected error response
       summary: List collections
       tags:
-      - Collections
+        - Collections
       x-accepts: application/json
     post:
       description: |-
@@ -194,19 +194,19 @@ paths:
         for you.
       operationId: CreateCollection
       parameters:
-      - description: |-
-          The ID to use for the collection.
+        - description: |-
+            The ID to use for the collection.
 
-          This must start with an alphanumeric character followed by one or more
-          alphanumeric or `-` characters. Strictly speaking, it must match the
-          regular expression: `^[A-Za-z][A-Za-z0-9\-]*$`.
-        explode: true
-        in: query
-        name: collection_id
-        required: true
-        schema:
-          type: string
-        style: form
+            This must start with an alphanumeric character followed by one or more
+            alphanumeric or `-` characters. Strictly speaking, it must match the
+            regular expression: `^[A-Za-z][A-Za-z0-9\-]*$`.
+          explode: true
+          in: query
+          name: collection_id
+          required: true
+          schema:
+            type: string
+          style: form
       requestBody:
         content:
           application/json:
@@ -230,10 +230,10 @@ paths:
                     code: 6
                     message: invalid request
                     details:
-                    - '@type': type.googleapis.com/google.rpc.BadRequest
-                      field_violations:
-                      - field: collection_id
-                        description: cannot be empty
+                      - '@type': type.googleapis.com/google.rpc.BadRequest
+                        field_violations:
+                          - field: collection_id
+                            description: cannot be empty
               schema:
                 $ref: '#/components/schemas/Error'
           description: Returned when the request contains violations for one or more
@@ -283,7 +283,7 @@ paths:
           description: An unexpected error response
       summary: Create collection
       tags:
-      - Collections
+        - Collections
       x-contentType: application/json
       x-accepts: application/json
   /v4/collections/{collection_id}:
@@ -291,23 +291,23 @@ paths:
       description: |-
         Delete a collection and all of its associated data.
 
-        > Note: this operation cannot be reversed.
+        > Note: This operation cannot be reversed.
       operationId: DeleteCollection
       parameters:
-      - description: The collection to delete, e.g. `my-collection`.
-        explode: false
-        in: path
-        name: collection_id
-        required: true
-        schema:
-          type: string
-        style: simple
+        - description: The collection to delete, e.g. `my-collection`.
+          explode: false
+          in: path
+          name: collection_id
+          required: true
+          schema:
+            type: string
+          style: simple
       responses:
         "200":
           content:
             application/json:
               schema:
-                properties: {}
+                properties: { }
           description: A successful response.
         "401":
           content:
@@ -348,20 +348,20 @@ paths:
           description: An unexpected error response
       summary: Delete collection
       tags:
-      - Collections
+        - Collections
       x-accepts: application/json
     get:
       description: Retrieve the details of a collection.
       operationId: GetCollection
       parameters:
-      - description: The collection to retrieve, e.g. `my-collection`.
-        explode: false
-        in: path
-        name: collection_id
-        required: true
-        schema:
-          type: string
-        style: simple
+        - description: The collection to retrieve, e.g. `my-collection`.
+          explode: false
+          in: path
+          name: collection_id
+          required: true
+          schema:
+            type: string
+          style: simple
       responses:
         "200":
           content:
@@ -403,35 +403,35 @@ paths:
           description: An unexpected error response
       summary: Get collection
       tags:
-      - Collections
+        - Collections
       x-accepts: application/json
     patch:
       description: Update the details of a collection.
       operationId: UpdateCollection
       parameters:
-      - description: The collection to update, e.g. `my-collection`.
-        explode: false
-        in: path
-        name: collection_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: |-
-          The list of fields to be updated, separated by a comma, e.g.
-          `field1,field2`.
+        - description: The collection to update, e.g. `my-collection`.
+          explode: false
+          in: path
+          name: collection_id
+          required: true
+          schema:
+            type: string
+          style: simple
+        - description: |-
+            The list of fields to be updated, separated by a comma, e.g.
+            `field1,field2`.
 
-          Each field should be in snake case, e.g. `display_name`.
+            Each field should be in snake case, e.g. `display_name`.
 
-          For each field that you want to update, provide a corresponding value in
-          the collection object containing the new value.
-        explode: true
-        in: query
-        name: update_mask
-        required: false
-        schema:
-          type: string
-        style: form
+            For each field that you want to update, provide a corresponding value in
+            the collection object containing the new value.
+          explode: true
+          in: query
+          name: update_mask
+          required: false
+          schema:
+            type: string
+          style: form
       requestBody:
         content:
           application/json:
@@ -485,7 +485,7 @@ paths:
           description: An unexpected error response
       summary: Update collection
       tags:
-      - Collections
+        - Collections
       x-contentType: application/json
       x-accepts: application/json
   /v4/collections/{collection_id}/pipelines:
@@ -493,68 +493,68 @@ paths:
       description: Retrieve a list of pipelines.
       operationId: ListPipelines
       parameters:
-      - description: The collection that owns this set of pipelines, e.g. `my-collection`.
-        explode: false
-        in: path
-        name: collection_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: |-
-          The maximum number of pipelines to return. The service may return fewer
-          than this value.
+        - description: The collection that owns this set of pipelines, e.g. `my-collection`.
+          explode: false
+          in: path
+          name: collection_id
+          required: true
+          schema:
+            type: string
+          style: simple
+        - description: |-
+            The maximum number of pipelines to return. The service may return fewer
+            than this value.
 
-          If unspecified, at most 50 pipelines are returned.
+            If unspecified, at most 50 pipelines are returned.
 
-          The maximum value is 1000; values above 1000 are coerced to 1000.
-        explode: true
-        in: query
-        name: page_size
-        required: false
-        schema:
-          format: int32
-          type: integer
-        style: form
-      - description: |-
-          A page token, received from a previous
-          [ListPipelines](/api#operation/ListPipelines) call.
+            The maximum value is 1000; values above 1000 are coerced to 1000.
+          explode: true
+          in: query
+          name: page_size
+          required: false
+          schema:
+            format: int32
+            type: integer
+          style: form
+        - description: |-
+            A page token, received from a previous
+            [ListPipelines](/api#operation/ListPipelines) call.
 
-          Provide this to retrieve the subsequent page.
+            Provide this to retrieve the subsequent page.
 
-          When paginating, all other parameters provided to
-          [ListPipelines](/api#operation/ListPipelines) must match the
-          call that provided the page token.
-        explode: true
-        in: query
-        name: page_token
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: |-
-          The amount of information to include in each retrieved pipeline.
+            When paginating, all other parameters provided to
+            [ListPipelines](/api#operation/ListPipelines) must match the
+            call that provided the page token.
+          explode: true
+          in: query
+          name: page_token
+          required: false
+          schema:
+            type: string
+          style: form
+        - description: |-
+            The amount of information to include in each retrieved pipeline.
 
-           - VIEW_UNSPECIFIED: The default / unset value.
-          The API defaults to the `BASIC` view.
-           - BASIC: Include basic information including type, name, version and description
-          but not the full step configuration. This is the default value (for both
-          [ListPipelines](/api#operation/ListPipelines) and
-          [GetPipeline](/api#operation/GetPipeline)).
-           - FULL: Include the information from `BASIC`, plus full step
-          configuration.
-        explode: true
-        in: query
-        name: view
-        required: false
-        schema:
-          default: VIEW_UNSPECIFIED
-          enum:
-          - VIEW_UNSPECIFIED
-          - BASIC
-          - FULL
-          type: string
-        style: form
+             - VIEW_UNSPECIFIED: The default / unset value.
+            The API defaults to the `BASIC` view.
+             - BASIC: Include basic information including type, name, version and description
+            but not the full step configuration. This is the default value (for both
+            [ListPipelines](/api#operation/ListPipelines) and
+            [GetPipeline](/api#operation/GetPipeline)).
+             - FULL: Include the information from `BASIC`, plus full step
+            configuration.
+          explode: true
+          in: query
+          name: view
+          required: false
+          schema:
+            default: VIEW_UNSPECIFIED
+            enum:
+              - VIEW_UNSPECIFIED
+              - BASIC
+              - FULL
+            type: string
+          style: form
       responses:
         "200":
           content:
@@ -596,7 +596,7 @@ paths:
           description: An unexpected error response
       summary: List pipelines
       tags:
-      - Pipelines
+        - Pipelines
       x-accepts: application/json
     post:
       description: |-
@@ -613,14 +613,14 @@ paths:
         to `application/yaml` and submit the pipeline's YAML in the request body.
       operationId: CreatePipeline
       parameters:
-      - description: The collection to create the pipeline in, e.g. `my-collection`.
-        explode: false
-        in: path
-        name: collection_id
-        required: true
-        schema:
-          type: string
-        style: simple
+        - description: The collection to create the pipeline in, e.g. `my-collection`.
+          explode: false
+          in: path
+          name: collection_id
+          required: true
+          schema:
+            type: string
+          style: simple
       requestBody:
         content:
           application/json:
@@ -690,7 +690,7 @@ paths:
           description: An unexpected error response
       summary: Create pipeline
       tags:
-      - Pipelines
+        - Pipelines
       x-contentType: application/json
       x-accepts: application/json
   /v4/collections/{collection_id}/pipelines/{type}/{name}/{version}:
@@ -702,64 +702,64 @@ paths:
         `application/yaml`.
       operationId: GetPipeline
       parameters:
-      - description: The collection that owns the pipeline, e.g. `my-collection`.
-        explode: false
-        in: path
-        name: collection_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: The type of the pipeline to retrieve.
-        explode: false
-        in: path
-        name: type
-        required: true
-        schema:
-          enum:
-          - TYPE_UNSPECIFIED
-          - RECORD
-          - QUERY
-          type: string
-        style: simple
-      - description: The name of the pipeline to retrieve, e.g. `my-pipeline`.
-        explode: false
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: The version of the pipeline to retrieve, e.g. `42`.
-        explode: false
-        in: path
-        name: version
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: |-
-          The amount of information to include in the retrieved pipeline.
+        - description: The collection that owns the pipeline, e.g. `my-collection`.
+          explode: false
+          in: path
+          name: collection_id
+          required: true
+          schema:
+            type: string
+          style: simple
+        - description: The type of the pipeline to retrieve.
+          explode: false
+          in: path
+          name: type
+          required: true
+          schema:
+            enum:
+              - TYPE_UNSPECIFIED
+              - RECORD
+              - QUERY
+            type: string
+          style: simple
+        - description: The name of the pipeline to retrieve, e.g. `my-pipeline`.
+          explode: false
+          in: path
+          name: name
+          required: true
+          schema:
+            type: string
+          style: simple
+        - description: The version of the pipeline to retrieve, e.g. `42`.
+          explode: false
+          in: path
+          name: version
+          required: true
+          schema:
+            type: string
+          style: simple
+        - description: |-
+            The amount of information to include in the retrieved pipeline.
 
-           - VIEW_UNSPECIFIED: The default / unset value.
-          The API defaults to the `BASIC` view.
-           - BASIC: Include basic information including type, name, version and description
-          but not the full step configuration. This is the default value (for both
-          [ListPipelines](/api#operation/ListPipelines) and
-          [GetPipeline](/api#operation/GetPipeline)).
-           - FULL: Include the information from `BASIC`, plus full step configuration.
-        explode: true
-        in: query
-        name: view
-        required: false
-        schema:
-          default: VIEW_UNSPECIFIED
-          enum:
-          - VIEW_UNSPECIFIED
-          - BASIC
-          - FULL
-          type: string
-        style: form
+             - VIEW_UNSPECIFIED: The default / unset value.
+            The API defaults to the `BASIC` view.
+             - BASIC: Include basic information including type, name, version and description
+            but not the full step configuration. This is the default value (for both
+            [ListPipelines](/api#operation/ListPipelines) and
+            [GetPipeline](/api#operation/GetPipeline)).
+             - FULL: Include the information from `BASIC`, plus full step configuration.
+          explode: true
+          in: query
+          name: view
+          required: false
+          schema:
+            default: VIEW_UNSPECIFIED
+            enum:
+              - VIEW_UNSPECIFIED
+              - BASIC
+              - FULL
+            type: string
+          style: form
       responses:
         "200":
           content:
@@ -831,7 +831,7 @@ paths:
           description: An unexpected error response
       summary: Get pipeline
       tags:
-      - Pipelines
+        - Pipelines
       x-accepts: application/json
   /v4/collections/{collection_id}/pipelines/{type}/{name}:getDefaultVersion:
     get:
@@ -848,59 +848,59 @@ paths:
         `application/yaml`.
       operationId: GetDefaultVersion
       parameters:
-      - description: |-
-          The collection that owns the pipeline to get the default version of, e.g.
-          `my-collection`.
-        explode: false
-        in: path
-        name: collection_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: The type of the pipeline to get the default version of.
-        explode: false
-        in: path
-        name: type
-        required: true
-        schema:
-          enum:
-          - TYPE_UNSPECIFIED
-          - RECORD
-          - QUERY
-          type: string
-        style: simple
-      - description: The name of the pipeline to get the default version of, e.g.
-          `my-pipeline`.
-        explode: false
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: |-
-          The amount of information to include in the retrieved pipeline.
+        - description: |-
+            The collection that owns the pipeline to get the default version of, e.g.
+            `my-collection`.
+          explode: false
+          in: path
+          name: collection_id
+          required: true
+          schema:
+            type: string
+          style: simple
+        - description: The type of the pipeline to get the default version of.
+          explode: false
+          in: path
+          name: type
+          required: true
+          schema:
+            enum:
+              - TYPE_UNSPECIFIED
+              - RECORD
+              - QUERY
+            type: string
+          style: simple
+        - description: The name of the pipeline to get the default version of, e.g.
+            `my-pipeline`.
+          explode: false
+          in: path
+          name: name
+          required: true
+          schema:
+            type: string
+          style: simple
+        - description: |-
+            The amount of information to include in the retrieved pipeline.
 
-           - VIEW_UNSPECIFIED: The default / unset value.
-          The API defaults to the `BASIC` view.
-           - BASIC: Include basic information including type, name, version and description
-          but not the full step configuration. This is the default value (for both
-          [ListPipelines](/api#operation/ListPipelines) and
-          [GetPipeline](/api#operation/GetPipeline)).
-           - FULL: Include the information from `BASIC`, plus full step configuration.
-        explode: true
-        in: query
-        name: view
-        required: false
-        schema:
-          default: VIEW_UNSPECIFIED
-          enum:
-          - VIEW_UNSPECIFIED
-          - BASIC
-          - FULL
-          type: string
-        style: form
+             - VIEW_UNSPECIFIED: The default / unset value.
+            The API defaults to the `BASIC` view.
+             - BASIC: Include basic information including type, name, version and description
+            but not the full step configuration. This is the default value (for both
+            [ListPipelines](/api#operation/ListPipelines) and
+            [GetPipeline](/api#operation/GetPipeline)).
+             - FULL: Include the information from `BASIC`, plus full step configuration.
+          explode: true
+          in: query
+          name: view
+          required: false
+          schema:
+            default: VIEW_UNSPECIFIED
+            enum:
+              - VIEW_UNSPECIFIED
+              - BASIC
+              - FULL
+            type: string
+          style: form
       responses:
         "200":
           content:
@@ -977,7 +977,7 @@ paths:
           description: An unexpected error response
       summary: Get default pipeline version
       tags:
-      - Pipelines
+        - Pipelines
       x-accepts: application/json
   /v4/collections/{collection_id}/pipelines/{type}/{name}:setDefaultVersion:
     post:
@@ -991,37 +991,37 @@ paths:
         having to change your code.
       operationId: SetDefaultVersion
       parameters:
-      - description: |-
-          The collection that owns the pipeline to set the default version of, e.g.
-          `my-collection`.
-        explode: false
-        in: path
-        name: collection_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: The type of the pipeline to set the default version of.
-        explode: false
-        in: path
-        name: type
-        required: true
-        schema:
-          enum:
-          - TYPE_UNSPECIFIED
-          - RECORD
-          - QUERY
-          type: string
-        style: simple
-      - description: The name of the pipeline to set the default version of, e.g.
-          `my-pipeline`.
-        explode: false
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-        style: simple
+        - description: |-
+            The collection that owns the pipeline to set the default version of, e.g.
+            `my-collection`.
+          explode: false
+          in: path
+          name: collection_id
+          required: true
+          schema:
+            type: string
+          style: simple
+        - description: The type of the pipeline to set the default version of.
+          explode: false
+          in: path
+          name: type
+          required: true
+          schema:
+            enum:
+              - TYPE_UNSPECIFIED
+              - RECORD
+              - QUERY
+            type: string
+          style: simple
+        - description: The name of the pipeline to set the default version of, e.g.
+            `my-pipeline`.
+          explode: false
+          in: path
+          name: name
+          required: true
+          schema:
+            type: string
+          style: simple
       requestBody:
         content:
           application/json:
@@ -1069,7 +1069,7 @@ paths:
           description: An unexpected error response
       summary: Set default pipeline version
       tags:
-      - Pipelines
+        - Pipelines
       x-contentType: application/json
       x-accepts: application/json
   /v4/collections/{collection_id}/records:batchUpsert:
@@ -1079,14 +1079,14 @@ paths:
         [UpsertRecord](/api#operation/UpsertRecord) call.
       operationId: BatchUpsertRecords
       parameters:
-      - description: The collection to upsert the records in, e.g. `my-collection`.
-        explode: false
-        in: path
-        name: collection_id
-        required: true
-        schema:
-          type: string
-        style: simple
+        - description: The collection to upsert the records in, e.g. `my-collection`.
+          explode: false
+          in: path
+          name: collection_id
+          required: true
+          schema:
+            type: string
+          style: simple
       requestBody:
         content:
           application/json:
@@ -1134,7 +1134,7 @@ paths:
           description: An unexpected error response
       summary: Batch upsert records
       tags:
-      - Records
+        - Records
       x-contentType: application/json
       x-accepts: application/json
   /v4/collections/{collection_id}/records:delete:
@@ -1142,14 +1142,14 @@ paths:
       description: Delete a record with the given key.
       operationId: DeleteRecord
       parameters:
-      - description: The collection that contains the record to delete, e.g. `my-collection`.
-        explode: false
-        in: path
-        name: collection_id
-        required: true
-        schema:
-          type: string
-        style: simple
+        - description: The collection that contains the record to delete, e.g. `my-collection`.
+          explode: false
+          in: path
+          name: collection_id
+          required: true
+          schema:
+            type: string
+          style: simple
       requestBody:
         content:
           application/json:
@@ -1161,7 +1161,7 @@ paths:
           content:
             application/json:
               schema:
-                properties: {}
+                properties: { }
           description: A successful response.
         "401":
           content:
@@ -1197,7 +1197,7 @@ paths:
           description: An unexpected error response
       summary: Delete record
       tags:
-      - Records
+        - Records
       x-contentType: application/json
       x-accepts: application/json
   /v4/collections/{collection_id}/records:get:
@@ -1205,14 +1205,14 @@ paths:
       description: Retrieve a record with the given key.
       operationId: GetRecord
       parameters:
-      - description: The collection that contains the record to retrieve, e.g. `my-collection`.
-        explode: false
-        in: path
-        name: collection_id
-        required: true
-        schema:
-          type: string
-        style: simple
+        - description: The collection that contains the record to retrieve, e.g. `my-collection`.
+          explode: false
+          in: path
+          name: collection_id
+          required: true
+          schema:
+            type: string
+          style: simple
       requestBody:
         content:
           application/json:
@@ -1260,7 +1260,7 @@ paths:
           description: An unexpected error response
       summary: Get record
       tags:
-      - Records
+        - Records
       x-contentType: application/json
       x-accepts: application/json
   /v4/collections/{collection_id}/records:upsert:
@@ -1298,14 +1298,14 @@ paths:
         ```
       operationId: UpsertRecord
       parameters:
-      - description: The collection to upsert the record in, e.g. `my-collection`.
-        explode: false
-        in: path
-        name: collection_id
-        required: true
-        schema:
-          type: string
-        style: simple
+        - description: The collection to upsert the record in, e.g. `my-collection`.
+          explode: false
+          in: path
+          name: collection_id
+          required: true
+          schema:
+            type: string
+          style: simple
       requestBody:
         content:
           application/json:
@@ -1353,7 +1353,7 @@ paths:
           description: An unexpected error response
       summary: Upsert record
       tags:
-      - Records
+        - Records
       x-contentType: application/json
       x-accepts: application/json
   /v4/collections/{collection_id}/schemaFields:
@@ -1361,45 +1361,45 @@ paths:
       description: Retrieve a list of schema fields in the collection.
       operationId: ListSchemaFields
       parameters:
-      - description: The collection that owns this set of schema fields, e.g. `my-collection`.
-        explode: false
-        in: path
-        name: collection_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: |-
-          The maximum number of schema fields to return. The service may return
-          fewer than this value.
+        - description: The collection that owns this set of schema fields, e.g. `my-collection`.
+          explode: false
+          in: path
+          name: collection_id
+          required: true
+          schema:
+            type: string
+          style: simple
+        - description: |-
+            The maximum number of schema fields to return. The service may return
+            fewer than this value.
 
-          If unspecified, at most 50 schema fields are returned.
+            If unspecified, at most 50 schema fields are returned.
 
-          The maximum value is 1000; values above 1000 are coerced to 1000.
-        explode: true
-        in: query
-        name: page_size
-        required: false
-        schema:
-          format: int32
-          type: integer
-        style: form
-      - description: |-
-          A page token, received from a previous
-          [ListSchemaFields](/api#operation/ListSchemaFields) call.
+            The maximum value is 1000; values above 1000 are coerced to 1000.
+          explode: true
+          in: query
+          name: page_size
+          required: false
+          schema:
+            format: int32
+            type: integer
+          style: form
+        - description: |-
+            A page token, received from a previous
+            [ListSchemaFields](/api#operation/ListSchemaFields) call.
 
-          Provide this to retrieve the subsequent page.
+            Provide this to retrieve the subsequent page.
 
-          When paginating, all other parameters provided to
-          [ListSchemaFields](/api#operation/ListSchemaFields) must
-          match the call that provided the page token.
-        explode: true
-        in: query
-        name: page_token
-        required: false
-        schema:
-          type: string
-        style: form
+            When paginating, all other parameters provided to
+            [ListSchemaFields](/api#operation/ListSchemaFields) must
+            match the call that provided the page token.
+          explode: true
+          in: query
+          name: page_token
+          required: false
+          schema:
+            type: string
+          style: form
       responses:
         "200":
           content:
@@ -1441,20 +1441,20 @@ paths:
           description: An unexpected error response
       summary: List schema fields
       tags:
-      - Schema
+        - Schema
       x-accepts: application/json
     post:
       description: Create a new field in your collection's schema.
       operationId: CreateSchemaField
       parameters:
-      - description: The collection to create a schema field in, e.g. `my-collection`.
-        explode: false
-        in: path
-        name: collection_id
-        required: true
-        schema:
-          type: string
-        style: simple
+        - description: The collection to create a schema field in, e.g. `my-collection`.
+          explode: false
+          in: path
+          name: collection_id
+          required: true
+          schema:
+            type: string
+          style: simple
       requestBody:
         content:
           application/json:
@@ -1503,7 +1503,7 @@ paths:
           description: An unexpected error response
       summary: Create schema field
       tags:
-      - Schema
+        - Schema
       x-contentType: application/json
       x-accepts: application/json
   /v4/collections/{collection_id}/schemaFields:batchCreate:
@@ -1513,14 +1513,14 @@ paths:
         [CreateSchemaField](/api#operation/CreateSchemaField) call.
       operationId: BatchCreateSchemaFields
       parameters:
-      - description: The collection to create the schema fields in, e.g. `my-collection`.
-        explode: false
-        in: path
-        name: collection_id
-        required: true
-        schema:
-          type: string
-        style: simple
+        - description: The collection to create the schema fields in, e.g. `my-collection`.
+          explode: false
+          in: path
+          name: collection_id
+          required: true
+          schema:
+            type: string
+          style: simple
       requestBody:
         content:
           application/json:
@@ -1568,7 +1568,7 @@ paths:
           description: An unexpected error response
       summary: Batch create schema fields
       tags:
-      - Schema
+        - Schema
       x-contentType: application/json
       x-accepts: application/json
   /v4/collections/{collection_id}:generatePipelines:
@@ -1586,14 +1586,14 @@ paths:
         separated by three dashes (`---`).
       operationId: GeneratePipelines
       parameters:
-      - description: The collection, e.g. `my-collection`.
-        explode: false
-        in: path
-        name: collection_id
-        required: true
-        schema:
-          type: string
-        style: simple
+        - description: The collection, e.g. `my-collection`.
+          explode: false
+          in: path
+          name: collection_id
+          required: true
+          schema:
+            type: string
+          style: simple
       requestBody:
         content:
           application/json:
@@ -1679,7 +1679,7 @@ paths:
           description: An unexpected error response
       summary: Generate pipelines
       tags:
-      - Pipelines
+        - Pipelines
       x-contentType: application/json
       x-accepts: application/json
   /v4/collections/{collection_id}:getDefaultPipeline:
@@ -1697,32 +1697,32 @@ paths:
         provided.
       operationId: GetDefaultPipeline
       parameters:
-      - description: The collection to get the default query pipeline of, e.g. `my-collection`.
-        explode: false
-        in: path
-        name: collection_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: |-
-          The type of the pipeline to get.
+        - description: The collection to get the default query pipeline of, e.g. `my-collection`.
+          explode: false
+          in: path
+          name: collection_id
+          required: true
+          schema:
+            type: string
+          style: simple
+        - description: |-
+            The type of the pipeline to get.
 
-           - TYPE_UNSPECIFIED: Pipeline type not specified.
-           - RECORD: Record pipeline.
-           - QUERY: Query pipeline.
-        explode: true
-        in: query
-        name: type
-        required: true
-        schema:
-          default: TYPE_UNSPECIFIED
-          enum:
-          - TYPE_UNSPECIFIED
-          - RECORD
-          - QUERY
-          type: string
-        style: form
+             - TYPE_UNSPECIFIED: Pipeline type not specified.
+             - RECORD: Record pipeline.
+             - QUERY: Query pipeline.
+          explode: true
+          in: query
+          name: type
+          required: true
+          schema:
+            default: TYPE_UNSPECIFIED
+            enum:
+              - TYPE_UNSPECIFIED
+              - RECORD
+              - QUERY
+            type: string
+          style: form
       responses:
         "200":
           content:
@@ -1764,7 +1764,7 @@ paths:
           description: An unexpected error response
       summary: Get default pipeline
       tags:
-      - Pipelines
+        - Pipelines
       x-accepts: application/json
   /v4/collections/{collection_id}:queryCollection:
     post:
@@ -1790,14 +1790,14 @@ paths:
         SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
       operationId: QueryCollection
       parameters:
-      - description: The collection to query, e.g. `my-collection`.
-        explode: false
-        in: path
-        name: collection_id
-        required: true
-        schema:
-          type: string
-        style: simple
+        - description: The collection to query, e.g. `my-collection`.
+          explode: false
+          in: path
+          name: collection_id
+          required: true
+          schema:
+            type: string
+          style: simple
       requestBody:
         content:
           application/json:
@@ -1845,7 +1845,7 @@ paths:
           description: An unexpected error response
       summary: Query collection
       tags:
-      - Collections
+        - Collections
       x-contentType: application/json
       x-accepts: application/json
   /v4/collections/{collection_id}:setDefaultPipeline:
@@ -1866,14 +1866,14 @@ paths:
         another pipeline.
       operationId: SetDefaultPipeline
       parameters:
-      - description: The collection to set the default query pipeline of, e.g. `my-collection`.
-        explode: false
-        in: path
-        name: collection_id
-        required: true
-        schema:
-          type: string
-        style: simple
+        - description: The collection to set the default query pipeline of, e.g. `my-collection`.
+          explode: false
+          in: path
+          name: collection_id
+          required: true
+          schema:
+            type: string
+          style: simple
       requestBody:
         content:
           application/json:
@@ -1921,7 +1921,108 @@ paths:
           description: An unexpected error response
       summary: Set default pipeline
       tags:
-      - Pipelines
+        - Pipelines
+      x-contentType: application/json
+      x-accepts: application/json
+  /v4/events:sendEvent:
+    post:
+      description: |-
+        Send an event to the ranking system after a user interacts with a search
+        result.
+
+        When querying a collection, you can set the tracking type of the query
+        request. When it is `CLICK` or `POS_NEG`, a token is generated for each
+        result in the query response. You can use this token to provide feedback to
+        the ranking system. Each time you want to record an event on a particular
+        search result, use the send event call and provide:
+
+        - The `name` of the event, e.g. `click`, `purchase`.
+        - The `token` from the search result.
+        - The `weight` to assign to the event, e.g. `1`.
+        - An object containing any additional `metadata`.
+
+        For example, to send an event where a customer purchased a product, use the
+        following call:
+
+        ```json
+        {
+          "name": "purchase",
+          "token": "eyJ...",
+          "weight": 1,
+          "metadata": {
+            "discount": 0.2,
+            "margin": 30.0,
+            "customer_id": "12345",
+            "ui_test_segment": "A"
+          }
+        }
+        ```
+      operationId: SendEvent
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendEventRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SendEventResponse'
+          description: A successful response.
+        "400":
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    code: 6
+                    message: invalid request
+                    details:
+                      - '@type': type.googleapis.com/google.rpc.BadRequest
+                        field_violations:
+                          - field: token
+                            description: cannot be empty
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Returned when the request contains violations for one or more
+            fields.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Returned when the request does not have valid authentication
+            credentials.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Returned when the user does not have permission to access the
+            resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Returned when the resource does not exist.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Returned when the API encounters an internal error.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: An unexpected error response
+      summary: Send event
+      tags:
+        - Events
       x-contentType: application/json
       x-accepts: application/json
 components:
@@ -1989,8 +2090,8 @@ components:
         condition: condition
         description: description
         annotations:
-        - annotations
-        - annotations
+          - annotations
+          - annotations
         id: id
         title: title
         params:
@@ -2030,7 +2131,7 @@ components:
             type: string
           type: array
       required:
-      - id
+        - id
       type: object
     QueryAggregateResultAnalysis:
       example:
@@ -2114,15 +2215,15 @@ components:
         step.
       example:
         percentiles:
-        - value: 1.2315135367772556
-          point: 7.386281948385884
-        - value: 1.2315135367772556
-          point: 7.386281948385884
+          - value: 1.2315135367772556
+            point: 7.386281948385884
+          - value: 1.2315135367772556
+            point: 7.386281948385884
         cdf:
-        - value: 1.2315135367772556
-          point: 7.386281948385884
-        - value: 1.2315135367772556
-          point: 7.386281948385884
+          - value: 1.2315135367772556
+            point: 7.386281948385884
+          - value: 1.2315135367772556
+            point: 7.386281948385884
       properties:
         percentiles:
           description: The percentile data points.
@@ -2183,10 +2284,10 @@ components:
         Unlike `CLICK`, if no tokens are reported for records then no action is
         taken.
       enum:
-      - TYPE_UNSPECIFIED
-      - NONE
-      - CLICK
-      - POS_NEG
+        - TYPE_UNSPECIFIED
+        - NONE
+        - CLICK
+        - POS_NEG
       type: string
     QueryResultToken:
       description: Tokens are used to carry ranking information for query results.
@@ -2212,10 +2313,10 @@ components:
          - REQUIRED: Required fields must be specified and cannot be null.
          - UNIQUE: Unique fields must be specified and must be unique.
       enum:
-      - MODE_UNSPECIFIED
-      - NULLABLE
-      - REQUIRED
-      - UNIQUE
+        - MODE_UNSPECIFIED
+        - NULLABLE
+        - REQUIRED
+        - UNIQUE
       type: string
     PipelineStepParamBinding:
       example:
@@ -2408,7 +2509,7 @@ components:
 
          - NULL_VALUE: Null value.
       enum:
-      - NULL_VALUE
+        - NULL_VALUE
       type: string
     Status:
       description: |-
@@ -2422,10 +2523,10 @@ components:
       example:
         code: 5
         details:
-        - value: value
-          type_url: type_url
-        - value: value
-          type_url: type_url
+          - value: value
+            type_url: type_url
+          - value: value
+            type_url: type_url
         message: message
       properties:
         code:
@@ -2450,61 +2551,61 @@ components:
       example:
         create_time: 2000-01-23T04:56:07.000+00:00
         post_steps:
-        - condition: condition
-          description: description
-          annotations:
-          - annotations
-          - annotations
-          id: id
-          title: title
-          params:
-            key:
-              bind: bind
-              constant: constant
-              description: description
-              default_value: default_value
-        - condition: condition
-          description: description
-          annotations:
-          - annotations
-          - annotations
-          id: id
-          title: title
-          params:
-            key:
-              bind: bind
-              constant: constant
-              description: description
-              default_value: default_value
+          - condition: condition
+            description: description
+            annotations:
+              - annotations
+              - annotations
+            id: id
+            title: title
+            params:
+              key:
+                bind: bind
+                constant: constant
+                description: description
+                default_value: default_value
+          - condition: condition
+            description: description
+            annotations:
+              - annotations
+              - annotations
+            id: id
+            title: title
+            params:
+              key:
+                bind: bind
+                constant: constant
+                description: description
+                default_value: default_value
         collection_default: true
         name: name
         pre_steps:
-        - condition: condition
-          description: description
-          annotations:
-          - annotations
-          - annotations
-          id: id
-          title: title
-          params:
-            key:
-              bind: bind
-              constant: constant
-              description: description
-              default_value: default_value
-        - condition: condition
-          description: description
-          annotations:
-          - annotations
-          - annotations
-          id: id
-          title: title
-          params:
-            key:
-              bind: bind
-              constant: constant
-              description: description
-              default_value: default_value
+          - condition: condition
+            description: description
+            annotations:
+              - annotations
+              - annotations
+            id: id
+            title: title
+            params:
+              key:
+                bind: bind
+                constant: constant
+                description: description
+                default_value: default_value
+          - condition: condition
+            description: description
+            annotations:
+              - annotations
+              - annotations
+            id: id
+            title: title
+            params:
+              key:
+                bind: bind
+                constant: constant
+                description: description
+                default_value: default_value
         default_version: true
         description: description
         version: version
@@ -2567,21 +2668,21 @@ components:
           readOnly: true
           type: boolean
       required:
-      - name
-      - type
-      - version
+        - name
+        - type
+        - version
       type: object
     BatchCreateSchemaFieldsRequest:
       example:
         fields:
-        - array: true
-          name: name
-          description: description
-          array_length: 0
-        - array: true
-          name: name
-          description: description
-          array_length: 0
+          - array: true
+            name: name
+            description: description
+            array_length: 0
+          - array: true
+            name: name
+            description: description
+            array_length: 0
       properties:
         fields:
           description: |-
@@ -2592,38 +2693,38 @@ components:
             $ref: '#/components/schemas/SchemaField'
           type: array
       required:
-      - fields
+        - fields
       type: object
     BatchCreateSchemaFieldsResponse:
       example:
         fields:
-        - array: true
-          name: name
-          description: description
-          array_length: 0
-        - array: true
-          name: name
-          description: description
-          array_length: 0
+          - array: true
+            name: name
+            description: description
+            array_length: 0
+          - array: true
+            name: name
+            description: description
+            array_length: 0
         errors:
-        - index: 0
-          status:
-            code: 5
-            details:
-            - value: value
-              type_url: type_url
-            - value: value
-              type_url: type_url
-            message: message
-        - index: 0
-          status:
-            code: 5
-            details:
-            - value: value
-              type_url: type_url
-            - value: value
-              type_url: type_url
-            message: message
+          - index: 0
+            status:
+              code: 5
+              details:
+                - value: value
+                  type_url: type_url
+                - value: value
+                  type_url: type_url
+              message: message
+          - index: 0
+            status:
+              code: 5
+              details:
+                - value: value
+                  type_url: type_url
+                - value: value
+                  type_url: type_url
+              message: message
       properties:
         fields:
           description: Schema fields created.
@@ -2642,10 +2743,10 @@ components:
         status:
           code: 5
           details:
-          - value: value
-            type_url: type_url
-          - value: value
-            type_url: type_url
+            - value: value
+              type_url: type_url
+            - value: value
+              type_url: type_url
           message: message
       properties:
         index:
@@ -2663,8 +2764,8 @@ components:
           version: version
         variables: '{}'
         records:
-        - '{}'
-        - '{}'
+          - '{}'
+          - '{}'
       properties:
         pipeline:
           $ref: '#/components/schemas/BatchUpsertRecordsRequestPipeline'
@@ -2679,7 +2780,7 @@ components:
             transforms throughout its steps.
           type: object
       required:
-      - records
+        - records
       type: object
     BatchUpsertRecordsRequestPipeline:
       description: |-
@@ -2700,43 +2801,43 @@ components:
             If not provided the default version is used.
           type: string
       required:
-      - name
+        - name
       type: object
     BatchUpsertRecordsResponse:
       example:
         variables:
-        - variables: '{}'
-          index: 6
-        - variables: '{}'
-          index: 6
+          - variables: '{}'
+            index: 6
+          - variables: '{}'
+            index: 6
         keys:
-        - index: 0
-          key:
-            field: field
-            value: value
-        - index: 0
-          key:
-            field: field
-            value: value
+          - index: 0
+            key:
+              field: field
+              value: value
+          - index: 0
+            key:
+              field: field
+              value: value
         errors:
-        - index: 1
-          status:
-            code: 5
-            details:
-            - value: value
-              type_url: type_url
-            - value: value
-              type_url: type_url
-            message: message
-        - index: 1
-          status:
-            code: 5
-            details:
-            - value: value
-              type_url: type_url
-            - value: value
-              type_url: type_url
-            message: message
+          - index: 1
+            status:
+              code: 5
+              details:
+                - value: value
+                  type_url: type_url
+                - value: value
+                  type_url: type_url
+              message: message
+          - index: 1
+            status:
+              code: 5
+              details:
+                - value: value
+                  type_url: type_url
+                - value: value
+                  type_url: type_url
+              message: message
       properties:
         keys:
           description: |-
@@ -2770,10 +2871,10 @@ components:
         status:
           code: 5
           details:
-          - value: value
-            type_url: type_url
-          - value: value
-            type_url: type_url
+            - value: value
+              type_url: type_url
+            - value: value
+              type_url: type_url
           message: message
       properties:
         index:
@@ -2788,8 +2889,8 @@ components:
       example:
         account_id: account_id
         authorized_query_domains:
-        - authorized_query_domains
-        - authorized_query_domains
+          - authorized_query_domains
+          - authorized_query_domains
         create_time: 2000-01-23T04:56:07.000+00:00
         id: id
         display_name: display_name
@@ -2823,7 +2924,7 @@ components:
             type: string
           type: array
       required:
-      - display_name
+        - display_name
       type: object
     DeleteRecordRequest:
       example:
@@ -2834,16 +2935,16 @@ components:
         key:
           $ref: '#/components/schemas/RecordKey'
       required:
-      - key
+        - key
       type: object
     GeneratePipelinesRequest:
       example:
         query_training_fields:
-        - query_training_fields
-        - query_training_fields
+          - query_training_fields
+          - query_training_fields
         searchable_fields:
-        - searchable_fields
-        - searchable_fields
+          - searchable_fields
+          - searchable_fields
       properties:
         searchable_fields:
           description: Prioritized list of fields to search.
@@ -2856,190 +2957,190 @@ components:
             type: string
           type: array
       required:
-      - searchable_fields
+        - searchable_fields
       type: object
     GeneratePipelinesResponse:
       example:
         record_pipeline:
           create_time: 2000-01-23T04:56:07.000+00:00
           post_steps:
-          - condition: condition
-            description: description
-            annotations:
-            - annotations
-            - annotations
-            id: id
-            title: title
-            params:
-              key:
-                bind: bind
-                constant: constant
-                description: description
-                default_value: default_value
-          - condition: condition
-            description: description
-            annotations:
-            - annotations
-            - annotations
-            id: id
-            title: title
-            params:
-              key:
-                bind: bind
-                constant: constant
-                description: description
-                default_value: default_value
+            - condition: condition
+              description: description
+              annotations:
+                - annotations
+                - annotations
+              id: id
+              title: title
+              params:
+                key:
+                  bind: bind
+                  constant: constant
+                  description: description
+                  default_value: default_value
+            - condition: condition
+              description: description
+              annotations:
+                - annotations
+                - annotations
+              id: id
+              title: title
+              params:
+                key:
+                  bind: bind
+                  constant: constant
+                  description: description
+                  default_value: default_value
           collection_default: true
           name: name
           pre_steps:
-          - condition: condition
-            description: description
-            annotations:
-            - annotations
-            - annotations
-            id: id
-            title: title
-            params:
-              key:
-                bind: bind
-                constant: constant
-                description: description
-                default_value: default_value
-          - condition: condition
-            description: description
-            annotations:
-            - annotations
-            - annotations
-            id: id
-            title: title
-            params:
-              key:
-                bind: bind
-                constant: constant
-                description: description
-                default_value: default_value
+            - condition: condition
+              description: description
+              annotations:
+                - annotations
+                - annotations
+              id: id
+              title: title
+              params:
+                key:
+                  bind: bind
+                  constant: constant
+                  description: description
+                  default_value: default_value
+            - condition: condition
+              description: description
+              annotations:
+                - annotations
+                - annotations
+              id: id
+              title: title
+              params:
+                key:
+                  bind: bind
+                  constant: constant
+                  description: description
+                  default_value: default_value
           default_version: true
           description: description
           version: version
         autocomplete_pipeline:
           create_time: 2000-01-23T04:56:07.000+00:00
           post_steps:
-          - condition: condition
-            description: description
-            annotations:
-            - annotations
-            - annotations
-            id: id
-            title: title
-            params:
-              key:
-                bind: bind
-                constant: constant
-                description: description
-                default_value: default_value
-          - condition: condition
-            description: description
-            annotations:
-            - annotations
-            - annotations
-            id: id
-            title: title
-            params:
-              key:
-                bind: bind
-                constant: constant
-                description: description
-                default_value: default_value
+            - condition: condition
+              description: description
+              annotations:
+                - annotations
+                - annotations
+              id: id
+              title: title
+              params:
+                key:
+                  bind: bind
+                  constant: constant
+                  description: description
+                  default_value: default_value
+            - condition: condition
+              description: description
+              annotations:
+                - annotations
+                - annotations
+              id: id
+              title: title
+              params:
+                key:
+                  bind: bind
+                  constant: constant
+                  description: description
+                  default_value: default_value
           collection_default: true
           name: name
           pre_steps:
-          - condition: condition
-            description: description
-            annotations:
-            - annotations
-            - annotations
-            id: id
-            title: title
-            params:
-              key:
-                bind: bind
-                constant: constant
-                description: description
-                default_value: default_value
-          - condition: condition
-            description: description
-            annotations:
-            - annotations
-            - annotations
-            id: id
-            title: title
-            params:
-              key:
-                bind: bind
-                constant: constant
-                description: description
-                default_value: default_value
+            - condition: condition
+              description: description
+              annotations:
+                - annotations
+                - annotations
+              id: id
+              title: title
+              params:
+                key:
+                  bind: bind
+                  constant: constant
+                  description: description
+                  default_value: default_value
+            - condition: condition
+              description: description
+              annotations:
+                - annotations
+                - annotations
+              id: id
+              title: title
+              params:
+                key:
+                  bind: bind
+                  constant: constant
+                  description: description
+                  default_value: default_value
           default_version: true
           description: description
           version: version
         query_pipeline:
           create_time: 2000-01-23T04:56:07.000+00:00
           post_steps:
-          - condition: condition
-            description: description
-            annotations:
-            - annotations
-            - annotations
-            id: id
-            title: title
-            params:
-              key:
-                bind: bind
-                constant: constant
-                description: description
-                default_value: default_value
-          - condition: condition
-            description: description
-            annotations:
-            - annotations
-            - annotations
-            id: id
-            title: title
-            params:
-              key:
-                bind: bind
-                constant: constant
-                description: description
-                default_value: default_value
+            - condition: condition
+              description: description
+              annotations:
+                - annotations
+                - annotations
+              id: id
+              title: title
+              params:
+                key:
+                  bind: bind
+                  constant: constant
+                  description: description
+                  default_value: default_value
+            - condition: condition
+              description: description
+              annotations:
+                - annotations
+                - annotations
+              id: id
+              title: title
+              params:
+                key:
+                  bind: bind
+                  constant: constant
+                  description: description
+                  default_value: default_value
           collection_default: true
           name: name
           pre_steps:
-          - condition: condition
-            description: description
-            annotations:
-            - annotations
-            - annotations
-            id: id
-            title: title
-            params:
-              key:
-                bind: bind
-                constant: constant
-                description: description
-                default_value: default_value
-          - condition: condition
-            description: description
-            annotations:
-            - annotations
-            - annotations
-            id: id
-            title: title
-            params:
-              key:
-                bind: bind
-                constant: constant
-                description: description
-                default_value: default_value
+            - condition: condition
+              description: description
+              annotations:
+                - annotations
+                - annotations
+              id: id
+              title: title
+              params:
+                key:
+                  bind: bind
+                  constant: constant
+                  description: description
+                  default_value: default_value
+            - condition: condition
+              description: description
+              annotations:
+                - annotations
+                - annotations
+              id: id
+              title: title
+              params:
+                key:
+                  bind: bind
+                  constant: constant
+                  description: description
+                  default_value: default_value
           default_version: true
           description: description
           version: version
@@ -3070,9 +3171,9 @@ components:
         [GetPipeline](/api#operation/GetPipeline)).
          - FULL: Include the information from `BASIC`, plus full step configuration.
       enum:
-      - VIEW_UNSPECIFIED
-      - BASIC
-      - FULL
+        - VIEW_UNSPECIFIED
+        - BASIC
+        - FULL
       type: string
     GetPipelineRequestView:
       default: VIEW_UNSPECIFIED
@@ -3085,9 +3186,9 @@ components:
         [GetPipeline](/api#operation/GetPipeline)).
          - FULL: Include the information from `BASIC`, plus full step configuration.
       enum:
-      - VIEW_UNSPECIFIED
-      - BASIC
-      - FULL
+        - VIEW_UNSPECIFIED
+        - BASIC
+        - FULL
       type: string
     GetRecordRequest:
       example:
@@ -3098,26 +3199,26 @@ components:
         key:
           $ref: '#/components/schemas/RecordKey'
       required:
-      - key
+        - key
       type: object
     ListCollectionsResponse:
       example:
         next_page_token: next_page_token
         collections:
-        - account_id: account_id
-          authorized_query_domains:
-          - authorized_query_domains
-          - authorized_query_domains
-          create_time: 2000-01-23T04:56:07.000+00:00
-          id: id
-          display_name: display_name
-        - account_id: account_id
-          authorized_query_domains:
-          - authorized_query_domains
-          - authorized_query_domains
-          create_time: 2000-01-23T04:56:07.000+00:00
-          id: id
-          display_name: display_name
+          - account_id: account_id
+            authorized_query_domains:
+              - authorized_query_domains
+              - authorized_query_domains
+            create_time: 2000-01-23T04:56:07.000+00:00
+            id: id
+            display_name: display_name
+          - account_id: account_id
+            authorized_query_domains:
+              - authorized_query_domains
+              - authorized_query_domains
+            create_time: 2000-01-23T04:56:07.000+00:00
+            id: id
+            display_name: display_name
       properties:
         collections:
           description: The collections from the specified account.
@@ -3143,133 +3244,133 @@ components:
          - FULL: Include the information from `BASIC`, plus full step
         configuration.
       enum:
-      - VIEW_UNSPECIFIED
-      - BASIC
-      - FULL
+        - VIEW_UNSPECIFIED
+        - BASIC
+        - FULL
       type: string
     ListPipelinesResponse:
       example:
         pipelines:
-        - create_time: 2000-01-23T04:56:07.000+00:00
-          post_steps:
-          - condition: condition
-            description: description
-            annotations:
-            - annotations
-            - annotations
-            id: id
-            title: title
-            params:
-              key:
-                bind: bind
-                constant: constant
+          - create_time: 2000-01-23T04:56:07.000+00:00
+            post_steps:
+              - condition: condition
                 description: description
-                default_value: default_value
-          - condition: condition
-            description: description
-            annotations:
-            - annotations
-            - annotations
-            id: id
-            title: title
-            params:
-              key:
-                bind: bind
-                constant: constant
+                annotations:
+                  - annotations
+                  - annotations
+                id: id
+                title: title
+                params:
+                  key:
+                    bind: bind
+                    constant: constant
+                    description: description
+                    default_value: default_value
+              - condition: condition
                 description: description
-                default_value: default_value
-          collection_default: true
-          name: name
-          pre_steps:
-          - condition: condition
-            description: description
-            annotations:
-            - annotations
-            - annotations
-            id: id
-            title: title
-            params:
-              key:
-                bind: bind
-                constant: constant
+                annotations:
+                  - annotations
+                  - annotations
+                id: id
+                title: title
+                params:
+                  key:
+                    bind: bind
+                    constant: constant
+                    description: description
+                    default_value: default_value
+            collection_default: true
+            name: name
+            pre_steps:
+              - condition: condition
                 description: description
-                default_value: default_value
-          - condition: condition
-            description: description
-            annotations:
-            - annotations
-            - annotations
-            id: id
-            title: title
-            params:
-              key:
-                bind: bind
-                constant: constant
+                annotations:
+                  - annotations
+                  - annotations
+                id: id
+                title: title
+                params:
+                  key:
+                    bind: bind
+                    constant: constant
+                    description: description
+                    default_value: default_value
+              - condition: condition
                 description: description
-                default_value: default_value
-          default_version: true
-          description: description
-          version: version
-        - create_time: 2000-01-23T04:56:07.000+00:00
-          post_steps:
-          - condition: condition
+                annotations:
+                  - annotations
+                  - annotations
+                id: id
+                title: title
+                params:
+                  key:
+                    bind: bind
+                    constant: constant
+                    description: description
+                    default_value: default_value
+            default_version: true
             description: description
-            annotations:
-            - annotations
-            - annotations
-            id: id
-            title: title
-            params:
-              key:
-                bind: bind
-                constant: constant
+            version: version
+          - create_time: 2000-01-23T04:56:07.000+00:00
+            post_steps:
+              - condition: condition
                 description: description
-                default_value: default_value
-          - condition: condition
+                annotations:
+                  - annotations
+                  - annotations
+                id: id
+                title: title
+                params:
+                  key:
+                    bind: bind
+                    constant: constant
+                    description: description
+                    default_value: default_value
+              - condition: condition
+                description: description
+                annotations:
+                  - annotations
+                  - annotations
+                id: id
+                title: title
+                params:
+                  key:
+                    bind: bind
+                    constant: constant
+                    description: description
+                    default_value: default_value
+            collection_default: true
+            name: name
+            pre_steps:
+              - condition: condition
+                description: description
+                annotations:
+                  - annotations
+                  - annotations
+                id: id
+                title: title
+                params:
+                  key:
+                    bind: bind
+                    constant: constant
+                    description: description
+                    default_value: default_value
+              - condition: condition
+                description: description
+                annotations:
+                  - annotations
+                  - annotations
+                id: id
+                title: title
+                params:
+                  key:
+                    bind: bind
+                    constant: constant
+                    description: description
+                    default_value: default_value
+            default_version: true
             description: description
-            annotations:
-            - annotations
-            - annotations
-            id: id
-            title: title
-            params:
-              key:
-                bind: bind
-                constant: constant
-                description: description
-                default_value: default_value
-          collection_default: true
-          name: name
-          pre_steps:
-          - condition: condition
-            description: description
-            annotations:
-            - annotations
-            - annotations
-            id: id
-            title: title
-            params:
-              key:
-                bind: bind
-                constant: constant
-                description: description
-                default_value: default_value
-          - condition: condition
-            description: description
-            annotations:
-            - annotations
-            - annotations
-            id: id
-            title: title
-            params:
-              key:
-                bind: bind
-                constant: constant
-                description: description
-                default_value: default_value
-          default_version: true
-          description: description
-          version: version
+            version: version
         next_page_token: next_page_token
       properties:
         pipelines:
@@ -3289,14 +3390,14 @@ components:
         next_page_token: next_page_token
         total_size: 6
         schema_fields:
-        - array: true
-          name: name
-          description: description
-          array_length: 0
-        - array: true
-          name: name
-          description: description
-          array_length: 0
+          - array: true
+            name: name
+            description: description
+            array_length: 0
+          - array: true
+            name: name
+            description: description
+            array_length: 0
       properties:
         schema_fields:
           description: The schema fields.
@@ -3321,9 +3422,9 @@ components:
          - RECORD: Record pipeline.
          - QUERY: Query pipeline.
       enum:
-      - TYPE_UNSPECIFIED
-      - RECORD
-      - QUERY
+        - TYPE_UNSPECIFIED
+        - RECORD
+        - QUERY
       type: string
     QueryAggregateResult:
       description: A query aggregate result contains results of aggregations.
@@ -3333,15 +3434,15 @@ components:
             key: 2
         percentile:
           percentiles:
-          - value: 1.2315135367772556
-            point: 7.386281948385884
-          - value: 1.2315135367772556
-            point: 7.386281948385884
+            - value: 1.2315135367772556
+              point: 7.386281948385884
+            - value: 1.2315135367772556
+              point: 7.386281948385884
           cdf:
-          - value: 1.2315135367772556
-            point: 7.386281948385884
-          - value: 1.2315135367772556
-            point: 7.386281948385884
+            - value: 1.2315135367772556
+              point: 7.386281948385884
+            - value: 1.2315135367772556
+              point: 7.386281948385884
         metric:
           value: 1.4658129805029452
         buckets:
@@ -3393,16 +3494,38 @@ components:
             The initial values for the variables the pipeline operates on and
             transforms throughout its steps.
 
-            A typical variable is `q` which is the query the user entered, for example:
+            The most important variable is `q` which is the query the user entered, for
+            example:
 
             ```json
             { "q": "search terms" }
+            ```
+
+            To paginate through results, set the variables `page` and `resultsPerPage`,
+            for example:
+
+            ```json
+            { "q": "search terms", "page": 5, "resultsPerPage": 20 }
+            ```
+
+            To sort results, set the variable `sort` to the name of one of your
+            collection's schema fields, for example:
+
+            ```json
+            { "q": "search terms", "sort": "name" }
+            ```
+
+            To sort in reverse, prefix the schema field with a minus sign `-`, for
+            example:
+
+            ```json
+            { "q": "search terms", "sort": "-name" }
             ```
           type: object
         tracking:
           $ref: '#/components/schemas/QueryCollectionRequestTracking'
       required:
-      - variables
+        - variables
       type: object
     QueryCollectionRequestPipeline:
       description: |-
@@ -3423,7 +3546,7 @@ components:
             If not provided the default version is used.
           type: string
       required:
-      - name
+        - name
       type: object
     QueryCollectionResponse:
       example:
@@ -3440,15 +3563,15 @@ components:
                 key: 2
             percentile:
               percentiles:
-              - value: 1.2315135367772556
-                point: 7.386281948385884
-              - value: 1.2315135367772556
-                point: 7.386281948385884
+                - value: 1.2315135367772556
+                  point: 7.386281948385884
+                - value: 1.2315135367772556
+                  point: 7.386281948385884
               cdf:
-              - value: 1.2315135367772556
-                point: 7.386281948385884
-              - value: 1.2315135367772556
-                point: 7.386281948385884
+                - value: 1.2315135367772556
+                  point: 7.386281948385884
+                - value: 1.2315135367772556
+                  point: 7.386281948385884
             metric:
               value: 1.4658129805029452
             buckets:
@@ -3472,15 +3595,15 @@ components:
                 key: 2
             percentile:
               percentiles:
-              - value: 1.2315135367772556
-                point: 7.386281948385884
-              - value: 1.2315135367772556
-                point: 7.386281948385884
+                - value: 1.2315135367772556
+                  point: 7.386281948385884
+                - value: 1.2315135367772556
+                  point: 7.386281948385884
               cdf:
-              - value: 1.2315135367772556
-                point: 7.386281948385884
-              - value: 1.2315135367772556
-                point: 7.386281948385884
+                - value: 1.2315135367772556
+                  point: 7.386281948385884
+                - value: 1.2315135367772556
+                  point: 7.386281948385884
             metric:
               value: 1.4658129805029452
             buckets:
@@ -3498,24 +3621,24 @@ components:
               cardinality: 9
               max_length: 2
         results:
-        - score: 0.8008281904610115
-          record: '{}'
-          index_score: 6.027456183070403
-          token:
-            pos_neg:
-              neg: neg
-              pos: pos
-            click:
-              token: token
-        - score: 0.8008281904610115
-          record: '{}'
-          index_score: 6.027456183070403
-          token:
-            pos_neg:
-              neg: neg
-              pos: pos
-            click:
-              token: token
+          - score: 0.8008281904610115
+            record: '{}'
+            index_score: 6.027456183070403
+            token:
+              pos_neg:
+                neg: neg
+                pos: pos
+              click:
+                token: token
+          - score: 0.8008281904610115
+            record: '{}'
+            index_score: 6.027456183070403
+            token:
+              pos_neg:
+                neg: neg
+                pos: pos
+              click:
+                token: token
       properties:
         pipeline:
           $ref: '#/components/schemas/QueryCollectionResponsePipeline'
@@ -3603,8 +3726,8 @@ components:
             `b217a995-597c-410f-bef2-60e9f8c0aadd`.
           type: string
       required:
-      - field
-      - value
+        - field
+        - value
       type: object
     SchemaField:
       description: SchemaField defines the properties of a field in the schema.
@@ -3643,9 +3766,9 @@ components:
           format: int32
           type: integer
       required:
-      - mode
-      - name
-      - type
+        - mode
+        - name
+        - type
       type: object
     SchemaFieldType:
       default: TYPE_UNSPECIFIED
@@ -3660,14 +3783,62 @@ components:
          - BOOLEAN: Boolean values.
          - TIMESTAMP: Timestamp values.
       enum:
-      - TYPE_UNSPECIFIED
-      - STRING
-      - INTEGER
-      - FLOAT
-      - DOUBLE
-      - BOOLEAN
-      - TIMESTAMP
+        - TYPE_UNSPECIFIED
+        - STRING
+        - INTEGER
+        - FLOAT
+        - DOUBLE
+        - BOOLEAN
+        - TIMESTAMP
       type: string
+    SendEventRequest:
+      description: |-
+        A request to send an event to the ranking system after a user interacts with
+        a search result.
+      example:
+        metadata:
+          key: '{}'
+        name: name
+        weight: 0
+        token: token
+      properties:
+        name:
+          description: The name of event, e.g. `click`, `purchase`.
+          type: string
+        token:
+          description: |-
+            The token corresponding to the search result that was interacted with, e.g.
+            `eyJ...`.
+          type: string
+        weight:
+          description: |-
+            The weight assigned to the event.
+
+            Generally a sensible weight is 1. If you want to weight an event in a
+            certain way you can use a value other than 1. For example, if you want to
+            capture profit in an event, you could set the weight to a value that
+            represents the profit.
+          format: int32
+          type: integer
+        metadata:
+          additionalProperties:
+            type: object
+          description: |-
+            An object made up of field-value pairs that contains additional metadata to
+            record with the event.
+
+            Every value in the object must be one of the following primitive types:
+
+            - boolean
+            - number
+            - string
+          type: object
+      required:
+        - name
+        - token
+      type: object
+    SendEventResponse:
+      type: object
     SetDefaultPipelineRequest:
       example:
         pipeline: pipeline
@@ -3678,8 +3849,8 @@ components:
           description: The name of the pipeline to use when not otherwise specified.
           type: string
       required:
-      - pipeline
-      - type
+        - pipeline
+        - type
       type: object
     SetDefaultPipelineResponse:
       type: object
@@ -3691,7 +3862,7 @@ components:
           description: The version to use as a default for this pipeline, e.g. `42`.
           type: string
       required:
-      - version
+        - version
       type: object
     SetDefaultVersionResponse:
       type: object
@@ -3715,7 +3886,7 @@ components:
             transforms throughout its steps.
           type: object
       required:
-      - record
+        - record
       type: object
     UpsertRecordRequestPipeline:
       description: |-
@@ -3736,7 +3907,7 @@ components:
             If not provided the default version is used.
           type: string
       required:
-      - name
+        - name
       type: object
     UpsertRecordResponse:
       example:

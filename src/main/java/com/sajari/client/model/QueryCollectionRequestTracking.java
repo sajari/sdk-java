@@ -13,211 +13,209 @@
 
 package com.sajari.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.sajari.client.model.QueryCollectionRequestTrackingType;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * QueryCollectionRequestTracking
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-20T00:31:03.336071Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class QueryCollectionRequestTracking {
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private QueryCollectionRequestTrackingType type = QueryCollectionRequestTrackingType.TYPE_UNSPECIFIED;
+    public static final String SERIALIZED_NAME_TYPE = "type";
+    @SerializedName(SERIALIZED_NAME_TYPE)
+    private QueryCollectionRequestTrackingType type = QueryCollectionRequestTrackingType.TYPE_UNSPECIFIED;
 
-  public static final String SERIALIZED_NAME_QUERY_ID = "query_id";
-  @SerializedName(SERIALIZED_NAME_QUERY_ID)
-  private String queryId;
+    public static final String SERIALIZED_NAME_QUERY_ID = "query_id";
+    @SerializedName(SERIALIZED_NAME_QUERY_ID)
+    private String queryId;
 
-  public static final String SERIALIZED_NAME_SEQUENCE = "sequence";
-  @SerializedName(SERIALIZED_NAME_SEQUENCE)
-  private Integer sequence;
+    public static final String SERIALIZED_NAME_SEQUENCE = "sequence";
+    @SerializedName(SERIALIZED_NAME_SEQUENCE)
+    private Integer sequence;
 
-  public static final String SERIALIZED_NAME_FIELD = "field";
-  @SerializedName(SERIALIZED_NAME_FIELD)
-  private String field;
+    public static final String SERIALIZED_NAME_FIELD = "field";
+    @SerializedName(SERIALIZED_NAME_FIELD)
+    private String field;
 
-  public static final String SERIALIZED_NAME_DATA = "data";
-  @SerializedName(SERIALIZED_NAME_DATA)
-  private java.util.Map<String, String> data = null;
-
-
-  public QueryCollectionRequestTracking type(QueryCollectionRequestTrackingType type) {
-    
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public QueryCollectionRequestTrackingType getType() {
-    return type;
-  }
+    public static final String SERIALIZED_NAME_DATA = "data";
+    @SerializedName(SERIALIZED_NAME_DATA)
+    private java.util.Map<String, String> data = null;
 
 
-  public void setType(QueryCollectionRequestTrackingType type) {
-    this.type = type;
-  }
+    public QueryCollectionRequestTracking type(QueryCollectionRequestTrackingType type) {
 
-
-  public QueryCollectionRequestTracking queryId(String queryId) {
-    
-    this.queryId = queryId;
-    return this;
-  }
-
-   /**
-   * Query ID of the query. If this is empty, then one is generated.
-   * @return queryId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Query ID of the query. If this is empty, then one is generated.")
-
-  public String getQueryId() {
-    return queryId;
-  }
-
-
-  public void setQueryId(String queryId) {
-    this.queryId = queryId;
-  }
-
-
-  public QueryCollectionRequestTracking sequence(Integer sequence) {
-    
-    this.sequence = sequence;
-    return this;
-  }
-
-   /**
-   * Sequence number of query.
-   * @return sequence
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Sequence number of query.")
-
-  public Integer getSequence() {
-    return sequence;
-  }
-
-
-  public void setSequence(Integer sequence) {
-    this.sequence = sequence;
-  }
-
-
-  public QueryCollectionRequestTracking field(String field) {
-    
-    this.field = field;
-    return this;
-  }
-
-   /**
-   * Tracking field used to identify records in the collection.  Must be unique schema field.
-   * @return field
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Tracking field used to identify records in the collection.  Must be unique schema field.")
-
-  public String getField() {
-    return field;
-  }
-
-
-  public void setField(String field) {
-    this.field = field;
-  }
-
-
-  public QueryCollectionRequestTracking data(java.util.Map<String, String> data) {
-    
-    this.data = data;
-    return this;
-  }
-
-  public QueryCollectionRequestTracking putDataItem(String key, String dataItem) {
-    if (this.data == null) {
-      this.data = new java.util.HashMap<>();
+        this.type = type;
+        return this;
     }
-    this.data.put(key, dataItem);
-    return this;
-  }
 
-   /**
-   * Custom values to be included in tracking data.
-   * @return data
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Custom values to be included in tracking data.")
+    /**
+     * Get type
+     *
+     * @return type
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
 
-  public java.util.Map<String, String> getData() {
-    return data;
-  }
-
-
-  public void setData(java.util.Map<String, String> data) {
-    this.data = data;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public QueryCollectionRequestTrackingType getType() {
+        return type;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+
+    public void setType(QueryCollectionRequestTrackingType type) {
+        this.type = type;
     }
-    QueryCollectionRequestTracking queryCollectionRequestTracking = (QueryCollectionRequestTracking) o;
-    return Objects.equals(this.type, queryCollectionRequestTracking.type) &&
-        Objects.equals(this.queryId, queryCollectionRequestTracking.queryId) &&
-        Objects.equals(this.sequence, queryCollectionRequestTracking.sequence) &&
-        Objects.equals(this.field, queryCollectionRequestTracking.field) &&
-        Objects.equals(this.data, queryCollectionRequestTracking.data);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(type, queryId, sequence, field, data);
-  }
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class QueryCollectionRequestTracking {\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    queryId: ").append(toIndentedString(queryId)).append("\n");
-    sb.append("    sequence: ").append(toIndentedString(sequence)).append("\n");
-    sb.append("    field: ").append(toIndentedString(field)).append("\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+    public QueryCollectionRequestTracking queryId(String queryId) {
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+        this.queryId = queryId;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * Query ID of the query. If this is empty, then one is generated.
+     *
+     * @return queryId
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Query ID of the query. If this is empty, then one is generated.")
+
+    public String getQueryId() {
+        return queryId;
+    }
+
+
+    public void setQueryId(String queryId) {
+        this.queryId = queryId;
+    }
+
+
+    public QueryCollectionRequestTracking sequence(Integer sequence) {
+
+        this.sequence = sequence;
+        return this;
+    }
+
+    /**
+     * Sequence number of query.
+     *
+     * @return sequence
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Sequence number of query.")
+
+    public Integer getSequence() {
+        return sequence;
+    }
+
+
+    public void setSequence(Integer sequence) {
+        this.sequence = sequence;
+    }
+
+
+    public QueryCollectionRequestTracking field(String field) {
+
+        this.field = field;
+        return this;
+    }
+
+    /**
+     * Tracking field used to identify records in the collection.  Must be unique schema field.
+     *
+     * @return field
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Tracking field used to identify records in the collection.  Must be unique schema field.")
+
+    public String getField() {
+        return field;
+    }
+
+
+    public void setField(String field) {
+        this.field = field;
+    }
+
+
+    public QueryCollectionRequestTracking data(java.util.Map<String, String> data) {
+
+        this.data = data;
+        return this;
+    }
+
+    public QueryCollectionRequestTracking putDataItem(String key, String dataItem) {
+        if (this.data == null) {
+            this.data = new java.util.HashMap<>();
+        }
+        this.data.put(key, dataItem);
+        return this;
+    }
+
+    /**
+     * Custom values to be included in tracking data.
+     *
+     * @return data
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Custom values to be included in tracking data.")
+
+    public java.util.Map<String, String> getData() {
+        return data;
+    }
+
+
+    public void setData(java.util.Map<String, String> data) {
+        this.data = data;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        QueryCollectionRequestTracking queryCollectionRequestTracking = (QueryCollectionRequestTracking) o;
+        return Objects.equals(this.type, queryCollectionRequestTracking.type) &&
+                Objects.equals(this.queryId, queryCollectionRequestTracking.queryId) &&
+                Objects.equals(this.sequence, queryCollectionRequestTracking.sequence) &&
+                Objects.equals(this.field, queryCollectionRequestTracking.field) &&
+                Objects.equals(this.data, queryCollectionRequestTracking.data);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(type, queryId, sequence, field, data);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class QueryCollectionRequestTracking {\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    queryId: ").append(toIndentedString(queryId)).append("\n");
+        sb.append("    sequence: ").append(toIndentedString(sequence)).append("\n");
+        sb.append("    field: ").append(toIndentedString(field)).append("\n");
+        sb.append("    data: ").append(toIndentedString(data)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

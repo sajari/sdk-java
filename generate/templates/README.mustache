@@ -106,18 +106,18 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 ```java
 {{#apiInfo}}{{#apis}}{{#-first}}{{#operations}}{{#operation}}{{#-first}}
-import {{{invokerPackage}}}.*;
-import {{{invokerPackage}}}.auth.*;
-import {{{modelPackage}}}.*;
-import {{{package}}}.{{{classname}}};
+    import {{{invokerPackage}}}.*;
+    import {{{invokerPackage}}}.auth.*;
+    import {{{modelPackage}}}.*;
+    import {{{package}}}.{{{classname}}};
 
-public class {{{classname}}}Example {
+    public class {{{classname}}}Example {
 
     public static void main(String[] args) {
 
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("{{{basePath}}}");
-        {{#hasAuthMethods}}{{#authMethods}}{{#isBasic}}{{#isBasicBasic}}
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("{{{basePath}}}");
+    {{#hasAuthMethods}}{{#authMethods}}{{#isBasic}}{{#isBasicBasic}}
         // Configure HTTP basic authorization: {{{name}}}
         HttpBasicAuth {{{name}}} = (HttpBasicAuth) defaultClient.getAuthentication("{{{name}}}");
         {{{name}}}.setUsername("YOUR USERNAME");
@@ -150,26 +150,26 @@ public class {{{classname}}}Example {
         {{{name}}}.setHeaders(Arrays.asList("date", "host"));
         // Set the private key used to sign the HTTP messages
         {{{name}}}.setPrivateKey();{{/isHttpSignature}}
-        {{/authMethods}}
-        {{/hasAuthMethods}}
+    {{/authMethods}}
+    {{/hasAuthMethods}}
 
-        {{{classname}}} apiInstance = new {{{classname}}}(defaultClient);
-        {{#allParams}}
-            {{{dataType}}} {{{paramName}}} = {{{example}}}; // {{{dataType}}} | {{{description}}}
-        {{/allParams}}
+    {{{classname}}} apiInstance = new {{{classname}}}(defaultClient);
+    {{#allParams}}
+        {{{dataType}}} {{{paramName}}} = {{{example}}}; // {{{dataType}}} | {{{description}}}
+    {{/allParams}}
 
-        try {
-            {{#returnType}}{{{returnType}}} result = {{/returnType}}apiInstance.{{{operationId}}}({{#allParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/allParams}});{{#returnType}}
-            System.out.println(result);{{/returnType}}
-        } catch (ApiException e) {
-            System.err.println("Exception when calling {{{classname}}}#{{{operationId}}}");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    try {
+    {{#returnType}}{{{returnType}}} result = {{/returnType}}apiInstance.{{{operationId}}}({{#allParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/allParams}});{{#returnType}}
+        System.out.println(result);{{/returnType}}
+    } catch (ApiException e) {
+    System.err.println("Exception when calling {{{classname}}}#{{{operationId}}}");
+    System.err.println("Status code: " + e.getCode());
+    System.err.println("Reason: " + e.getResponseBody());
+    System.err.println("Response headers: " + e.getResponseHeaders());
+    e.printStackTrace();
     }
-}
+    }
+    }
 {{/-first}}{{/operation}}{{/operations}}{{/-first}}{{/apis}}{{/apiInfo}}
 ```
 

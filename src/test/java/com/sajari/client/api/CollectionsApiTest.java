@@ -18,8 +18,8 @@ import com.sajari.client.model.Collection;
 import com.sajari.client.model.ListCollectionsResponse;
 import com.sajari.client.model.QueryCollectionRequest;
 import com.sajari.client.model.QueryCollectionResponse;
-import org.junit.Test;
 import org.junit.Ignore;
+import org.junit.Test;
 
 
 /**
@@ -30,14 +30,13 @@ public class CollectionsApiTest {
 
     private final CollectionsApi api = new CollectionsApi();
 
-    
+
     /**
      * Create collection
-     *
+     * <p>
      * Create an empty collection.  Before records can be added to a collection, the schema and pipelines for the collection have to be set up. Consider setting up new collections via the Sajari Console, which handles the creation of the schema and pipelines for you.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void createCollectionTest() throws ApiException {
@@ -47,14 +46,13 @@ public class CollectionsApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * Delete collection
-     *
+     * <p>
      * Delete a collection and all of its associated data.  &gt; Note: this operation cannot be reversed.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void deleteCollectionTest() throws ApiException {
@@ -63,14 +61,13 @@ public class CollectionsApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * Get collection
-     *
+     * <p>
      * Retrieve the details of a collection.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getCollectionTest() throws ApiException {
@@ -79,14 +76,13 @@ public class CollectionsApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * List collections
-     *
+     * <p>
      * Retrieve a list of collections in the account.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listCollectionsTest() throws ApiException {
@@ -96,14 +92,13 @@ public class CollectionsApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * Query collection
-     *
+     * <p>
      * Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://www.sajari.com/docs/user-guide/integrating-search/filters/) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void queryCollectionTest() throws ApiException {
@@ -113,14 +108,13 @@ public class CollectionsApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * Update collection
-     *
+     * <p>
      * Update the details of a collection.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void updateCollectionTest() throws ApiException {
@@ -131,5 +125,5 @@ public class CollectionsApiTest {
 
         // TODO: test validations
     }
-    
+
 }

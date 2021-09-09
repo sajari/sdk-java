@@ -1,7 +1,4 @@
-
-
 # PercentileDataPoint
-
 
 ## Properties
 

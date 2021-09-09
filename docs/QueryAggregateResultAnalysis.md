@@ -1,7 +1,4 @@
-
-
 # QueryAggregateResultAnalysis
-
 
 ## Properties
 
