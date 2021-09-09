@@ -42,7 +42,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>com.sajari</groupId>
     <artifactId>sdk-java-client</artifactId>
-    <version>4.0.0</version>
+    <version>4.1.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.sajari:sdk-java-client:4.0.0"
+compile "com.sajari:sdk-java-client:4.1.0"
 ```
 
 ### Others
@@ -65,7 +65,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/sdk-java-client-4.0.0.jar`
+- `target/sdk-java-client-4.1.0.jar`
 - `target/lib/*.jar`
 
 ## Getting Started
@@ -88,8 +88,8 @@ public class CollectionsApiExample {
         
         // Configure HTTP basic authorization: BasicAuth
         HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
-        BasicAuth.setUsername("YOUR USERNAME");
-        BasicAuth.setPassword("YOUR PASSWORD");
+        BasicAuth.setUsername("KEY_ID");
+        BasicAuth.setPassword("KEY_PASSWORD");
 
         CollectionsApi apiInstance = new CollectionsApi(defaultClient);
             String collectionId = "collectionId_example"; // String | The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or `-` characters. Strictly speaking, it must match the regular expression: `^[A-Za-z][A-Za-z0-9\\-]*$`.
