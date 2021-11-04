@@ -29,13 +29,13 @@ public class QueryCollectionRequest {
     @SerializedName(SERIALIZED_NAME_PIPELINE)
     private QueryCollectionRequestPipeline pipeline;
 
-    public static final String SERIALIZED_NAME_VARIABLES = "variables";
-    @SerializedName(SERIALIZED_NAME_VARIABLES)
-    private Object variables;
-
     public static final String SERIALIZED_NAME_TRACKING = "tracking";
     @SerializedName(SERIALIZED_NAME_TRACKING)
     private QueryCollectionRequestTracking tracking;
+
+    public static final String SERIALIZED_NAME_VARIABLES = "variables";
+    @SerializedName(SERIALIZED_NAME_VARIABLES)
+    private java.util.Map<String, Object> variables = new java.util.HashMap<>();
 
 
     public QueryCollectionRequest pipeline(QueryCollectionRequestPipeline pipeline) {
@@ -59,30 +59,6 @@ public class QueryCollectionRequest {
 
     public void setPipeline(QueryCollectionRequestPipeline pipeline) {
         this.pipeline = pipeline;
-    }
-
-
-    public QueryCollectionRequest variables(Object variables) {
-
-        this.variables = variables;
-        return this;
-    }
-
-    /**
-     * The initial values for the variables the pipeline operates on and transforms throughout its steps.  The most important variable is &#x60;q&#x60; which is the query the user entered, for example:  &#x60;&#x60;&#x60;json { \&quot;q\&quot;: \&quot;search terms\&quot; } &#x60;&#x60;&#x60;  To paginate through results, set the variables &#x60;page&#x60; and &#x60;resultsPerPage&#x60;, for example:  &#x60;&#x60;&#x60;json { \&quot;q\&quot;: \&quot;search terms\&quot;, \&quot;page\&quot;: 5, \&quot;resultsPerPage\&quot;: 20 } &#x60;&#x60;&#x60;  To sort results, set the variable &#x60;sort&#x60; to the name of one of your collection&#39;s schema fields, for example:  &#x60;&#x60;&#x60;json { \&quot;q\&quot;: \&quot;search terms\&quot;, \&quot;sort\&quot;: \&quot;name\&quot; } &#x60;&#x60;&#x60;  To sort in reverse, prefix the schema field with a minus sign &#x60;-&#x60;, for example:  &#x60;&#x60;&#x60;json { \&quot;q\&quot;: \&quot;search terms\&quot;, \&quot;sort\&quot;: \&quot;-name\&quot; } &#x60;&#x60;&#x60;
-     *
-     * @return variables
-     **/
-    @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "The initial values for the variables the pipeline operates on and transforms throughout its steps.  The most important variable is `q` which is the query the user entered, for example:  ```json { \"q\": \"search terms\" } ```  To paginate through results, set the variables `page` and `resultsPerPage`, for example:  ```json { \"q\": \"search terms\", \"page\": 5, \"resultsPerPage\": 20 } ```  To sort results, set the variable `sort` to the name of one of your collection's schema fields, for example:  ```json { \"q\": \"search terms\", \"sort\": \"name\" } ```  To sort in reverse, prefix the schema field with a minus sign `-`, for example:  ```json { \"q\": \"search terms\", \"sort\": \"-name\" } ```")
-
-    public Object getVariables() {
-        return variables;
-    }
-
-
-    public void setVariables(Object variables) {
-        this.variables = variables;
     }
 
 
@@ -110,6 +86,35 @@ public class QueryCollectionRequest {
     }
 
 
+    public QueryCollectionRequest variables(java.util.Map<String, Object> variables) {
+
+        this.variables = variables;
+        return this;
+    }
+
+    public QueryCollectionRequest putVariablesItem(String key, Object variablesItem) {
+        this.variables.put(key, variablesItem);
+        return this;
+    }
+
+    /**
+     * The initial values for the variables the pipeline operates on and transforms throughout its steps.  The most important variable is &#x60;q&#x60; which is the query the user entered, for example:  &#x60;&#x60;&#x60;json { \&quot;q\&quot;: \&quot;search terms\&quot; } &#x60;&#x60;&#x60;  To paginate through results, set the variables &#x60;page&#x60; and &#x60;resultsPerPage&#x60;, for example:  &#x60;&#x60;&#x60;json { \&quot;q\&quot;: \&quot;search terms\&quot;, \&quot;page\&quot;: 5, \&quot;resultsPerPage\&quot;: 20 } &#x60;&#x60;&#x60;  To sort results, set the variable &#x60;sort&#x60; to the name of one of your collection&#39;s schema fields, for example:  &#x60;&#x60;&#x60;json { \&quot;q\&quot;: \&quot;search terms\&quot;, \&quot;sort\&quot;: \&quot;name\&quot; } &#x60;&#x60;&#x60;  To sort in reverse, prefix the schema field with a minus sign &#x60;-&#x60;, for example:  &#x60;&#x60;&#x60;json { \&quot;q\&quot;: \&quot;search terms\&quot;, \&quot;sort\&quot;: \&quot;-name\&quot; } &#x60;&#x60;&#x60;
+     *
+     * @return variables
+     **/
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The initial values for the variables the pipeline operates on and transforms throughout its steps.  The most important variable is `q` which is the query the user entered, for example:  ```json { \"q\": \"search terms\" } ```  To paginate through results, set the variables `page` and `resultsPerPage`, for example:  ```json { \"q\": \"search terms\", \"page\": 5, \"resultsPerPage\": 20 } ```  To sort results, set the variable `sort` to the name of one of your collection's schema fields, for example:  ```json { \"q\": \"search terms\", \"sort\": \"name\" } ```  To sort in reverse, prefix the schema field with a minus sign `-`, for example:  ```json { \"q\": \"search terms\", \"sort\": \"-name\" } ```")
+
+    public java.util.Map<String, Object> getVariables() {
+        return variables;
+    }
+
+
+    public void setVariables(java.util.Map<String, Object> variables) {
+        this.variables = variables;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -120,13 +125,13 @@ public class QueryCollectionRequest {
         }
         QueryCollectionRequest queryCollectionRequest = (QueryCollectionRequest) o;
         return Objects.equals(this.pipeline, queryCollectionRequest.pipeline) &&
-                Objects.equals(this.variables, queryCollectionRequest.variables) &&
-                Objects.equals(this.tracking, queryCollectionRequest.tracking);
+                Objects.equals(this.tracking, queryCollectionRequest.tracking) &&
+                Objects.equals(this.variables, queryCollectionRequest.variables);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(pipeline, variables, tracking);
+        return Objects.hash(pipeline, tracking, variables);
     }
 
     @Override
@@ -134,8 +139,8 @@ public class QueryCollectionRequest {
         StringBuilder sb = new StringBuilder();
         sb.append("class QueryCollectionRequest {\n");
         sb.append("    pipeline: ").append(toIndentedString(pipeline)).append("\n");
-        sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
         sb.append("    tracking: ").append(toIndentedString(tracking)).append("\n");
+        sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
         sb.append("}");
         return sb.toString();
     }

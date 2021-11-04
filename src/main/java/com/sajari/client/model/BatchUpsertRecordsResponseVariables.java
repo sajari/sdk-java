@@ -29,7 +29,7 @@ public class BatchUpsertRecordsResponseVariables {
 
     public static final String SERIALIZED_NAME_VARIABLES = "variables";
     @SerializedName(SERIALIZED_NAME_VARIABLES)
-    private Object variables;
+    private java.util.Map<String, Object> variables = null;
 
 
     public BatchUpsertRecordsResponseVariables index(Integer index) {
@@ -56,9 +56,17 @@ public class BatchUpsertRecordsResponseVariables {
     }
 
 
-    public BatchUpsertRecordsResponseVariables variables(Object variables) {
+    public BatchUpsertRecordsResponseVariables variables(java.util.Map<String, Object> variables) {
 
         this.variables = variables;
+        return this;
+    }
+
+    public BatchUpsertRecordsResponseVariables putVariablesItem(String key, Object variablesItem) {
+        if (this.variables == null) {
+            this.variables = new java.util.HashMap<>();
+        }
+        this.variables.put(key, variablesItem);
         return this;
     }
 
@@ -70,12 +78,12 @@ public class BatchUpsertRecordsResponseVariables {
     @javax.annotation.Nullable
     @ApiModelProperty(value = "The variables.")
 
-    public Object getVariables() {
+    public java.util.Map<String, Object> getVariables() {
         return variables;
     }
 
 
-    public void setVariables(Object variables) {
+    public void setVariables(java.util.Map<String, Object> variables) {
         this.variables = variables;
     }
 

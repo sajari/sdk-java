@@ -29,7 +29,7 @@ public class UpsertRecordResponse {
 
     public static final String SERIALIZED_NAME_VARIABLES = "variables";
     @SerializedName(SERIALIZED_NAME_VARIABLES)
-    private Object variables;
+    private java.util.Map<String, Object> variables = null;
 
 
     public UpsertRecordResponse key(RecordKey key) {
@@ -56,9 +56,17 @@ public class UpsertRecordResponse {
     }
 
 
-    public UpsertRecordResponse variables(Object variables) {
+    public UpsertRecordResponse variables(java.util.Map<String, Object> variables) {
 
         this.variables = variables;
+        return this;
+    }
+
+    public UpsertRecordResponse putVariablesItem(String key, Object variablesItem) {
+        if (this.variables == null) {
+            this.variables = new java.util.HashMap<>();
+        }
+        this.variables.put(key, variablesItem);
         return this;
     }
 
@@ -70,12 +78,12 @@ public class UpsertRecordResponse {
     @javax.annotation.Nullable
     @ApiModelProperty(value = "The modified variables returned by the pipeline after it has finished processing.")
 
-    public Object getVariables() {
+    public java.util.Map<String, Object> getVariables() {
         return variables;
     }
 
 
-    public void setVariables(Object variables) {
+    public void setVariables(java.util.Map<String, Object> variables) {
         this.variables = variables;
     }
 

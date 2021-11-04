@@ -134,17 +134,6 @@ public class ApiClient {
             builder.addInterceptor(interceptor);
         }
 
-//        HttpLoggingInterceptor headerLogging = new HttpLoggingInterceptor();
-//        headerLogging.setLevel(Level.HEADERS);
-//        builder.addInterceptor(headerLogging);
-
-//        HttpLoggingInterceptor bodyLogging = new HttpLoggingInterceptor();
-//        headerLogging.setLevel(Level.BODY);
-//        builder.addInterceptor(bodyLogging);
-
-        // Enable gzip request compression
-//        builder.addInterceptor(new GzipRequestInterceptor());
-
         httpClient = builder.build();
     }
 
@@ -154,7 +143,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("sajari-sdk-java-4.0.0");
+        setUserAgent("sajari-sdk-java-4.1.0");
 
         authentications = new HashMap<String, Authentication>();
     }
@@ -470,7 +459,7 @@ public class ApiClient {
     /**
      * The path of temporary folder used to store downloaded files from endpoints
      * with file response. The default value is <code>null</code>, i.e. using
-     * the system's default tempopary folder.
+     * the system's default temporary folder.
      *
      * @return Temporary folder path
      * @see <a href="https://docs.oracle.com/javase/7/docs/api/java/nio/file/Files.html#createTempFile(java.lang.String,%20java.lang.String,%20java.nio.file.attribute.FileAttribute...)">createTempFile</a>

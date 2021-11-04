@@ -33,7 +33,7 @@ public class BatchUpsertRecordsRequest {
 
     public static final String SERIALIZED_NAME_VARIABLES = "variables";
     @SerializedName(SERIALIZED_NAME_VARIABLES)
-    private Object variables;
+    private java.util.Map<String, Object> variables = null;
 
 
     public BatchUpsertRecordsRequest pipeline(BatchUpsertRecordsRequestPipeline pipeline) {
@@ -72,12 +72,12 @@ public class BatchUpsertRecordsRequest {
     }
 
     /**
-     * A list of records to upsert.
+     * A list of records to upsert.  A maximum of 200 records can be upsert in a batch.
      *
      * @return records
      **/
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "A list of records to upsert.")
+    @ApiModelProperty(required = true, value = "A list of records to upsert.  A maximum of 200 records can be upsert in a batch.")
 
     public java.util.List<Object> getRecords() {
         return records;
@@ -89,9 +89,17 @@ public class BatchUpsertRecordsRequest {
     }
 
 
-    public BatchUpsertRecordsRequest variables(Object variables) {
+    public BatchUpsertRecordsRequest variables(java.util.Map<String, Object> variables) {
 
         this.variables = variables;
+        return this;
+    }
+
+    public BatchUpsertRecordsRequest putVariablesItem(String key, Object variablesItem) {
+        if (this.variables == null) {
+            this.variables = new java.util.HashMap<>();
+        }
+        this.variables.put(key, variablesItem);
         return this;
     }
 
@@ -103,12 +111,12 @@ public class BatchUpsertRecordsRequest {
     @javax.annotation.Nullable
     @ApiModelProperty(value = "The initial values for the variables the pipeline operates on and transforms throughout its steps.")
 
-    public Object getVariables() {
+    public java.util.Map<String, Object> getVariables() {
         return variables;
     }
 
 
-    public void setVariables(Object variables) {
+    public void setVariables(java.util.Map<String, Object> variables) {
         this.variables = variables;
     }
 

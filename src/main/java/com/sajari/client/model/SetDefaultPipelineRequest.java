@@ -23,37 +23,13 @@ import java.util.Objects;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SetDefaultPipelineRequest {
-    public static final String SERIALIZED_NAME_TYPE = "type";
-    @SerializedName(SERIALIZED_NAME_TYPE)
-    private PipelineType type = PipelineType.TYPE_UNSPECIFIED;
-
     public static final String SERIALIZED_NAME_PIPELINE = "pipeline";
     @SerializedName(SERIALIZED_NAME_PIPELINE)
     private String pipeline;
 
-
-    public SetDefaultPipelineRequest type(PipelineType type) {
-
-        this.type = type;
-        return this;
-    }
-
-    /**
-     * Get type
-     *
-     * @return type
-     **/
-    @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "")
-
-    public PipelineType getType() {
-        return type;
-    }
-
-
-    public void setType(PipelineType type) {
-        this.type = type;
-    }
+    public static final String SERIALIZED_NAME_TYPE = "type";
+    @SerializedName(SERIALIZED_NAME_TYPE)
+    private PipelineType type = PipelineType.TYPE_UNSPECIFIED;
 
 
     public SetDefaultPipelineRequest pipeline(String pipeline) {
@@ -80,6 +56,30 @@ public class SetDefaultPipelineRequest {
     }
 
 
+    public SetDefaultPipelineRequest type(PipelineType type) {
+
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return type
+     **/
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "")
+
+    public PipelineType getType() {
+        return type;
+    }
+
+
+    public void setType(PipelineType type) {
+        this.type = type;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -89,21 +89,21 @@ public class SetDefaultPipelineRequest {
             return false;
         }
         SetDefaultPipelineRequest setDefaultPipelineRequest = (SetDefaultPipelineRequest) o;
-        return Objects.equals(this.type, setDefaultPipelineRequest.type) &&
-                Objects.equals(this.pipeline, setDefaultPipelineRequest.pipeline);
+        return Objects.equals(this.pipeline, setDefaultPipelineRequest.pipeline) &&
+                Objects.equals(this.type, setDefaultPipelineRequest.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type, pipeline);
+        return Objects.hash(pipeline, type);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class SetDefaultPipelineRequest {\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    pipeline: ").append(toIndentedString(pipeline)).append("\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
     }

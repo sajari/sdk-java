@@ -23,6 +23,10 @@ import java.util.Objects;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class QueryResult {
+    public static final String SERIALIZED_NAME_INDEX_SCORE = "index_score";
+    @SerializedName(SERIALIZED_NAME_INDEX_SCORE)
+    private Double indexScore;
+
     public static final String SERIALIZED_NAME_RECORD = "record";
     @SerializedName(SERIALIZED_NAME_RECORD)
     private Object record;
@@ -31,13 +35,33 @@ public class QueryResult {
     @SerializedName(SERIALIZED_NAME_SCORE)
     private Double score;
 
-    public static final String SERIALIZED_NAME_INDEX_SCORE = "index_score";
-    @SerializedName(SERIALIZED_NAME_INDEX_SCORE)
-    private Double indexScore;
-
     public static final String SERIALIZED_NAME_TOKEN = "token";
     @SerializedName(SERIALIZED_NAME_TOKEN)
     private QueryResultToken token;
+
+
+    public QueryResult indexScore(Double indexScore) {
+
+        this.indexScore = indexScore;
+        return this;
+    }
+
+    /**
+     * Index score.
+     *
+     * @return indexScore
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Index score.")
+
+    public Double getIndexScore() {
+        return indexScore;
+    }
+
+
+    public void setIndexScore(Double indexScore) {
+        this.indexScore = indexScore;
+    }
 
 
     public QueryResult record(Object record) {
@@ -88,30 +112,6 @@ public class QueryResult {
     }
 
 
-    public QueryResult indexScore(Double indexScore) {
-
-        this.indexScore = indexScore;
-        return this;
-    }
-
-    /**
-     * Index score.
-     *
-     * @return indexScore
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Index score.")
-
-    public Double getIndexScore() {
-        return indexScore;
-    }
-
-
-    public void setIndexScore(Double indexScore) {
-        this.indexScore = indexScore;
-    }
-
-
     public QueryResult token(QueryResultToken token) {
 
         this.token = token;
@@ -145,24 +145,24 @@ public class QueryResult {
             return false;
         }
         QueryResult queryResult = (QueryResult) o;
-        return Objects.equals(this.record, queryResult.record) &&
+        return Objects.equals(this.indexScore, queryResult.indexScore) &&
+                Objects.equals(this.record, queryResult.record) &&
                 Objects.equals(this.score, queryResult.score) &&
-                Objects.equals(this.indexScore, queryResult.indexScore) &&
                 Objects.equals(this.token, queryResult.token);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(record, score, indexScore, token);
+        return Objects.hash(indexScore, record, score, token);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class QueryResult {\n");
+        sb.append("    indexScore: ").append(toIndentedString(indexScore)).append("\n");
         sb.append("    record: ").append(toIndentedString(record)).append("\n");
         sb.append("    score: ").append(toIndentedString(score)).append("\n");
-        sb.append("    indexScore: ").append(toIndentedString(indexScore)).append("\n");
         sb.append("    token: ").append(toIndentedString(token)).append("\n");
         sb.append("}");
         return sb.toString();

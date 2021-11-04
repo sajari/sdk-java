@@ -1,3 +1,5 @@
+
+
 # QueryAggregateResult
 
 A query aggregate result contains results of aggregations.
@@ -6,11 +8,11 @@ A query aggregate result contains results of aggregations.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**metric** | [**QueryAggregateResultMetric**](QueryAggregateResultMetric.md) |  |  [optional]
-**count** | [**QueryAggregateResultCount**](QueryAggregateResultCount.md) |  |  [optional]
-**buckets** | [**QueryAggregateResultBuckets**](QueryAggregateResultBuckets.md) |  |  [optional]
-**date** | [**QueryAggregateResultDate**](QueryAggregateResultDate.md) |  |  [optional]
 **analysis** | [**QueryAggregateResultAnalysis**](QueryAggregateResultAnalysis.md) |  |  [optional]
+**buckets** | [**QueryAggregateResultBuckets**](QueryAggregateResultBuckets.md) |  |  [optional]
+**count** | [**QueryAggregateResultCount**](QueryAggregateResultCount.md) |  |  [optional]
+**date** | [**QueryAggregateResultDate**](QueryAggregateResultDate.md) |  |  [optional]
+**metric** | [**QueryAggregateResultMetric**](QueryAggregateResultMetric.md) |  |  [optional]
 **percentile** | [**QueryAggregateResultPercentile**](QueryAggregateResultPercentile.md) |  |  [optional]
 
 

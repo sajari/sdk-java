@@ -25,76 +25,84 @@ import java.util.Objects;
 @ApiModel(description = "Step creates a pipeline step.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class PipelineStep {
-    public static final String SERIALIZED_NAME_ID = "id";
-    @SerializedName(SERIALIZED_NAME_ID)
-    private String id;
-
-    public static final String SERIALIZED_NAME_TITLE = "title";
-    @SerializedName(SERIALIZED_NAME_TITLE)
-    private String title;
-
-    public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-    @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    private String description;
-
-    public static final String SERIALIZED_NAME_PARAMS = "params";
-    @SerializedName(SERIALIZED_NAME_PARAMS)
-    private java.util.Map<String, PipelineStepParamBinding> params = null;
+    public static final String SERIALIZED_NAME_ANNOTATIONS = "annotations";
+    @SerializedName(SERIALIZED_NAME_ANNOTATIONS)
+    private java.util.List<String> annotations = null;
 
     public static final String SERIALIZED_NAME_CONDITION = "condition";
     @SerializedName(SERIALIZED_NAME_CONDITION)
     private String condition;
 
-    public static final String SERIALIZED_NAME_ANNOTATIONS = "annotations";
-    @SerializedName(SERIALIZED_NAME_ANNOTATIONS)
-    private java.util.List<String> annotations = null;
+    public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+    @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+    private String description;
+
+    public static final String SERIALIZED_NAME_ID = "id";
+    @SerializedName(SERIALIZED_NAME_ID)
+    private String id;
+
+    public static final String SERIALIZED_NAME_PARAMS = "params";
+    @SerializedName(SERIALIZED_NAME_PARAMS)
+    private java.util.Map<String, PipelineStepParamBinding> params = null;
+
+    public static final String SERIALIZED_NAME_TITLE = "title";
+    @SerializedName(SERIALIZED_NAME_TITLE)
+    private String title;
 
 
-    public PipelineStep id(String id) {
+    public PipelineStep annotations(java.util.List<String> annotations) {
 
-        this.id = id;
+        this.annotations = annotations;
+        return this;
+    }
+
+    public PipelineStep addAnnotationsItem(String annotationsItem) {
+        if (this.annotations == null) {
+            this.annotations = new java.util.ArrayList<>();
+        }
+        this.annotations.add(annotationsItem);
         return this;
     }
 
     /**
-     * ID of the step template.
+     * Annotations added to the request when the step is run.
      *
-     * @return id
-     **/
-    @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "ID of the step template.")
-
-    public String getId() {
-        return id;
-    }
-
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-
-    public PipelineStep title(String title) {
-
-        this.title = title;
-        return this;
-    }
-
-    /**
-     * Title for the step. Overrides the default title.
-     *
-     * @return title
+     * @return annotations
      **/
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "Title for the step. Overrides the default title.")
+    @ApiModelProperty(value = "Annotations added to the request when the step is run.")
 
-    public String getTitle() {
-        return title;
+    public java.util.List<String> getAnnotations() {
+        return annotations;
     }
 
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setAnnotations(java.util.List<String> annotations) {
+        this.annotations = annotations;
+    }
+
+
+    public PipelineStep condition(String condition) {
+
+        this.condition = condition;
+        return this;
+    }
+
+    /**
+     * Condition expression to determine if the step should be run.  This is a filter expression much like the query filter expression, but it acts upon the pipeline variables.  For example, to only run the step if the pipeline &#x60;q&#x60; variable is not empty, set this to &#x60;q !&#x3D; &#39;&#39;&#x60;.
+     *
+     * @return condition
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Condition expression to determine if the step should be run.  This is a filter expression much like the query filter expression, but it acts upon the pipeline variables.  For example, to only run the step if the pipeline `q` variable is not empty, set this to `q != ''`.")
+
+    public String getCondition() {
+        return condition;
+    }
+
+
+    public void setCondition(String condition) {
+        this.condition = condition;
     }
 
 
@@ -119,6 +127,30 @@ public class PipelineStep {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+
+    public PipelineStep id(String id) {
+
+        this.id = id;
+        return this;
+    }
+
+    /**
+     * ID of the step template.
+     *
+     * @return id
+     **/
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "ID of the step template.")
+
+    public String getId() {
+        return id;
+    }
+
+
+    public void setId(String id) {
+        this.id = id;
     }
 
 
@@ -154,59 +186,27 @@ public class PipelineStep {
     }
 
 
-    public PipelineStep condition(String condition) {
+    public PipelineStep title(String title) {
 
-        this.condition = condition;
+        this.title = title;
         return this;
     }
 
     /**
-     * Condition expression to determine if the step should be run.  This is a filter expression much like the query filter expression, but it acts upon the pipeline variables.  For example, to only run the step if the pipeline &#x60;q&#x60; variable is not empty, set this to &#x60;q !&#x3D; &#39;&#39;&#x60;.
+     * Title for the step. Overrides the default title.
      *
-     * @return condition
+     * @return title
      **/
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "Condition expression to determine if the step should be run.  This is a filter expression much like the query filter expression, but it acts upon the pipeline variables.  For example, to only run the step if the pipeline `q` variable is not empty, set this to `q != ''`.")
+    @ApiModelProperty(value = "Title for the step. Overrides the default title.")
 
-    public String getCondition() {
-        return condition;
+    public String getTitle() {
+        return title;
     }
 
 
-    public void setCondition(String condition) {
-        this.condition = condition;
-    }
-
-
-    public PipelineStep annotations(java.util.List<String> annotations) {
-
-        this.annotations = annotations;
-        return this;
-    }
-
-    public PipelineStep addAnnotationsItem(String annotationsItem) {
-        if (this.annotations == null) {
-            this.annotations = new java.util.ArrayList<>();
-        }
-        this.annotations.add(annotationsItem);
-        return this;
-    }
-
-    /**
-     * Annotations added to the request when the step is run.
-     *
-     * @return annotations
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Annotations added to the request when the step is run.")
-
-    public java.util.List<String> getAnnotations() {
-        return annotations;
-    }
-
-
-    public void setAnnotations(java.util.List<String> annotations) {
-        this.annotations = annotations;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
 
@@ -219,29 +219,29 @@ public class PipelineStep {
             return false;
         }
         PipelineStep pipelineStep = (PipelineStep) o;
-        return Objects.equals(this.id, pipelineStep.id) &&
-                Objects.equals(this.title, pipelineStep.title) &&
-                Objects.equals(this.description, pipelineStep.description) &&
-                Objects.equals(this.params, pipelineStep.params) &&
+        return Objects.equals(this.annotations, pipelineStep.annotations) &&
                 Objects.equals(this.condition, pipelineStep.condition) &&
-                Objects.equals(this.annotations, pipelineStep.annotations);
+                Objects.equals(this.description, pipelineStep.description) &&
+                Objects.equals(this.id, pipelineStep.id) &&
+                Objects.equals(this.params, pipelineStep.params) &&
+                Objects.equals(this.title, pipelineStep.title);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, description, params, condition, annotations);
+        return Objects.hash(annotations, condition, description, id, params, title);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class PipelineStep {\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    title: ").append(toIndentedString(title)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    params: ").append(toIndentedString(params)).append("\n");
-        sb.append("    condition: ").append(toIndentedString(condition)).append("\n");
         sb.append("    annotations: ").append(toIndentedString(annotations)).append("\n");
+        sb.append("    condition: ").append(toIndentedString(condition)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    params: ").append(toIndentedString(params)).append("\n");
+        sb.append("    title: ").append(toIndentedString(title)).append("\n");
         sb.append("}");
         return sb.toString();
     }

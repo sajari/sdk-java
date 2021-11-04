@@ -25,18 +25,53 @@ import java.util.Objects;
 @ApiModel(description = "A request to send an event to the ranking system after a user interacts with a search result.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SendEventRequest {
-    public static final String SERIALIZED_NAME_NAME = "name";
-    public static final String SERIALIZED_NAME_TOKEN = "token";
-    public static final String SERIALIZED_NAME_WEIGHT = "weight";
     public static final String SERIALIZED_NAME_METADATA = "metadata";
-    @SerializedName(SERIALIZED_NAME_NAME)
-    private String name;
-    @SerializedName(SERIALIZED_NAME_TOKEN)
-    private String token;
-    @SerializedName(SERIALIZED_NAME_WEIGHT)
-    private Integer weight;
     @SerializedName(SERIALIZED_NAME_METADATA)
     private java.util.Map<String, Object> metadata = null;
+
+    public static final String SERIALIZED_NAME_NAME = "name";
+    @SerializedName(SERIALIZED_NAME_NAME)
+    private String name;
+
+    public static final String SERIALIZED_NAME_TOKEN = "token";
+    @SerializedName(SERIALIZED_NAME_TOKEN)
+    private String token;
+
+    public static final String SERIALIZED_NAME_WEIGHT = "weight";
+    @SerializedName(SERIALIZED_NAME_WEIGHT)
+    private Integer weight;
+
+
+    public SendEventRequest metadata(java.util.Map<String, Object> metadata) {
+
+        this.metadata = metadata;
+        return this;
+    }
+
+    public SendEventRequest putMetadataItem(String key, Object metadataItem) {
+        if (this.metadata == null) {
+            this.metadata = new java.util.HashMap<>();
+        }
+        this.metadata.put(key, metadataItem);
+        return this;
+    }
+
+    /**
+     * An object made up of field-value pairs that contains additional metadata to record with the event.  Every value in the object must be one of the following primitive types:  - boolean - number - string
+     *
+     * @return metadata
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "An object made up of field-value pairs that contains additional metadata to record with the event.  Every value in the object must be one of the following primitive types:  - boolean - number - string")
+
+    public java.util.Map<String, Object> getMetadata() {
+        return metadata;
+    }
+
+
+    public void setMetadata(java.util.Map<String, Object> metadata) {
+        this.metadata = metadata;
+    }
 
 
     public SendEventRequest name(String name) {
@@ -111,38 +146,6 @@ public class SendEventRequest {
     }
 
 
-    public SendEventRequest metadata(java.util.Map<String, Object> metadata) {
-
-        this.metadata = metadata;
-        return this;
-    }
-
-    public SendEventRequest putMetadataItem(String key, Object metadataItem) {
-        if (this.metadata == null) {
-            this.metadata = new java.util.HashMap<>();
-        }
-        this.metadata.put(key, metadataItem);
-        return this;
-    }
-
-    /**
-     * An object made up of field-value pairs that contains additional metadata to record with the event.  Every value in the object must be one of the following primitive types:  - boolean - number - string
-     *
-     * @return metadata
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "An object made up of field-value pairs that contains additional metadata to record with the event.  Every value in the object must be one of the following primitive types:  - boolean - number - string")
-
-    public java.util.Map<String, Object> getMetadata() {
-        return metadata;
-    }
-
-
-    public void setMetadata(java.util.Map<String, Object> metadata) {
-        this.metadata = metadata;
-    }
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -152,25 +155,25 @@ public class SendEventRequest {
             return false;
         }
         SendEventRequest sendEventRequest = (SendEventRequest) o;
-        return Objects.equals(this.name, sendEventRequest.name) &&
+        return Objects.equals(this.metadata, sendEventRequest.metadata) &&
+                Objects.equals(this.name, sendEventRequest.name) &&
                 Objects.equals(this.token, sendEventRequest.token) &&
-                Objects.equals(this.weight, sendEventRequest.weight) &&
-                Objects.equals(this.metadata, sendEventRequest.metadata);
+                Objects.equals(this.weight, sendEventRequest.weight);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, token, weight, metadata);
+        return Objects.hash(metadata, name, token, weight);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class SendEventRequest {\n");
+        sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    token: ").append(toIndentedString(token)).append("\n");
         sb.append("    weight: ").append(toIndentedString(weight)).append("\n");
-        sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
         sb.append("}");
         return sb.toString();
     }

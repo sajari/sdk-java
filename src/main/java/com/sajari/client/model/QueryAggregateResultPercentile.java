@@ -25,45 +25,13 @@ import java.util.Objects;
 @ApiModel(description = "Percentile contains the data points returned in a percentile aggregate step.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class QueryAggregateResultPercentile {
-    public static final String SERIALIZED_NAME_PERCENTILES = "percentiles";
-    @SerializedName(SERIALIZED_NAME_PERCENTILES)
-    private java.util.List<PercentileDataPoint> percentiles = null;
-
     public static final String SERIALIZED_NAME_CDF = "cdf";
     @SerializedName(SERIALIZED_NAME_CDF)
     private java.util.List<PercentileDataPoint> cdf = null;
 
-
-    public QueryAggregateResultPercentile percentiles(java.util.List<PercentileDataPoint> percentiles) {
-
-        this.percentiles = percentiles;
-        return this;
-    }
-
-    public QueryAggregateResultPercentile addPercentilesItem(PercentileDataPoint percentilesItem) {
-        if (this.percentiles == null) {
-            this.percentiles = new java.util.ArrayList<>();
-        }
-        this.percentiles.add(percentilesItem);
-        return this;
-    }
-
-    /**
-     * The percentile data points.
-     *
-     * @return percentiles
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The percentile data points.")
-
-    public java.util.List<PercentileDataPoint> getPercentiles() {
-        return percentiles;
-    }
-
-
-    public void setPercentiles(java.util.List<PercentileDataPoint> percentiles) {
-        this.percentiles = percentiles;
-    }
+    public static final String SERIALIZED_NAME_PERCENTILES = "percentiles";
+    @SerializedName(SERIALIZED_NAME_PERCENTILES)
+    private java.util.List<PercentileDataPoint> percentiles = null;
 
 
     public QueryAggregateResultPercentile cdf(java.util.List<PercentileDataPoint> cdf) {
@@ -98,6 +66,38 @@ public class QueryAggregateResultPercentile {
     }
 
 
+    public QueryAggregateResultPercentile percentiles(java.util.List<PercentileDataPoint> percentiles) {
+
+        this.percentiles = percentiles;
+        return this;
+    }
+
+    public QueryAggregateResultPercentile addPercentilesItem(PercentileDataPoint percentilesItem) {
+        if (this.percentiles == null) {
+            this.percentiles = new java.util.ArrayList<>();
+        }
+        this.percentiles.add(percentilesItem);
+        return this;
+    }
+
+    /**
+     * The percentile data points.
+     *
+     * @return percentiles
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "The percentile data points.")
+
+    public java.util.List<PercentileDataPoint> getPercentiles() {
+        return percentiles;
+    }
+
+
+    public void setPercentiles(java.util.List<PercentileDataPoint> percentiles) {
+        this.percentiles = percentiles;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -107,21 +107,21 @@ public class QueryAggregateResultPercentile {
             return false;
         }
         QueryAggregateResultPercentile queryAggregateResultPercentile = (QueryAggregateResultPercentile) o;
-        return Objects.equals(this.percentiles, queryAggregateResultPercentile.percentiles) &&
-                Objects.equals(this.cdf, queryAggregateResultPercentile.cdf);
+        return Objects.equals(this.cdf, queryAggregateResultPercentile.cdf) &&
+                Objects.equals(this.percentiles, queryAggregateResultPercentile.percentiles);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(percentiles, cdf);
+        return Objects.hash(cdf, percentiles);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class QueryAggregateResultPercentile {\n");
-        sb.append("    percentiles: ").append(toIndentedString(percentiles)).append("\n");
         sb.append("    cdf: ").append(toIndentedString(cdf)).append("\n");
+        sb.append("    percentiles: ").append(toIndentedString(percentiles)).append("\n");
         sb.append("}");
         return sb.toString();
     }

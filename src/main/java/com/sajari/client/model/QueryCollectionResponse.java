@@ -23,13 +23,21 @@ import java.util.Objects;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class QueryCollectionResponse {
+    public static final String SERIALIZED_NAME_AGGREGATE_FILTERS = "aggregate_filters";
+    @SerializedName(SERIALIZED_NAME_AGGREGATE_FILTERS)
+    private java.util.Map<String, QueryAggregateResult> aggregateFilters = null;
+
+    public static final String SERIALIZED_NAME_AGGREGATES = "aggregates";
+    @SerializedName(SERIALIZED_NAME_AGGREGATES)
+    private java.util.Map<String, QueryAggregateResult> aggregates = null;
+
     public static final String SERIALIZED_NAME_PIPELINE = "pipeline";
     @SerializedName(SERIALIZED_NAME_PIPELINE)
     private QueryCollectionResponsePipeline pipeline;
 
-    public static final String SERIALIZED_NAME_VARIABLES = "variables";
-    @SerializedName(SERIALIZED_NAME_VARIABLES)
-    private Object variables;
+    public static final String SERIALIZED_NAME_PROCESSING_DURATION = "processing_duration";
+    @SerializedName(SERIALIZED_NAME_PROCESSING_DURATION)
+    private String processingDuration;
 
     public static final String SERIALIZED_NAME_RESULTS = "results";
     @SerializedName(SERIALIZED_NAME_RESULTS)
@@ -39,17 +47,73 @@ public class QueryCollectionResponse {
     @SerializedName(SERIALIZED_NAME_TOTAL_SIZE)
     private String totalSize;
 
-    public static final String SERIALIZED_NAME_PROCESSING_DURATION = "processing_duration";
-    @SerializedName(SERIALIZED_NAME_PROCESSING_DURATION)
-    private String processingDuration;
+    public static final String SERIALIZED_NAME_VARIABLES = "variables";
+    @SerializedName(SERIALIZED_NAME_VARIABLES)
+    private java.util.Map<String, Object> variables = null;
 
-    public static final String SERIALIZED_NAME_AGGREGATES = "aggregates";
-    @SerializedName(SERIALIZED_NAME_AGGREGATES)
-    private java.util.Map<String, QueryAggregateResult> aggregates = null;
 
-    public static final String SERIALIZED_NAME_AGGREGATE_FILTERS = "aggregate_filters";
-    @SerializedName(SERIALIZED_NAME_AGGREGATE_FILTERS)
-    private java.util.Map<String, QueryAggregateResult> aggregateFilters = null;
+    public QueryCollectionResponse aggregateFilters(java.util.Map<String, QueryAggregateResult> aggregateFilters) {
+
+        this.aggregateFilters = aggregateFilters;
+        return this;
+    }
+
+    public QueryCollectionResponse putAggregateFiltersItem(String key, QueryAggregateResult aggregateFiltersItem) {
+        if (this.aggregateFilters == null) {
+            this.aggregateFilters = new java.util.HashMap<>();
+        }
+        this.aggregateFilters.put(key, aggregateFiltersItem);
+        return this;
+    }
+
+    /**
+     * The aggregates run with filters.
+     *
+     * @return aggregateFilters
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "The aggregates run with filters.")
+
+    public java.util.Map<String, QueryAggregateResult> getAggregateFilters() {
+        return aggregateFilters;
+    }
+
+
+    public void setAggregateFilters(java.util.Map<String, QueryAggregateResult> aggregateFilters) {
+        this.aggregateFilters = aggregateFilters;
+    }
+
+
+    public QueryCollectionResponse aggregates(java.util.Map<String, QueryAggregateResult> aggregates) {
+
+        this.aggregates = aggregates;
+        return this;
+    }
+
+    public QueryCollectionResponse putAggregatesItem(String key, QueryAggregateResult aggregatesItem) {
+        if (this.aggregates == null) {
+            this.aggregates = new java.util.HashMap<>();
+        }
+        this.aggregates.put(key, aggregatesItem);
+        return this;
+    }
+
+    /**
+     * The aggregates returned by the query.
+     *
+     * @return aggregates
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "The aggregates returned by the query.")
+
+    public java.util.Map<String, QueryAggregateResult> getAggregates() {
+        return aggregates;
+    }
+
+
+    public void setAggregates(java.util.Map<String, QueryAggregateResult> aggregates) {
+        this.aggregates = aggregates;
+    }
 
 
     public QueryCollectionResponse pipeline(QueryCollectionResponsePipeline pipeline) {
@@ -76,27 +140,27 @@ public class QueryCollectionResponse {
     }
 
 
-    public QueryCollectionResponse variables(Object variables) {
+    public QueryCollectionResponse processingDuration(String processingDuration) {
 
-        this.variables = variables;
+        this.processingDuration = processingDuration;
         return this;
     }
 
     /**
-     * The modified variables returned by the pipeline after it has finished processing.
+     * The total time taken to perform the query.
      *
-     * @return variables
+     * @return processingDuration
      **/
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "The modified variables returned by the pipeline after it has finished processing.")
+    @ApiModelProperty(value = "The total time taken to perform the query.")
 
-    public Object getVariables() {
-        return variables;
+    public String getProcessingDuration() {
+        return processingDuration;
     }
 
 
-    public void setVariables(Object variables) {
-        this.variables = variables;
+    public void setProcessingDuration(String processingDuration) {
+        this.processingDuration = processingDuration;
     }
 
 
@@ -156,91 +220,35 @@ public class QueryCollectionResponse {
     }
 
 
-    public QueryCollectionResponse processingDuration(String processingDuration) {
+    public QueryCollectionResponse variables(java.util.Map<String, Object> variables) {
 
-        this.processingDuration = processingDuration;
+        this.variables = variables;
         return this;
     }
 
-    /**
-     * The total time taken to perform the query.
-     *
-     * @return processingDuration
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The total time taken to perform the query.")
-
-    public String getProcessingDuration() {
-        return processingDuration;
-    }
-
-
-    public void setProcessingDuration(String processingDuration) {
-        this.processingDuration = processingDuration;
-    }
-
-
-    public QueryCollectionResponse aggregates(java.util.Map<String, QueryAggregateResult> aggregates) {
-
-        this.aggregates = aggregates;
-        return this;
-    }
-
-    public QueryCollectionResponse putAggregatesItem(String key, QueryAggregateResult aggregatesItem) {
-        if (this.aggregates == null) {
-            this.aggregates = new java.util.HashMap<>();
+    public QueryCollectionResponse putVariablesItem(String key, Object variablesItem) {
+        if (this.variables == null) {
+            this.variables = new java.util.HashMap<>();
         }
-        this.aggregates.put(key, aggregatesItem);
+        this.variables.put(key, variablesItem);
         return this;
     }
 
     /**
-     * The aggregates returned by the query.
+     * The modified variables returned by the pipeline after it has finished processing.
      *
-     * @return aggregates
+     * @return variables
      **/
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "The aggregates returned by the query.")
+    @ApiModelProperty(value = "The modified variables returned by the pipeline after it has finished processing.")
 
-    public java.util.Map<String, QueryAggregateResult> getAggregates() {
-        return aggregates;
+    public java.util.Map<String, Object> getVariables() {
+        return variables;
     }
 
 
-    public void setAggregates(java.util.Map<String, QueryAggregateResult> aggregates) {
-        this.aggregates = aggregates;
-    }
-
-
-    public QueryCollectionResponse aggregateFilters(java.util.Map<String, QueryAggregateResult> aggregateFilters) {
-
-        this.aggregateFilters = aggregateFilters;
-        return this;
-    }
-
-    public QueryCollectionResponse putAggregateFiltersItem(String key, QueryAggregateResult aggregateFiltersItem) {
-        if (this.aggregateFilters == null) {
-            this.aggregateFilters = new java.util.HashMap<>();
-        }
-        this.aggregateFilters.put(key, aggregateFiltersItem);
-        return this;
-    }
-
-    /**
-     * The aggregates run with filters.
-     *
-     * @return aggregateFilters
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The aggregates run with filters.")
-
-    public java.util.Map<String, QueryAggregateResult> getAggregateFilters() {
-        return aggregateFilters;
-    }
-
-
-    public void setAggregateFilters(java.util.Map<String, QueryAggregateResult> aggregateFilters) {
-        this.aggregateFilters = aggregateFilters;
+    public void setVariables(java.util.Map<String, Object> variables) {
+        this.variables = variables;
     }
 
 
@@ -253,31 +261,31 @@ public class QueryCollectionResponse {
             return false;
         }
         QueryCollectionResponse queryCollectionResponse = (QueryCollectionResponse) o;
-        return Objects.equals(this.pipeline, queryCollectionResponse.pipeline) &&
-                Objects.equals(this.variables, queryCollectionResponse.variables) &&
+        return Objects.equals(this.aggregateFilters, queryCollectionResponse.aggregateFilters) &&
+                Objects.equals(this.aggregates, queryCollectionResponse.aggregates) &&
+                Objects.equals(this.pipeline, queryCollectionResponse.pipeline) &&
+                Objects.equals(this.processingDuration, queryCollectionResponse.processingDuration) &&
                 Objects.equals(this.results, queryCollectionResponse.results) &&
                 Objects.equals(this.totalSize, queryCollectionResponse.totalSize) &&
-                Objects.equals(this.processingDuration, queryCollectionResponse.processingDuration) &&
-                Objects.equals(this.aggregates, queryCollectionResponse.aggregates) &&
-                Objects.equals(this.aggregateFilters, queryCollectionResponse.aggregateFilters);
+                Objects.equals(this.variables, queryCollectionResponse.variables);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(pipeline, variables, results, totalSize, processingDuration, aggregates, aggregateFilters);
+        return Objects.hash(aggregateFilters, aggregates, pipeline, processingDuration, results, totalSize, variables);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class QueryCollectionResponse {\n");
+        sb.append("    aggregateFilters: ").append(toIndentedString(aggregateFilters)).append("\n");
+        sb.append("    aggregates: ").append(toIndentedString(aggregates)).append("\n");
         sb.append("    pipeline: ").append(toIndentedString(pipeline)).append("\n");
-        sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
+        sb.append("    processingDuration: ").append(toIndentedString(processingDuration)).append("\n");
         sb.append("    results: ").append(toIndentedString(results)).append("\n");
         sb.append("    totalSize: ").append(toIndentedString(totalSize)).append("\n");
-        sb.append("    processingDuration: ").append(toIndentedString(processingDuration)).append("\n");
-        sb.append("    aggregates: ").append(toIndentedString(aggregates)).append("\n");
-        sb.append("    aggregateFilters: ").append(toIndentedString(aggregateFilters)).append("\n");
+        sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
         sb.append("}");
         return sb.toString();
     }

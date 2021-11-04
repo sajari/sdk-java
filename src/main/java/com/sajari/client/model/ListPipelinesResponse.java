@@ -23,13 +23,37 @@ import java.util.Objects;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ListPipelinesResponse {
+    public static final String SERIALIZED_NAME_NEXT_PAGE_TOKEN = "next_page_token";
+    @SerializedName(SERIALIZED_NAME_NEXT_PAGE_TOKEN)
+    private String nextPageToken;
+
     public static final String SERIALIZED_NAME_PIPELINES = "pipelines";
     @SerializedName(SERIALIZED_NAME_PIPELINES)
     private java.util.List<Pipeline> pipelines = null;
 
-    public static final String SERIALIZED_NAME_NEXT_PAGE_TOKEN = "next_page_token";
-    @SerializedName(SERIALIZED_NAME_NEXT_PAGE_TOKEN)
-    private String nextPageToken;
+
+    public ListPipelinesResponse nextPageToken(String nextPageToken) {
+
+        this.nextPageToken = nextPageToken;
+        return this;
+    }
+
+    /**
+     * A token, which can be sent as &#x60;page_token&#x60; to retrieve the next page.  If this field is omitted, there are no subsequent pages.
+     *
+     * @return nextPageToken
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "A token, which can be sent as `page_token` to retrieve the next page.  If this field is omitted, there are no subsequent pages.")
+
+    public String getNextPageToken() {
+        return nextPageToken;
+    }
+
+
+    public void setNextPageToken(String nextPageToken) {
+        this.nextPageToken = nextPageToken;
+    }
 
 
     public ListPipelinesResponse pipelines(java.util.List<Pipeline> pipelines) {
@@ -64,30 +88,6 @@ public class ListPipelinesResponse {
     }
 
 
-    public ListPipelinesResponse nextPageToken(String nextPageToken) {
-
-        this.nextPageToken = nextPageToken;
-        return this;
-    }
-
-    /**
-     * A token, which can be sent as &#x60;page_token&#x60; to retrieve the next page.  If this field is omitted, there are no subsequent pages.
-     *
-     * @return nextPageToken
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "A token, which can be sent as `page_token` to retrieve the next page.  If this field is omitted, there are no subsequent pages.")
-
-    public String getNextPageToken() {
-        return nextPageToken;
-    }
-
-
-    public void setNextPageToken(String nextPageToken) {
-        this.nextPageToken = nextPageToken;
-    }
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -97,21 +97,21 @@ public class ListPipelinesResponse {
             return false;
         }
         ListPipelinesResponse listPipelinesResponse = (ListPipelinesResponse) o;
-        return Objects.equals(this.pipelines, listPipelinesResponse.pipelines) &&
-                Objects.equals(this.nextPageToken, listPipelinesResponse.nextPageToken);
+        return Objects.equals(this.nextPageToken, listPipelinesResponse.nextPageToken) &&
+                Objects.equals(this.pipelines, listPipelinesResponse.pipelines);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(pipelines, nextPageToken);
+        return Objects.hash(nextPageToken, pipelines);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class ListPipelinesResponse {\n");
-        sb.append("    pipelines: ").append(toIndentedString(pipelines)).append("\n");
         sb.append("    nextPageToken: ").append(toIndentedString(nextPageToken)).append("\n");
+        sb.append("    pipelines: ").append(toIndentedString(pipelines)).append("\n");
         sb.append("}");
         return sb.toString();
     }

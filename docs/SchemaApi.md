@@ -8,10 +8,9 @@ Method | HTTP request | Description
 [**createSchemaField**](SchemaApi.md#createSchemaField) | **POST** /v4/collections/{collection_id}/schemaFields | Create schema field
 [**listSchemaFields**](SchemaApi.md#listSchemaFields) | **GET** /v4/collections/{collection_id}/schemaFields | List schema fields
 
+
 <a name="batchCreateSchemaFields"></a>
-
 # **batchCreateSchemaFields**
-
 > BatchCreateSchemaFieldsResponse batchCreateSchemaFields(collectionId, batchCreateSchemaFieldsRequest)
 
 Batch create schema fields
@@ -19,7 +18,6 @@ Batch create schema fields
 The batch version of the [CreateSchemaField](/api#operation/CreateSchemaField) call.
 
 ### Example
-
 ```java
 // Import classes:
 import com.sajari.client.ApiClient;
@@ -60,8 +58,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**collectionId** | **String**| The collection to create the schema fields in, e.g. &#x60;my-collection&#x60;. |
-**batchCreateSchemaFieldsRequest** | [**BatchCreateSchemaFieldsRequest**](BatchCreateSchemaFieldsRequest.md)|  |
+ **collectionId** | **String**| The collection to create the schema fields in, e.g. &#x60;my-collection&#x60;. |
+ **batchCreateSchemaFieldsRequest** | [**BatchCreateSchemaFieldsRequest**](BatchCreateSchemaFieldsRequest.md)|  |
 
 ### Return type
 
@@ -73,11 +71,10 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
@@ -85,20 +82,17 @@ Name | Type | Description  | Notes
 **403** | Returned when the user does not have permission to access the resource. |  -  |
 **404** | Returned when the resource does not exist. |  -  |
 **500** | Returned when the API encounters an internal error. |  -  |
-**0** | An unexpected error response |  -  |
+**0** | An unexpected error response. |  -  |
 
 <a name="createSchemaField"></a>
-
 # **createSchemaField**
-
 > SchemaField createSchemaField(collectionId, schemaField)
 
 Create schema field
 
-Create a new field in your collection&#39;s schema.
+Create a new field in a collection&#39;s schema.
 
 ### Example
-
 ```java
 // Import classes:
 import com.sajari.client.ApiClient;
@@ -139,8 +133,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**collectionId** | **String**| The collection to create a schema field in, e.g. &#x60;my-collection&#x60;. |
-**schemaField** | [**SchemaField**](SchemaField.md)| The schema field to create. |
+ **collectionId** | **String**| The collection to create a schema field in, e.g. &#x60;my-collection&#x60;. |
+ **schemaField** | [**SchemaField**](SchemaField.md)| The schema field to create. |
 
 ### Return type
 
@@ -152,11 +146,10 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
@@ -164,20 +157,17 @@ Name | Type | Description  | Notes
 **403** | Returned when the user does not have permission to access the resource. |  -  |
 **404** | Returned when the resource does not exist. |  -  |
 **500** | Returned when the API encounters an internal error. |  -  |
-**0** | An unexpected error response |  -  |
+**0** | An unexpected error response. |  -  |
 
 <a name="listSchemaFields"></a>
-
 # **listSchemaFields**
-
 > ListSchemaFieldsResponse listSchemaFields(collectionId, pageSize, pageToken)
 
 List schema fields
 
-Retrieve a list of schema fields in the collection.
+Retrieve a list of schema fields in a collection.
 
 ### Example
-
 ```java
 // Import classes:
 import com.sajari.client.ApiClient;
@@ -219,11 +209,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**collectionId** | **String**| The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;. |
-**pageSize** | **
-Integer**| The maximum number of schema fields to return. The service may return fewer than this value. If unspecified, at most 50 schema fields are returned. The maximum value is 1000; values above 1000 are coerced to 1000. | [optional]
-**pageToken** | **
-String**| A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. | [optional]
+ **collectionId** | **String**| The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;. |
+ **pageSize** | **Integer**| The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. | [optional]
+ **pageToken** | **String**| A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. | [optional]
 
 ### Return type
 
@@ -235,11 +223,10 @@ String**| A page token, received from a previous [ListSchemaFields](/api#operati
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
@@ -247,5 +234,5 @@ String**| A page token, received from a previous [ListSchemaFields](/api#operati
 **403** | Returned when the user does not have permission to access the resource. |  -  |
 **404** | Returned when the resource does not exist. |  -  |
 **500** | Returned when the API encounters an internal error. |  -  |
-**0** | An unexpected error response |  -  |
+**0** | An unexpected error response. |  -  |
 

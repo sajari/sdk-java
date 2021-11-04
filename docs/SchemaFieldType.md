@@ -1,6 +1,9 @@
+
+
 # SchemaFieldType
 
 ## Enum
+
 
 * `TYPE_UNSPECIFIED` (value: `"TYPE_UNSPECIFIED"`)
 

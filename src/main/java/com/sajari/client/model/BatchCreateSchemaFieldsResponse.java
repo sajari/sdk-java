@@ -23,45 +23,13 @@ import java.util.Objects;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class BatchCreateSchemaFieldsResponse {
-    public static final String SERIALIZED_NAME_FIELDS = "fields";
-    @SerializedName(SERIALIZED_NAME_FIELDS)
-    private java.util.List<SchemaField> fields = null;
-
     public static final String SERIALIZED_NAME_ERRORS = "errors";
     @SerializedName(SERIALIZED_NAME_ERRORS)
     private java.util.List<BatchCreateSchemaFieldsResponseError> errors = null;
 
-
-    public BatchCreateSchemaFieldsResponse fields(java.util.List<SchemaField> fields) {
-
-        this.fields = fields;
-        return this;
-    }
-
-    public BatchCreateSchemaFieldsResponse addFieldsItem(SchemaField fieldsItem) {
-        if (this.fields == null) {
-            this.fields = new java.util.ArrayList<>();
-        }
-        this.fields.add(fieldsItem);
-        return this;
-    }
-
-    /**
-     * Schema fields created.
-     *
-     * @return fields
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Schema fields created.")
-
-    public java.util.List<SchemaField> getFields() {
-        return fields;
-    }
-
-
-    public void setFields(java.util.List<SchemaField> fields) {
-        this.fields = fields;
-    }
+    public static final String SERIALIZED_NAME_FIELDS = "fields";
+    @SerializedName(SERIALIZED_NAME_FIELDS)
+    private java.util.List<SchemaField> fields = null;
 
 
     public BatchCreateSchemaFieldsResponse errors(java.util.List<BatchCreateSchemaFieldsResponseError> errors) {
@@ -96,6 +64,38 @@ public class BatchCreateSchemaFieldsResponse {
     }
 
 
+    public BatchCreateSchemaFieldsResponse fields(java.util.List<SchemaField> fields) {
+
+        this.fields = fields;
+        return this;
+    }
+
+    public BatchCreateSchemaFieldsResponse addFieldsItem(SchemaField fieldsItem) {
+        if (this.fields == null) {
+            this.fields = new java.util.ArrayList<>();
+        }
+        this.fields.add(fieldsItem);
+        return this;
+    }
+
+    /**
+     * Schema fields created.
+     *
+     * @return fields
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Schema fields created.")
+
+    public java.util.List<SchemaField> getFields() {
+        return fields;
+    }
+
+
+    public void setFields(java.util.List<SchemaField> fields) {
+        this.fields = fields;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -105,21 +105,21 @@ public class BatchCreateSchemaFieldsResponse {
             return false;
         }
         BatchCreateSchemaFieldsResponse batchCreateSchemaFieldsResponse = (BatchCreateSchemaFieldsResponse) o;
-        return Objects.equals(this.fields, batchCreateSchemaFieldsResponse.fields) &&
-                Objects.equals(this.errors, batchCreateSchemaFieldsResponse.errors);
+        return Objects.equals(this.errors, batchCreateSchemaFieldsResponse.errors) &&
+                Objects.equals(this.fields, batchCreateSchemaFieldsResponse.fields);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(fields, errors);
+        return Objects.hash(errors, fields);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class BatchCreateSchemaFieldsResponse {\n");
-        sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
         sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+        sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
         sb.append("}");
         return sb.toString();
     }

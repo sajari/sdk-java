@@ -25,22 +25,6 @@ import java.util.Objects;
 @ApiModel(description = "SchemaField defines the properties of a field in the schema.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SchemaField {
-    public static final String SERIALIZED_NAME_NAME = "name";
-    @SerializedName(SERIALIZED_NAME_NAME)
-    private String name;
-
-    public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-    @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    private String description;
-
-    public static final String SERIALIZED_NAME_TYPE = "type";
-    @SerializedName(SERIALIZED_NAME_TYPE)
-    private SchemaFieldType type = SchemaFieldType.TYPE_UNSPECIFIED;
-
-    public static final String SERIALIZED_NAME_MODE = "mode";
-    @SerializedName(SERIALIZED_NAME_MODE)
-    private SchemaFieldMode mode = SchemaFieldMode.MODE_UNSPECIFIED;
-
     public static final String SERIALIZED_NAME_ARRAY = "array";
     @SerializedName(SERIALIZED_NAME_ARRAY)
     private Boolean array;
@@ -49,101 +33,21 @@ public class SchemaField {
     @SerializedName(SERIALIZED_NAME_ARRAY_LENGTH)
     private Integer arrayLength;
 
+    public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+    @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+    private String description;
 
-    public SchemaField name(String name) {
+    public static final String SERIALIZED_NAME_MODE = "mode";
+    @SerializedName(SERIALIZED_NAME_MODE)
+    private SchemaFieldMode mode = SchemaFieldMode.MODE_UNSPECIFIED;
 
-        this.name = name;
-        return this;
-    }
+    public static final String SERIALIZED_NAME_NAME = "name";
+    @SerializedName(SERIALIZED_NAME_NAME)
+    private String name;
 
-    /**
-     * The name of the field.
-     *
-     * @return name
-     **/
-    @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "The name of the field.")
-
-    public String getName() {
-        return name;
-    }
-
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
-    public SchemaField description(String description) {
-
-        this.description = description;
-        return this;
-    }
-
-    /**
-     * The description of the field.
-     *
-     * @return description
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The description of the field.")
-
-    public String getDescription() {
-        return description;
-    }
-
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-
-    public SchemaField type(SchemaFieldType type) {
-
-        this.type = type;
-        return this;
-    }
-
-    /**
-     * Get type
-     *
-     * @return type
-     **/
-    @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "")
-
-    public SchemaFieldType getType() {
-        return type;
-    }
-
-
-    public void setType(SchemaFieldType type) {
-        this.type = type;
-    }
-
-
-    public SchemaField mode(SchemaFieldMode mode) {
-
-        this.mode = mode;
-        return this;
-    }
-
-    /**
-     * Get mode
-     *
-     * @return mode
-     **/
-    @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "")
-
-    public SchemaFieldMode getMode() {
-        return mode;
-    }
-
-
-    public void setMode(SchemaFieldMode mode) {
-        this.mode = mode;
-    }
+    public static final String SERIALIZED_NAME_TYPE = "type";
+    @SerializedName(SERIALIZED_NAME_TYPE)
+    private SchemaFieldType type = SchemaFieldType.TYPE_UNSPECIFIED;
 
 
     public SchemaField array(Boolean array) {
@@ -194,6 +98,102 @@ public class SchemaField {
     }
 
 
+    public SchemaField description(String description) {
+
+        this.description = description;
+        return this;
+    }
+
+    /**
+     * The description of the field.
+     *
+     * @return description
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "The description of the field.")
+
+    public String getDescription() {
+        return description;
+    }
+
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+
+    public SchemaField mode(SchemaFieldMode mode) {
+
+        this.mode = mode;
+        return this;
+    }
+
+    /**
+     * Get mode
+     *
+     * @return mode
+     **/
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "")
+
+    public SchemaFieldMode getMode() {
+        return mode;
+    }
+
+
+    public void setMode(SchemaFieldMode mode) {
+        this.mode = mode;
+    }
+
+
+    public SchemaField name(String name) {
+
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * The name of the field.
+     *
+     * @return name
+     **/
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The name of the field.")
+
+    public String getName() {
+        return name;
+    }
+
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+    public SchemaField type(SchemaFieldType type) {
+
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return type
+     **/
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "")
+
+    public SchemaFieldType getType() {
+        return type;
+    }
+
+
+    public void setType(SchemaFieldType type) {
+        this.type = type;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -203,29 +203,29 @@ public class SchemaField {
             return false;
         }
         SchemaField schemaField = (SchemaField) o;
-        return Objects.equals(this.name, schemaField.name) &&
+        return Objects.equals(this.array, schemaField.array) &&
+                Objects.equals(this.arrayLength, schemaField.arrayLength) &&
                 Objects.equals(this.description, schemaField.description) &&
-                Objects.equals(this.type, schemaField.type) &&
                 Objects.equals(this.mode, schemaField.mode) &&
-                Objects.equals(this.array, schemaField.array) &&
-                Objects.equals(this.arrayLength, schemaField.arrayLength);
+                Objects.equals(this.name, schemaField.name) &&
+                Objects.equals(this.type, schemaField.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, description, type, mode, array, arrayLength);
+        return Objects.hash(array, arrayLength, description, mode, name, type);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class SchemaField {\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
         sb.append("    array: ").append(toIndentedString(array)).append("\n");
         sb.append("    arrayLength: ").append(toIndentedString(arrayLength)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
     }

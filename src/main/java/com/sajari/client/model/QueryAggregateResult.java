@@ -25,76 +25,52 @@ import java.util.Objects;
 @ApiModel(description = "A query aggregate result contains results of aggregations.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class QueryAggregateResult {
-    public static final String SERIALIZED_NAME_METRIC = "metric";
-    @SerializedName(SERIALIZED_NAME_METRIC)
-    private QueryAggregateResultMetric metric;
-
-    public static final String SERIALIZED_NAME_COUNT = "count";
-    @SerializedName(SERIALIZED_NAME_COUNT)
-    private QueryAggregateResultCount count;
+    public static final String SERIALIZED_NAME_ANALYSIS = "analysis";
+    @SerializedName(SERIALIZED_NAME_ANALYSIS)
+    private QueryAggregateResultAnalysis analysis;
 
     public static final String SERIALIZED_NAME_BUCKETS = "buckets";
     @SerializedName(SERIALIZED_NAME_BUCKETS)
     private QueryAggregateResultBuckets buckets;
 
+    public static final String SERIALIZED_NAME_COUNT = "count";
+    @SerializedName(SERIALIZED_NAME_COUNT)
+    private QueryAggregateResultCount count;
+
     public static final String SERIALIZED_NAME_DATE = "date";
     @SerializedName(SERIALIZED_NAME_DATE)
     private QueryAggregateResultDate date;
 
-    public static final String SERIALIZED_NAME_ANALYSIS = "analysis";
-    @SerializedName(SERIALIZED_NAME_ANALYSIS)
-    private QueryAggregateResultAnalysis analysis;
+    public static final String SERIALIZED_NAME_METRIC = "metric";
+    @SerializedName(SERIALIZED_NAME_METRIC)
+    private QueryAggregateResultMetric metric;
 
     public static final String SERIALIZED_NAME_PERCENTILE = "percentile";
     @SerializedName(SERIALIZED_NAME_PERCENTILE)
     private QueryAggregateResultPercentile percentile;
 
 
-    public QueryAggregateResult metric(QueryAggregateResultMetric metric) {
+    public QueryAggregateResult analysis(QueryAggregateResultAnalysis analysis) {
 
-        this.metric = metric;
+        this.analysis = analysis;
         return this;
     }
 
     /**
-     * Get metric
+     * Get analysis
      *
-     * @return metric
+     * @return analysis
      **/
     @javax.annotation.Nullable
     @ApiModelProperty(value = "")
 
-    public QueryAggregateResultMetric getMetric() {
-        return metric;
+    public QueryAggregateResultAnalysis getAnalysis() {
+        return analysis;
     }
 
 
-    public void setMetric(QueryAggregateResultMetric metric) {
-        this.metric = metric;
-    }
-
-
-    public QueryAggregateResult count(QueryAggregateResultCount count) {
-
-        this.count = count;
-        return this;
-    }
-
-    /**
-     * Get count
-     *
-     * @return count
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public QueryAggregateResultCount getCount() {
-        return count;
-    }
-
-
-    public void setCount(QueryAggregateResultCount count) {
-        this.count = count;
+    public void setAnalysis(QueryAggregateResultAnalysis analysis) {
+        this.analysis = analysis;
     }
 
 
@@ -122,6 +98,30 @@ public class QueryAggregateResult {
     }
 
 
+    public QueryAggregateResult count(QueryAggregateResultCount count) {
+
+        this.count = count;
+        return this;
+    }
+
+    /**
+     * Get count
+     *
+     * @return count
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+
+    public QueryAggregateResultCount getCount() {
+        return count;
+    }
+
+
+    public void setCount(QueryAggregateResultCount count) {
+        this.count = count;
+    }
+
+
     public QueryAggregateResult date(QueryAggregateResultDate date) {
 
         this.date = date;
@@ -146,27 +146,27 @@ public class QueryAggregateResult {
     }
 
 
-    public QueryAggregateResult analysis(QueryAggregateResultAnalysis analysis) {
+    public QueryAggregateResult metric(QueryAggregateResultMetric metric) {
 
-        this.analysis = analysis;
+        this.metric = metric;
         return this;
     }
 
     /**
-     * Get analysis
+     * Get metric
      *
-     * @return analysis
+     * @return metric
      **/
     @javax.annotation.Nullable
     @ApiModelProperty(value = "")
 
-    public QueryAggregateResultAnalysis getAnalysis() {
-        return analysis;
+    public QueryAggregateResultMetric getMetric() {
+        return metric;
     }
 
 
-    public void setAnalysis(QueryAggregateResultAnalysis analysis) {
-        this.analysis = analysis;
+    public void setMetric(QueryAggregateResultMetric metric) {
+        this.metric = metric;
     }
 
 
@@ -203,28 +203,28 @@ public class QueryAggregateResult {
             return false;
         }
         QueryAggregateResult queryAggregateResult = (QueryAggregateResult) o;
-        return Objects.equals(this.metric, queryAggregateResult.metric) &&
-                Objects.equals(this.count, queryAggregateResult.count) &&
+        return Objects.equals(this.analysis, queryAggregateResult.analysis) &&
                 Objects.equals(this.buckets, queryAggregateResult.buckets) &&
+                Objects.equals(this.count, queryAggregateResult.count) &&
                 Objects.equals(this.date, queryAggregateResult.date) &&
-                Objects.equals(this.analysis, queryAggregateResult.analysis) &&
+                Objects.equals(this.metric, queryAggregateResult.metric) &&
                 Objects.equals(this.percentile, queryAggregateResult.percentile);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(metric, count, buckets, date, analysis, percentile);
+        return Objects.hash(analysis, buckets, count, date, metric, percentile);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class QueryAggregateResult {\n");
-        sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
-        sb.append("    count: ").append(toIndentedString(count)).append("\n");
-        sb.append("    buckets: ").append(toIndentedString(buckets)).append("\n");
-        sb.append("    date: ").append(toIndentedString(date)).append("\n");
         sb.append("    analysis: ").append(toIndentedString(analysis)).append("\n");
+        sb.append("    buckets: ").append(toIndentedString(buckets)).append("\n");
+        sb.append("    count: ").append(toIndentedString(count)).append("\n");
+        sb.append("    date: ").append(toIndentedString(date)).append("\n");
+        sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
         sb.append("    percentile: ").append(toIndentedString(percentile)).append("\n");
         sb.append("}");
         return sb.toString();

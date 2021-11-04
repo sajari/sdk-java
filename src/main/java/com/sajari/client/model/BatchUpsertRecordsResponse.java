@@ -23,6 +23,10 @@ import java.util.Objects;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class BatchUpsertRecordsResponse {
+    public static final String SERIALIZED_NAME_ERRORS = "errors";
+    @SerializedName(SERIALIZED_NAME_ERRORS)
+    private java.util.List<BatchUpsertRecordsResponseError> errors = null;
+
     public static final String SERIALIZED_NAME_KEYS = "keys";
     @SerializedName(SERIALIZED_NAME_KEYS)
     private java.util.List<BatchUpsertRecordsResponseKey> keys = null;
@@ -31,9 +35,37 @@ public class BatchUpsertRecordsResponse {
     @SerializedName(SERIALIZED_NAME_VARIABLES)
     private java.util.List<BatchUpsertRecordsResponseVariables> variables = null;
 
-    public static final String SERIALIZED_NAME_ERRORS = "errors";
-    @SerializedName(SERIALIZED_NAME_ERRORS)
-    private java.util.List<BatchUpsertRecordsResponseError> errors = null;
+
+    public BatchUpsertRecordsResponse errors(java.util.List<BatchUpsertRecordsResponseError> errors) {
+
+        this.errors = errors;
+        return this;
+    }
+
+    public BatchUpsertRecordsResponse addErrorsItem(BatchUpsertRecordsResponseError errorsItem) {
+        if (this.errors == null) {
+            this.errors = new java.util.ArrayList<>();
+        }
+        this.errors.add(errorsItem);
+        return this;
+    }
+
+    /**
+     * Errors that occurred.
+     *
+     * @return errors
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Errors that occurred.")
+
+    public java.util.List<BatchUpsertRecordsResponseError> getErrors() {
+        return errors;
+    }
+
+
+    public void setErrors(java.util.List<BatchUpsertRecordsResponseError> errors) {
+        this.errors = errors;
+    }
 
 
     public BatchUpsertRecordsResponse keys(java.util.List<BatchUpsertRecordsResponseKey> keys) {
@@ -100,38 +132,6 @@ public class BatchUpsertRecordsResponse {
     }
 
 
-    public BatchUpsertRecordsResponse errors(java.util.List<BatchUpsertRecordsResponseError> errors) {
-
-        this.errors = errors;
-        return this;
-    }
-
-    public BatchUpsertRecordsResponse addErrorsItem(BatchUpsertRecordsResponseError errorsItem) {
-        if (this.errors == null) {
-            this.errors = new java.util.ArrayList<>();
-        }
-        this.errors.add(errorsItem);
-        return this;
-    }
-
-    /**
-     * Errors that occurred.
-     *
-     * @return errors
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Errors that occurred.")
-
-    public java.util.List<BatchUpsertRecordsResponseError> getErrors() {
-        return errors;
-    }
-
-
-    public void setErrors(java.util.List<BatchUpsertRecordsResponseError> errors) {
-        this.errors = errors;
-    }
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -141,23 +141,23 @@ public class BatchUpsertRecordsResponse {
             return false;
         }
         BatchUpsertRecordsResponse batchUpsertRecordsResponse = (BatchUpsertRecordsResponse) o;
-        return Objects.equals(this.keys, batchUpsertRecordsResponse.keys) &&
-                Objects.equals(this.variables, batchUpsertRecordsResponse.variables) &&
-                Objects.equals(this.errors, batchUpsertRecordsResponse.errors);
+        return Objects.equals(this.errors, batchUpsertRecordsResponse.errors) &&
+                Objects.equals(this.keys, batchUpsertRecordsResponse.keys) &&
+                Objects.equals(this.variables, batchUpsertRecordsResponse.variables);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(keys, variables, errors);
+        return Objects.hash(errors, keys, variables);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class BatchUpsertRecordsResponse {\n");
+        sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
         sb.append("    keys: ").append(toIndentedString(keys)).append("\n");
         sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
-        sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
         sb.append("}");
         return sb.toString();
     }

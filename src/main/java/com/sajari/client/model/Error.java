@@ -27,13 +27,13 @@ public class Error {
     @SerializedName(SERIALIZED_NAME_CODE)
     private Integer code;
 
-    public static final String SERIALIZED_NAME_MESSAGE = "message";
-    @SerializedName(SERIALIZED_NAME_MESSAGE)
-    private String message;
-
     public static final String SERIALIZED_NAME_DETAILS = "details";
     @SerializedName(SERIALIZED_NAME_DETAILS)
     private java.util.List<ProtobufAny> details = null;
+
+    public static final String SERIALIZED_NAME_MESSAGE = "message";
+    @SerializedName(SERIALIZED_NAME_MESSAGE)
+    private String message;
 
 
     public Error code(Integer code) {
@@ -57,30 +57,6 @@ public class Error {
 
     public void setCode(Integer code) {
         this.code = code;
-    }
-
-
-    public Error message(String message) {
-
-        this.message = message;
-        return this;
-    }
-
-    /**
-     * Get message
-     *
-     * @return message
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public String getMessage() {
-        return message;
-    }
-
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 
 
@@ -116,6 +92,30 @@ public class Error {
     }
 
 
+    public Error message(String message) {
+
+        this.message = message;
+        return this;
+    }
+
+    /**
+     * Get message
+     *
+     * @return message
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+
+    public String getMessage() {
+        return message;
+    }
+
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -126,13 +126,13 @@ public class Error {
         }
         Error error = (Error) o;
         return Objects.equals(this.code, error.code) &&
-                Objects.equals(this.message, error.message) &&
-                Objects.equals(this.details, error.details);
+                Objects.equals(this.details, error.details) &&
+                Objects.equals(this.message, error.message);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, message, details);
+        return Objects.hash(code, details, message);
     }
 
     @Override
@@ -140,8 +140,8 @@ public class Error {
         StringBuilder sb = new StringBuilder();
         sb.append("class Error {\n");
         sb.append("    code: ").append(toIndentedString(code)).append("\n");
-        sb.append("    message: ").append(toIndentedString(message)).append("\n");
         sb.append("    details: ").append(toIndentedString(details)).append("\n");
+        sb.append("    message: ").append(toIndentedString(message)).append("\n");
         sb.append("}");
         return sb.toString();
     }

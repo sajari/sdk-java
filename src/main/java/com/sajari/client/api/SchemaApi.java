@@ -61,7 +61,7 @@ public class SchemaApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public okhttp3.Call batchCreateSchemaFieldsCall(String collectionId, BatchCreateSchemaFieldsRequest batchCreateSchemaFieldsRequest, final ApiCallback _callback) throws ApiException {
@@ -129,7 +129,7 @@ public class SchemaApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public BatchCreateSchemaFieldsResponse batchCreateSchemaFields(String collectionId, BatchCreateSchemaFieldsRequest batchCreateSchemaFieldsRequest) throws ApiException {
@@ -152,7 +152,7 @@ public class SchemaApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public ApiResponse<BatchCreateSchemaFieldsResponse> batchCreateSchemaFieldsWithHttpInfo(String collectionId, BatchCreateSchemaFieldsRequest batchCreateSchemaFieldsRequest) throws ApiException {
@@ -178,7 +178,7 @@ public class SchemaApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public okhttp3.Call batchCreateSchemaFieldsAsync(String collectionId, BatchCreateSchemaFieldsRequest batchCreateSchemaFieldsRequest, final ApiCallback<BatchCreateSchemaFieldsResponse> _callback) throws ApiException {
@@ -205,7 +205,7 @@ public class SchemaApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public okhttp3.Call createSchemaFieldCall(String collectionId, SchemaField schemaField, final ApiCallback _callback) throws ApiException {
@@ -260,7 +260,7 @@ public class SchemaApi {
 
     /**
      * Create schema field
-     * Create a new field in your collection&#39;s schema.
+     * Create a new field in a collection&#39;s schema.
      *
      * @param collectionId The collection to create a schema field in, e.g. &#x60;my-collection&#x60;. (required)
      * @param schemaField  The schema field to create. (required)
@@ -273,7 +273,7 @@ public class SchemaApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public SchemaField createSchemaField(String collectionId, SchemaField schemaField) throws ApiException {
@@ -283,7 +283,7 @@ public class SchemaApi {
 
     /**
      * Create schema field
-     * Create a new field in your collection&#39;s schema.
+     * Create a new field in a collection&#39;s schema.
      *
      * @param collectionId The collection to create a schema field in, e.g. &#x60;my-collection&#x60;. (required)
      * @param schemaField  The schema field to create. (required)
@@ -296,7 +296,7 @@ public class SchemaApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public ApiResponse<SchemaField> createSchemaFieldWithHttpInfo(String collectionId, SchemaField schemaField) throws ApiException {
@@ -308,7 +308,7 @@ public class SchemaApi {
 
     /**
      * Create schema field (asynchronously)
-     * Create a new field in your collection&#39;s schema.
+     * Create a new field in a collection&#39;s schema.
      *
      * @param collectionId The collection to create a schema field in, e.g. &#x60;my-collection&#x60;. (required)
      * @param schemaField  The schema field to create. (required)
@@ -322,7 +322,7 @@ public class SchemaApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public okhttp3.Call createSchemaFieldAsync(String collectionId, SchemaField schemaField, final ApiCallback<SchemaField> _callback) throws ApiException {
@@ -350,7 +350,7 @@ public class SchemaApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public okhttp3.Call listSchemaFieldsCall(String collectionId, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
@@ -408,7 +408,7 @@ public class SchemaApi {
 
     /**
      * List schema fields
-     * Retrieve a list of schema fields in the collection.
+     * Retrieve a list of schema fields in a collection.
      *
      * @param collectionId The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;. (required)
      * @param pageSize     The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
@@ -422,7 +422,7 @@ public class SchemaApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public ListSchemaFieldsResponse listSchemaFields(String collectionId, Integer pageSize, String pageToken) throws ApiException {
@@ -432,7 +432,7 @@ public class SchemaApi {
 
     /**
      * List schema fields
-     * Retrieve a list of schema fields in the collection.
+     * Retrieve a list of schema fields in a collection.
      *
      * @param collectionId The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;. (required)
      * @param pageSize     The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
@@ -446,7 +446,7 @@ public class SchemaApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public ApiResponse<ListSchemaFieldsResponse> listSchemaFieldsWithHttpInfo(String collectionId, Integer pageSize, String pageToken) throws ApiException {
@@ -458,7 +458,7 @@ public class SchemaApi {
 
     /**
      * List schema fields (asynchronously)
-     * Retrieve a list of schema fields in the collection.
+     * Retrieve a list of schema fields in a collection.
      *
      * @param collectionId The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;. (required)
      * @param pageSize     The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
@@ -473,7 +473,7 @@ public class SchemaApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public okhttp3.Call listSchemaFieldsAsync(String collectionId, Integer pageSize, String pageToken, final ApiCallback<ListSchemaFieldsResponse> _callback) throws ApiException {

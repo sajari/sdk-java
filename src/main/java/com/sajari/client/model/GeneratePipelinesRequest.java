@@ -23,42 +23,13 @@ import java.util.Objects;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GeneratePipelinesRequest {
-    public static final String SERIALIZED_NAME_SEARCHABLE_FIELDS = "searchable_fields";
-    @SerializedName(SERIALIZED_NAME_SEARCHABLE_FIELDS)
-    private java.util.List<String> searchableFields = new java.util.ArrayList<>();
-
     public static final String SERIALIZED_NAME_QUERY_TRAINING_FIELDS = "query_training_fields";
     @SerializedName(SERIALIZED_NAME_QUERY_TRAINING_FIELDS)
     private java.util.List<String> queryTrainingFields = null;
 
-
-    public GeneratePipelinesRequest searchableFields(java.util.List<String> searchableFields) {
-
-        this.searchableFields = searchableFields;
-        return this;
-    }
-
-    public GeneratePipelinesRequest addSearchableFieldsItem(String searchableFieldsItem) {
-        this.searchableFields.add(searchableFieldsItem);
-        return this;
-    }
-
-    /**
-     * Prioritized list of fields to search.
-     *
-     * @return searchableFields
-     **/
-    @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "Prioritized list of fields to search.")
-
-    public java.util.List<String> getSearchableFields() {
-        return searchableFields;
-    }
-
-
-    public void setSearchableFields(java.util.List<String> searchableFields) {
-        this.searchableFields = searchableFields;
-    }
+    public static final String SERIALIZED_NAME_SEARCHABLE_FIELDS = "searchable_fields";
+    @SerializedName(SERIALIZED_NAME_SEARCHABLE_FIELDS)
+    private java.util.List<String> searchableFields = new java.util.ArrayList<>();
 
 
     public GeneratePipelinesRequest queryTrainingFields(java.util.List<String> queryTrainingFields) {
@@ -93,6 +64,35 @@ public class GeneratePipelinesRequest {
     }
 
 
+    public GeneratePipelinesRequest searchableFields(java.util.List<String> searchableFields) {
+
+        this.searchableFields = searchableFields;
+        return this;
+    }
+
+    public GeneratePipelinesRequest addSearchableFieldsItem(String searchableFieldsItem) {
+        this.searchableFields.add(searchableFieldsItem);
+        return this;
+    }
+
+    /**
+     * Prioritized list of fields to search.
+     *
+     * @return searchableFields
+     **/
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "Prioritized list of fields to search.")
+
+    public java.util.List<String> getSearchableFields() {
+        return searchableFields;
+    }
+
+
+    public void setSearchableFields(java.util.List<String> searchableFields) {
+        this.searchableFields = searchableFields;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -102,21 +102,21 @@ public class GeneratePipelinesRequest {
             return false;
         }
         GeneratePipelinesRequest generatePipelinesRequest = (GeneratePipelinesRequest) o;
-        return Objects.equals(this.searchableFields, generatePipelinesRequest.searchableFields) &&
-                Objects.equals(this.queryTrainingFields, generatePipelinesRequest.queryTrainingFields);
+        return Objects.equals(this.queryTrainingFields, generatePipelinesRequest.queryTrainingFields) &&
+                Objects.equals(this.searchableFields, generatePipelinesRequest.searchableFields);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(searchableFields, queryTrainingFields);
+        return Objects.hash(queryTrainingFields, searchableFields);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class GeneratePipelinesRequest {\n");
-        sb.append("    searchableFields: ").append(toIndentedString(searchableFields)).append("\n");
         sb.append("    queryTrainingFields: ").append(toIndentedString(queryTrainingFields)).append("\n");
+        sb.append("    searchableFields: ").append(toIndentedString(searchableFields)).append("\n");
         sb.append("}");
         return sb.toString();
     }

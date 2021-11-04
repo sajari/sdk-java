@@ -23,6 +23,10 @@ import java.util.Objects;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ListSchemaFieldsResponse {
+    public static final String SERIALIZED_NAME_NEXT_PAGE_TOKEN = "next_page_token";
+    @SerializedName(SERIALIZED_NAME_NEXT_PAGE_TOKEN)
+    private String nextPageToken;
+
     public static final String SERIALIZED_NAME_SCHEMA_FIELDS = "schema_fields";
     @SerializedName(SERIALIZED_NAME_SCHEMA_FIELDS)
     private java.util.List<SchemaField> schemaFields = null;
@@ -31,9 +35,29 @@ public class ListSchemaFieldsResponse {
     @SerializedName(SERIALIZED_NAME_TOTAL_SIZE)
     private Integer totalSize;
 
-    public static final String SERIALIZED_NAME_NEXT_PAGE_TOKEN = "next_page_token";
-    @SerializedName(SERIALIZED_NAME_NEXT_PAGE_TOKEN)
-    private String nextPageToken;
+
+    public ListSchemaFieldsResponse nextPageToken(String nextPageToken) {
+
+        this.nextPageToken = nextPageToken;
+        return this;
+    }
+
+    /**
+     * A token, which can be sent as &#x60;page_token&#x60; to retrieve the next page.  If this field is omitted, there are no subsequent pages.
+     *
+     * @return nextPageToken
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "A token, which can be sent as `page_token` to retrieve the next page.  If this field is omitted, there are no subsequent pages.")
+
+    public String getNextPageToken() {
+        return nextPageToken;
+    }
+
+
+    public void setNextPageToken(String nextPageToken) {
+        this.nextPageToken = nextPageToken;
+    }
 
 
     public ListSchemaFieldsResponse schemaFields(java.util.List<SchemaField> schemaFields) {
@@ -92,30 +116,6 @@ public class ListSchemaFieldsResponse {
     }
 
 
-    public ListSchemaFieldsResponse nextPageToken(String nextPageToken) {
-
-        this.nextPageToken = nextPageToken;
-        return this;
-    }
-
-    /**
-     * A token, which can be sent as &#x60;page_token&#x60; to retrieve the next page.  If this field is omitted, there are no subsequent pages.
-     *
-     * @return nextPageToken
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "A token, which can be sent as `page_token` to retrieve the next page.  If this field is omitted, there are no subsequent pages.")
-
-    public String getNextPageToken() {
-        return nextPageToken;
-    }
-
-
-    public void setNextPageToken(String nextPageToken) {
-        this.nextPageToken = nextPageToken;
-    }
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -125,23 +125,23 @@ public class ListSchemaFieldsResponse {
             return false;
         }
         ListSchemaFieldsResponse listSchemaFieldsResponse = (ListSchemaFieldsResponse) o;
-        return Objects.equals(this.schemaFields, listSchemaFieldsResponse.schemaFields) &&
-                Objects.equals(this.totalSize, listSchemaFieldsResponse.totalSize) &&
-                Objects.equals(this.nextPageToken, listSchemaFieldsResponse.nextPageToken);
+        return Objects.equals(this.nextPageToken, listSchemaFieldsResponse.nextPageToken) &&
+                Objects.equals(this.schemaFields, listSchemaFieldsResponse.schemaFields) &&
+                Objects.equals(this.totalSize, listSchemaFieldsResponse.totalSize);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(schemaFields, totalSize, nextPageToken);
+        return Objects.hash(nextPageToken, schemaFields, totalSize);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class ListSchemaFieldsResponse {\n");
+        sb.append("    nextPageToken: ").append(toIndentedString(nextPageToken)).append("\n");
         sb.append("    schemaFields: ").append(toIndentedString(schemaFields)).append("\n");
         sb.append("    totalSize: ").append(toIndentedString(totalSize)).append("\n");
-        sb.append("    nextPageToken: ").append(toIndentedString(nextPageToken)).append("\n");
         sb.append("}");
         return sb.toString();
     }

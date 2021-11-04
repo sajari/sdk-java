@@ -24,125 +24,79 @@ import java.util.Objects;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Pipeline {
-    public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
-    @SerializedName(SERIALIZED_NAME_CREATE_TIME)
-    private OffsetDateTime createTime;
-
-    public static final String SERIALIZED_NAME_TYPE = "type";
-    @SerializedName(SERIALIZED_NAME_TYPE)
-    private PipelineType type = PipelineType.TYPE_UNSPECIFIED;
-
-    public static final String SERIALIZED_NAME_NAME = "name";
-    @SerializedName(SERIALIZED_NAME_NAME)
-    private String name;
-
-    public static final String SERIALIZED_NAME_VERSION = "version";
-    @SerializedName(SERIALIZED_NAME_VERSION)
-    private String version;
-
-    public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-    @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    private String description;
-
-    public static final String SERIALIZED_NAME_PRE_STEPS = "pre_steps";
-    @SerializedName(SERIALIZED_NAME_PRE_STEPS)
-    private java.util.List<PipelineStep> preSteps = null;
-
-    public static final String SERIALIZED_NAME_POST_STEPS = "post_steps";
-    @SerializedName(SERIALIZED_NAME_POST_STEPS)
-    private java.util.List<PipelineStep> postSteps = null;
-
     public static final String SERIALIZED_NAME_COLLECTION_DEFAULT = "collection_default";
     @SerializedName(SERIALIZED_NAME_COLLECTION_DEFAULT)
     private Boolean collectionDefault;
+
+    public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
+    @SerializedName(SERIALIZED_NAME_CREATE_TIME)
+    private OffsetDateTime createTime;
 
     public static final String SERIALIZED_NAME_DEFAULT_VERSION = "default_version";
     @SerializedName(SERIALIZED_NAME_DEFAULT_VERSION)
     private Boolean defaultVersion;
 
+    public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+    @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+    private String description;
+
+    public static final String SERIALIZED_NAME_NAME = "name";
+    @SerializedName(SERIALIZED_NAME_NAME)
+    private String name;
+
+    public static final String SERIALIZED_NAME_POST_STEPS = "post_steps";
+    @SerializedName(SERIALIZED_NAME_POST_STEPS)
+    private java.util.List<PipelineStep> postSteps = null;
+
+    public static final String SERIALIZED_NAME_PRE_STEPS = "pre_steps";
+    @SerializedName(SERIALIZED_NAME_PRE_STEPS)
+    private java.util.List<PipelineStep> preSteps = null;
+
+    public static final String SERIALIZED_NAME_TYPE = "type";
+    @SerializedName(SERIALIZED_NAME_TYPE)
+    private PipelineType type = PipelineType.TYPE_UNSPECIFIED;
+
+    public static final String SERIALIZED_NAME_VERSION = "version";
+    @SerializedName(SERIALIZED_NAME_VERSION)
+    private String version;
+
 
     /**
-     * Output only. Creation time of the pipeline.
+     * Output only. Indicates if the pipeline is the collection default pipeline.
+     *
+     * @return collectionDefault
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Output only. Indicates if the pipeline is the collection default pipeline.")
+
+    public Boolean getCollectionDefault() {
+        return collectionDefault;
+    }
+
+
+    /**
+     * Output only. Time the pipeline was created.
      *
      * @return createTime
      **/
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "Output only. Creation time of the pipeline.")
+    @ApiModelProperty(value = "Output only. Time the pipeline was created.")
 
     public OffsetDateTime getCreateTime() {
         return createTime;
     }
 
 
-    public Pipeline type(PipelineType type) {
-
-        this.type = type;
-        return this;
-    }
-
     /**
-     * Get type
+     * Output only. Indicates if the pipeline is the default version.
      *
-     * @return type
+     * @return defaultVersion
      **/
-    @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "")
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Output only. Indicates if the pipeline is the default version.")
 
-    public PipelineType getType() {
-        return type;
-    }
-
-
-    public void setType(PipelineType type) {
-        this.type = type;
-    }
-
-
-    public Pipeline name(String name) {
-
-        this.name = name;
-        return this;
-    }
-
-    /**
-     * The pipeline&#39;s name.  Must start with an alphanumeric character followed by one or more alphanumeric, &#x60;_&#x60;, &#x60;-&#x60; or &#x60;.&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[a-zA-Z0-9][a-zA-Z0-9_\\-\\.]+$&#x60;.
-     *
-     * @return name
-     **/
-    @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "The pipeline's name.  Must start with an alphanumeric character followed by one or more alphanumeric, `_`, `-` or `.` characters. Strictly speaking, it must match the regular expression: `^[a-zA-Z0-9][a-zA-Z0-9_\\-\\.]+$`.")
-
-    public String getName() {
-        return name;
-    }
-
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
-    public Pipeline version(String version) {
-
-        this.version = version;
-        return this;
-    }
-
-    /**
-     * The pipeline&#39;s version.  Must start with an alphanumeric character followed by one or more alphanumeric, &#x60;_&#x60;, &#x60;-&#x60; or &#x60;.&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[a-zA-Z0-9][a-zA-Z0-9_\\-\\.]+$&#x60;.
-     *
-     * @return version
-     **/
-    @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "The pipeline's version.  Must start with an alphanumeric character followed by one or more alphanumeric, `_`, `-` or `.` characters. Strictly speaking, it must match the regular expression: `^[a-zA-Z0-9][a-zA-Z0-9_\\-\\.]+$`.")
-
-    public String getVersion() {
-        return version;
-    }
-
-
-    public void setVersion(String version) {
-        this.version = version;
+    public Boolean getDefaultVersion() {
+        return defaultVersion;
     }
 
 
@@ -170,35 +124,27 @@ public class Pipeline {
     }
 
 
-    public Pipeline preSteps(java.util.List<PipelineStep> preSteps) {
+    public Pipeline name(String name) {
 
-        this.preSteps = preSteps;
-        return this;
-    }
-
-    public Pipeline addPreStepsItem(PipelineStep preStepsItem) {
-        if (this.preSteps == null) {
-            this.preSteps = new java.util.ArrayList<>();
-        }
-        this.preSteps.add(preStepsItem);
+        this.name = name;
         return this;
     }
 
     /**
-     * Pre-steps are run before an indexing operation or query request is sent to the search index.
+     * The pipeline&#39;s name.  Must start with an alphanumeric character followed by one or more alphanumeric, &#x60;_&#x60;, &#x60;-&#x60; or &#x60;.&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[a-zA-Z0-9][a-zA-Z0-9_\\-\\.]+$&#x60;.
      *
-     * @return preSteps
+     * @return name
      **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Pre-steps are run before an indexing operation or query request is sent to the search index.")
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The pipeline's name.  Must start with an alphanumeric character followed by one or more alphanumeric, `_`, `-` or `.` characters. Strictly speaking, it must match the regular expression: `^[a-zA-Z0-9][a-zA-Z0-9_\\-\\.]+$`.")
 
-    public java.util.List<PipelineStep> getPreSteps() {
-        return preSteps;
+    public String getName() {
+        return name;
     }
 
 
-    public void setPreSteps(java.util.List<PipelineStep> preSteps) {
-        this.preSteps = preSteps;
+    public void setName(String name) {
+        this.name = name;
     }
 
 
@@ -234,29 +180,83 @@ public class Pipeline {
     }
 
 
+    public Pipeline preSteps(java.util.List<PipelineStep> preSteps) {
+
+        this.preSteps = preSteps;
+        return this;
+    }
+
+    public Pipeline addPreStepsItem(PipelineStep preStepsItem) {
+        if (this.preSteps == null) {
+            this.preSteps = new java.util.ArrayList<>();
+        }
+        this.preSteps.add(preStepsItem);
+        return this;
+    }
+
     /**
-     * Output only. Indicates if the pipeline is the collection default pipeline.
+     * Pre-steps are run before an indexing operation or query request is sent to the search index.
      *
-     * @return collectionDefault
+     * @return preSteps
      **/
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "Output only. Indicates if the pipeline is the collection default pipeline.")
+    @ApiModelProperty(value = "Pre-steps are run before an indexing operation or query request is sent to the search index.")
 
-    public Boolean getCollectionDefault() {
-        return collectionDefault;
+    public java.util.List<PipelineStep> getPreSteps() {
+        return preSteps;
     }
 
 
-    /**
-     * Output only. Indicates if the pipeline is the default version.
-     *
-     * @return defaultVersion
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Output only. Indicates if the pipeline is the default version.")
+    public void setPreSteps(java.util.List<PipelineStep> preSteps) {
+        this.preSteps = preSteps;
+    }
 
-    public Boolean getDefaultVersion() {
-        return defaultVersion;
+
+    public Pipeline type(PipelineType type) {
+
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return type
+     **/
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "")
+
+    public PipelineType getType() {
+        return type;
+    }
+
+
+    public void setType(PipelineType type) {
+        this.type = type;
+    }
+
+
+    public Pipeline version(String version) {
+
+        this.version = version;
+        return this;
+    }
+
+    /**
+     * The pipeline&#39;s version.  Must start with an alphanumeric character followed by one or more alphanumeric, &#x60;_&#x60;, &#x60;-&#x60; or &#x60;.&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[a-zA-Z0-9][a-zA-Z0-9_\\-\\.]+$&#x60;.
+     *
+     * @return version
+     **/
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The pipeline's version.  Must start with an alphanumeric character followed by one or more alphanumeric, `_`, `-` or `.` characters. Strictly speaking, it must match the regular expression: `^[a-zA-Z0-9][a-zA-Z0-9_\\-\\.]+$`.")
+
+    public String getVersion() {
+        return version;
+    }
+
+
+    public void setVersion(String version) {
+        this.version = version;
     }
 
 
@@ -269,35 +269,35 @@ public class Pipeline {
             return false;
         }
         Pipeline pipeline = (Pipeline) o;
-        return Objects.equals(this.createTime, pipeline.createTime) &&
-                Objects.equals(this.type, pipeline.type) &&
-                Objects.equals(this.name, pipeline.name) &&
-                Objects.equals(this.version, pipeline.version) &&
+        return Objects.equals(this.collectionDefault, pipeline.collectionDefault) &&
+                Objects.equals(this.createTime, pipeline.createTime) &&
+                Objects.equals(this.defaultVersion, pipeline.defaultVersion) &&
                 Objects.equals(this.description, pipeline.description) &&
-                Objects.equals(this.preSteps, pipeline.preSteps) &&
+                Objects.equals(this.name, pipeline.name) &&
                 Objects.equals(this.postSteps, pipeline.postSteps) &&
-                Objects.equals(this.collectionDefault, pipeline.collectionDefault) &&
-                Objects.equals(this.defaultVersion, pipeline.defaultVersion);
+                Objects.equals(this.preSteps, pipeline.preSteps) &&
+                Objects.equals(this.type, pipeline.type) &&
+                Objects.equals(this.version, pipeline.version);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(createTime, type, name, version, description, preSteps, postSteps, collectionDefault, defaultVersion);
+        return Objects.hash(collectionDefault, createTime, defaultVersion, description, name, postSteps, preSteps, type, version);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class Pipeline {\n");
-        sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    preSteps: ").append(toIndentedString(preSteps)).append("\n");
-        sb.append("    postSteps: ").append(toIndentedString(postSteps)).append("\n");
         sb.append("    collectionDefault: ").append(toIndentedString(collectionDefault)).append("\n");
+        sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
         sb.append("    defaultVersion: ").append(toIndentedString(defaultVersion)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    postSteps: ").append(toIndentedString(postSteps)).append("\n");
+        sb.append("    preSteps: ").append(toIndentedString(preSteps)).append("\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    version: ").append(toIndentedString(version)).append("\n");
         sb.append("}");
         return sb.toString();
     }

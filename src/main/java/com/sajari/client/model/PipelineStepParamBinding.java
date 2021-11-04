@@ -27,17 +27,17 @@ public class PipelineStepParamBinding {
     @SerializedName(SERIALIZED_NAME_BIND)
     private String bind;
 
-    public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-    @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    private String description;
+    public static final String SERIALIZED_NAME_CONSTANT = "constant";
+    @SerializedName(SERIALIZED_NAME_CONSTANT)
+    private String constant;
 
     public static final String SERIALIZED_NAME_DEFAULT_VALUE = "default_value";
     @SerializedName(SERIALIZED_NAME_DEFAULT_VALUE)
     private String defaultValue;
 
-    public static final String SERIALIZED_NAME_CONSTANT = "constant";
-    @SerializedName(SERIALIZED_NAME_CONSTANT)
-    private String constant;
+    public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+    @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+    private String description;
 
 
     public PipelineStepParamBinding bind(String bind) {
@@ -61,54 +61,6 @@ public class PipelineStepParamBinding {
 
     public void setBind(String bind) {
         this.bind = bind;
-    }
-
-
-    public PipelineStepParamBinding description(String description) {
-
-        this.description = description;
-        return this;
-    }
-
-    /**
-     * Set the description of the step parameter.
-     *
-     * @return description
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Set the description of the step parameter.")
-
-    public String getDescription() {
-        return description;
-    }
-
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-
-    public PipelineStepParamBinding defaultValue(String defaultValue) {
-
-        this.defaultValue = defaultValue;
-        return this;
-    }
-
-    /**
-     * Set a default value for the step parameter.  This allows you to set a default value for the step parameter when it is not bound to a pipeline variable.
-     *
-     * @return defaultValue
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Set a default value for the step parameter.  This allows you to set a default value for the step parameter when it is not bound to a pipeline variable.")
-
-    public String getDefaultValue() {
-        return defaultValue;
-    }
-
-
-    public void setDefaultValue(String defaultValue) {
-        this.defaultValue = defaultValue;
     }
 
 
@@ -136,6 +88,54 @@ public class PipelineStepParamBinding {
     }
 
 
+    public PipelineStepParamBinding defaultValue(String defaultValue) {
+
+        this.defaultValue = defaultValue;
+        return this;
+    }
+
+    /**
+     * Set a default value for the step parameter.  This allows you to set a default value for the step parameter when it is not bound to a pipeline variable.
+     *
+     * @return defaultValue
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Set a default value for the step parameter.  This allows you to set a default value for the step parameter when it is not bound to a pipeline variable.")
+
+    public String getDefaultValue() {
+        return defaultValue;
+    }
+
+
+    public void setDefaultValue(String defaultValue) {
+        this.defaultValue = defaultValue;
+    }
+
+
+    public PipelineStepParamBinding description(String description) {
+
+        this.description = description;
+        return this;
+    }
+
+    /**
+     * Set the description of the step parameter.
+     *
+     * @return description
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Set the description of the step parameter.")
+
+    public String getDescription() {
+        return description;
+    }
+
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -146,14 +146,14 @@ public class PipelineStepParamBinding {
         }
         PipelineStepParamBinding pipelineStepParamBinding = (PipelineStepParamBinding) o;
         return Objects.equals(this.bind, pipelineStepParamBinding.bind) &&
-                Objects.equals(this.description, pipelineStepParamBinding.description) &&
+                Objects.equals(this.constant, pipelineStepParamBinding.constant) &&
                 Objects.equals(this.defaultValue, pipelineStepParamBinding.defaultValue) &&
-                Objects.equals(this.constant, pipelineStepParamBinding.constant);
+                Objects.equals(this.description, pipelineStepParamBinding.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(bind, description, defaultValue, constant);
+        return Objects.hash(bind, constant, defaultValue, description);
     }
 
     @Override
@@ -161,9 +161,9 @@ public class PipelineStepParamBinding {
         StringBuilder sb = new StringBuilder();
         sb.append("class PipelineStepParamBinding {\n");
         sb.append("    bind: ").append(toIndentedString(bind)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    defaultValue: ").append(toIndentedString(defaultValue)).append("\n");
         sb.append("    constant: ").append(toIndentedString(constant)).append("\n");
+        sb.append("    defaultValue: ").append(toIndentedString(defaultValue)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("}");
         return sb.toString();
     }

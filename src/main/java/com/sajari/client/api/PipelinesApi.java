@@ -64,7 +64,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public okhttp3.Call createPipelineCall(String collectionId, Pipeline pipeline, final ApiCallback _callback) throws ApiException {
@@ -132,7 +132,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public Pipeline createPipeline(String collectionId, Pipeline pipeline) throws ApiException {
@@ -155,7 +155,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public ApiResponse<Pipeline> createPipelineWithHttpInfo(String collectionId, Pipeline pipeline) throws ApiException {
@@ -181,7 +181,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public okhttp3.Call createPipelineAsync(String collectionId, Pipeline pipeline, final ApiCallback<Pipeline> _callback) throws ApiException {
@@ -208,7 +208,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public okhttp3.Call generatePipelinesCall(String collectionId, GeneratePipelinesRequest generatePipelinesRequest, final ApiCallback _callback) throws ApiException {
@@ -276,7 +276,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public GeneratePipelinesResponse generatePipelines(String collectionId, GeneratePipelinesRequest generatePipelinesRequest) throws ApiException {
@@ -299,7 +299,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public ApiResponse<GeneratePipelinesResponse> generatePipelinesWithHttpInfo(String collectionId, GeneratePipelinesRequest generatePipelinesRequest) throws ApiException {
@@ -325,7 +325,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public okhttp3.Call generatePipelinesAsync(String collectionId, GeneratePipelinesRequest generatePipelinesRequest, final ApiCallback<GeneratePipelinesResponse> _callback) throws ApiException {
@@ -352,7 +352,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public okhttp3.Call getDefaultPipelineCall(String collectionId, String type, final ApiCallback _callback) throws ApiException {
@@ -424,7 +424,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public GetDefaultPipelineResponse getDefaultPipeline(String collectionId, String type) throws ApiException {
@@ -447,7 +447,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public ApiResponse<GetDefaultPipelineResponse> getDefaultPipelineWithHttpInfo(String collectionId, String type) throws ApiException {
@@ -473,7 +473,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public okhttp3.Call getDefaultPipelineAsync(String collectionId, String type, final ApiCallback<GetDefaultPipelineResponse> _callback) throws ApiException {
@@ -502,7 +502,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the pipeline does not have a default version. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public okhttp3.Call getDefaultVersionCall(String collectionId, String type, String name, String view, final ApiCallback _callback) throws ApiException {
@@ -583,7 +583,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the pipeline does not have a default version. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public Pipeline getDefaultVersion(String collectionId, String type, String name, String view) throws ApiException {
@@ -608,7 +608,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the pipeline does not have a default version. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public ApiResponse<Pipeline> getDefaultVersionWithHttpInfo(String collectionId, String type, String name, String view) throws ApiException {
@@ -636,7 +636,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the pipeline does not have a default version. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public okhttp3.Call getDefaultVersionAsync(String collectionId, String type, String name, String view, final ApiCallback<Pipeline> _callback) throws ApiException {
@@ -666,7 +666,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public okhttp3.Call getPipelineCall(String collectionId, String type, String name, String version, String view, final ApiCallback _callback) throws ApiException {
@@ -754,7 +754,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public Pipeline getPipeline(String collectionId, String type, String name, String version, String view) throws ApiException {
@@ -780,7 +780,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public ApiResponse<Pipeline> getPipelineWithHttpInfo(String collectionId, String type, String name, String version, String view) throws ApiException {
@@ -809,7 +809,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public okhttp3.Call getPipelineAsync(String collectionId, String type, String name, String version, String view, final ApiCallback<Pipeline> _callback) throws ApiException {
@@ -838,7 +838,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public okhttp3.Call listPipelinesCall(String collectionId, Integer pageSize, String pageToken, String view, final ApiCallback _callback) throws ApiException {
@@ -900,7 +900,7 @@ public class PipelinesApi {
 
     /**
      * List pipelines
-     * Retrieve a list of pipelines.
+     * Retrieve a list of pipelines in a collection.
      *
      * @param collectionId The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. (required)
      * @param pageSize     The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
@@ -915,7 +915,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public ListPipelinesResponse listPipelines(String collectionId, Integer pageSize, String pageToken, String view) throws ApiException {
@@ -925,7 +925,7 @@ public class PipelinesApi {
 
     /**
      * List pipelines
-     * Retrieve a list of pipelines.
+     * Retrieve a list of pipelines in a collection.
      *
      * @param collectionId The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. (required)
      * @param pageSize     The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
@@ -940,7 +940,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public ApiResponse<ListPipelinesResponse> listPipelinesWithHttpInfo(String collectionId, Integer pageSize, String pageToken, String view) throws ApiException {
@@ -952,7 +952,7 @@ public class PipelinesApi {
 
     /**
      * List pipelines (asynchronously)
-     * Retrieve a list of pipelines.
+     * Retrieve a list of pipelines in a collection.
      *
      * @param collectionId The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. (required)
      * @param pageSize     The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
@@ -968,7 +968,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public okhttp3.Call listPipelinesAsync(String collectionId, Integer pageSize, String pageToken, String view, final ApiCallback<ListPipelinesResponse> _callback) throws ApiException {
@@ -995,7 +995,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public okhttp3.Call setDefaultPipelineCall(String collectionId, SetDefaultPipelineRequest setDefaultPipelineRequest, final ApiCallback _callback) throws ApiException {
@@ -1063,7 +1063,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public Object setDefaultPipeline(String collectionId, SetDefaultPipelineRequest setDefaultPipelineRequest) throws ApiException {
@@ -1086,7 +1086,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public ApiResponse<Object> setDefaultPipelineWithHttpInfo(String collectionId, SetDefaultPipelineRequest setDefaultPipelineRequest) throws ApiException {
@@ -1112,7 +1112,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public okhttp3.Call setDefaultPipelineAsync(String collectionId, SetDefaultPipelineRequest setDefaultPipelineRequest, final ApiCallback<Object> _callback) throws ApiException {
@@ -1141,7 +1141,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public okhttp3.Call setDefaultVersionCall(String collectionId, String type, String name, SetDefaultVersionRequest setDefaultVersionRequest, final ApiCallback _callback) throws ApiException {
@@ -1223,7 +1223,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public Object setDefaultVersion(String collectionId, String type, String name, SetDefaultVersionRequest setDefaultVersionRequest) throws ApiException {
@@ -1248,7 +1248,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public ApiResponse<Object> setDefaultVersionWithHttpInfo(String collectionId, String type, String name, SetDefaultVersionRequest setDefaultVersionRequest) throws ApiException {
@@ -1276,7 +1276,7 @@ public class PipelinesApi {
      * <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
-     * <tr><td> 0 </td><td> An unexpected error response </td><td>  -  </td></tr>
+     * <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      * </table>
      */
     public okhttp3.Call setDefaultVersionAsync(String collectionId, String type, String name, SetDefaultVersionRequest setDefaultVersionRequest, final ApiCallback<Object> _callback) throws ApiException {

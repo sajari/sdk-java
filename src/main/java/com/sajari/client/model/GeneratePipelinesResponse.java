@@ -23,40 +23,40 @@ import java.util.Objects;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GeneratePipelinesResponse {
-    public static final String SERIALIZED_NAME_RECORD_PIPELINE = "record_pipeline";
-    @SerializedName(SERIALIZED_NAME_RECORD_PIPELINE)
-    private Pipeline recordPipeline;
+    public static final String SERIALIZED_NAME_AUTOCOMPLETE_PIPELINE = "autocomplete_pipeline";
+    @SerializedName(SERIALIZED_NAME_AUTOCOMPLETE_PIPELINE)
+    private Pipeline autocompletePipeline;
 
     public static final String SERIALIZED_NAME_QUERY_PIPELINE = "query_pipeline";
     @SerializedName(SERIALIZED_NAME_QUERY_PIPELINE)
     private Pipeline queryPipeline;
 
-    public static final String SERIALIZED_NAME_AUTOCOMPLETE_PIPELINE = "autocomplete_pipeline";
-    @SerializedName(SERIALIZED_NAME_AUTOCOMPLETE_PIPELINE)
-    private Pipeline autocompletePipeline;
+    public static final String SERIALIZED_NAME_RECORD_PIPELINE = "record_pipeline";
+    @SerializedName(SERIALIZED_NAME_RECORD_PIPELINE)
+    private Pipeline recordPipeline;
 
 
-    public GeneratePipelinesResponse recordPipeline(Pipeline recordPipeline) {
+    public GeneratePipelinesResponse autocompletePipeline(Pipeline autocompletePipeline) {
 
-        this.recordPipeline = recordPipeline;
+        this.autocompletePipeline = autocompletePipeline;
         return this;
     }
 
     /**
-     * Get recordPipeline
+     * Get autocompletePipeline
      *
-     * @return recordPipeline
+     * @return autocompletePipeline
      **/
     @javax.annotation.Nullable
     @ApiModelProperty(value = "")
 
-    public Pipeline getRecordPipeline() {
-        return recordPipeline;
+    public Pipeline getAutocompletePipeline() {
+        return autocompletePipeline;
     }
 
 
-    public void setRecordPipeline(Pipeline recordPipeline) {
-        this.recordPipeline = recordPipeline;
+    public void setAutocompletePipeline(Pipeline autocompletePipeline) {
+        this.autocompletePipeline = autocompletePipeline;
     }
 
 
@@ -84,27 +84,27 @@ public class GeneratePipelinesResponse {
     }
 
 
-    public GeneratePipelinesResponse autocompletePipeline(Pipeline autocompletePipeline) {
+    public GeneratePipelinesResponse recordPipeline(Pipeline recordPipeline) {
 
-        this.autocompletePipeline = autocompletePipeline;
+        this.recordPipeline = recordPipeline;
         return this;
     }
 
     /**
-     * Get autocompletePipeline
+     * Get recordPipeline
      *
-     * @return autocompletePipeline
+     * @return recordPipeline
      **/
     @javax.annotation.Nullable
     @ApiModelProperty(value = "")
 
-    public Pipeline getAutocompletePipeline() {
-        return autocompletePipeline;
+    public Pipeline getRecordPipeline() {
+        return recordPipeline;
     }
 
 
-    public void setAutocompletePipeline(Pipeline autocompletePipeline) {
-        this.autocompletePipeline = autocompletePipeline;
+    public void setRecordPipeline(Pipeline recordPipeline) {
+        this.recordPipeline = recordPipeline;
     }
 
 
@@ -117,23 +117,23 @@ public class GeneratePipelinesResponse {
             return false;
         }
         GeneratePipelinesResponse generatePipelinesResponse = (GeneratePipelinesResponse) o;
-        return Objects.equals(this.recordPipeline, generatePipelinesResponse.recordPipeline) &&
+        return Objects.equals(this.autocompletePipeline, generatePipelinesResponse.autocompletePipeline) &&
                 Objects.equals(this.queryPipeline, generatePipelinesResponse.queryPipeline) &&
-                Objects.equals(this.autocompletePipeline, generatePipelinesResponse.autocompletePipeline);
+                Objects.equals(this.recordPipeline, generatePipelinesResponse.recordPipeline);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(recordPipeline, queryPipeline, autocompletePipeline);
+        return Objects.hash(autocompletePipeline, queryPipeline, recordPipeline);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class GeneratePipelinesResponse {\n");
-        sb.append("    recordPipeline: ").append(toIndentedString(recordPipeline)).append("\n");
-        sb.append("    queryPipeline: ").append(toIndentedString(queryPipeline)).append("\n");
         sb.append("    autocompletePipeline: ").append(toIndentedString(autocompletePipeline)).append("\n");
+        sb.append("    queryPipeline: ").append(toIndentedString(queryPipeline)).append("\n");
+        sb.append("    recordPipeline: ").append(toIndentedString(recordPipeline)).append("\n");
         sb.append("}");
         return sb.toString();
     }

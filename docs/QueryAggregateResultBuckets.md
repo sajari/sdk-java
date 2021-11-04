@@ -1,3 +1,5 @@
+
+
 # QueryAggregateResultBuckets
 
 Buckets is a full set of buckets computed in an aggregation.

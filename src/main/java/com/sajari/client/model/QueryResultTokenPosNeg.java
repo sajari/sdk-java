@@ -25,37 +25,13 @@ import java.util.Objects;
 @ApiModel(description = "PosNeg is a pair of tokens which are used to mark a record as a good/bad result for a request.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class QueryResultTokenPosNeg {
-    public static final String SERIALIZED_NAME_POS = "pos";
-    @SerializedName(SERIALIZED_NAME_POS)
-    private String pos;
-
     public static final String SERIALIZED_NAME_NEG = "neg";
     @SerializedName(SERIALIZED_NAME_NEG)
     private String neg;
 
-
-    public QueryResultTokenPosNeg pos(String pos) {
-
-        this.pos = pos;
-        return this;
-    }
-
-    /**
-     * Get pos
-     *
-     * @return pos
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public String getPos() {
-        return pos;
-    }
-
-
-    public void setPos(String pos) {
-        this.pos = pos;
-    }
+    public static final String SERIALIZED_NAME_POS = "pos";
+    @SerializedName(SERIALIZED_NAME_POS)
+    private String pos;
 
 
     public QueryResultTokenPosNeg neg(String neg) {
@@ -82,6 +58,30 @@ public class QueryResultTokenPosNeg {
     }
 
 
+    public QueryResultTokenPosNeg pos(String pos) {
+
+        this.pos = pos;
+        return this;
+    }
+
+    /**
+     * Get pos
+     *
+     * @return pos
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+
+    public String getPos() {
+        return pos;
+    }
+
+
+    public void setPos(String pos) {
+        this.pos = pos;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -91,21 +91,21 @@ public class QueryResultTokenPosNeg {
             return false;
         }
         QueryResultTokenPosNeg queryResultTokenPosNeg = (QueryResultTokenPosNeg) o;
-        return Objects.equals(this.pos, queryResultTokenPosNeg.pos) &&
-                Objects.equals(this.neg, queryResultTokenPosNeg.neg);
+        return Objects.equals(this.neg, queryResultTokenPosNeg.neg) &&
+                Objects.equals(this.pos, queryResultTokenPosNeg.pos);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(pos, neg);
+        return Objects.hash(neg, pos);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class QueryResultTokenPosNeg {\n");
-        sb.append("    pos: ").append(toIndentedString(pos)).append("\n");
         sb.append("    neg: ").append(toIndentedString(neg)).append("\n");
+        sb.append("    pos: ").append(toIndentedString(pos)).append("\n");
         sb.append("}");
         return sb.toString();
     }

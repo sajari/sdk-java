@@ -1,3 +1,5 @@
+
+
 # QueryAggregateResultBucketsBucket
 
 Bucket is the result of a bucket aggregate.
@@ -6,8 +8,8 @@ Bucket is the result of a bucket aggregate.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** | Name of bucket. |  [optional]
 **count** | **Integer** | Number of records in the bucket. |  [optional]
+**name** | **String** | Name of bucket. |  [optional]
 
 
 

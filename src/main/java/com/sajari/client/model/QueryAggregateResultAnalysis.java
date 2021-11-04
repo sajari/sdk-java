@@ -23,48 +23,48 @@ import java.util.Objects;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class QueryAggregateResultAnalysis {
-    public static final String SERIALIZED_NAME_COVERAGE = "coverage";
-    @SerializedName(SERIALIZED_NAME_COVERAGE)
-    private Integer coverage;
+    public static final String SERIALIZED_NAME_AVG_LENGTH = "avg_length";
+    @SerializedName(SERIALIZED_NAME_AVG_LENGTH)
+    private Float avgLength;
 
     public static final String SERIALIZED_NAME_CARDINALITY = "cardinality";
     @SerializedName(SERIALIZED_NAME_CARDINALITY)
     private Integer cardinality;
 
-    public static final String SERIALIZED_NAME_MIN_LENGTH = "min_length";
-    @SerializedName(SERIALIZED_NAME_MIN_LENGTH)
-    private Integer minLength;
+    public static final String SERIALIZED_NAME_COVERAGE = "coverage";
+    @SerializedName(SERIALIZED_NAME_COVERAGE)
+    private Integer coverage;
 
     public static final String SERIALIZED_NAME_MAX_LENGTH = "max_length";
     @SerializedName(SERIALIZED_NAME_MAX_LENGTH)
     private Integer maxLength;
 
-    public static final String SERIALIZED_NAME_AVG_LENGTH = "avg_length";
-    @SerializedName(SERIALIZED_NAME_AVG_LENGTH)
-    private Float avgLength;
+    public static final String SERIALIZED_NAME_MIN_LENGTH = "min_length";
+    @SerializedName(SERIALIZED_NAME_MIN_LENGTH)
+    private Integer minLength;
 
 
-    public QueryAggregateResultAnalysis coverage(Integer coverage) {
+    public QueryAggregateResultAnalysis avgLength(Float avgLength) {
 
-        this.coverage = coverage;
+        this.avgLength = avgLength;
         return this;
     }
 
     /**
-     * Coverage is the number of records which have a value set.
+     * Average number of items in an array field.
      *
-     * @return coverage
+     * @return avgLength
      **/
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "Coverage is the number of records which have a value set.")
+    @ApiModelProperty(value = "Average number of items in an array field.")
 
-    public Integer getCoverage() {
-        return coverage;
+    public Float getAvgLength() {
+        return avgLength;
     }
 
 
-    public void setCoverage(Integer coverage) {
-        this.coverage = coverage;
+    public void setAvgLength(Float avgLength) {
+        this.avgLength = avgLength;
     }
 
 
@@ -92,27 +92,27 @@ public class QueryAggregateResultAnalysis {
     }
 
 
-    public QueryAggregateResultAnalysis minLength(Integer minLength) {
+    public QueryAggregateResultAnalysis coverage(Integer coverage) {
 
-        this.minLength = minLength;
+        this.coverage = coverage;
         return this;
     }
 
     /**
-     * Minimum length of an array field.
+     * Coverage is the number of records which have a value set.
      *
-     * @return minLength
+     * @return coverage
      **/
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "Minimum length of an array field.")
+    @ApiModelProperty(value = "Coverage is the number of records which have a value set.")
 
-    public Integer getMinLength() {
-        return minLength;
+    public Integer getCoverage() {
+        return coverage;
     }
 
 
-    public void setMinLength(Integer minLength) {
-        this.minLength = minLength;
+    public void setCoverage(Integer coverage) {
+        this.coverage = coverage;
     }
 
 
@@ -140,27 +140,27 @@ public class QueryAggregateResultAnalysis {
     }
 
 
-    public QueryAggregateResultAnalysis avgLength(Float avgLength) {
+    public QueryAggregateResultAnalysis minLength(Integer minLength) {
 
-        this.avgLength = avgLength;
+        this.minLength = minLength;
         return this;
     }
 
     /**
-     * Average number of items in an array field.
+     * Minimum length of an array field.
      *
-     * @return avgLength
+     * @return minLength
      **/
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "Average number of items in an array field.")
+    @ApiModelProperty(value = "Minimum length of an array field.")
 
-    public Float getAvgLength() {
-        return avgLength;
+    public Integer getMinLength() {
+        return minLength;
     }
 
 
-    public void setAvgLength(Float avgLength) {
-        this.avgLength = avgLength;
+    public void setMinLength(Integer minLength) {
+        this.minLength = minLength;
     }
 
 
@@ -173,27 +173,27 @@ public class QueryAggregateResultAnalysis {
             return false;
         }
         QueryAggregateResultAnalysis queryAggregateResultAnalysis = (QueryAggregateResultAnalysis) o;
-        return Objects.equals(this.coverage, queryAggregateResultAnalysis.coverage) &&
+        return Objects.equals(this.avgLength, queryAggregateResultAnalysis.avgLength) &&
                 Objects.equals(this.cardinality, queryAggregateResultAnalysis.cardinality) &&
-                Objects.equals(this.minLength, queryAggregateResultAnalysis.minLength) &&
+                Objects.equals(this.coverage, queryAggregateResultAnalysis.coverage) &&
                 Objects.equals(this.maxLength, queryAggregateResultAnalysis.maxLength) &&
-                Objects.equals(this.avgLength, queryAggregateResultAnalysis.avgLength);
+                Objects.equals(this.minLength, queryAggregateResultAnalysis.minLength);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(coverage, cardinality, minLength, maxLength, avgLength);
+        return Objects.hash(avgLength, cardinality, coverage, maxLength, minLength);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class QueryAggregateResultAnalysis {\n");
-        sb.append("    coverage: ").append(toIndentedString(coverage)).append("\n");
-        sb.append("    cardinality: ").append(toIndentedString(cardinality)).append("\n");
-        sb.append("    minLength: ").append(toIndentedString(minLength)).append("\n");
-        sb.append("    maxLength: ").append(toIndentedString(maxLength)).append("\n");
         sb.append("    avgLength: ").append(toIndentedString(avgLength)).append("\n");
+        sb.append("    cardinality: ").append(toIndentedString(cardinality)).append("\n");
+        sb.append("    coverage: ").append(toIndentedString(coverage)).append("\n");
+        sb.append("    maxLength: ").append(toIndentedString(maxLength)).append("\n");
+        sb.append("    minLength: ").append(toIndentedString(minLength)).append("\n");
         sb.append("}");
         return sb.toString();
     }

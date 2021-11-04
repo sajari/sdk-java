@@ -29,13 +29,13 @@ public class Status {
     @SerializedName(SERIALIZED_NAME_CODE)
     private Integer code;
 
-    public static final String SERIALIZED_NAME_MESSAGE = "message";
-    @SerializedName(SERIALIZED_NAME_MESSAGE)
-    private String message;
-
     public static final String SERIALIZED_NAME_DETAILS = "details";
     @SerializedName(SERIALIZED_NAME_DETAILS)
     private java.util.List<ProtobufAny> details = null;
+
+    public static final String SERIALIZED_NAME_MESSAGE = "message";
+    @SerializedName(SERIALIZED_NAME_MESSAGE)
+    private String message;
 
 
     public Status code(Integer code) {
@@ -59,30 +59,6 @@ public class Status {
 
     public void setCode(Integer code) {
         this.code = code;
-    }
-
-
-    public Status message(String message) {
-
-        this.message = message;
-        return this;
-    }
-
-    /**
-     * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the [google.rpc.Status.details][google.rpc.Status.details] field, or localized by the client.
-     *
-     * @return message
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the [google.rpc.Status.details][google.rpc.Status.details] field, or localized by the client.")
-
-    public String getMessage() {
-        return message;
-    }
-
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 
 
@@ -118,6 +94,30 @@ public class Status {
     }
 
 
+    public Status message(String message) {
+
+        this.message = message;
+        return this;
+    }
+
+    /**
+     * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the [google.rpc.Status.details][google.rpc.Status.details] field, or localized by the client.
+     *
+     * @return message
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the [google.rpc.Status.details][google.rpc.Status.details] field, or localized by the client.")
+
+    public String getMessage() {
+        return message;
+    }
+
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -128,13 +128,13 @@ public class Status {
         }
         Status status = (Status) o;
         return Objects.equals(this.code, status.code) &&
-                Objects.equals(this.message, status.message) &&
-                Objects.equals(this.details, status.details);
+                Objects.equals(this.details, status.details) &&
+                Objects.equals(this.message, status.message);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, message, details);
+        return Objects.hash(code, details, message);
     }
 
     @Override
@@ -142,8 +142,8 @@ public class Status {
         StringBuilder sb = new StringBuilder();
         sb.append("class Status {\n");
         sb.append("    code: ").append(toIndentedString(code)).append("\n");
-        sb.append("    message: ").append(toIndentedString(message)).append("\n");
         sb.append("    details: ").append(toIndentedString(details)).append("\n");
+        sb.append("    message: ").append(toIndentedString(message)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -1,4 +1,7 @@
+
+
 # BatchCreateSchemaFieldsResponseError
+
 
 ## Properties
 

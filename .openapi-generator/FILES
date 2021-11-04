@@ -61,6 +61,7 @@ docs/SendEventRequest.md
 docs/SetDefaultPipelineRequest.md
 docs/SetDefaultVersionRequest.md
 docs/Status.md
+docs/UpdateRecordRequest.md
 docs/UpsertRecordRequest.md
 docs/UpsertRecordRequestPipeline.md
 docs/UpsertRecordResponse.md
@@ -147,6 +148,7 @@ src/main/java/com/sajari/client/model/SendEventRequest.java
 src/main/java/com/sajari/client/model/SetDefaultPipelineRequest.java
 src/main/java/com/sajari/client/model/SetDefaultVersionRequest.java
 src/main/java/com/sajari/client/model/Status.java
+src/main/java/com/sajari/client/model/UpdateRecordRequest.java
 src/main/java/com/sajari/client/model/UpsertRecordRequest.java
 src/main/java/com/sajari/client/model/UpsertRecordRequestPipeline.java
 src/main/java/com/sajari/client/model/UpsertRecordResponse.java

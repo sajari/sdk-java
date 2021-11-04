@@ -1,3 +1,5 @@
+
+
 # QueryCollectionRequest
 
 A request to perform a search using a pipeline.
@@ -7,9 +9,8 @@ A request to perform a search using a pipeline.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pipeline** | [**QueryCollectionRequestPipeline**](QueryCollectionRequestPipeline.md) |  |  [optional]
-**variables** | **
-Object** | The initial values for the variables the pipeline operates on and transforms throughout its steps. The most important variable is &#x60;q&#x60; which is the query the user entered, for example:  ```json { "q": "search terms" } ``` To paginate through results, set the variables &#x60;page&#x60; and &#x60;resultsPerPage&#x60;, for example:  ```json { "q": "search terms", "page": 5, "resultsPerPage": 20 } ``` To sort results, set the variable &#x60;sort&#x60; to the name of one of your collection&#39;s schema fields, for example:  ```json { "q": "search terms", "sort": "name" } ``` To sort in reverse, prefix the schema field with a minus sign &#x60;-&#x60;, for example:  ```json { "q": "search terms", "sort": "-name" } ``` |
 **tracking** | [**QueryCollectionRequestTracking**](QueryCollectionRequestTracking.md) |  |  [optional]
+**variables** | **Map&lt;String, Object&gt;** | The initial values for the variables the pipeline operates on and transforms throughout its steps.  The most important variable is &#x60;q&#x60; which is the query the user entered, for example:  &#x60;&#x60;&#x60;json { \&quot;q\&quot;: \&quot;search terms\&quot; } &#x60;&#x60;&#x60;  To paginate through results, set the variables &#x60;page&#x60; and &#x60;resultsPerPage&#x60;, for example:  &#x60;&#x60;&#x60;json { \&quot;q\&quot;: \&quot;search terms\&quot;, \&quot;page\&quot;: 5, \&quot;resultsPerPage\&quot;: 20 } &#x60;&#x60;&#x60;  To sort results, set the variable &#x60;sort&#x60; to the name of one of your collection&#39;s schema fields, for example:  &#x60;&#x60;&#x60;json { \&quot;q\&quot;: \&quot;search terms\&quot;, \&quot;sort\&quot;: \&quot;name\&quot; } &#x60;&#x60;&#x60;  To sort in reverse, prefix the schema field with a minus sign &#x60;-&#x60;, for example:  &#x60;&#x60;&#x60;json { \&quot;q\&quot;: \&quot;search terms\&quot;, \&quot;sort\&quot;: \&quot;-name\&quot; } &#x60;&#x60;&#x60; | 
 
 
 

@@ -25,37 +25,13 @@ import java.util.Objects;
 @ApiModel(description = "Bucket is the result of a bucket aggregate.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class QueryAggregateResultBucketsBucket {
-    public static final String SERIALIZED_NAME_NAME = "name";
-    @SerializedName(SERIALIZED_NAME_NAME)
-    private String name;
-
     public static final String SERIALIZED_NAME_COUNT = "count";
     @SerializedName(SERIALIZED_NAME_COUNT)
     private Integer count;
 
-
-    public QueryAggregateResultBucketsBucket name(String name) {
-
-        this.name = name;
-        return this;
-    }
-
-    /**
-     * Name of bucket.
-     *
-     * @return name
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Name of bucket.")
-
-    public String getName() {
-        return name;
-    }
-
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    public static final String SERIALIZED_NAME_NAME = "name";
+    @SerializedName(SERIALIZED_NAME_NAME)
+    private String name;
 
 
     public QueryAggregateResultBucketsBucket count(Integer count) {
@@ -82,6 +58,30 @@ public class QueryAggregateResultBucketsBucket {
     }
 
 
+    public QueryAggregateResultBucketsBucket name(String name) {
+
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Name of bucket.
+     *
+     * @return name
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Name of bucket.")
+
+    public String getName() {
+        return name;
+    }
+
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -91,21 +91,21 @@ public class QueryAggregateResultBucketsBucket {
             return false;
         }
         QueryAggregateResultBucketsBucket queryAggregateResultBucketsBucket = (QueryAggregateResultBucketsBucket) o;
-        return Objects.equals(this.name, queryAggregateResultBucketsBucket.name) &&
-                Objects.equals(this.count, queryAggregateResultBucketsBucket.count);
+        return Objects.equals(this.count, queryAggregateResultBucketsBucket.count) &&
+                Objects.equals(this.name, queryAggregateResultBucketsBucket.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, count);
+        return Objects.hash(count, name);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class QueryAggregateResultBucketsBucket {\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    count: ").append(toIndentedString(count)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("}");
         return sb.toString();
     }
