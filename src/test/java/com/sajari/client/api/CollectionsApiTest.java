@@ -121,7 +121,7 @@ public class CollectionsApiTest {
         String collectionId = null;
         Collection collection = null;
         String updateMask = null;
-        Collection response = api.updateCollection(collectionId, collection, updateMask);
+        Collection response = api.updateCollection(collectionId, updateMask, collection);
 
         // TODO: test validations
     }
