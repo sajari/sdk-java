@@ -1,15 +1,91 @@
 # RecordsApi
 
-All URIs are relative to *https://api-gateway.sajari.com*
+All URIs are relative to *https://api.search.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**batchUpdateRecords**](RecordsApi.md#batchUpdateRecords) | **POST** /v4/collections/{collection_id}/records:batchUpdate | Batch update records
 [**batchUpsertRecords**](RecordsApi.md#batchUpsertRecords) | **POST** /v4/collections/{collection_id}/records:batchUpsert | Batch upsert records
 [**deleteRecord**](RecordsApi.md#deleteRecord) | **POST** /v4/collections/{collection_id}/records:delete | Delete record
 [**getRecord**](RecordsApi.md#getRecord) | **POST** /v4/collections/{collection_id}/records:get | Get record
 [**updateRecord**](RecordsApi.md#updateRecord) | **POST** /v4/collections/{collection_id}/records:update | Update record
 [**upsertRecord**](RecordsApi.md#upsertRecord) | **POST** /v4/collections/{collection_id}/records:upsert | Upsert record
 
+
+<a name="batchUpdateRecords"></a>
+# **batchUpdateRecords**
+> BatchUpdateRecordsResponse batchUpdateRecords(collectionId, batchUpdateRecordsRequest)
+
+Batch update records
+
+The batch version of the [UpdateRecord](/api#operation/UpdateRecord) call.
+
+### Example
+```java
+// Import classes:
+import com.sajari.client.ApiClient;
+import com.sajari.client.ApiException;
+import com.sajari.client.Configuration;
+import com.sajari.client.auth.*;
+import com.sajari.client.models.*;
+import com.sajari.client.api.RecordsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.search.io");
+    
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
+
+    RecordsApi apiInstance = new RecordsApi(defaultClient);
+    String collectionId = "collectionId_example"; // String | The collection that contains the records to update, e.g. `my-collection`.
+    BatchUpdateRecordsRequest batchUpdateRecordsRequest = new BatchUpdateRecordsRequest(); // BatchUpdateRecordsRequest | 
+    try {
+      BatchUpdateRecordsResponse result = apiInstance.batchUpdateRecords(collectionId, batchUpdateRecordsRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling RecordsApi#batchUpdateRecords");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collectionId** | **String**| The collection that contains the records to update, e.g. &#x60;my-collection&#x60;. |
+ **batchUpdateRecordsRequest** | [**BatchUpdateRecordsRequest**](BatchUpdateRecordsRequest.md)|  |
+
+### Return type
+
+[**BatchUpdateRecordsResponse**](BatchUpdateRecordsResponse.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | A successful response. |  -  |
+**401** | Returned when the request does not have valid authentication credentials. |  -  |
+**403** | Returned when the user does not have permission to access the resource. |  -  |
+**404** | Returned when the resource does not exist. |  -  |
+**500** | Returned when the API encounters an internal error. |  -  |
+**0** | An unexpected error response. |  -  |
 
 <a name="batchUpsertRecords"></a>
 # **batchUpsertRecords**
@@ -32,7 +108,7 @@ import com.sajari.client.api.RecordsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api-gateway.sajari.com");
+    defaultClient.setBasePath("https://api.search.io");
     
     // Configure HTTP basic authorization: BasicAuth
     HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
@@ -107,7 +183,7 @@ import com.sajari.client.api.RecordsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api-gateway.sajari.com");
+    defaultClient.setBasePath("https://api.search.io");
     
     // Configure HTTP basic authorization: BasicAuth
     HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
@@ -182,7 +258,7 @@ import com.sajari.client.api.RecordsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api-gateway.sajari.com");
+    defaultClient.setBasePath("https://api.search.io");
     
     // Configure HTTP basic authorization: BasicAuth
     HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
@@ -257,7 +333,7 @@ import com.sajari.client.api.RecordsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api-gateway.sajari.com");
+    defaultClient.setBasePath("https://api.search.io");
     
     // Configure HTTP basic authorization: BasicAuth
     HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
@@ -332,7 +408,7 @@ import com.sajari.client.api.RecordsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api-gateway.sajari.com");
+    defaultClient.setBasePath("https://api.search.io");
     
     // Configure HTTP basic authorization: BasicAuth
     HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");

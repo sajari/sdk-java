@@ -19,5 +19,7 @@
 
 * `TIMESTAMP` (value: `"TIMESTAMP"`)
 
+* `BYTES` (value: `"BYTES"`)
+
 
 

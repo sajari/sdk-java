@@ -1,3 +1,3 @@
-<manifest package="com.sajari.client">
-    <application/>
+<manifest package="com.sajari.client" xmlns:android="http://schemas.android.com/apk/res/android">
+    <application />
 </manifest>
