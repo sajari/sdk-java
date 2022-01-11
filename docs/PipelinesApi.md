@@ -1,6 +1,6 @@
 # PipelinesApi
 
-All URIs are relative to *https://api-gateway.sajari.com*
+All URIs are relative to *https://api.search.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -35,7 +35,7 @@ import com.sajari.client.api.PipelinesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api-gateway.sajari.com");
+    defaultClient.setBasePath("https://api.search.io");
     
     // Configure HTTP basic authorization: BasicAuth
     HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
@@ -110,7 +110,7 @@ import com.sajari.client.api.PipelinesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api-gateway.sajari.com");
+    defaultClient.setBasePath("https://api.search.io");
     
     // Configure HTTP basic authorization: BasicAuth
     HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
@@ -185,7 +185,7 @@ import com.sajari.client.api.PipelinesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api-gateway.sajari.com");
+    defaultClient.setBasePath("https://api.search.io");
     
     // Configure HTTP basic authorization: BasicAuth
     HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
@@ -260,7 +260,7 @@ import com.sajari.client.api.PipelinesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api-gateway.sajari.com");
+    defaultClient.setBasePath("https://api.search.io");
     
     // Configure HTTP basic authorization: BasicAuth
     HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
@@ -339,7 +339,7 @@ import com.sajari.client.api.PipelinesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api-gateway.sajari.com");
+    defaultClient.setBasePath("https://api.search.io");
     
     // Configure HTTP basic authorization: BasicAuth
     HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
@@ -420,7 +420,7 @@ import com.sajari.client.api.PipelinesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api-gateway.sajari.com");
+    defaultClient.setBasePath("https://api.search.io");
     
     // Configure HTTP basic authorization: BasicAuth
     HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
@@ -499,7 +499,7 @@ import com.sajari.client.api.PipelinesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api-gateway.sajari.com");
+    defaultClient.setBasePath("https://api.search.io");
     
     // Configure HTTP basic authorization: BasicAuth
     HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
@@ -574,7 +574,7 @@ import com.sajari.client.api.PipelinesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api-gateway.sajari.com");
+    defaultClient.setBasePath("https://api.search.io");
     
     // Configure HTTP basic authorization: BasicAuth
     HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
