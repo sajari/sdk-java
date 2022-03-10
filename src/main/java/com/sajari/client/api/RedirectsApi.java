@@ -127,7 +127,7 @@ public class RedirectsApi {
             "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarHeaderParams != null) {
+        if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
@@ -285,7 +285,7 @@ public class RedirectsApi {
             
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarHeaderParams != null) {
+        if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
@@ -443,7 +443,7 @@ public class RedirectsApi {
             
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarHeaderParams != null) {
+        if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
@@ -547,7 +547,7 @@ public class RedirectsApi {
      * Build call for listRedirects
      * @param collectionId The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;. (required)
      * @param pageSize The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param pageToken A page token, received from a previous [ListRedirects](/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/api#operation/ListRedirects) must match the call that provided the page token. (optional)
+     * @param pageToken A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -609,7 +609,7 @@ public class RedirectsApi {
             
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarHeaderParams != null) {
+        if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
@@ -636,7 +636,7 @@ public class RedirectsApi {
      * Retrieve a list of redirects in a collection.
      * @param collectionId The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;. (required)
      * @param pageSize The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param pageToken A page token, received from a previous [ListRedirects](/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/api#operation/ListRedirects) must match the call that provided the page token. (optional)
+     * @param pageToken A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. (optional)
      * @return ListRedirectsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -660,7 +660,7 @@ public class RedirectsApi {
      * Retrieve a list of redirects in a collection.
      * @param collectionId The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;. (required)
      * @param pageSize The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param pageToken A page token, received from a previous [ListRedirects](/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/api#operation/ListRedirects) must match the call that provided the page token. (optional)
+     * @param pageToken A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. (optional)
      * @return ApiResponse&lt;ListRedirectsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -685,7 +685,7 @@ public class RedirectsApi {
      * Retrieve a list of redirects in a collection.
      * @param collectionId The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;. (required)
      * @param pageSize The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param pageToken A page token, received from a previous [ListRedirects](/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/api#operation/ListRedirects) must match the call that provided the page token. (optional)
+     * @param pageToken A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -771,7 +771,7 @@ public class RedirectsApi {
             "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarHeaderParams != null) {
+        if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 

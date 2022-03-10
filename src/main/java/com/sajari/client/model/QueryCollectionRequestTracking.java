@@ -68,11 +68,11 @@ public class QueryCollectionRequestTracking {
   }
 
    /**
-   * Custom values to be included in tracking data.
+   * A set of custom values to be included in tracking data.
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Custom values to be included in tracking data.")
+  @ApiModelProperty(value = "A set of custom values to be included in tracking data.")
 
   public java.util.Map<String, String> getData() {
     return data;
@@ -91,11 +91,11 @@ public class QueryCollectionRequestTracking {
   }
 
    /**
-   * Tracking field used to identify records in the collection.  Must be unique schema field.
+   * The tracking field used to identify records in the collection.  Must be unique schema field.
    * @return field
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Tracking field used to identify records in the collection.  Must be unique schema field.")
+  @ApiModelProperty(value = "The tracking field used to identify records in the collection.  Must be unique schema field.")
 
   public String getField() {
     return field;
@@ -114,11 +114,11 @@ public class QueryCollectionRequestTracking {
   }
 
    /**
-   * Query ID of the query. If this is empty, then one is generated.
+   * The query ID of the query. If this is empty, then one is generated.
    * @return queryId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Query ID of the query. If this is empty, then one is generated.")
+  @ApiModelProperty(value = "The query ID of the query. If this is empty, then one is generated.")
 
   public String getQueryId() {
     return queryId;
@@ -137,11 +137,11 @@ public class QueryCollectionRequestTracking {
   }
 
    /**
-   * Sequence number of query.
+   * The sequence number of query.
    * @return sequence
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Sequence number of query.")
+  @ApiModelProperty(value = "The sequence number of query.")
 
   public Integer getSequence() {
     return sequence;

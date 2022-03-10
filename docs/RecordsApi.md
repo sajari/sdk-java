@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Batch update records
 
-The batch version of the [UpdateRecord](/api#operation/UpdateRecord) call.
+The batch version of the [UpdateRecord](/docs/api#operation/UpdateRecord) call.
 
 ### Example
 ```java
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 
 Batch upsert records
 
-The batch version of the [UpsertRecord](/api#operation/UpsertRecord) call.
+The batch version of the [UpsertRecord](/docs/api#operation/UpsertRecord) call.
 
 ### Example
 ```java
@@ -318,7 +318,7 @@ Name | Type | Description  | Notes
 
 Update record
 
-Add or update specific fields within a record with the given values. The updated record is returned in the response.  To replace all fields in a record, you should use the [UpsertRecord](/api#operation/UpsertRecord) call.  Note that the update record call cannot be used to add or update indexed or unique fields. For this case use the [UpsertRecord](/api#operation/UpsertRecord) call.
+Add or update specific fields within a record with the given values. The updated record is returned in the response.  To replace all fields in a record, you should use the [UpsertRecord](/docs/api#operation/UpsertRecord) call.  Note that the update record call cannot be used to add or update indexed or unique fields. For this case use the [UpsertRecord](/docs/api#operation/UpsertRecord) call.
 
 ### Example
 ```java

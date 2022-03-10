@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.sajari.client.model.Banner;
 import com.sajari.client.model.PromotionExclusion;
 import com.sajari.client.model.PromotionFilterBoost;
 import com.sajari.client.model.PromotionFilterCondition;
@@ -36,6 +37,10 @@ import java.time.OffsetDateTime;
 @ApiModel(description = "Promotion contains a trigger, determining which searches it should be active for, and a list of alterations that should be made to search results when it is active.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Promotion {
+  public static final String SERIALIZED_NAME_BANNERS = "banners";
+  @SerializedName(SERIALIZED_NAME_BANNERS)
+  private java.util.List<Banner> banners = null;
+
   public static final String SERIALIZED_NAME_COLLECTION_ID = "collection_id";
   @SerializedName(SERIALIZED_NAME_COLLECTION_ID)
   private String collectionId;
@@ -106,6 +111,37 @@ public class Promotion {
     this.createTime = createTime;
     this.updateTime = updateTime;
   }
+
+  public Promotion banners(java.util.List<Banner> banners) {
+    
+    this.banners = banners;
+    return this;
+  }
+
+  public Promotion addBannersItem(Banner bannersItem) {
+    if (this.banners == null) {
+      this.banners = new java.util.ArrayList<>();
+    }
+    this.banners.add(bannersItem);
+    return this;
+  }
+
+   /**
+   * The banners that are injected into the result set when the promotion is triggered.
+   * @return banners
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The banners that are injected into the result set when the promotion is triggered.")
+
+  public java.util.List<Banner> getBanners() {
+    return banners;
+  }
+
+
+  public void setBanners(java.util.List<Banner> banners) {
+    this.banners = banners;
+  }
+
 
    /**
    * Output only. The ID of the collection that owns this promotion.
@@ -451,7 +487,8 @@ public class Promotion {
       return false;
     }
     Promotion promotion = (Promotion) o;
-    return Objects.equals(this.collectionId, promotion.collectionId) &&
+    return Objects.equals(this.banners, promotion.banners) &&
+        Objects.equals(this.collectionId, promotion.collectionId) &&
         Objects.equals(this.condition, promotion.condition) &&
         Objects.equals(this.createTime, promotion.createTime) &&
         Objects.equals(this.disabled, promotion.disabled) &&
@@ -469,13 +506,14 @@ public class Promotion {
 
   @Override
   public int hashCode() {
-    return Objects.hash(collectionId, condition, createTime, disabled, displayName, endTime, exclusions, filterBoosts, filterConditions, id, pins, rangeBoosts, startTime, updateTime);
+    return Objects.hash(banners, collectionId, condition, createTime, disabled, displayName, endTime, exclusions, filterBoosts, filterConditions, id, pins, rangeBoosts, startTime, updateTime);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Promotion {\n");
+    sb.append("    banners: ").append(toIndentedString(banners)).append("\n");
     sb.append("    collectionId: ").append(toIndentedString(collectionId)).append("\n");
     sb.append("    condition: ").append(toIndentedString(condition)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");

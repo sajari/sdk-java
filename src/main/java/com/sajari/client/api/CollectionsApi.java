@@ -29,6 +29,9 @@ import java.io.IOException;
 
 import com.sajari.client.model.Collection;
 import com.sajari.client.model.Error;
+import com.sajari.client.model.Event;
+import com.sajari.client.model.ExperimentRequest;
+import com.sajari.client.model.ExperimentResponse;
 import com.sajari.client.model.ListCollectionsResponse;
 import com.sajari.client.model.QueryCollectionRequest;
 import com.sajari.client.model.QueryCollectionResponse;
@@ -134,7 +137,7 @@ public class CollectionsApi {
             "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarHeaderParams != null) {
+        if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
@@ -296,7 +299,7 @@ public class CollectionsApi {
             
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarHeaderParams != null) {
+        if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
@@ -389,6 +392,163 @@ public class CollectionsApi {
         return localVarCall;
     }
     /**
+     * Build call for experiment
+     * @param collectionId The collection to query, e.g. &#x60;my-collection&#x60;. (required)
+     * @param experimentRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call experimentCall(String collectionId, ExperimentRequest experimentRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = experimentRequest;
+
+        // create path and map variables
+        String localVarPath = "/v4/collections/{collection_id}:experiment"
+            .replaceAll("\\{" + "collection_id" + "\\}", localVarApiClient.escapeString(collectionId.toString()));
+
+        java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+        java.util.List<Pair> localVarCollectionQueryParams = new java.util.ArrayList<Pair>();
+        java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+        java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+        java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BasicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call experimentValidateBeforeCall(String collectionId, ExperimentRequest experimentRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'collectionId' is set
+        if (collectionId == null) {
+            throw new ApiException("Missing the required parameter 'collectionId' when calling experiment(Async)");
+        }
+        
+        // verify the required parameter 'experimentRequest' is set
+        if (experimentRequest == null) {
+            throw new ApiException("Missing the required parameter 'experimentRequest' when calling experiment(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = experimentCall(collectionId, experimentRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Experiment
+     * Run a query on a collection with a hypothetical configuration to see what kinds of results it produces.  Saved promotions with a start date in the future are enabled during the experiment, unless they are explicitly disabled.  The following example demonstrates how to run a simple experiment for a string, against a pipeline and with a proposed promotion:  &#x60;&#x60;&#x60;json {   \&quot;pipeline\&quot;: { \&quot;name\&quot;: \&quot;my-pipeline\&quot; },   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; },   \&quot;promotions\&quot;: [{     \&quot;id\&quot;: \&quot;1234\&quot;,     \&quot;condition\&quot;: \&quot;q &#x3D; &#39;search terms&#39;\&quot;,     \&quot;pins\&quot;: [{       \&quot;key\&quot;: { \&quot;field\&quot;: \&quot;id\&quot;, \&quot;value\&quot;: \&quot;54hdc7h2334h\&quot; },       \&quot;position\&quot;: 1     }]   }] } &#x60;&#x60;&#x60;
+     * @param collectionId The collection to query, e.g. &#x60;my-collection&#x60;. (required)
+     * @param experimentRequest  (required)
+     * @return ExperimentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ExperimentResponse experiment(String collectionId, ExperimentRequest experimentRequest) throws ApiException {
+        ApiResponse<ExperimentResponse> localVarResp = experimentWithHttpInfo(collectionId, experimentRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Experiment
+     * Run a query on a collection with a hypothetical configuration to see what kinds of results it produces.  Saved promotions with a start date in the future are enabled during the experiment, unless they are explicitly disabled.  The following example demonstrates how to run a simple experiment for a string, against a pipeline and with a proposed promotion:  &#x60;&#x60;&#x60;json {   \&quot;pipeline\&quot;: { \&quot;name\&quot;: \&quot;my-pipeline\&quot; },   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; },   \&quot;promotions\&quot;: [{     \&quot;id\&quot;: \&quot;1234\&quot;,     \&quot;condition\&quot;: \&quot;q &#x3D; &#39;search terms&#39;\&quot;,     \&quot;pins\&quot;: [{       \&quot;key\&quot;: { \&quot;field\&quot;: \&quot;id\&quot;, \&quot;value\&quot;: \&quot;54hdc7h2334h\&quot; },       \&quot;position\&quot;: 1     }]   }] } &#x60;&#x60;&#x60;
+     * @param collectionId The collection to query, e.g. &#x60;my-collection&#x60;. (required)
+     * @param experimentRequest  (required)
+     * @return ApiResponse&lt;ExperimentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ExperimentResponse> experimentWithHttpInfo(String collectionId, ExperimentRequest experimentRequest) throws ApiException {
+        okhttp3.Call localVarCall = experimentValidateBeforeCall(collectionId, experimentRequest, null);
+        Type localVarReturnType = new TypeToken<ExperimentResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Experiment (asynchronously)
+     * Run a query on a collection with a hypothetical configuration to see what kinds of results it produces.  Saved promotions with a start date in the future are enabled during the experiment, unless they are explicitly disabled.  The following example demonstrates how to run a simple experiment for a string, against a pipeline and with a proposed promotion:  &#x60;&#x60;&#x60;json {   \&quot;pipeline\&quot;: { \&quot;name\&quot;: \&quot;my-pipeline\&quot; },   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; },   \&quot;promotions\&quot;: [{     \&quot;id\&quot;: \&quot;1234\&quot;,     \&quot;condition\&quot;: \&quot;q &#x3D; &#39;search terms&#39;\&quot;,     \&quot;pins\&quot;: [{       \&quot;key\&quot;: { \&quot;field\&quot;: \&quot;id\&quot;, \&quot;value\&quot;: \&quot;54hdc7h2334h\&quot; },       \&quot;position\&quot;: 1     }]   }] } &#x60;&#x60;&#x60;
+     * @param collectionId The collection to query, e.g. &#x60;my-collection&#x60;. (required)
+     * @param experimentRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call experimentAsync(String collectionId, ExperimentRequest experimentRequest, final ApiCallback<ExperimentResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = experimentValidateBeforeCall(collectionId, experimentRequest, _callback);
+        Type localVarReturnType = new TypeToken<ExperimentResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getCollection
      * @param collectionId The collection to retrieve, e.g. &#x60;my-collection&#x60;. (required)
      * @param _callback Callback for upload/download progress
@@ -444,7 +604,7 @@ public class CollectionsApi {
             
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarHeaderParams != null) {
+        if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
@@ -539,7 +699,7 @@ public class CollectionsApi {
     /**
      * Build call for listCollections
      * @param pageSize The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
-     * @param pageToken A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. (optional)
+     * @param pageToken A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -600,7 +760,7 @@ public class CollectionsApi {
             
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarHeaderParams != null) {
+        if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
@@ -621,7 +781,7 @@ public class CollectionsApi {
      * List collections
      * Retrieve a list of collections in an account.
      * @param pageSize The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
-     * @param pageToken A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. (optional)
+     * @param pageToken A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)
      * @return ListCollectionsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -644,7 +804,7 @@ public class CollectionsApi {
      * List collections
      * Retrieve a list of collections in an account.
      * @param pageSize The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
-     * @param pageToken A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. (optional)
+     * @param pageToken A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)
      * @return ApiResponse&lt;ListCollectionsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -668,7 +828,7 @@ public class CollectionsApi {
      * List collections (asynchronously)
      * Retrieve a list of collections in an account.
      * @param pageSize The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
-     * @param pageToken A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. (optional)
+     * @param pageToken A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -694,6 +854,7 @@ public class CollectionsApi {
      * Build call for queryCollection
      * @param collectionId The collection to query, e.g. &#x60;my-collection&#x60;. (required)
      * @param queryCollectionRequest  (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.  Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -708,7 +869,7 @@ public class CollectionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call queryCollectionCall(String collectionId, QueryCollectionRequest queryCollectionRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call queryCollectionCall(String collectionId, QueryCollectionRequest queryCollectionRequest, String accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -735,6 +896,10 @@ public class CollectionsApi {
         java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
         java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
+        if (accountId != null) {
+            localVarHeaderParams.put("Account-Id", localVarApiClient.parameterToString(accountId));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -747,7 +912,7 @@ public class CollectionsApi {
             "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarHeaderParams != null) {
+        if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
@@ -756,7 +921,7 @@ public class CollectionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call queryCollectionValidateBeforeCall(String collectionId, QueryCollectionRequest queryCollectionRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call queryCollectionValidateBeforeCall(String collectionId, QueryCollectionRequest queryCollectionRequest, String accountId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
@@ -769,16 +934,17 @@ public class CollectionsApi {
         }
         
 
-        okhttp3.Call localVarCall = queryCollectionCall(collectionId, queryCollectionRequest, _callback);
+        okhttp3.Call localVarCall = queryCollectionCall(collectionId, queryCollectionRequest, accountId, _callback);
         return localVarCall;
 
     }
 
     /**
      * Query collection
-     * Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+     * Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID.
      * @param collectionId The collection to query, e.g. &#x60;my-collection&#x60;. (required)
      * @param queryCollectionRequest  (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.  Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID. (optional)
      * @return QueryCollectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -792,16 +958,17 @@ public class CollectionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public QueryCollectionResponse queryCollection(String collectionId, QueryCollectionRequest queryCollectionRequest) throws ApiException {
-        ApiResponse<QueryCollectionResponse> localVarResp = queryCollectionWithHttpInfo(collectionId, queryCollectionRequest);
+    public QueryCollectionResponse queryCollection(String collectionId, QueryCollectionRequest queryCollectionRequest, String accountId) throws ApiException {
+        ApiResponse<QueryCollectionResponse> localVarResp = queryCollectionWithHttpInfo(collectionId, queryCollectionRequest, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Query collection
-     * Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+     * Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID.
      * @param collectionId The collection to query, e.g. &#x60;my-collection&#x60;. (required)
      * @param queryCollectionRequest  (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.  Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID. (optional)
      * @return ApiResponse&lt;QueryCollectionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -815,17 +982,18 @@ public class CollectionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<QueryCollectionResponse> queryCollectionWithHttpInfo(String collectionId, QueryCollectionRequest queryCollectionRequest) throws ApiException {
-        okhttp3.Call localVarCall = queryCollectionValidateBeforeCall(collectionId, queryCollectionRequest, null);
+    public ApiResponse<QueryCollectionResponse> queryCollectionWithHttpInfo(String collectionId, QueryCollectionRequest queryCollectionRequest, String accountId) throws ApiException {
+        okhttp3.Call localVarCall = queryCollectionValidateBeforeCall(collectionId, queryCollectionRequest, accountId, null);
         Type localVarReturnType = new TypeToken<QueryCollectionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Query collection (asynchronously)
-     * Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+     * Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID.
      * @param collectionId The collection to query, e.g. &#x60;my-collection&#x60;. (required)
      * @param queryCollectionRequest  (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.  Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -840,9 +1008,9 @@ public class CollectionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call queryCollectionAsync(String collectionId, QueryCollectionRequest queryCollectionRequest, final ApiCallback<QueryCollectionResponse> _callback) throws ApiException {
+    public okhttp3.Call queryCollectionAsync(String collectionId, QueryCollectionRequest queryCollectionRequest, String accountId, final ApiCallback<QueryCollectionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = queryCollectionValidateBeforeCall(collectionId, queryCollectionRequest, _callback);
+        okhttp3.Call localVarCall = queryCollectionValidateBeforeCall(collectionId, queryCollectionRequest, accountId, _callback);
         Type localVarReturnType = new TypeToken<QueryCollectionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -906,7 +1074,7 @@ public class CollectionsApi {
             "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarHeaderParams != null) {
+        if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
@@ -936,7 +1104,7 @@ public class CollectionsApi {
 
     /**
      * Query collection
-     * Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+     * Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID.
      * @param collectionId The collection to query, e.g. &#x60;my-collection&#x60;. (required)
      * @param queryCollectionRequest  (required)
      * @return QueryCollectionResponse
@@ -961,7 +1129,7 @@ public class CollectionsApi {
 
     /**
      * Query collection
-     * Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+     * Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID.
      * @param collectionId The collection to query, e.g. &#x60;my-collection&#x60;. (required)
      * @param queryCollectionRequest  (required)
      * @return ApiResponse&lt;QueryCollectionResponse&gt;
@@ -987,7 +1155,7 @@ public class CollectionsApi {
 
     /**
      * Query collection (asynchronously)
-     * Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+     * Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID.
      * @param collectionId The collection to query, e.g. &#x60;my-collection&#x60;. (required)
      * @param queryCollectionRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1014,10 +1182,180 @@ public class CollectionsApi {
         return localVarCall;
     }
     /**
+     * Build call for trackEvent
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (required)
+     * @param collectionId The collection to track the event against, e.g. &#x60;my-collection&#x60;. (required)
+     * @param event The details of the event to track. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call trackEventCall(String accountId, String collectionId, Event event, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = event;
+
+        // create path and map variables
+        String localVarPath = "/v4/collections/{collection_id}:trackEvent"
+            .replaceAll("\\{" + "collection_id" + "\\}", localVarApiClient.escapeString(collectionId.toString()));
+
+        java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+        java.util.List<Pair> localVarCollectionQueryParams = new java.util.ArrayList<Pair>();
+        java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+        java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+        java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+        if (accountId != null) {
+            localVarHeaderParams.put("Account-Id", localVarApiClient.parameterToString(accountId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BasicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call trackEventValidateBeforeCall(String accountId, String collectionId, Event event, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'accountId' is set
+        if (accountId == null) {
+            throw new ApiException("Missing the required parameter 'accountId' when calling trackEvent(Async)");
+        }
+        
+        // verify the required parameter 'collectionId' is set
+        if (collectionId == null) {
+            throw new ApiException("Missing the required parameter 'collectionId' when calling trackEvent(Async)");
+        }
+        
+        // verify the required parameter 'event' is set
+        if (event == null) {
+            throw new ApiException("Missing the required parameter 'event' when calling trackEvent(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = trackEventCall(accountId, collectionId, event, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Track event
+     * Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an &#x60;Account-Id&#x60; header.
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (required)
+     * @param collectionId The collection to track the event against, e.g. &#x60;my-collection&#x60;. (required)
+     * @param event The details of the event to track. (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public Object trackEvent(String accountId, String collectionId, Event event) throws ApiException {
+        ApiResponse<Object> localVarResp = trackEventWithHttpInfo(accountId, collectionId, event);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Track event
+     * Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an &#x60;Account-Id&#x60; header.
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (required)
+     * @param collectionId The collection to track the event against, e.g. &#x60;my-collection&#x60;. (required)
+     * @param event The details of the event to track. (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Object> trackEventWithHttpInfo(String accountId, String collectionId, Event event) throws ApiException {
+        okhttp3.Call localVarCall = trackEventValidateBeforeCall(accountId, collectionId, event, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Track event (asynchronously)
+     * Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an &#x60;Account-Id&#x60; header.
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (required)
+     * @param collectionId The collection to track the event against, e.g. &#x60;my-collection&#x60;. (required)
+     * @param event The details of the event to track. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call trackEventAsync(String accountId, String collectionId, Event event, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = trackEventValidateBeforeCall(accountId, collectionId, event, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for updateCollection
      * @param collectionId The collection to update, e.g. &#x60;my-collection&#x60;. (required)
-     * @param updateMask The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (required)
-     * @param collection Details of the collection to update. (required)
+     * @param collection The details of the collection to update. (required)
+     * @param updateMask The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1032,7 +1370,7 @@ public class CollectionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCollectionCall(String collectionId, String updateMask, Collection collection, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateCollectionCall(String collectionId, Collection collection, String updateMask, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -1075,7 +1413,7 @@ public class CollectionsApi {
             "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarHeaderParams != null) {
+        if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
@@ -1084,16 +1422,11 @@ public class CollectionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateCollectionValidateBeforeCall(String collectionId, String updateMask, Collection collection, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateCollectionValidateBeforeCall(String collectionId, Collection collection, String updateMask, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
             throw new ApiException("Missing the required parameter 'collectionId' when calling updateCollection(Async)");
-        }
-        
-        // verify the required parameter 'updateMask' is set
-        if (updateMask == null) {
-            throw new ApiException("Missing the required parameter 'updateMask' when calling updateCollection(Async)");
         }
         
         // verify the required parameter 'collection' is set
@@ -1102,7 +1435,7 @@ public class CollectionsApi {
         }
         
 
-        okhttp3.Call localVarCall = updateCollectionCall(collectionId, updateMask, collection, _callback);
+        okhttp3.Call localVarCall = updateCollectionCall(collectionId, collection, updateMask, _callback);
         return localVarCall;
 
     }
@@ -1111,8 +1444,8 @@ public class CollectionsApi {
      * Update collection
      * Update the details of a collection.
      * @param collectionId The collection to update, e.g. &#x60;my-collection&#x60;. (required)
-     * @param updateMask The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (required)
-     * @param collection Details of the collection to update. (required)
+     * @param collection The details of the collection to update. (required)
+     * @param updateMask The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)
      * @return Collection
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1126,8 +1459,8 @@ public class CollectionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public Collection updateCollection(String collectionId, String updateMask, Collection collection) throws ApiException {
-        ApiResponse<Collection> localVarResp = updateCollectionWithHttpInfo(collectionId, updateMask, collection);
+    public Collection updateCollection(String collectionId, Collection collection, String updateMask) throws ApiException {
+        ApiResponse<Collection> localVarResp = updateCollectionWithHttpInfo(collectionId, collection, updateMask);
         return localVarResp.getData();
     }
 
@@ -1135,8 +1468,8 @@ public class CollectionsApi {
      * Update collection
      * Update the details of a collection.
      * @param collectionId The collection to update, e.g. &#x60;my-collection&#x60;. (required)
-     * @param updateMask The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (required)
-     * @param collection Details of the collection to update. (required)
+     * @param collection The details of the collection to update. (required)
+     * @param updateMask The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)
      * @return ApiResponse&lt;Collection&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1150,8 +1483,8 @@ public class CollectionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Collection> updateCollectionWithHttpInfo(String collectionId, String updateMask, Collection collection) throws ApiException {
-        okhttp3.Call localVarCall = updateCollectionValidateBeforeCall(collectionId, updateMask, collection, null);
+    public ApiResponse<Collection> updateCollectionWithHttpInfo(String collectionId, Collection collection, String updateMask) throws ApiException {
+        okhttp3.Call localVarCall = updateCollectionValidateBeforeCall(collectionId, collection, updateMask, null);
         Type localVarReturnType = new TypeToken<Collection>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1160,8 +1493,8 @@ public class CollectionsApi {
      * Update collection (asynchronously)
      * Update the details of a collection.
      * @param collectionId The collection to update, e.g. &#x60;my-collection&#x60;. (required)
-     * @param updateMask The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (required)
-     * @param collection Details of the collection to update. (required)
+     * @param collection The details of the collection to update. (required)
+     * @param updateMask The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1176,9 +1509,9 @@ public class CollectionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCollectionAsync(String collectionId, String updateMask, Collection collection, final ApiCallback<Collection> _callback) throws ApiException {
+    public okhttp3.Call updateCollectionAsync(String collectionId, Collection collection, String updateMask, final ApiCallback<Collection> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateCollectionValidateBeforeCall(collectionId, updateMask, collection, _callback);
+        okhttp3.Call localVarCall = updateCollectionValidateBeforeCall(collectionId, collection, updateMask, _callback);
         Type localVarReturnType = new TypeToken<Collection>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

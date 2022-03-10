@@ -10,11 +10,11 @@ Method | HTTP request | Description
 
 <a name="sendEvent"></a>
 # **sendEvent**
-> Object sendEvent(sendEventRequest)
+> Object sendEvent(accountId, sendEventRequest)
 
 Send event
 
-Send an event to the ranking system after a user interacts with a search result.  When querying a collection, you can set the tracking type of the query request. When it is &#x60;CLICK&#x60; or &#x60;POS_NEG&#x60;, a token is generated for each result in the query response. You can use this token to provide feedback to the ranking system. Each time you want to record an event on a particular search result, use the send event call and provide:  - The &#x60;name&#x60; of the event, e.g. &#x60;click&#x60;, &#x60;purchase&#x60;. - The &#x60;token&#x60; from the search result. - The &#x60;weight&#x60; to assign to the event, e.g. &#x60;1&#x60;. - An object containing any additional &#x60;metadata&#x60;.  For example, to send an event where a customer purchased a product, use the following call:  &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;purchase\&quot;,   \&quot;token\&quot;: \&quot;eyJ...\&quot;,   \&quot;weight\&quot;: 1,   \&quot;metadata\&quot;: {     \&quot;discount\&quot;: 0.2,     \&quot;margin\&quot;: 30.0,     \&quot;customer_id\&quot;: \&quot;12345\&quot;,     \&quot;ui_test_segment\&quot;: \&quot;A\&quot;   } } &#x60;&#x60;&#x60;
+Send an event to the ranking system after a user interacts with a search result.  When querying a collection, you can set the tracking type of the query request. When it is &#x60;CLICK&#x60; or &#x60;POS_NEG&#x60;, a token is generated for each result in the query response. You can use this token to provide feedback to the ranking system. Each time you want to record an event on a particular search result, use the send event call and provide:  - The &#x60;name&#x60; of the event, e.g. &#x60;click&#x60;, &#x60;purchase&#x60;. - The &#x60;token&#x60; from the search result. - The &#x60;weight&#x60; to assign to the event, e.g. &#x60;1&#x60;. - An object containing any additional &#x60;metadata&#x60;.  For example, to send an event where a customer purchased a product, use the following call:  &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;purchase\&quot;,   \&quot;token\&quot;: \&quot;eyJ...\&quot;,   \&quot;weight\&quot;: 1,   \&quot;metadata\&quot;: {     \&quot;discount\&quot;: 0.2,     \&quot;margin\&quot;: 30.0,     \&quot;customer_id\&quot;: \&quot;12345\&quot;,     \&quot;ui_test_segment\&quot;: \&quot;A\&quot;   } } &#x60;&#x60;&#x60;  Note: You must pass an &#x60;Account-Id&#x60; header.
 
 ### Example
 ```java
@@ -37,9 +37,10 @@ public class Example {
     BasicAuth.setPassword("YOUR PASSWORD");
 
     EventsApi apiInstance = new EventsApi(defaultClient);
+    String accountId = "accountId_example"; // String | The account that owns the collection, e.g. `1618535966441231024`.
     SendEventRequest sendEventRequest = new SendEventRequest(); // SendEventRequest | 
     try {
-      Object result = apiInstance.sendEvent(sendEventRequest);
+      Object result = apiInstance.sendEvent(accountId, sendEventRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EventsApi#sendEvent");
@@ -56,6 +57,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **accountId** | **String**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. |
  **sendEventRequest** | [**SendEventRequest**](SendEventRequest.md)|  |
 
 ### Return type
@@ -88,7 +90,7 @@ Name | Type | Description  | Notes
 
 Send event
 
-Send an event to the ranking system after a user interacts with a search result.  When querying a collection, you can set the tracking type of the query request. When it is &#x60;CLICK&#x60; or &#x60;POS_NEG&#x60;, a token is generated for each result in the query response. You can use this token to provide feedback to the ranking system. Each time you want to record an event on a particular search result, use the send event call and provide:  - The &#x60;name&#x60; of the event, e.g. &#x60;click&#x60;, &#x60;purchase&#x60;. - The &#x60;token&#x60; from the search result. - The &#x60;weight&#x60; to assign to the event, e.g. &#x60;1&#x60;. - An object containing any additional &#x60;metadata&#x60;.  For example, to send an event where a customer purchased a product, use the following call:  &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;purchase\&quot;,   \&quot;token\&quot;: \&quot;eyJ...\&quot;,   \&quot;weight\&quot;: 1,   \&quot;metadata\&quot;: {     \&quot;discount\&quot;: 0.2,     \&quot;margin\&quot;: 30.0,     \&quot;customer_id\&quot;: \&quot;12345\&quot;,     \&quot;ui_test_segment\&quot;: \&quot;A\&quot;   } } &#x60;&#x60;&#x60;
+Send an event to the ranking system after a user interacts with a search result.  When querying a collection, you can set the tracking type of the query request. When it is &#x60;CLICK&#x60; or &#x60;POS_NEG&#x60;, a token is generated for each result in the query response. You can use this token to provide feedback to the ranking system. Each time you want to record an event on a particular search result, use the send event call and provide:  - The &#x60;name&#x60; of the event, e.g. &#x60;click&#x60;, &#x60;purchase&#x60;. - The &#x60;token&#x60; from the search result. - The &#x60;weight&#x60; to assign to the event, e.g. &#x60;1&#x60;. - An object containing any additional &#x60;metadata&#x60;.  For example, to send an event where a customer purchased a product, use the following call:  &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;purchase\&quot;,   \&quot;token\&quot;: \&quot;eyJ...\&quot;,   \&quot;weight\&quot;: 1,   \&quot;metadata\&quot;: {     \&quot;discount\&quot;: 0.2,     \&quot;margin\&quot;: 30.0,     \&quot;customer_id\&quot;: \&quot;12345\&quot;,     \&quot;ui_test_segment\&quot;: \&quot;A\&quot;   } } &#x60;&#x60;&#x60;  Note: You must pass an &#x60;Account-Id&#x60; header.
 
 ### Example
 ```java

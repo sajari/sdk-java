@@ -8,6 +8,7 @@ Promotion contains a trigger, determining which searches it should be active for
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**banners** | [**java.util.List&lt;Banner&gt;**](Banner.md) | The banners that are injected into the result set when the promotion is triggered. |  [optional]
 **collectionId** | **String** | Output only. The ID of the collection that owns this promotion. |  [optional] [readonly]
 **condition** | **String** | A condition expression applied to a search request that determines which searches the promotion is active for.  For example, to apply the promotion&#39;s pins and boosts whenever a user searches for &#39;shoes&#39; set condition to &#x60;q &#x3D; &#39;shoes&#39;&#x60;. | 
 **createTime** | **OffsetDateTime** | Output only. Time the promotion was created. |  [optional] [readonly]

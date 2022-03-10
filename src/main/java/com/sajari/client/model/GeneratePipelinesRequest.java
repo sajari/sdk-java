@@ -55,11 +55,11 @@ public class GeneratePipelinesRequest {
   }
 
    /**
-   * List of fields to train query suggestions from.
+   * A list of fields to train query suggestions from.
    * @return queryTrainingFields
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of fields to train query suggestions from.")
+  @ApiModelProperty(value = "A list of fields to train query suggestions from.")
 
   public java.util.List<String> getQueryTrainingFields() {
     return queryTrainingFields;
@@ -83,11 +83,11 @@ public class GeneratePipelinesRequest {
   }
 
    /**
-   * Prioritized list of fields to search.
+   * A prioritized list of fields to search.
    * @return searchableFields
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Prioritized list of fields to search.")
+  @ApiModelProperty(required = true, value = "A prioritized list of fields to search.")
 
   public java.util.List<String> getSearchableFields() {
     return searchableFields;

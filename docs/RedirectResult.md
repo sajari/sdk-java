@@ -2,7 +2,7 @@
 
 # RedirectResult
 
-RedirectResult indicates that a redirect has been triggered for a given query.
+Indicates that a redirect has been triggered for a given query.
 
 ## Properties
 

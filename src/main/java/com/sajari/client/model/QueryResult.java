@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.sajari.client.model.Banner;
 import com.sajari.client.model.QueryResultToken;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -30,6 +31,10 @@ import java.io.IOException;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class QueryResult {
+  public static final String SERIALIZED_NAME_BANNER = "banner";
+  @SerializedName(SERIALIZED_NAME_BANNER)
+  private Banner banner;
+
   public static final String SERIALIZED_NAME_FEATURE_SCORE = "feature_score";
   @SerializedName(SERIALIZED_NAME_FEATURE_SCORE)
   private Double featureScore;
@@ -46,6 +51,10 @@ public class QueryResult {
   @SerializedName(SERIALIZED_NAME_RECORD)
   private Object record;
 
+  public static final String SERIALIZED_NAME_RELEVANCE_SCORE = "relevance_score";
+  @SerializedName(SERIALIZED_NAME_RELEVANCE_SCORE)
+  private Double relevanceScore;
+
   public static final String SERIALIZED_NAME_SCORE = "score";
   @SerializedName(SERIALIZED_NAME_SCORE)
   private Double score;
@@ -56,6 +65,29 @@ public class QueryResult {
 
   public QueryResult() { 
   }
+
+  public QueryResult banner(Banner banner) {
+    
+    this.banner = banner;
+    return this;
+  }
+
+   /**
+   * Get banner
+   * @return banner
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Banner getBanner() {
+    return banner;
+  }
+
+
+  public void setBanner(Banner banner) {
+    this.banner = banner;
+  }
+
 
   public QueryResult featureScore(Double featureScore) {
     
@@ -149,6 +181,29 @@ public class QueryResult {
   }
 
 
+  public QueryResult relevanceScore(Double relevanceScore) {
+    
+    this.relevanceScore = relevanceScore;
+    return this;
+  }
+
+   /**
+   * The relevance score of the result.  This is the best of &#x60;index_score&#x60; and &#x60;neural_score&#x60; with any index boosts applied on top.
+   * @return relevanceScore
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The relevance score of the result.  This is the best of `index_score` and `neural_score` with any index boosts applied on top.")
+
+  public Double getRelevanceScore() {
+    return relevanceScore;
+  }
+
+
+  public void setRelevanceScore(Double relevanceScore) {
+    this.relevanceScore = relevanceScore;
+  }
+
+
   public QueryResult score(Double score) {
     
     this.score = score;
@@ -204,27 +259,31 @@ public class QueryResult {
       return false;
     }
     QueryResult queryResult = (QueryResult) o;
-    return Objects.equals(this.featureScore, queryResult.featureScore) &&
+    return Objects.equals(this.banner, queryResult.banner) &&
+        Objects.equals(this.featureScore, queryResult.featureScore) &&
         Objects.equals(this.indexScore, queryResult.indexScore) &&
         Objects.equals(this.neuralScore, queryResult.neuralScore) &&
         Objects.equals(this.record, queryResult.record) &&
+        Objects.equals(this.relevanceScore, queryResult.relevanceScore) &&
         Objects.equals(this.score, queryResult.score) &&
         Objects.equals(this.token, queryResult.token);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(featureScore, indexScore, neuralScore, record, score, token);
+    return Objects.hash(banner, featureScore, indexScore, neuralScore, record, relevanceScore, score, token);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class QueryResult {\n");
+    sb.append("    banner: ").append(toIndentedString(banner)).append("\n");
     sb.append("    featureScore: ").append(toIndentedString(featureScore)).append("\n");
     sb.append("    indexScore: ").append(toIndentedString(indexScore)).append("\n");
     sb.append("    neuralScore: ").append(toIndentedString(neuralScore)).append("\n");
     sb.append("    record: ").append(toIndentedString(record)).append("\n");
+    sb.append("    relevanceScore: ").append(toIndentedString(relevanceScore)).append("\n");
     sb.append("    score: ").append(toIndentedString(score)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("}");

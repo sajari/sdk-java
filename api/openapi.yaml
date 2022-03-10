@@ -78,7 +78,6 @@ tags:
     - Array of **FLOAT**
     - Array of **DOUBLE**
     - Array of **TIMESTAMP**
-    - Array of **BYTES**
 
     Mode can be one of the following:
 
@@ -136,12 +135,12 @@ paths:
         style: form
       - description: |-
           A page token, received from a previous
-          [ListCollections](/api#operation/ListCollections) call.
+          [ListCollections](/docs/api#operation/ListCollections) call.
 
           Provide this to retrieve the subsequent page.
 
           When paginating, all other parameters provided to
-          [ListCollections](/api#operation/ListCollections) must match
+          [ListCollections](/docs/api#operation/ListCollections) must match
           the call that provided the page token.
         explode: true
         in: query
@@ -426,17 +425,15 @@ paths:
           type: string
         style: simple
       - description: |-
-          The list of fields to be updated, separated by a comma, e.g.
-          `field1,field2`.
+          The list of fields to update, separated by a comma, e.g. `authorized_query_domains,display_name`.
 
-          Each field should be in snake case, e.g. `display_name`.
+          Each field should be in snake case.
 
-          For each field that you want to update, provide a corresponding value in
-          the collection object containing the new value.
+          For each field that you want to update, provide a corresponding value in the collection object containing the new value.
         explode: true
         in: query
         name: update_mask
-        required: true
+        required: false
         schema:
           type: string
         style: form
@@ -445,7 +442,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Collection'
-        description: Details of the collection to update.
+        description: The details of the collection to update.
         required: true
       responses:
         "200":
@@ -526,12 +523,12 @@ paths:
         style: form
       - description: |-
           A page token, received from a previous
-          [ListPipelines](/api#operation/ListPipelines) call.
+          [ListPipelines](/docs/api#operation/ListPipelines) call.
 
           Provide this to retrieve the subsequent page.
 
           When paginating, all other parameters provided to
-          [ListPipelines](/api#operation/ListPipelines) must match the
+          [ListPipelines](/docs/api#operation/ListPipelines) must match the
           call that provided the page token.
         explode: true
         in: query
@@ -547,8 +544,8 @@ paths:
           The API defaults to the `BASIC` view.
            - BASIC: Include basic information including type, name, version and description
           but not the full step configuration. This is the default value (for both
-          [ListPipelines](/api#operation/ListPipelines) and
-          [GetPipeline](/api#operation/GetPipeline)).
+          [ListPipelines](/docs/api#operation/ListPipelines) and
+          [GetPipeline](/docs/api#operation/GetPipeline)).
            - FULL: Include the information from `BASIC`, plus full step
           configuration.
         explode: true
@@ -753,8 +750,8 @@ paths:
           The API defaults to the `BASIC` view.
            - BASIC: Include basic information including type, name, version and description
           but not the full step configuration. This is the default value (for both
-          [ListPipelines](/api#operation/ListPipelines) and
-          [GetPipeline](/api#operation/GetPipeline)).
+          [ListPipelines](/docs/api#operation/ListPipelines) and
+          [GetPipeline](/docs/api#operation/GetPipeline)).
            - FULL: Include the information from `BASIC`, plus full step configuration.
         explode: true
         in: query
@@ -894,8 +891,8 @@ paths:
           The API defaults to the `BASIC` view.
            - BASIC: Include basic information including type, name, version and description
           but not the full step configuration. This is the default value (for both
-          [ListPipelines](/api#operation/ListPipelines) and
-          [GetPipeline](/api#operation/GetPipeline)).
+          [ListPipelines](/docs/api#operation/ListPipelines) and
+          [GetPipeline](/docs/api#operation/GetPipeline)).
            - FULL: Include the information from `BASIC`, plus full step configuration.
         explode: true
         in: query
@@ -1113,18 +1110,38 @@ paths:
         style: form
       - description: |-
           A page token, received from a previous
-          [ListPromotions](/api#operation/ListPromotions) call.
+          [ListPromotions](/docs/api#operation/ListPromotions) call.
 
           Provide this to retrieve the subsequent page.
 
           When paginating, all other parameters provided to
-          [ListPromotions](/api#operation/ListPromotions) must match the call that
-          provided the page token.
+          [ListPromotions](/docs/api#operation/ListPromotions) must match the call
+          that provided the page token.
         explode: true
         in: query
         name: page_token
         required: false
         schema:
+          type: string
+        style: form
+      - description: |-
+          The amount of information to include in each retrieved promotion.
+
+           - PROMOTION_VIEW_UNSPECIFIED: The default / unset value.
+          The API defaults to the `FULL` view.
+           - BASIC: Include basic information including name, start time and end time, but
+          not detailed information about the promotion effects.
+           - FULL: Returns all information about a promotion. This is the default value.
+        explode: true
+        in: query
+        name: view
+        required: false
+        schema:
+          default: PROMOTION_VIEW_UNSPECIFIED
+          enum:
+          - PROMOTION_VIEW_UNSPECIFIED
+          - BASIC
+          - FULL
           type: string
         style: form
       responses:
@@ -1489,7 +1506,7 @@ paths:
     post:
       description: |-
         The batch version of the
-        [UpdateRecord](/api#operation/UpdateRecord) call.
+        [UpdateRecord](/docs/api#operation/UpdateRecord) call.
       operationId: BatchUpdateRecords
       parameters:
       - description: The collection that contains the records to update, e.g. `my-collection`.
@@ -1554,7 +1571,7 @@ paths:
     post:
       description: |-
         The batch version of the
-        [UpsertRecord](/api#operation/UpsertRecord) call.
+        [UpsertRecord](/docs/api#operation/UpsertRecord) call.
       operationId: BatchUpsertRecords
       parameters:
       - description: The collection to upsert the records in, e.g. `my-collection`.
@@ -1747,11 +1764,11 @@ paths:
         updated record is returned in the response.
 
         To replace all fields in a record, you should use the
-        [UpsertRecord](/api#operation/UpsertRecord) call.
+        [UpsertRecord](/docs/api#operation/UpsertRecord) call.
 
         Note that the update record call cannot be used to add or update indexed
         or unique fields. For this case use the
-        [UpsertRecord](/api#operation/UpsertRecord) call.
+        [UpsertRecord](/docs/api#operation/UpsertRecord) call.
       operationId: UpdateRecord
       parameters:
       - description: The collection that contains the record to update, e.g. `my-collection`.
@@ -1935,12 +1952,12 @@ paths:
         style: form
       - description: |-
           A page token, received from a previous
-          [ListRedirects](/api#operation/ListRedirects) call.
+          [ListRedirects](/docs/api#operation/ListRedirects) call.
 
           Provide this to retrieve the subsequent page.
 
           When paginating, all other parameters provided to
-          [ListRedirects](/api#operation/ListRedirects) must match the call that
+          [ListRedirects](/docs/api#operation/ListRedirects) must match the call that
           provided the page token.
         explode: true
         in: query
@@ -2336,12 +2353,12 @@ paths:
         style: form
       - description: |-
           A page token, received from a previous
-          [ListSchemaFields](/api#operation/ListSchemaFields) call.
+          [ListSchemaFields](/docs/api#operation/ListSchemaFields) call.
 
           Provide this to retrieve the subsequent page.
 
           When paginating, all other parameters provided to
-          [ListSchemaFields](/api#operation/ListSchemaFields) must
+          [ListSchemaFields](/docs/api#operation/ListSchemaFields) must
           match the call that provided the page token.
         explode: true
         in: query
@@ -2460,7 +2477,7 @@ paths:
     post:
       description: |-
         The batch version of the
-        [CreateSchemaField](/api#operation/CreateSchemaField) call.
+        [CreateSchemaField](/docs/api#operation/CreateSchemaField) call.
       operationId: BatchCreateSchemaFields
       parameters:
       - description: The collection to create the schema fields in, e.g. `my-collection`.
@@ -2519,6 +2536,92 @@ paths:
       summary: Batch create schema fields
       tags:
       - Schema
+      x-contentType: application/json
+      x-accepts: application/json
+  /v4/collections/{collection_id}:experiment:
+    post:
+      description: |-
+        Run a query on a collection with a hypothetical configuration to see what
+        kinds of results it produces.
+
+        Saved promotions with a start date in the future are enabled during the
+        experiment, unless they are explicitly disabled.
+
+        The following example demonstrates how to run a simple experiment for a
+        string, against a pipeline and with a proposed promotion:
+
+        ```json
+        {
+          "pipeline": { "name": "my-pipeline" },
+          "variables": { "q": "search terms" },
+          "promotions": [{
+            "id": "1234",
+            "condition": "q = 'search terms'",
+            "pins": [{
+              "key": { "field": "id", "value": "54hdc7h2334h" },
+              "position": 1
+            }]
+          }]
+        }
+        ```
+      operationId: Experiment
+      parameters:
+      - description: The collection to query, e.g. `my-collection`.
+        explode: false
+        in: path
+        name: collection_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExperimentRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExperimentResponse'
+          description: A successful response.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Returned when the request does not have valid authentication
+            credentials.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Returned when the user does not have permission to access the
+            resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Returned when the resource does not exist.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Returned when the API encounters an internal error.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: An unexpected error response.
+      summary: Experiment
+      tags:
+      - Collections
       x-contentType: application/json
       x-accepts: application/json
   /v4/collections/{collection_id}:generatePipelines:
@@ -2737,9 +2840,24 @@ paths:
         - See [tracking in the Go
         SDK](https://github.com/sajari/sdk-go/blob/v2/session.go)
         - See [tracking in the JS
-        SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+        SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)
+
+        Note: Unlike other API calls, the `QueryCollection` call can be called
+        from a browser. When called from a browser, the `Account-Id` header must
+        be set to your account ID.
       operationId: QueryCollection
       parameters:
+      - description: |-
+          The account that owns the collection, e.g. `1618535966441231024`.
+
+          Unlike other API calls, the `QueryCollection` call can be called from a browser. When called from a browser, the `Account-Id` header must be set to your account ID.
+        explode: false
+        in: header
+        name: Account-Id
+        required: false
+        schema:
+          type: string
+        style: simple
       - description: The collection to query, e.g. `my-collection`.
         explode: false
         in: path
@@ -2816,7 +2934,11 @@ paths:
         - See [tracking in the Go
         SDK](https://github.com/sajari/sdk-go/blob/v2/session.go)
         - See [tracking in the JS
-        SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+        SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)
+
+        Note: Unlike other API calls, the `QueryCollection` call can be called
+        from a browser. When called from a browser, the `Account-Id` header must
+        be set to your account ID.
       operationId: QueryCollection2
       parameters:
       - description: The collection to query, e.g. `my-collection`.
@@ -2949,6 +3071,88 @@ paths:
       - Pipelines
       x-contentType: application/json
       x-accepts: application/json
+  /v4/collections/{collection_id}:trackEvent:
+    post:
+      description: |-
+        Track an analytics event when a user interacts with an object returned by
+        a [QueryCollection](/docs/api/#operation/QueryCollection) request.
+
+        An analytics event can be tracked for the following objects:
+
+        - Results
+        - Promotion banners
+        - Redirects
+
+        Note: You must pass an `Account-Id` header.
+      operationId: TrackEvent
+      parameters:
+      - description: The account that owns the collection, e.g. `1618535966441231024`.
+        explode: false
+        in: header
+        name: Account-Id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The collection to track the event against, e.g. `my-collection`.
+        explode: false
+        in: path
+        name: collection_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+        description: The details of the event to track.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrackEventResponse'
+          description: A successful response.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Returned when the request does not have valid authentication
+            credentials.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Returned when the user does not have permission to access the
+            resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Returned when the resource does not exist.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Returned when the API encounters an internal error.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: An unexpected error response.
+      summary: Track event
+      tags:
+      - Collections
+      x-contentType: application/json
+      x-accepts: application/json
   /v4/events:send:
     post:
       description: |-
@@ -2982,7 +3186,18 @@ paths:
           }
         }
         ```
+
+        Note: You must pass an `Account-Id` header.
       operationId: SendEvent
+      parameters:
+      - description: The account that owns the collection, e.g. `1618535966441231024`.
+        explode: false
+        in: header
+        name: Account-Id
+        required: true
+        schema:
+          type: string
+        style: simple
       requestBody:
         $ref: '#/components/requestBodies/SendEventRequest'
       responses:
@@ -3080,6 +3295,8 @@ paths:
           }
         }
         ```
+
+        Note: You must pass an `Account-Id` header.
       operationId: SendEvent2
       requestBody:
         $ref: '#/components/requestBodies/SendEventRequest'
@@ -3160,14 +3377,14 @@ components:
       required: true
   schemas:
     ActivePromotion:
-      description: ActivePromotion is a promotion that is active for a given search.
+      description: A promotion that is active for a given search.
       example:
         active_pins:
-        - position: 6
+        - position: 5
           key:
             field: field
             value: value
-        - position: 6
+        - position: 5
           key:
             field: field
             value: value
@@ -3199,6 +3416,56 @@ components:
         promotion_id:
           description: The ID of the active promotion.
           type: string
+      type: object
+    Banner:
+      description: |-
+        A synthetic search result that renders as an image. It takes a user to a
+        pre-determined location when clicked.
+      example:
+        image_url: image_url
+        target_url: target_url
+        width: 1
+        description: description
+        id: id
+        position: 6
+        text_color: text_color
+        title: title
+        height: 0
+      properties:
+        description:
+          description: The description of the banner, displayed in sub-head font.
+          type: string
+        height:
+          description: The height the banner occupies in grid cells.
+          format: int32
+          type: integer
+        id:
+          description: The ID of the banner, used to identify clicked banners.
+          type: string
+        image_url:
+          description: The URL of the image used for the banner.
+          type: string
+        position:
+          description: The 1-based index indicating where the banner appears in search
+            results.
+          format: int32
+          type: integer
+        target_url:
+          description: The URL to redirect the user to when the banner is clicked.
+          type: string
+        text_color:
+          description: 'The color of the text as a hex code with a # prefix, e.g.
+            #FFCC00 or #FC0.'
+          type: string
+        text_position:
+          $ref: '#/components/schemas/TextPosition'
+        title:
+          description: The title of the banner, displayed in header font.
+          type: string
+        width:
+          description: The width the banner occupies in grid cells.
+          format: int32
+          type: integer
       type: object
     BatchCreateSchemaFieldsRequest:
       example:
@@ -3582,7 +3849,7 @@ components:
             The list of authorized query domains for the collection.
 
             Client-side / browser requests to the
-            [QueryCollection](/api#operation/QueryCollection) call can
+            [QueryCollection](/docs/api#operation/QueryCollection) call can
             be made by any authorized query domain or any of its subdomains. This
             allows your interface to make search requests without having to provide an
             API key in the client-side request.
@@ -3627,6 +3894,504 @@ components:
         message:
           type: string
       type: object
+    Event:
+      description: An analytics event that relates to a query made on a collection.
+      example:
+        metadata:
+          key: '{}'
+        query_id: query_id
+        banner_id: banner_id
+        result_id: result_id
+        type: type
+        redirect_id: redirect_id
+      properties:
+        banner_id:
+          description: The identifier of the promotion banner the event is about.
+          type: string
+        metadata:
+          additionalProperties:
+            type: object
+          description: |-
+            An object made up of field-value pairs that contains additional metadata to
+            record with the event.
+          type: object
+        query_id:
+          description: The query identifier.
+          type: string
+        redirect_id:
+          description: The identifier of the redirect the event is about.
+          type: string
+        result_id:
+          description: The identifier of the result the event is about.
+          type: string
+        type:
+          description: The type of event, e.g. `click`, `purchase`, `add_to_cart`.
+          type: string
+      required:
+      - query_id
+      - type
+      type: object
+    ExperimentRequest:
+      description: A request to perform a query experiment on a collection using a
+        pipeline.
+      example:
+        pipeline:
+          name: name
+          version: version
+        promotions:
+        - filter_boosts:
+          - filter: filter
+            boost: 5.962134
+          - filter: filter
+            boost: 5.962134
+          create_time: 2000-01-23T04:56:07.000+00:00
+          end_time: 2000-01-23T04:56:07.000+00:00
+          exclusions:
+          - key:
+              field: field
+              value: value
+          - key:
+              field: field
+              value: value
+          pins:
+          - position: 5
+            key:
+              field: field
+              value: value
+          - position: 5
+            key:
+              field: field
+              value: value
+          display_name: display_name
+          banners:
+          - image_url: image_url
+            target_url: target_url
+            width: 1
+            description: description
+            id: id
+            position: 6
+            text_color: text_color
+            title: title
+            height: 0
+          - image_url: image_url
+            target_url: target_url
+            width: 1
+            description: description
+            id: id
+            position: 6
+            text_color: text_color
+            title: title
+            height: 0
+          collection_id: collection_id
+          start_time: 2000-01-23T04:56:07.000+00:00
+          condition: condition
+          update_time: 2000-01-23T04:56:07.000+00:00
+          disabled: true
+          id: id
+          filter_conditions:
+          - filter:
+            - filter
+            - filter
+          - filter:
+            - filter
+            - filter
+          range_boosts:
+          - null_boost: 9.301444
+            field: field
+            start: 3.6160767
+            boost: 2.302136
+            end: 7.0614014
+          - null_boost: 9.301444
+            field: field
+            start: 3.6160767
+            boost: 2.302136
+            end: 7.0614014
+        - filter_boosts:
+          - filter: filter
+            boost: 5.962134
+          - filter: filter
+            boost: 5.962134
+          create_time: 2000-01-23T04:56:07.000+00:00
+          end_time: 2000-01-23T04:56:07.000+00:00
+          exclusions:
+          - key:
+              field: field
+              value: value
+          - key:
+              field: field
+              value: value
+          pins:
+          - position: 5
+            key:
+              field: field
+              value: value
+          - position: 5
+            key:
+              field: field
+              value: value
+          display_name: display_name
+          banners:
+          - image_url: image_url
+            target_url: target_url
+            width: 1
+            description: description
+            id: id
+            position: 6
+            text_color: text_color
+            title: title
+            height: 0
+          - image_url: image_url
+            target_url: target_url
+            width: 1
+            description: description
+            id: id
+            position: 6
+            text_color: text_color
+            title: title
+            height: 0
+          collection_id: collection_id
+          start_time: 2000-01-23T04:56:07.000+00:00
+          condition: condition
+          update_time: 2000-01-23T04:56:07.000+00:00
+          disabled: true
+          id: id
+          filter_conditions:
+          - filter:
+            - filter
+            - filter
+          - filter:
+            - filter
+            - filter
+          range_boosts:
+          - null_boost: 9.301444
+            field: field
+            start: 3.6160767
+            boost: 2.302136
+            end: 7.0614014
+          - null_boost: 9.301444
+            field: field
+            start: 3.6160767
+            boost: 2.302136
+            end: 7.0614014
+        variables:
+          key: '{}'
+        custom_pipeline:
+          create_time: 2000-01-23T04:56:07.000+00:00
+          post_steps:
+          - condition: condition
+            annotations:
+            - annotations
+            - annotations
+            description: description
+            id: id
+            params:
+              key:
+                bind: bind
+                constant: constant
+                description: description
+                default_value: default_value
+            title: title
+          - condition: condition
+            annotations:
+            - annotations
+            - annotations
+            description: description
+            id: id
+            params:
+              key:
+                bind: bind
+                constant: constant
+                description: description
+                default_value: default_value
+            title: title
+          collection_default: true
+          default_version: true
+          name: name
+          pre_steps:
+          - condition: condition
+            annotations:
+            - annotations
+            - annotations
+            description: description
+            id: id
+            params:
+              key:
+                bind: bind
+                constant: constant
+                description: description
+                default_value: default_value
+            title: title
+          - condition: condition
+            annotations:
+            - annotations
+            - annotations
+            description: description
+            id: id
+            params:
+              key:
+                bind: bind
+                constant: constant
+                description: description
+                default_value: default_value
+            title: title
+          description: description
+          version: version
+      properties:
+        custom_pipeline:
+          $ref: '#/components/schemas/Pipeline'
+        pipeline:
+          $ref: '#/components/schemas/ExperimentRequestPipeline'
+        promotions:
+          description: |-
+            The promotions to consider active when running the search.
+
+            Provided promotions override existing promotions with the same ID.
+          items:
+            $ref: '#/components/schemas/Promotion'
+          type: array
+        variables:
+          additionalProperties:
+            type: object
+          description: |-
+            The initial values for the variables the pipeline operates on and
+            transforms throughout its steps.
+
+            The most important variable is `q` which is the query the user entered, for
+            example:
+
+            ```json
+            { "q": "search terms" }
+            ```
+
+            To paginate through results, set the variables `page` and `resultsPerPage`,
+            for example:
+
+            ```json
+            { "q": "search terms", "page": 5, "resultsPerPage": 20 }
+            ```
+
+            To sort results, set the variable `sort` to the name of one of your
+            collection's schema fields, for example:
+
+            ```json
+            { "q": "search terms", "sort": "name" }
+            ```
+
+            To sort in reverse, prefix the schema field with a minus sign `-`, for
+            example:
+
+            ```json
+            { "q": "search terms", "sort": "-name" }
+            ```
+          type: object
+      required:
+      - variables
+      type: object
+    ExperimentRequestPipeline:
+      description: |-
+        The pipeline to use when running the experiment.
+
+        If not provided the default query pipeline is used.
+      example:
+        name: name
+        version: version
+      properties:
+        name:
+          description: The query pipeline's name, e.g. `my-pipeline`.
+          type: string
+        version:
+          description: |-
+            The query pipeline's version, e.g. `42`.
+
+            If not provided the default version is used.
+          type: string
+      required:
+      - name
+      type: object
+    ExperimentResponse:
+      example:
+        query_response:
+          pipeline:
+            name: name
+            version: version
+          variables:
+            key: '{}'
+          feature_score_weight: 7.386281948385884
+          query_id: query_id
+          redirects:
+            key:
+              id: id
+              target: target
+              token: token
+          processing_duration: processing_duration
+          aggregate_filters:
+            key:
+              date:
+                dates:
+                  key: 9
+              percentile:
+                percentiles:
+                - value: 4.145608029883936
+                  point: 2.027123023002322
+                - value: 4.145608029883936
+                  point: 2.027123023002322
+                cdf:
+                - value: 4.145608029883936
+                  point: 2.027123023002322
+                - value: 4.145608029883936
+                  point: 2.027123023002322
+              metric:
+                value: 3.616076749251911
+              buckets:
+                buckets:
+                  key:
+                    count: 2
+                    name: name
+              count:
+                counts:
+                  key: 7
+              analysis:
+                coverage: 1
+                avg_length: 0.8008282
+                min_length: 5
+                cardinality: 6
+                max_length: 5
+          total_size: total_size
+          aggregates:
+            key:
+              date:
+                dates:
+                  key: 9
+              percentile:
+                percentiles:
+                - value: 4.145608029883936
+                  point: 2.027123023002322
+                - value: 4.145608029883936
+                  point: 2.027123023002322
+                cdf:
+                - value: 4.145608029883936
+                  point: 2.027123023002322
+                - value: 4.145608029883936
+                  point: 2.027123023002322
+              metric:
+                value: 3.616076749251911
+              buckets:
+                buckets:
+                  key:
+                    count: 2
+                    name: name
+              count:
+                counts:
+                  key: 7
+              analysis:
+                coverage: 1
+                avg_length: 0.8008282
+                min_length: 5
+                cardinality: 6
+                max_length: 5
+          active_promotions:
+          - active_pins:
+            - position: 5
+              key:
+                field: field
+                value: value
+            - position: 5
+              key:
+                field: field
+                value: value
+            promotion_id: promotion_id
+            active_exclusions:
+            - key:
+                field: field
+                value: value
+            - key:
+                field: field
+                value: value
+          - active_pins:
+            - position: 5
+              key:
+                field: field
+                value: value
+            - position: 5
+              key:
+                field: field
+                value: value
+            promotion_id: promotion_id
+            active_exclusions:
+            - key:
+                field: field
+                value: value
+            - key:
+                field: field
+                value: value
+          banners:
+          - image_url: image_url
+            target_url: target_url
+            width: 1
+            description: description
+            id: id
+            position: 6
+            text_color: text_color
+            title: title
+            height: 0
+          - image_url: image_url
+            target_url: target_url
+            width: 1
+            description: description
+            id: id
+            position: 6
+            text_color: text_color
+            title: title
+            height: 0
+          results:
+          - score: 7.457744773683766
+            feature_score: 1.2315135367772556
+            record: '{}'
+            banner:
+              image_url: image_url
+              target_url: target_url
+              width: 1
+              description: description
+              id: id
+              position: 6
+              text_color: text_color
+              title: title
+              height: 0
+            index_score: 1.0246457001441578
+            neural_score: 1.4894159098541704
+            relevance_score: 6.84685269835264
+            token:
+              pos_neg:
+                neg: neg
+                pos: pos
+              click:
+                token: token
+          - score: 7.457744773683766
+            feature_score: 1.2315135367772556
+            record: '{}'
+            banner:
+              image_url: image_url
+              target_url: target_url
+              width: 1
+              description: description
+              id: id
+              position: 6
+              text_color: text_color
+              title: title
+              height: 0
+            index_score: 1.0246457001441578
+            neural_score: 1.4894159098541704
+            relevance_score: 6.84685269835264
+            token:
+              pos_neg:
+                neg: neg
+                pos: pos
+              click:
+                token: token
+      properties:
+        query_response:
+          $ref: '#/components/schemas/QueryCollectionResponse'
+      type: object
     GeneratePipelinesRequest:
       example:
         query_training_fields:
@@ -3637,12 +4402,12 @@ components:
         - searchable_fields
       properties:
         query_training_fields:
-          description: List of fields to train query suggestions from.
+          description: A list of fields to train query suggestions from.
           items:
             type: string
           type: array
         searchable_fields:
-          description: Prioritized list of fields to search.
+          description: A prioritized list of fields to search.
           items:
             type: string
           type: array
@@ -3857,8 +4622,8 @@ components:
         The API defaults to the `BASIC` view.
          - BASIC: Include basic information including type, name, version and description
         but not the full step configuration. This is the default value (for both
-        [ListPipelines](/api#operation/ListPipelines) and
-        [GetPipeline](/api#operation/GetPipeline)).
+        [ListPipelines](/docs/api#operation/ListPipelines) and
+        [GetPipeline](/docs/api#operation/GetPipeline)).
          - FULL: Include the information from `BASIC`, plus full step configuration.
       enum:
       - VIEW_UNSPECIFIED
@@ -3872,8 +4637,8 @@ components:
         The API defaults to the `BASIC` view.
          - BASIC: Include basic information including type, name, version and description
         but not the full step configuration. This is the default value (for both
-        [ListPipelines](/api#operation/ListPipelines) and
-        [GetPipeline](/api#operation/GetPipeline)).
+        [ListPipelines](/docs/api#operation/ListPipelines) and
+        [GetPipeline](/docs/api#operation/GetPipeline)).
          - FULL: Include the information from `BASIC`, plus full step configuration.
       enum:
       - VIEW_UNSPECIFIED
@@ -3929,8 +4694,8 @@ components:
         The API defaults to the `BASIC` view.
          - BASIC: Include basic information including type, name, version and description
         but not the full step configuration. This is the default value (for both
-        [ListPipelines](/api#operation/ListPipelines) and
-        [GetPipeline](/api#operation/GetPipeline)).
+        [ListPipelines](/docs/api#operation/ListPipelines) and
+        [GetPipeline](/docs/api#operation/GetPipeline)).
          - FULL: Include the information from `BASIC`, plus full step
         configuration.
       enum:
@@ -4075,14 +4840,27 @@ components:
             $ref: '#/components/schemas/Pipeline'
           type: array
       type: object
+    ListPromotionsRequestPromotionView:
+      default: PROMOTION_VIEW_UNSPECIFIED
+      description: |2-
+         - PROMOTION_VIEW_UNSPECIFIED: The default / unset value.
+        The API defaults to the `FULL` view.
+         - BASIC: Include basic information including name, start time and end time, but
+        not detailed information about the promotion effects.
+         - FULL: Returns all information about a promotion. This is the default value.
+      enum:
+      - PROMOTION_VIEW_UNSPECIFIED
+      - BASIC
+      - FULL
+      type: string
     ListPromotionsResponse:
       example:
         promotions:
         - filter_boosts:
           - filter: filter
-            boost: 0.8008282
+            boost: 5.962134
           - filter: filter
-            boost: 0.8008282
+            boost: 5.962134
           create_time: 2000-01-23T04:56:07.000+00:00
           end_time: 2000-01-23T04:56:07.000+00:00
           exclusions:
@@ -4093,15 +4871,34 @@ components:
               field: field
               value: value
           pins:
-          - position: 6
+          - position: 5
             key:
               field: field
               value: value
-          - position: 6
+          - position: 5
             key:
               field: field
               value: value
           display_name: display_name
+          banners:
+          - image_url: image_url
+            target_url: target_url
+            width: 1
+            description: description
+            id: id
+            position: 6
+            text_color: text_color
+            title: title
+            height: 0
+          - image_url: image_url
+            target_url: target_url
+            width: 1
+            description: description
+            id: id
+            position: 6
+            text_color: text_color
+            title: title
+            height: 0
           collection_id: collection_id
           start_time: 2000-01-23T04:56:07.000+00:00
           condition: condition
@@ -4116,21 +4913,21 @@ components:
             - filter
             - filter
           range_boosts:
-          - null_boost: 5.637377
+          - null_boost: 9.301444
             field: field
-            start: 2.302136
-            boost: 1.4658129
-            end: 5.962134
-          - null_boost: 5.637377
+            start: 3.6160767
+            boost: 2.302136
+            end: 7.0614014
+          - null_boost: 9.301444
             field: field
-            start: 2.302136
-            boost: 1.4658129
-            end: 5.962134
+            start: 3.6160767
+            boost: 2.302136
+            end: 7.0614014
         - filter_boosts:
           - filter: filter
-            boost: 0.8008282
+            boost: 5.962134
           - filter: filter
-            boost: 0.8008282
+            boost: 5.962134
           create_time: 2000-01-23T04:56:07.000+00:00
           end_time: 2000-01-23T04:56:07.000+00:00
           exclusions:
@@ -4141,15 +4938,34 @@ components:
               field: field
               value: value
           pins:
-          - position: 6
+          - position: 5
             key:
               field: field
               value: value
-          - position: 6
+          - position: 5
             key:
               field: field
               value: value
           display_name: display_name
+          banners:
+          - image_url: image_url
+            target_url: target_url
+            width: 1
+            description: description
+            id: id
+            position: 6
+            text_color: text_color
+            title: title
+            height: 0
+          - image_url: image_url
+            target_url: target_url
+            width: 1
+            description: description
+            id: id
+            position: 6
+            text_color: text_color
+            title: title
+            height: 0
           collection_id: collection_id
           start_time: 2000-01-23T04:56:07.000+00:00
           condition: condition
@@ -4164,16 +4980,16 @@ components:
             - filter
             - filter
           range_boosts:
-          - null_boost: 5.637377
+          - null_boost: 9.301444
             field: field
-            start: 2.302136
-            boost: 1.4658129
-            end: 5.962134
-          - null_boost: 5.637377
+            start: 3.6160767
+            boost: 2.302136
+            end: 7.0614014
+          - null_boost: 9.301444
             field: field
-            start: 2.302136
-            boost: 1.4658129
-            end: 5.962134
+            start: 3.6160767
+            boost: 2.302136
+            end: 7.0614014
         next_page_token: next_page_token
       properties:
         next_page_token:
@@ -4478,9 +5294,9 @@ components:
       example:
         filter_boosts:
         - filter: filter
-          boost: 0.8008282
+          boost: 5.962134
         - filter: filter
-          boost: 0.8008282
+          boost: 5.962134
         create_time: 2000-01-23T04:56:07.000+00:00
         end_time: 2000-01-23T04:56:07.000+00:00
         exclusions:
@@ -4491,15 +5307,34 @@ components:
             field: field
             value: value
         pins:
-        - position: 6
+        - position: 5
           key:
             field: field
             value: value
-        - position: 6
+        - position: 5
           key:
             field: field
             value: value
         display_name: display_name
+        banners:
+        - image_url: image_url
+          target_url: target_url
+          width: 1
+          description: description
+          id: id
+          position: 6
+          text_color: text_color
+          title: title
+          height: 0
+        - image_url: image_url
+          target_url: target_url
+          width: 1
+          description: description
+          id: id
+          position: 6
+          text_color: text_color
+          title: title
+          height: 0
         collection_id: collection_id
         start_time: 2000-01-23T04:56:07.000+00:00
         condition: condition
@@ -4514,17 +5349,24 @@ components:
           - filter
           - filter
         range_boosts:
-        - null_boost: 5.637377
+        - null_boost: 9.301444
           field: field
-          start: 2.302136
-          boost: 1.4658129
-          end: 5.962134
-        - null_boost: 5.637377
+          start: 3.6160767
+          boost: 2.302136
+          end: 7.0614014
+        - null_boost: 9.301444
           field: field
-          start: 2.302136
-          boost: 1.4658129
-          end: 5.962134
+          start: 3.6160767
+          boost: 2.302136
+          end: 7.0614014
       properties:
+        banners:
+          description: |-
+            The banners that are injected into the result set when the promotion is
+            triggered.
+          items:
+            $ref: '#/components/schemas/Banner'
+          type: array
         collection_id:
           description: Output only. The ID of the collection that owns this promotion.
           readOnly: true
@@ -4626,7 +5468,7 @@ components:
     PromotionFilterBoost:
       example:
         filter: filter
-        boost: 0.8008282
+        boost: 5.962134
       properties:
         boost:
           description: |-
@@ -4662,13 +5504,15 @@ components:
       type: object
     PromotionPin:
       example:
-        position: 6
+        position: 5
         key:
           field: field
           value: value
       properties:
         key:
           $ref: '#/components/schemas/RecordKey'
+        mode:
+          $ref: '#/components/schemas/PromotionPinMode'
         position:
           description: |-
             Position the record should occupy in search results. The top position is
@@ -4682,13 +5526,27 @@ components:
           format: int32
           type: integer
       type: object
+    PromotionPinMode:
+      default: PIN
+      description: |2-
+         - PIN: The pin applies regardless of whether the pinned item is in the
+        underlying result set of the search.
+
+        This has the net effect that a search result can be surfaced even if it
+        was not originally a part of the search result set.
+         - PROMOTE: The pin only applies if the pinned item is in the underlying result set
+        of the search.
+      enum:
+      - PIN
+      - PROMOTE
+      type: string
     PromotionRangeBoost:
       example:
-        null_boost: 5.637377
+        null_boost: 9.301444
         field: field
-        start: 2.302136
-        boost: 1.4658129
-        end: 5.962134
+        start: 3.6160767
+        boost: 2.302136
+        end: 7.0614014
       properties:
         boost:
           description: |-
@@ -4969,19 +5827,19 @@ components:
         data:
           additionalProperties:
             type: string
-          description: Custom values to be included in tracking data.
+          description: A set of custom values to be included in tracking data.
           type: object
         field:
           description: |-
-            Tracking field used to identify records in the collection.
+            The tracking field used to identify records in the collection.
 
             Must be unique schema field.
           type: string
         query_id:
-          description: Query ID of the query. If this is empty, then one is generated.
+          description: The query ID of the query. If this is empty, then one is generated.
           type: string
         sequence:
-          description: Sequence number of query.
+          description: The sequence number of query.
           format: int32
           type: integer
         type:
@@ -5004,11 +5862,17 @@ components:
         set can be marked with pos/neg value for the search. This is then fed
         back into the ranking algorithm to improve future results. Unlike
         `CLICK`, if no tokens are reported for records then no action is taken.
+         - EVENT: Event tracking.
+
+        A query identifier is returned in the
+        [QueryResponse][sajari.v4.QueryResponse] that can be used to link a
+        user interaction to a specific query.
       enum:
       - TYPE_UNSPECIFIED
       - NONE
       - CLICK
       - POS_NEG
+      - EVENT
       type: string
     QueryCollectionResponse:
       example:
@@ -5018,6 +5882,7 @@ components:
         variables:
           key: '{}'
         feature_score_weight: 7.386281948385884
+        query_id: query_id
         redirects:
           key:
             id: id
@@ -5091,11 +5956,11 @@ components:
               max_length: 5
         active_promotions:
         - active_pins:
-          - position: 6
+          - position: 5
             key:
               field: field
               value: value
-          - position: 6
+          - position: 5
             key:
               field: field
               value: value
@@ -5108,11 +5973,11 @@ components:
               field: field
               value: value
         - active_pins:
-          - position: 6
+          - position: 5
             key:
               field: field
               value: value
-          - position: 6
+          - position: 5
             key:
               field: field
               value: value
@@ -5124,23 +5989,64 @@ components:
           - key:
               field: field
               value: value
+        banners:
+        - image_url: image_url
+          target_url: target_url
+          width: 1
+          description: description
+          id: id
+          position: 6
+          text_color: text_color
+          title: title
+          height: 0
+        - image_url: image_url
+          target_url: target_url
+          width: 1
+          description: description
+          id: id
+          position: 6
+          text_color: text_color
+          title: title
+          height: 0
         results:
-        - score: 6.84685269835264
+        - score: 7.457744773683766
           feature_score: 1.2315135367772556
           record: '{}'
+          banner:
+            image_url: image_url
+            target_url: target_url
+            width: 1
+            description: description
+            id: id
+            position: 6
+            text_color: text_color
+            title: title
+            height: 0
           index_score: 1.0246457001441578
           neural_score: 1.4894159098541704
+          relevance_score: 6.84685269835264
           token:
             pos_neg:
               neg: neg
               pos: pos
             click:
               token: token
-        - score: 6.84685269835264
+        - score: 7.457744773683766
           feature_score: 1.2315135367772556
           record: '{}'
+          banner:
+            image_url: image_url
+            target_url: target_url
+            width: 1
+            description: description
+            id: id
+            position: 6
+            text_color: text_color
+            title: title
+            height: 0
           index_score: 1.0246457001441578
           neural_score: 1.4894159098541704
+          relevance_score: 6.84685269835264
           token:
             pos_neg:
               neg: neg
@@ -5163,6 +6069,11 @@ components:
             $ref: '#/components/schemas/QueryAggregateResult'
           description: The aggregates returned by the query.
           type: object
+        banners:
+          description: Banners associated with this query.
+          items:
+            $ref: '#/components/schemas/Banner'
+          type: array
         feature_score_weight:
           description: |-
             The weight applied to the features in the query, used for analyzing the
@@ -5180,6 +6091,13 @@ components:
           $ref: '#/components/schemas/QueryCollectionResponsePipeline'
         processing_duration:
           description: The total time taken to perform the query.
+          type: string
+        query_id:
+          description: |-
+            The query identifier.
+
+            This uniqely identifies the specific query it was returned on.
+            This is used to link user interactions with a query.
           type: string
         redirects:
           additionalProperties:
@@ -5219,11 +6137,22 @@ components:
       type: object
     QueryResult:
       example:
-        score: 6.84685269835264
+        score: 7.457744773683766
         feature_score: 1.2315135367772556
         record: '{}'
+        banner:
+          image_url: image_url
+          target_url: target_url
+          width: 1
+          description: description
+          id: id
+          position: 6
+          text_color: text_color
+          title: title
+          height: 0
         index_score: 1.0246457001441578
         neural_score: 1.4894159098541704
+        relevance_score: 6.84685269835264
         token:
           pos_neg:
             neg: neg
@@ -5231,6 +6160,8 @@ components:
           click:
             token: token
       properties:
+        banner:
+          $ref: '#/components/schemas/Banner'
         feature_score:
           description: |-
             The feature score of the result.
@@ -5262,6 +6193,14 @@ components:
           description: An object made up of field-value pairs that contains the record
             data.
           type: object
+        relevance_score:
+          description: |-
+            The relevance score of the result.
+
+            This is the best of `index_score` and `neural_score` with any index boosts
+            applied on top.
+          format: double
+          type: number
         score:
           description: |-
             The overall relevance of the result.
@@ -5386,9 +6325,7 @@ components:
       - target
       type: object
     RedirectResult:
-      description: |-
-        RedirectResult indicates that a redirect has been triggered for a given
-        query.
+      description: Indicates that a redirect has been triggered for a given query.
       example:
         id: id
         target: target
@@ -5596,6 +6533,27 @@ components:
             user-facing error message should be localized and sent in the
             [google.rpc.Status.details][google.rpc.Status.details] field, or localized by the client.
           type: string
+      type: object
+    TextPosition:
+      default: TEXT_POSITION_UNSPECIFIED
+      description: |-
+        TextPosition describes the position of text in a box.
+
+         - TEXT_POSITION_UNSPECIFIED: No position specified.
+         - TEXT_POSITION_CENTER: The text is positioned in the horizontal and vertical center.
+         - TEXT_POSITION_TOP_LEFT: The text is positioned in the top left corner.
+         - TEXT_POSITION_TOP_RIGHT: The text is positioned in the top right corner.
+         - TEXT_POSITION_BOTTOM_LEFT: The text is positioned in the bottom left corner.
+         - TEXT_POSITION_BOTTOM_RIGHT: The text is positioned in the bottom right corner.
+      enum:
+      - TEXT_POSITION_UNSPECIFIED
+      - TEXT_POSITION_CENTER
+      - TEXT_POSITION_TOP_LEFT
+      - TEXT_POSITION_TOP_RIGHT
+      - TEXT_POSITION_BOTTOM_LEFT
+      - TEXT_POSITION_BOTTOM_RIGHT
+      type: string
+    TrackEventResponse:
       type: object
     UpdateRecordRequest:
       example:

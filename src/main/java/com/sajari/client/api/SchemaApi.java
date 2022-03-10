@@ -129,7 +129,7 @@ public class SchemaApi {
             "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarHeaderParams != null) {
+        if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
@@ -158,7 +158,7 @@ public class SchemaApi {
 
     /**
      * Batch create schema fields
-     * The batch version of the [CreateSchemaField](/api#operation/CreateSchemaField) call.
+     * The batch version of the [CreateSchemaField](/docs/api#operation/CreateSchemaField) call.
      * @param collectionId The collection to create the schema fields in, e.g. &#x60;my-collection&#x60;. (required)
      * @param batchCreateSchemaFieldsRequest  (required)
      * @return BatchCreateSchemaFieldsResponse
@@ -181,7 +181,7 @@ public class SchemaApi {
 
     /**
      * Batch create schema fields
-     * The batch version of the [CreateSchemaField](/api#operation/CreateSchemaField) call.
+     * The batch version of the [CreateSchemaField](/docs/api#operation/CreateSchemaField) call.
      * @param collectionId The collection to create the schema fields in, e.g. &#x60;my-collection&#x60;. (required)
      * @param batchCreateSchemaFieldsRequest  (required)
      * @return ApiResponse&lt;BatchCreateSchemaFieldsResponse&gt;
@@ -205,7 +205,7 @@ public class SchemaApi {
 
     /**
      * Batch create schema fields (asynchronously)
-     * The batch version of the [CreateSchemaField](/api#operation/CreateSchemaField) call.
+     * The batch version of the [CreateSchemaField](/docs/api#operation/CreateSchemaField) call.
      * @param collectionId The collection to create the schema fields in, e.g. &#x60;my-collection&#x60;. (required)
      * @param batchCreateSchemaFieldsRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -286,7 +286,7 @@ public class SchemaApi {
             "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarHeaderParams != null) {
+        if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
@@ -390,7 +390,7 @@ public class SchemaApi {
      * Build call for listSchemaFields
      * @param collectionId The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;. (required)
      * @param pageSize The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param pageToken A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)
+     * @param pageToken A page token, received from a previous [ListSchemaFields](/docs/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/docs/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -452,7 +452,7 @@ public class SchemaApi {
             
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarHeaderParams != null) {
+        if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
@@ -479,7 +479,7 @@ public class SchemaApi {
      * Retrieve a list of schema fields in a collection.
      * @param collectionId The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;. (required)
      * @param pageSize The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param pageToken A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)
+     * @param pageToken A page token, received from a previous [ListSchemaFields](/docs/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/docs/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)
      * @return ListSchemaFieldsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -503,7 +503,7 @@ public class SchemaApi {
      * Retrieve a list of schema fields in a collection.
      * @param collectionId The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;. (required)
      * @param pageSize The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param pageToken A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)
+     * @param pageToken A page token, received from a previous [ListSchemaFields](/docs/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/docs/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)
      * @return ApiResponse&lt;ListSchemaFieldsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -528,7 +528,7 @@ public class SchemaApi {
      * Retrieve a list of schema fields in a collection.
      * @param collectionId The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;. (required)
      * @param pageSize The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param pageToken A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)
+     * @param pageToken A page token, received from a previous [ListSchemaFields](/docs/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/docs/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
