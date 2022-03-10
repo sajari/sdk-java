@@ -131,7 +131,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("sajari-sdk-java-4.3.0");
+        setUserAgent("sajari-sdk-java-5.0.0");
 
         authentications = new HashMap<String, Authentication>();
     }

@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.sajari.client.model.ActivePromotion;
+import com.sajari.client.model.Banner;
 import com.sajari.client.model.QueryAggregateResult;
 import com.sajari.client.model.QueryCollectionResponsePipeline;
 import com.sajari.client.model.QueryResult;
@@ -46,6 +47,10 @@ public class QueryCollectionResponse {
   @SerializedName(SERIALIZED_NAME_AGGREGATES)
   private java.util.Map<String, QueryAggregateResult> aggregates = null;
 
+  public static final String SERIALIZED_NAME_BANNERS = "banners";
+  @SerializedName(SERIALIZED_NAME_BANNERS)
+  private java.util.List<Banner> banners = null;
+
   public static final String SERIALIZED_NAME_FEATURE_SCORE_WEIGHT = "feature_score_weight";
   @SerializedName(SERIALIZED_NAME_FEATURE_SCORE_WEIGHT)
   private Double featureScoreWeight;
@@ -57,6 +62,10 @@ public class QueryCollectionResponse {
   public static final String SERIALIZED_NAME_PROCESSING_DURATION = "processing_duration";
   @SerializedName(SERIALIZED_NAME_PROCESSING_DURATION)
   private String processingDuration;
+
+  public static final String SERIALIZED_NAME_QUERY_ID = "query_id";
+  @SerializedName(SERIALIZED_NAME_QUERY_ID)
+  private String queryId;
 
   public static final String SERIALIZED_NAME_REDIRECTS = "redirects";
   @SerializedName(SERIALIZED_NAME_REDIRECTS)
@@ -170,6 +179,37 @@ public class QueryCollectionResponse {
   }
 
 
+  public QueryCollectionResponse banners(java.util.List<Banner> banners) {
+    
+    this.banners = banners;
+    return this;
+  }
+
+  public QueryCollectionResponse addBannersItem(Banner bannersItem) {
+    if (this.banners == null) {
+      this.banners = new java.util.ArrayList<>();
+    }
+    this.banners.add(bannersItem);
+    return this;
+  }
+
+   /**
+   * Banners associated with this query.
+   * @return banners
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Banners associated with this query.")
+
+  public java.util.List<Banner> getBanners() {
+    return banners;
+  }
+
+
+  public void setBanners(java.util.List<Banner> banners) {
+    this.banners = banners;
+  }
+
+
   public QueryCollectionResponse featureScoreWeight(Double featureScoreWeight) {
     
     this.featureScoreWeight = featureScoreWeight;
@@ -236,6 +276,29 @@ public class QueryCollectionResponse {
 
   public void setProcessingDuration(String processingDuration) {
     this.processingDuration = processingDuration;
+  }
+
+
+  public QueryCollectionResponse queryId(String queryId) {
+    
+    this.queryId = queryId;
+    return this;
+  }
+
+   /**
+   * The query identifier.  This uniqely identifies the specific query it was returned on. This is used to link user interactions with a query.
+   * @return queryId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The query identifier.  This uniqely identifies the specific query it was returned on. This is used to link user interactions with a query.")
+
+  public String getQueryId() {
+    return queryId;
+  }
+
+
+  public void setQueryId(String queryId) {
+    this.queryId = queryId;
   }
 
 
@@ -367,9 +430,11 @@ public class QueryCollectionResponse {
     return Objects.equals(this.activePromotions, queryCollectionResponse.activePromotions) &&
         Objects.equals(this.aggregateFilters, queryCollectionResponse.aggregateFilters) &&
         Objects.equals(this.aggregates, queryCollectionResponse.aggregates) &&
+        Objects.equals(this.banners, queryCollectionResponse.banners) &&
         Objects.equals(this.featureScoreWeight, queryCollectionResponse.featureScoreWeight) &&
         Objects.equals(this.pipeline, queryCollectionResponse.pipeline) &&
         Objects.equals(this.processingDuration, queryCollectionResponse.processingDuration) &&
+        Objects.equals(this.queryId, queryCollectionResponse.queryId) &&
         Objects.equals(this.redirects, queryCollectionResponse.redirects) &&
         Objects.equals(this.results, queryCollectionResponse.results) &&
         Objects.equals(this.totalSize, queryCollectionResponse.totalSize) &&
@@ -378,7 +443,7 @@ public class QueryCollectionResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activePromotions, aggregateFilters, aggregates, featureScoreWeight, pipeline, processingDuration, redirects, results, totalSize, variables);
+    return Objects.hash(activePromotions, aggregateFilters, aggregates, banners, featureScoreWeight, pipeline, processingDuration, queryId, redirects, results, totalSize, variables);
   }
 
   @Override
@@ -388,9 +453,11 @@ public class QueryCollectionResponse {
     sb.append("    activePromotions: ").append(toIndentedString(activePromotions)).append("\n");
     sb.append("    aggregateFilters: ").append(toIndentedString(aggregateFilters)).append("\n");
     sb.append("    aggregates: ").append(toIndentedString(aggregates)).append("\n");
+    sb.append("    banners: ").append(toIndentedString(banners)).append("\n");
     sb.append("    featureScoreWeight: ").append(toIndentedString(featureScoreWeight)).append("\n");
     sb.append("    pipeline: ").append(toIndentedString(pipeline)).append("\n");
     sb.append("    processingDuration: ").append(toIndentedString(processingDuration)).append("\n");
+    sb.append("    queryId: ").append(toIndentedString(queryId)).append("\n");
     sb.append("    redirects: ").append(toIndentedString(redirects)).append("\n");
     sb.append("    results: ").append(toIndentedString(results)).append("\n");
     sb.append("    totalSize: ").append(toIndentedString(totalSize)).append("\n");

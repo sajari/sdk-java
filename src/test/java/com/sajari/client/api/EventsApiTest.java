@@ -37,8 +37,9 @@ public class EventsApiTest {
      */
     @Test
     public void sendEventTest() throws ApiException {
+        String accountId = null;
         SendEventRequest sendEventRequest = null;
-        Object response = api.sendEvent(sendEventRequest);
+        Object response = api.sendEvent(accountId, sendEventRequest);
 
         // TODO: test validations
     }

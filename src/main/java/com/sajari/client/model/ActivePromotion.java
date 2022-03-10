@@ -27,9 +27,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * ActivePromotion is a promotion that is active for a given search.
+ * A promotion that is active for a given search.
  */
-@ApiModel(description = "ActivePromotion is a promotion that is active for a given search.")
+@ApiModel(description = "A promotion that is active for a given search.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ActivePromotion {
   public static final String SERIALIZED_NAME_ACTIVE_EXCLUSIONS = "active_exclusions";

@@ -267,7 +267,7 @@ public class Example {
     RedirectsApi apiInstance = new RedirectsApi(defaultClient);
     String collectionId = "collectionId_example"; // String | The collection that owns this set of redirects, e.g. `my-collection`.
     Integer pageSize = 56; // Integer | The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000.
-    String pageToken = "pageToken_example"; // String | A page token, received from a previous [ListRedirects](/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/api#operation/ListRedirects) must match the call that provided the page token.
+    String pageToken = "pageToken_example"; // String | A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token.
     try {
       ListRedirectsResponse result = apiInstance.listRedirects(collectionId, pageSize, pageToken);
       System.out.println(result);
@@ -288,7 +288,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**| The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;. |
  **pageSize** | **Integer**| The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. | [optional]
- **pageToken** | **String**| A page token, received from a previous [ListRedirects](/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/api#operation/ListRedirects) must match the call that provided the page token. | [optional]
+ **pageToken** | **String**| A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. | [optional]
 
 ### Return type
 

@@ -127,7 +127,7 @@ public class PromotionsApi {
             "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarHeaderParams != null) {
+        if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
@@ -285,7 +285,7 @@ public class PromotionsApi {
             
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarHeaderParams != null) {
+        if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
@@ -443,7 +443,7 @@ public class PromotionsApi {
             
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarHeaderParams != null) {
+        if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
@@ -547,7 +547,8 @@ public class PromotionsApi {
      * Build call for listPromotions
      * @param collectionId The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;. (required)
      * @param pageSize The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param pageToken A page token, received from a previous [ListPromotions](/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/api#operation/ListPromotions) must match the call that provided the page token. (optional)
+     * @param pageToken A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)
+     * @param view The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to PROMOTION_VIEW_UNSPECIFIED)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -562,7 +563,7 @@ public class PromotionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listPromotionsCall(String collectionId, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listPromotionsCall(String collectionId, Integer pageSize, String pageToken, String view, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -597,6 +598,10 @@ public class PromotionsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("page_token", pageToken));
         }
 
+        if (view != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("view", view));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -609,7 +614,7 @@ public class PromotionsApi {
             
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarHeaderParams != null) {
+        if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
@@ -618,7 +623,7 @@ public class PromotionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listPromotionsValidateBeforeCall(String collectionId, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listPromotionsValidateBeforeCall(String collectionId, Integer pageSize, String pageToken, String view, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
@@ -626,7 +631,7 @@ public class PromotionsApi {
         }
         
 
-        okhttp3.Call localVarCall = listPromotionsCall(collectionId, pageSize, pageToken, _callback);
+        okhttp3.Call localVarCall = listPromotionsCall(collectionId, pageSize, pageToken, view, _callback);
         return localVarCall;
 
     }
@@ -636,7 +641,8 @@ public class PromotionsApi {
      * Retrieve a list of promotions in a collection.  Promotion pins, exclusions and filter boosts are not returned in this call.
      * @param collectionId The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;. (required)
      * @param pageSize The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param pageToken A page token, received from a previous [ListPromotions](/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/api#operation/ListPromotions) must match the call that provided the page token. (optional)
+     * @param pageToken A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)
+     * @param view The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to PROMOTION_VIEW_UNSPECIFIED)
      * @return ListPromotionsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -650,8 +656,8 @@ public class PromotionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ListPromotionsResponse listPromotions(String collectionId, Integer pageSize, String pageToken) throws ApiException {
-        ApiResponse<ListPromotionsResponse> localVarResp = listPromotionsWithHttpInfo(collectionId, pageSize, pageToken);
+    public ListPromotionsResponse listPromotions(String collectionId, Integer pageSize, String pageToken, String view) throws ApiException {
+        ApiResponse<ListPromotionsResponse> localVarResp = listPromotionsWithHttpInfo(collectionId, pageSize, pageToken, view);
         return localVarResp.getData();
     }
 
@@ -660,7 +666,8 @@ public class PromotionsApi {
      * Retrieve a list of promotions in a collection.  Promotion pins, exclusions and filter boosts are not returned in this call.
      * @param collectionId The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;. (required)
      * @param pageSize The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param pageToken A page token, received from a previous [ListPromotions](/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/api#operation/ListPromotions) must match the call that provided the page token. (optional)
+     * @param pageToken A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)
+     * @param view The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to PROMOTION_VIEW_UNSPECIFIED)
      * @return ApiResponse&lt;ListPromotionsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -674,8 +681,8 @@ public class PromotionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListPromotionsResponse> listPromotionsWithHttpInfo(String collectionId, Integer pageSize, String pageToken) throws ApiException {
-        okhttp3.Call localVarCall = listPromotionsValidateBeforeCall(collectionId, pageSize, pageToken, null);
+    public ApiResponse<ListPromotionsResponse> listPromotionsWithHttpInfo(String collectionId, Integer pageSize, String pageToken, String view) throws ApiException {
+        okhttp3.Call localVarCall = listPromotionsValidateBeforeCall(collectionId, pageSize, pageToken, view, null);
         Type localVarReturnType = new TypeToken<ListPromotionsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -685,7 +692,8 @@ public class PromotionsApi {
      * Retrieve a list of promotions in a collection.  Promotion pins, exclusions and filter boosts are not returned in this call.
      * @param collectionId The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;. (required)
      * @param pageSize The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param pageToken A page token, received from a previous [ListPromotions](/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/api#operation/ListPromotions) must match the call that provided the page token. (optional)
+     * @param pageToken A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)
+     * @param view The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to PROMOTION_VIEW_UNSPECIFIED)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -700,9 +708,9 @@ public class PromotionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listPromotionsAsync(String collectionId, Integer pageSize, String pageToken, final ApiCallback<ListPromotionsResponse> _callback) throws ApiException {
+    public okhttp3.Call listPromotionsAsync(String collectionId, Integer pageSize, String pageToken, String view, final ApiCallback<ListPromotionsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listPromotionsValidateBeforeCall(collectionId, pageSize, pageToken, _callback);
+        okhttp3.Call localVarCall = listPromotionsValidateBeforeCall(collectionId, pageSize, pageToken, view, _callback);
         Type localVarReturnType = new TypeToken<ListPromotionsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -771,7 +779,7 @@ public class PromotionsApi {
             "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarHeaderParams != null) {
+        if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 

@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>com.sajari</groupId>
     <artifactId>sdk-java-client</artifactId>
-    <version>4.3.0</version>
+    <version>5.0.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.sajari:sdk-java-client:4.3.0"
+compile "com.sajari:sdk-java-client:5.0.0"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/sdk-java-client-4.3.0.jar`
+- `target/sdk-java-client-5.0.0.jar`
 - `target/lib/*.jar`
 
 ## Getting Started
@@ -117,10 +117,12 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *CollectionsApi* | [**createCollection**](docs/CollectionsApi.md#createCollection) | **POST** /v4/collections | Create collection
 *CollectionsApi* | [**deleteCollection**](docs/CollectionsApi.md#deleteCollection) | **DELETE** /v4/collections/{collection_id} | Delete collection
+*CollectionsApi* | [**experiment**](docs/CollectionsApi.md#experiment) | **POST** /v4/collections/{collection_id}:experiment | Experiment
 *CollectionsApi* | [**getCollection**](docs/CollectionsApi.md#getCollection) | **GET** /v4/collections/{collection_id} | Get collection
 *CollectionsApi* | [**listCollections**](docs/CollectionsApi.md#listCollections) | **GET** /v4/collections | List collections
 *CollectionsApi* | [**queryCollection**](docs/CollectionsApi.md#queryCollection) | **POST** /v4/collections/{collection_id}:query | Query collection
 *CollectionsApi* | [**queryCollection2**](docs/CollectionsApi.md#queryCollection2) | **POST** /v4/collections/{collection_id}:queryCollection | Query collection
+*CollectionsApi* | [**trackEvent**](docs/CollectionsApi.md#trackEvent) | **POST** /v4/collections/{collection_id}:trackEvent | Track event
 *CollectionsApi* | [**updateCollection**](docs/CollectionsApi.md#updateCollection) | **PATCH** /v4/collections/{collection_id} | Update collection
 *EventsApi* | [**sendEvent**](docs/EventsApi.md#sendEvent) | **POST** /v4/events:send | Send event
 *EventsApi* | [**sendEvent2**](docs/EventsApi.md#sendEvent2) | **POST** /v4/events:sendEvent | Send event
@@ -156,6 +158,7 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [ActivePromotion](docs/ActivePromotion.md)
+ - [Banner](docs/Banner.md)
  - [BatchCreateSchemaFieldsRequest](docs/BatchCreateSchemaFieldsRequest.md)
  - [BatchCreateSchemaFieldsResponse](docs/BatchCreateSchemaFieldsResponse.md)
  - [BatchCreateSchemaFieldsResponseError](docs/BatchCreateSchemaFieldsResponseError.md)
@@ -172,6 +175,10 @@ Class | Method | HTTP request | Description
  - [Collection](docs/Collection.md)
  - [DeleteRecordRequest](docs/DeleteRecordRequest.md)
  - [Error](docs/Error.md)
+ - [Event](docs/Event.md)
+ - [ExperimentRequest](docs/ExperimentRequest.md)
+ - [ExperimentRequestPipeline](docs/ExperimentRequestPipeline.md)
+ - [ExperimentResponse](docs/ExperimentResponse.md)
  - [GeneratePipelinesRequest](docs/GeneratePipelinesRequest.md)
  - [GeneratePipelinesResponse](docs/GeneratePipelinesResponse.md)
  - [GetDefaultPipelineResponse](docs/GetDefaultPipelineResponse.md)
@@ -181,6 +188,7 @@ Class | Method | HTTP request | Description
  - [ListCollectionsResponse](docs/ListCollectionsResponse.md)
  - [ListPipelinesRequestView](docs/ListPipelinesRequestView.md)
  - [ListPipelinesResponse](docs/ListPipelinesResponse.md)
+ - [ListPromotionsRequestPromotionView](docs/ListPromotionsRequestPromotionView.md)
  - [ListPromotionsResponse](docs/ListPromotionsResponse.md)
  - [ListRedirectsResponse](docs/ListRedirectsResponse.md)
  - [ListSchemaFieldsResponse](docs/ListSchemaFieldsResponse.md)
@@ -195,6 +203,7 @@ Class | Method | HTTP request | Description
  - [PromotionFilterBoost](docs/PromotionFilterBoost.md)
  - [PromotionFilterCondition](docs/PromotionFilterCondition.md)
  - [PromotionPin](docs/PromotionPin.md)
+ - [PromotionPinMode](docs/PromotionPinMode.md)
  - [PromotionRangeBoost](docs/PromotionRangeBoost.md)
  - [ProtobufAny](docs/ProtobufAny.md)
  - [ProtobufFieldMask](docs/ProtobufFieldMask.md)
@@ -227,6 +236,7 @@ Class | Method | HTTP request | Description
  - [SetDefaultPipelineRequest](docs/SetDefaultPipelineRequest.md)
  - [SetDefaultVersionRequest](docs/SetDefaultVersionRequest.md)
  - [Status](docs/Status.md)
+ - [TextPosition](docs/TextPosition.md)
  - [UpdateRecordRequest](docs/UpdateRecordRequest.md)
  - [UpsertRecordRequest](docs/UpsertRecordRequest.md)
  - [UpsertRecordRequestPipeline](docs/UpsertRecordRequestPipeline.md)

@@ -91,7 +91,8 @@ public class PromotionsApiTest {
         String collectionId = null;
         Integer pageSize = null;
         String pageToken = null;
-                ListPromotionsResponse response = api.listPromotions(collectionId, pageSize, pageToken);
+        String view = null;
+                ListPromotionsResponse response = api.listPromotions(collectionId, pageSize, pageToken, view);
         // TODO: test validations
     }
     

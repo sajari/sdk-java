@@ -13,5 +13,7 @@
 
 * `POS_NEG` (value: `"POS_NEG"`)
 
+* `EVENT` (value: `"EVENT"`)
+
 
 

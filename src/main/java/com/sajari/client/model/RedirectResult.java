@@ -25,9 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * RedirectResult indicates that a redirect has been triggered for a given query.
+ * Indicates that a redirect has been triggered for a given query.
  */
-@ApiModel(description = "RedirectResult indicates that a redirect has been triggered for a given query.")
+@ApiModel(description = "Indicates that a redirect has been triggered for a given query.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RedirectResult {
   public static final String SERIALIZED_NAME_ID = "id";

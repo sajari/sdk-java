@@ -1,0 +1,21 @@
+
+
+# TextPosition
+
+## Enum
+
+
+* `UNSPECIFIED` (value: `"TEXT_POSITION_UNSPECIFIED"`)
+
+* `CENTER` (value: `"TEXT_POSITION_CENTER"`)
+
+* `TOP_LEFT` (value: `"TEXT_POSITION_TOP_LEFT"`)
+
+* `TOP_RIGHT` (value: `"TEXT_POSITION_TOP_RIGHT"`)
+
+* `BOTTOM_LEFT` (value: `"TEXT_POSITION_BOTTOM_LEFT"`)
+
+* `BOTTOM_RIGHT` (value: `"TEXT_POSITION_BOTTOM_RIGHT"`)
+
+
+

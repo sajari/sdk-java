@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 Batch create schema fields
 
-The batch version of the [CreateSchemaField](/api#operation/CreateSchemaField) call.
+The batch version of the [CreateSchemaField](/docs/api#operation/CreateSchemaField) call.
 
 ### Example
 ```java
@@ -190,7 +190,7 @@ public class Example {
     SchemaApi apiInstance = new SchemaApi(defaultClient);
     String collectionId = "collectionId_example"; // String | The collection that owns this set of schema fields, e.g. `my-collection`.
     Integer pageSize = 56; // Integer | The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000.
-    String pageToken = "pageToken_example"; // String | A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token.
+    String pageToken = "pageToken_example"; // String | A page token, received from a previous [ListSchemaFields](/docs/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/docs/api#operation/ListSchemaFields) must match the call that provided the page token.
     try {
       ListSchemaFieldsResponse result = apiInstance.listSchemaFields(collectionId, pageSize, pageToken);
       System.out.println(result);
@@ -211,7 +211,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**| The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;. |
  **pageSize** | **Integer**| The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. | [optional]
- **pageToken** | **String**| A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. | [optional]
+ **pageToken** | **String**| A page token, received from a previous [ListSchemaFields](/docs/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/docs/api#operation/ListSchemaFields) must match the call that provided the page token. | [optional]
 
 ### Return type
 
