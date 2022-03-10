@@ -104,7 +104,8 @@ public class CollectionsApiTest {
     public void queryCollectionTest() throws ApiException {
         String collectionId = null;
         QueryCollectionRequest queryCollectionRequest = null;
-        QueryCollectionResponse response = api.queryCollection(collectionId, queryCollectionRequest);
+        String accountId = null;
+        QueryCollectionResponse response = api.queryCollection(collectionId, queryCollectionRequest, accountId);
 
         // TODO: test validations
     }
@@ -121,7 +122,7 @@ public class CollectionsApiTest {
         String collectionId = null;
         Collection collection = null;
         String updateMask = null;
-        Collection response = api.updateCollection(collectionId, updateMask, collection);
+        Collection response = api.updateCollection(collectionId, collection, updateMask);
 
         // TODO: test validations
     }
