@@ -111,11 +111,11 @@ public class Collection {
 
 
    /**
-   * Output only. Time the collection was created.
+   * Output only. The time the collection was created.
    * @return createTime
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Output only. Time the collection was created.")
+  @ApiModelProperty(value = "Output only. The time the collection was created.")
 
   public OffsetDateTime getCreateTime() {
     return createTime;

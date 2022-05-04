@@ -17,6 +17,7 @@ docs/BatchUpsertRecordsResponseError.md
 docs/BatchUpsertRecordsResponseKey.md
 docs/BatchUpsertRecordsResponseVariables.md
 docs/Collection.md
+docs/CollectionType.md
 docs/CollectionsApi.md
 docs/DeleteRecordRequest.md
 docs/Error.md
@@ -27,10 +28,12 @@ docs/ExperimentRequestPipeline.md
 docs/ExperimentResponse.md
 docs/GeneratePipelinesRequest.md
 docs/GeneratePipelinesResponse.md
+docs/GetCollectionRequestView.md
 docs/GetDefaultPipelineResponse.md
 docs/GetDefaultVersionRequestView.md
 docs/GetPipelineRequestView.md
 docs/GetRecordRequest.md
+docs/ListCollectionsRequestView.md
 docs/ListCollectionsResponse.md
 docs/ListPipelinesRequestView.md
 docs/ListPipelinesResponse.md
@@ -138,6 +141,7 @@ src/main/java/com/sajari/client/model/BatchUpsertRecordsResponseError.java
 src/main/java/com/sajari/client/model/BatchUpsertRecordsResponseKey.java
 src/main/java/com/sajari/client/model/BatchUpsertRecordsResponseVariables.java
 src/main/java/com/sajari/client/model/Collection.java
+src/main/java/com/sajari/client/model/CollectionType.java
 src/main/java/com/sajari/client/model/DeleteRecordRequest.java
 src/main/java/com/sajari/client/model/Error.java
 src/main/java/com/sajari/client/model/Event.java
@@ -146,10 +150,12 @@ src/main/java/com/sajari/client/model/ExperimentRequestPipeline.java
 src/main/java/com/sajari/client/model/ExperimentResponse.java
 src/main/java/com/sajari/client/model/GeneratePipelinesRequest.java
 src/main/java/com/sajari/client/model/GeneratePipelinesResponse.java
+src/main/java/com/sajari/client/model/GetCollectionRequestView.java
 src/main/java/com/sajari/client/model/GetDefaultPipelineResponse.java
 src/main/java/com/sajari/client/model/GetDefaultVersionRequestView.java
 src/main/java/com/sajari/client/model/GetPipelineRequestView.java
 src/main/java/com/sajari/client/model/GetRecordRequest.java
+src/main/java/com/sajari/client/model/ListCollectionsRequestView.java
 src/main/java/com/sajari/client/model/ListCollectionsResponse.java
 src/main/java/com/sajari/client/model/ListPipelinesRequestView.java
 src/main/java/com/sajari/client/model/ListPipelinesResponse.java
@@ -206,11 +212,6 @@ src/main/java/com/sajari/client/model/UpdateRecordRequest.java
 src/main/java/com/sajari/client/model/UpsertRecordRequest.java
 src/main/java/com/sajari/client/model/UpsertRecordRequestPipeline.java
 src/main/java/com/sajari/client/model/UpsertRecordResponse.java
-src/test/java/com/sajari/client/model/BannerTest.java
-src/test/java/com/sajari/client/model/EventTest.java
-src/test/java/com/sajari/client/model/ExperimentRequestPipelineTest.java
-src/test/java/com/sajari/client/model/ExperimentRequestTest.java
-src/test/java/com/sajari/client/model/ExperimentResponseTest.java
-src/test/java/com/sajari/client/model/ListPromotionsRequestPromotionViewTest.java
-src/test/java/com/sajari/client/model/PromotionPinModeTest.java
-src/test/java/com/sajari/client/model/TextPositionTest.java
+src/test/java/com/sajari/client/model/CollectionTypeTest.java
+src/test/java/com/sajari/client/model/GetCollectionRequestViewTest.java
+src/test/java/com/sajari/client/model/ListCollectionsRequestViewTest.java

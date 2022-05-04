@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>com.sajari</groupId>
     <artifactId>sdk-java-client</artifactId>
-    <version>5.0.0</version>
+    <version>5.1.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.sajari:sdk-java-client:5.0.0"
+compile "com.sajari:sdk-java-client:5.1.0"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/sdk-java-client-5.0.0.jar`
+- `target/sdk-java-client-5.1.0.jar`
 - `target/lib/*.jar`
 
 ## Getting Started
@@ -93,9 +93,10 @@ Please follow the [installation](#installation) instruction and execute the foll
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
         String collectionId = "collectionId_example"; // String | The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or `-` characters. Strictly speaking, it must match the regular expression: `^[A-Za-z][A-Za-z0-9\\-]*$`.
         Collection collection = new Collection(); // Collection | Details of the collection to create.
+        String accountId = "accountId_example"; // String | The account that owns the collection, e.g. `1618535966441231024`.
 
     try {
-    Collection result = apiInstance.createCollection(collectionId, collection);
+    Collection result = apiInstance.createCollection(collectionId, collection, accountId);
         System.out.println(result);
     } catch (ApiException e) {
     System.err.println("Exception when calling CollectionsApi#createCollection");
@@ -152,7 +153,9 @@ Class | Method | HTTP request | Description
 *RedirectsApi* | [**updateRedirect**](docs/RedirectsApi.md#updateRedirect) | **PATCH** /v4/collections/{collection_id}/redirects/{redirect_id} | Update redirect
 *SchemaApi* | [**batchCreateSchemaFields**](docs/SchemaApi.md#batchCreateSchemaFields) | **POST** /v4/collections/{collection_id}/schemaFields:batchCreate | Batch create schema fields
 *SchemaApi* | [**createSchemaField**](docs/SchemaApi.md#createSchemaField) | **POST** /v4/collections/{collection_id}/schemaFields | Create schema field
+*SchemaApi* | [**deleteSchemaField**](docs/SchemaApi.md#deleteSchemaField) | **DELETE** /v4/collections/{collection_id}/schemaFields/{schema_field_name} | Delete schema field
 *SchemaApi* | [**listSchemaFields**](docs/SchemaApi.md#listSchemaFields) | **GET** /v4/collections/{collection_id}/schemaFields | List schema fields
+*SchemaApi* | [**updateSchemaField**](docs/SchemaApi.md#updateSchemaField) | **PATCH** /v4/collections/{collection_id}/schemaFields/{schema_field_name} | Update schema field
 
 
 ## Documentation for Models
@@ -173,6 +176,7 @@ Class | Method | HTTP request | Description
  - [BatchUpsertRecordsResponseKey](docs/BatchUpsertRecordsResponseKey.md)
  - [BatchUpsertRecordsResponseVariables](docs/BatchUpsertRecordsResponseVariables.md)
  - [Collection](docs/Collection.md)
+ - [CollectionType](docs/CollectionType.md)
  - [DeleteRecordRequest](docs/DeleteRecordRequest.md)
  - [Error](docs/Error.md)
  - [Event](docs/Event.md)
@@ -181,10 +185,12 @@ Class | Method | HTTP request | Description
  - [ExperimentResponse](docs/ExperimentResponse.md)
  - [GeneratePipelinesRequest](docs/GeneratePipelinesRequest.md)
  - [GeneratePipelinesResponse](docs/GeneratePipelinesResponse.md)
+ - [GetCollectionRequestView](docs/GetCollectionRequestView.md)
  - [GetDefaultPipelineResponse](docs/GetDefaultPipelineResponse.md)
  - [GetDefaultVersionRequestView](docs/GetDefaultVersionRequestView.md)
  - [GetPipelineRequestView](docs/GetPipelineRequestView.md)
  - [GetRecordRequest](docs/GetRecordRequest.md)
+ - [ListCollectionsRequestView](docs/ListCollectionsRequestView.md)
  - [ListCollectionsResponse](docs/ListCollectionsResponse.md)
  - [ListPipelinesRequestView](docs/ListPipelinesRequestView.md)
  - [ListPipelinesResponse](docs/ListPipelinesResponse.md)

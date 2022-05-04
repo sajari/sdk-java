@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **queryId** | **String** | The query identifier. | 
 **redirectId** | **String** | The identifier of the redirect the event is about. |  [optional]
 **resultId** | **String** | The identifier of the result the event is about. |  [optional]
-**type** | **String** | The type of event, e.g. &#x60;click&#x60;, &#x60;purchase&#x60;, &#x60;add_to_cart&#x60;. | 
+**type** | **String** | The type of event, e.g. &#x60;click&#x60;, &#x60;redirect&#x60;, &#x60;purchase&#x60;, &#x60;add_to_cart&#x60;. | 
 
 
 

@@ -25,9 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * A set of filters of the form &#x60;field &#x3D; &#39;value&#39;&#x60;. Matches a query if the set of filters in the condition matches exactly the set of filters associated with it.
+ * A set of filters of the form &#x60;field &#x3D; &#39;value&#39;&#x60;. Matches a query if all filters are present in that query.
  */
-@ApiModel(description = "A set of filters of the form `field = 'value'`. Matches a query if the set of filters in the condition matches exactly the set of filters associated with it.")
+@ApiModel(description = "A set of filters of the form `field = 'value'`. Matches a query if all filters are present in that query.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class PromotionFilterCondition {
   public static final String SERIALIZED_NAME_FILTER = "filter";
@@ -52,11 +52,11 @@ public class PromotionFilterCondition {
   }
 
    /**
-   * A filter of the form &#x60;field &#x3D; &#39;value&#39;&#x60;.
+   * A filter of the form &#x60;field &#x3D; &#39;value&#39;&#x60;. All of these filters must be present in a query&#39;s filter in order for the promotion to be considered active.
    * @return filter
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A filter of the form `field = 'value'`.")
+  @ApiModelProperty(value = "A filter of the form `field = 'value'`. All of these filters must be present in a query's filter in order for the promotion to be considered active.")
 
   public java.util.List<String> getFilter() {
     return filter;

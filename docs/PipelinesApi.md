@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 <a name="createPipeline"></a>
 # **createPipeline**
-> Pipeline createPipeline(collectionId, pipeline)
+> Pipeline createPipeline(collectionId, pipeline, accountId)
 
 Create pipeline
 
@@ -45,8 +45,9 @@ public class Example {
     PipelinesApi apiInstance = new PipelinesApi(defaultClient);
     String collectionId = "collectionId_example"; // String | The collection to create the pipeline in, e.g. `my-collection`.
     Pipeline pipeline = new Pipeline(); // Pipeline | The pipeline to create.
+    String accountId = "accountId_example"; // String | The account that owns the collection, e.g. `1618535966441231024`.
     try {
-      Pipeline result = apiInstance.createPipeline(collectionId, pipeline);
+      Pipeline result = apiInstance.createPipeline(collectionId, pipeline, accountId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PipelinesApi#createPipeline");
@@ -65,6 +66,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**| The collection to create the pipeline in, e.g. &#x60;my-collection&#x60;. |
  **pipeline** | [**Pipeline**](Pipeline.md)| The pipeline to create. |
+ **accountId** | **String**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
 
 ### Return type
 
@@ -241,7 +243,7 @@ Name | Type | Description  | Notes
 
 <a name="getDefaultVersion"></a>
 # **getDefaultVersion**
-> Pipeline getDefaultVersion(collectionId, type, name, view)
+> Pipeline getDefaultVersion(collectionId, type, name, accountId, view)
 
 Get default pipeline version
 
@@ -271,9 +273,10 @@ public class Example {
     String collectionId = "collectionId_example"; // String | The collection that owns the pipeline to get the default version of, e.g. `my-collection`.
     String type = "TYPE_UNSPECIFIED"; // String | The type of the pipeline to get the default version of.
     String name = "name_example"; // String | The name of the pipeline to get the default version of, e.g. `my-pipeline`.
+    String accountId = "accountId_example"; // String | The account that owns the collection, e.g. `1618535966441231024`.
     String view = "VIEW_UNSPECIFIED"; // String | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration.
     try {
-      Pipeline result = apiInstance.getDefaultVersion(collectionId, type, name, view);
+      Pipeline result = apiInstance.getDefaultVersion(collectionId, type, name, accountId, view);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PipelinesApi#getDefaultVersion");
@@ -293,6 +296,7 @@ Name | Type | Description  | Notes
  **collectionId** | **String**| The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;. |
  **type** | **String**| The type of the pipeline to get the default version of. | [enum: TYPE_UNSPECIFIED, RECORD, QUERY]
  **name** | **String**| The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;. |
+ **accountId** | **String**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
  **view** | **String**| The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] [default to VIEW_UNSPECIFIED] [enum: VIEW_UNSPECIFIED, BASIC, FULL]
 
 ### Return type
@@ -320,7 +324,7 @@ Name | Type | Description  | Notes
 
 <a name="getPipeline"></a>
 # **getPipeline**
-> Pipeline getPipeline(collectionId, type, name, version, view)
+> Pipeline getPipeline(collectionId, type, name, version, accountId, view)
 
 Get pipeline
 
@@ -351,9 +355,10 @@ public class Example {
     String type = "TYPE_UNSPECIFIED"; // String | The type of the pipeline to retrieve.
     String name = "name_example"; // String | The name of the pipeline to retrieve, e.g. `my-pipeline`.
     String version = "version_example"; // String | The version of the pipeline to retrieve, e.g. `42`.
+    String accountId = "accountId_example"; // String | The account that owns the collection, e.g. `1618535966441231024`.
     String view = "VIEW_UNSPECIFIED"; // String | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration.
     try {
-      Pipeline result = apiInstance.getPipeline(collectionId, type, name, version, view);
+      Pipeline result = apiInstance.getPipeline(collectionId, type, name, version, accountId, view);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PipelinesApi#getPipeline");
@@ -374,6 +379,7 @@ Name | Type | Description  | Notes
  **type** | **String**| The type of the pipeline to retrieve. | [enum: TYPE_UNSPECIFIED, RECORD, QUERY]
  **name** | **String**| The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;. |
  **version** | **String**| The version of the pipeline to retrieve, e.g. &#x60;42&#x60;. |
+ **accountId** | **String**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
  **view** | **String**| The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] [default to VIEW_UNSPECIFIED] [enum: VIEW_UNSPECIFIED, BASIC, FULL]
 
 ### Return type
@@ -401,7 +407,7 @@ Name | Type | Description  | Notes
 
 <a name="listPipelines"></a>
 # **listPipelines**
-> ListPipelinesResponse listPipelines(collectionId, pageSize, pageToken, view)
+> ListPipelinesResponse listPipelines(collectionId, accountId, pageSize, pageToken, view)
 
 List pipelines
 
@@ -429,11 +435,12 @@ public class Example {
 
     PipelinesApi apiInstance = new PipelinesApi(defaultClient);
     String collectionId = "collectionId_example"; // String | The collection that owns this set of pipelines, e.g. `my-collection`.
+    String accountId = "accountId_example"; // String | The account that owns the collection, e.g. `1618535966441231024`.
     Integer pageSize = 56; // Integer | The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000.
     String pageToken = "pageToken_example"; // String | A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token.
     String view = "VIEW_UNSPECIFIED"; // String | The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration.
     try {
-      ListPipelinesResponse result = apiInstance.listPipelines(collectionId, pageSize, pageToken, view);
+      ListPipelinesResponse result = apiInstance.listPipelines(collectionId, accountId, pageSize, pageToken, view);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PipelinesApi#listPipelines");
@@ -451,6 +458,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**| The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. |
+ **accountId** | **String**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
  **pageSize** | **Integer**| The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. | [optional]
  **pageToken** | **String**| A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. | [optional]
  **view** | **String**| The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] [default to VIEW_UNSPECIFIED] [enum: VIEW_UNSPECIFIED, BASIC, FULL]

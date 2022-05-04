@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="createRedirect"></a>
 # **createRedirect**
-> Redirect createRedirect(collectionId, redirect)
+> Redirect createRedirect(collectionId, redirect, accountId)
 
 Create redirect
 
@@ -42,8 +42,9 @@ public class Example {
     RedirectsApi apiInstance = new RedirectsApi(defaultClient);
     String collectionId = "collectionId_example"; // String | The collection to create a redirect in, e.g. `my-collection`.
     Redirect redirect = new Redirect(); // Redirect | The redirect to create.
+    String accountId = "accountId_example"; // String | The account that owns the collection, e.g. `1618535966441231024`.
     try {
-      Redirect result = apiInstance.createRedirect(collectionId, redirect);
+      Redirect result = apiInstance.createRedirect(collectionId, redirect, accountId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RedirectsApi#createRedirect");
@@ -62,6 +63,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**| The collection to create a redirect in, e.g. &#x60;my-collection&#x60;. |
  **redirect** | [**Redirect**](Redirect.md)| The redirect to create. |
+ **accountId** | **String**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
 
 ### Return type
 
@@ -88,7 +90,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteRedirect"></a>
 # **deleteRedirect**
-> Object deleteRedirect(collectionId, redirectId)
+> Object deleteRedirect(collectionId, redirectId, accountId)
 
 Delete redirect
 
@@ -117,8 +119,9 @@ public class Example {
     RedirectsApi apiInstance = new RedirectsApi(defaultClient);
     String collectionId = "collectionId_example"; // String | The collection the redirect belongs to, e.g. `my-collection`.
     String redirectId = "redirectId_example"; // String | The redirect to delete, e.g. `1234`.
+    String accountId = "accountId_example"; // String | The account that owns the collection, e.g. `1618535966441231024`.
     try {
-      Object result = apiInstance.deleteRedirect(collectionId, redirectId);
+      Object result = apiInstance.deleteRedirect(collectionId, redirectId, accountId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RedirectsApi#deleteRedirect");
@@ -137,6 +140,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**| The collection the redirect belongs to, e.g. &#x60;my-collection&#x60;. |
  **redirectId** | **String**| The redirect to delete, e.g. &#x60;1234&#x60;. |
+ **accountId** | **String**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
 
 ### Return type
 
@@ -163,7 +167,7 @@ Name | Type | Description  | Notes
 
 <a name="getRedirect"></a>
 # **getRedirect**
-> Redirect getRedirect(collectionId, redirectId)
+> Redirect getRedirect(collectionId, redirectId, accountId)
 
 Get redirect
 
@@ -192,8 +196,9 @@ public class Example {
     RedirectsApi apiInstance = new RedirectsApi(defaultClient);
     String collectionId = "collectionId_example"; // String | The collection that owns the redirect, e.g. `my-collection`.
     String redirectId = "redirectId_example"; // String | The redirect to retrieve, e.g. `1234`.
+    String accountId = "accountId_example"; // String | The account that owns the collection, e.g. `1618535966441231024`.
     try {
-      Redirect result = apiInstance.getRedirect(collectionId, redirectId);
+      Redirect result = apiInstance.getRedirect(collectionId, redirectId, accountId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RedirectsApi#getRedirect");
@@ -212,6 +217,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**| The collection that owns the redirect, e.g. &#x60;my-collection&#x60;. |
  **redirectId** | **String**| The redirect to retrieve, e.g. &#x60;1234&#x60;. |
+ **accountId** | **String**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
 
 ### Return type
 
@@ -238,7 +244,7 @@ Name | Type | Description  | Notes
 
 <a name="listRedirects"></a>
 # **listRedirects**
-> ListRedirectsResponse listRedirects(collectionId, pageSize, pageToken)
+> ListRedirectsResponse listRedirects(collectionId, accountId, pageSize, pageToken)
 
 List redirects
 
@@ -266,10 +272,11 @@ public class Example {
 
     RedirectsApi apiInstance = new RedirectsApi(defaultClient);
     String collectionId = "collectionId_example"; // String | The collection that owns this set of redirects, e.g. `my-collection`.
+    String accountId = "accountId_example"; // String | The account that owns the collection, e.g. `1618535966441231024`.
     Integer pageSize = 56; // Integer | The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000.
     String pageToken = "pageToken_example"; // String | A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token.
     try {
-      ListRedirectsResponse result = apiInstance.listRedirects(collectionId, pageSize, pageToken);
+      ListRedirectsResponse result = apiInstance.listRedirects(collectionId, accountId, pageSize, pageToken);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RedirectsApi#listRedirects");
@@ -287,6 +294,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**| The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;. |
+ **accountId** | **String**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
  **pageSize** | **Integer**| The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. | [optional]
  **pageToken** | **String**| A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. | [optional]
 
@@ -315,7 +323,7 @@ Name | Type | Description  | Notes
 
 <a name="updateRedirect"></a>
 # **updateRedirect**
-> Redirect updateRedirect(collectionId, redirectId, updateMask, redirect)
+> Redirect updateRedirect(collectionId, redirectId, updateMask, redirect, accountId)
 
 Update redirect
 
@@ -346,8 +354,9 @@ public class Example {
     String redirectId = "redirectId_example"; // String | The redirect to update, e.g. `1234`.
     String updateMask = "updateMask_example"; // String | The list of fields to be updated, separated by a comma, e.g. `field1,field2`.  Each field should be in snake case, e.g. `condition`, `target`.  For each field that you want to update, provide a corresponding value in the redirect object containing the new value.
     Redirect redirect = new Redirect(); // Redirect | Details of the redirect to update.
+    String accountId = "accountId_example"; // String | The account that owns the collection, e.g. `1618535966441231024`.
     try {
-      Redirect result = apiInstance.updateRedirect(collectionId, redirectId, updateMask, redirect);
+      Redirect result = apiInstance.updateRedirect(collectionId, redirectId, updateMask, redirect, accountId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RedirectsApi#updateRedirect");
@@ -368,6 +377,7 @@ Name | Type | Description  | Notes
  **redirectId** | **String**| The redirect to update, e.g. &#x60;1234&#x60;. |
  **updateMask** | **String**| The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;condition&#x60;, &#x60;target&#x60;.  For each field that you want to update, provide a corresponding value in the redirect object containing the new value. |
  **redirect** | [**Redirect**](Redirect.md)| Details of the redirect to update. |
+ **accountId** | **String**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
 
 ### Return type
 

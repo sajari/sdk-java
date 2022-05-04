@@ -79,6 +79,7 @@ public class PipelinesApi {
      * Build call for createPipeline
      * @param collectionId The collection to create the pipeline in, e.g. &#x60;my-collection&#x60;. (required)
      * @param pipeline The pipeline to create. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -93,7 +94,7 @@ public class PipelinesApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createPipelineCall(String collectionId, Pipeline pipeline, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createPipelineCall(String collectionId, Pipeline pipeline, String accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -120,6 +121,10 @@ public class PipelinesApi {
         java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
         java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
+        if (accountId != null) {
+            localVarHeaderParams.put("Account-Id", localVarApiClient.parameterToString(accountId));
+        }
+
         final String[] localVarAccepts = {
             "application/json", "application/yaml"
         };
@@ -141,7 +146,7 @@ public class PipelinesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createPipelineValidateBeforeCall(String collectionId, Pipeline pipeline, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createPipelineValidateBeforeCall(String collectionId, Pipeline pipeline, String accountId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
@@ -154,7 +159,7 @@ public class PipelinesApi {
         }
         
 
-        okhttp3.Call localVarCall = createPipelineCall(collectionId, pipeline, _callback);
+        okhttp3.Call localVarCall = createPipelineCall(collectionId, pipeline, accountId, _callback);
         return localVarCall;
 
     }
@@ -164,6 +169,7 @@ public class PipelinesApi {
      * Create a new pipeline.  Pipelines are immutable once created. If you want to change a pipeline e.g. to add or change some steps, you need to create a new version of that pipeline.  To start using a new pipeline you need to update your record ingestion calls and/or your query calls to specify the new pipeline.  To create the pipeline from YAML, set the request&#39;s &#x60;Content-Type&#x60; header to &#x60;application/yaml&#x60; and submit the pipeline&#39;s YAML in the request body.
      * @param collectionId The collection to create the pipeline in, e.g. &#x60;my-collection&#x60;. (required)
      * @param pipeline The pipeline to create. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @return Pipeline
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -177,8 +183,8 @@ public class PipelinesApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public Pipeline createPipeline(String collectionId, Pipeline pipeline) throws ApiException {
-        ApiResponse<Pipeline> localVarResp = createPipelineWithHttpInfo(collectionId, pipeline);
+    public Pipeline createPipeline(String collectionId, Pipeline pipeline, String accountId) throws ApiException {
+        ApiResponse<Pipeline> localVarResp = createPipelineWithHttpInfo(collectionId, pipeline, accountId);
         return localVarResp.getData();
     }
 
@@ -187,6 +193,7 @@ public class PipelinesApi {
      * Create a new pipeline.  Pipelines are immutable once created. If you want to change a pipeline e.g. to add or change some steps, you need to create a new version of that pipeline.  To start using a new pipeline you need to update your record ingestion calls and/or your query calls to specify the new pipeline.  To create the pipeline from YAML, set the request&#39;s &#x60;Content-Type&#x60; header to &#x60;application/yaml&#x60; and submit the pipeline&#39;s YAML in the request body.
      * @param collectionId The collection to create the pipeline in, e.g. &#x60;my-collection&#x60;. (required)
      * @param pipeline The pipeline to create. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @return ApiResponse&lt;Pipeline&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -200,8 +207,8 @@ public class PipelinesApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Pipeline> createPipelineWithHttpInfo(String collectionId, Pipeline pipeline) throws ApiException {
-        okhttp3.Call localVarCall = createPipelineValidateBeforeCall(collectionId, pipeline, null);
+    public ApiResponse<Pipeline> createPipelineWithHttpInfo(String collectionId, Pipeline pipeline, String accountId) throws ApiException {
+        okhttp3.Call localVarCall = createPipelineValidateBeforeCall(collectionId, pipeline, accountId, null);
         Type localVarReturnType = new TypeToken<Pipeline>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -211,6 +218,7 @@ public class PipelinesApi {
      * Create a new pipeline.  Pipelines are immutable once created. If you want to change a pipeline e.g. to add or change some steps, you need to create a new version of that pipeline.  To start using a new pipeline you need to update your record ingestion calls and/or your query calls to specify the new pipeline.  To create the pipeline from YAML, set the request&#39;s &#x60;Content-Type&#x60; header to &#x60;application/yaml&#x60; and submit the pipeline&#39;s YAML in the request body.
      * @param collectionId The collection to create the pipeline in, e.g. &#x60;my-collection&#x60;. (required)
      * @param pipeline The pipeline to create. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -225,9 +233,9 @@ public class PipelinesApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createPipelineAsync(String collectionId, Pipeline pipeline, final ApiCallback<Pipeline> _callback) throws ApiException {
+    public okhttp3.Call createPipelineAsync(String collectionId, Pipeline pipeline, String accountId, final ApiCallback<Pipeline> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createPipelineValidateBeforeCall(collectionId, pipeline, _callback);
+        okhttp3.Call localVarCall = createPipelineValidateBeforeCall(collectionId, pipeline, accountId, _callback);
         Type localVarReturnType = new TypeToken<Pipeline>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -555,6 +563,7 @@ public class PipelinesApi {
      * @param collectionId The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;. (required)
      * @param type The type of the pipeline to get the default version of. (required)
      * @param name The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -570,7 +579,7 @@ public class PipelinesApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDefaultVersionCall(String collectionId, String type, String name, String view, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getDefaultVersionCall(String collectionId, String type, String name, String accountId, String view, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -603,6 +612,10 @@ public class PipelinesApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("view", view));
         }
 
+        if (accountId != null) {
+            localVarHeaderParams.put("Account-Id", localVarApiClient.parameterToString(accountId));
+        }
+
         final String[] localVarAccepts = {
             "application/json", "application/yaml"
         };
@@ -624,7 +637,7 @@ public class PipelinesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getDefaultVersionValidateBeforeCall(String collectionId, String type, String name, String view, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getDefaultVersionValidateBeforeCall(String collectionId, String type, String name, String accountId, String view, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
@@ -642,7 +655,7 @@ public class PipelinesApi {
         }
         
 
-        okhttp3.Call localVarCall = getDefaultVersionCall(collectionId, type, name, view, _callback);
+        okhttp3.Call localVarCall = getDefaultVersionCall(collectionId, type, name, accountId, view, _callback);
         return localVarCall;
 
     }
@@ -653,6 +666,7 @@ public class PipelinesApi {
      * @param collectionId The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;. (required)
      * @param type The type of the pipeline to get the default version of. (required)
      * @param name The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)
      * @return Pipeline
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -667,8 +681,8 @@ public class PipelinesApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public Pipeline getDefaultVersion(String collectionId, String type, String name, String view) throws ApiException {
-        ApiResponse<Pipeline> localVarResp = getDefaultVersionWithHttpInfo(collectionId, type, name, view);
+    public Pipeline getDefaultVersion(String collectionId, String type, String name, String accountId, String view) throws ApiException {
+        ApiResponse<Pipeline> localVarResp = getDefaultVersionWithHttpInfo(collectionId, type, name, accountId, view);
         return localVarResp.getData();
     }
 
@@ -678,6 +692,7 @@ public class PipelinesApi {
      * @param collectionId The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;. (required)
      * @param type The type of the pipeline to get the default version of. (required)
      * @param name The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)
      * @return ApiResponse&lt;Pipeline&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -692,8 +707,8 @@ public class PipelinesApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Pipeline> getDefaultVersionWithHttpInfo(String collectionId, String type, String name, String view) throws ApiException {
-        okhttp3.Call localVarCall = getDefaultVersionValidateBeforeCall(collectionId, type, name, view, null);
+    public ApiResponse<Pipeline> getDefaultVersionWithHttpInfo(String collectionId, String type, String name, String accountId, String view) throws ApiException {
+        okhttp3.Call localVarCall = getDefaultVersionValidateBeforeCall(collectionId, type, name, accountId, view, null);
         Type localVarReturnType = new TypeToken<Pipeline>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -704,6 +719,7 @@ public class PipelinesApi {
      * @param collectionId The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;. (required)
      * @param type The type of the pipeline to get the default version of. (required)
      * @param name The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -719,9 +735,9 @@ public class PipelinesApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDefaultVersionAsync(String collectionId, String type, String name, String view, final ApiCallback<Pipeline> _callback) throws ApiException {
+    public okhttp3.Call getDefaultVersionAsync(String collectionId, String type, String name, String accountId, String view, final ApiCallback<Pipeline> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getDefaultVersionValidateBeforeCall(collectionId, type, name, view, _callback);
+        okhttp3.Call localVarCall = getDefaultVersionValidateBeforeCall(collectionId, type, name, accountId, view, _callback);
         Type localVarReturnType = new TypeToken<Pipeline>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -732,6 +748,7 @@ public class PipelinesApi {
      * @param type The type of the pipeline to retrieve. (required)
      * @param name The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;. (required)
      * @param version The version of the pipeline to retrieve, e.g. &#x60;42&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -747,7 +764,7 @@ public class PipelinesApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPipelineCall(String collectionId, String type, String name, String version, String view, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPipelineCall(String collectionId, String type, String name, String version, String accountId, String view, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -781,6 +798,10 @@ public class PipelinesApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("view", view));
         }
 
+        if (accountId != null) {
+            localVarHeaderParams.put("Account-Id", localVarApiClient.parameterToString(accountId));
+        }
+
         final String[] localVarAccepts = {
             "application/json", "application/yaml"
         };
@@ -802,7 +823,7 @@ public class PipelinesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPipelineValidateBeforeCall(String collectionId, String type, String name, String version, String view, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPipelineValidateBeforeCall(String collectionId, String type, String name, String version, String accountId, String view, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
@@ -825,7 +846,7 @@ public class PipelinesApi {
         }
         
 
-        okhttp3.Call localVarCall = getPipelineCall(collectionId, type, name, version, view, _callback);
+        okhttp3.Call localVarCall = getPipelineCall(collectionId, type, name, version, accountId, view, _callback);
         return localVarCall;
 
     }
@@ -837,6 +858,7 @@ public class PipelinesApi {
      * @param type The type of the pipeline to retrieve. (required)
      * @param name The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;. (required)
      * @param version The version of the pipeline to retrieve, e.g. &#x60;42&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)
      * @return Pipeline
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -851,8 +873,8 @@ public class PipelinesApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public Pipeline getPipeline(String collectionId, String type, String name, String version, String view) throws ApiException {
-        ApiResponse<Pipeline> localVarResp = getPipelineWithHttpInfo(collectionId, type, name, version, view);
+    public Pipeline getPipeline(String collectionId, String type, String name, String version, String accountId, String view) throws ApiException {
+        ApiResponse<Pipeline> localVarResp = getPipelineWithHttpInfo(collectionId, type, name, version, accountId, view);
         return localVarResp.getData();
     }
 
@@ -863,6 +885,7 @@ public class PipelinesApi {
      * @param type The type of the pipeline to retrieve. (required)
      * @param name The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;. (required)
      * @param version The version of the pipeline to retrieve, e.g. &#x60;42&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)
      * @return ApiResponse&lt;Pipeline&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -877,8 +900,8 @@ public class PipelinesApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Pipeline> getPipelineWithHttpInfo(String collectionId, String type, String name, String version, String view) throws ApiException {
-        okhttp3.Call localVarCall = getPipelineValidateBeforeCall(collectionId, type, name, version, view, null);
+    public ApiResponse<Pipeline> getPipelineWithHttpInfo(String collectionId, String type, String name, String version, String accountId, String view) throws ApiException {
+        okhttp3.Call localVarCall = getPipelineValidateBeforeCall(collectionId, type, name, version, accountId, view, null);
         Type localVarReturnType = new TypeToken<Pipeline>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -890,6 +913,7 @@ public class PipelinesApi {
      * @param type The type of the pipeline to retrieve. (required)
      * @param name The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;. (required)
      * @param version The version of the pipeline to retrieve, e.g. &#x60;42&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -905,9 +929,9 @@ public class PipelinesApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPipelineAsync(String collectionId, String type, String name, String version, String view, final ApiCallback<Pipeline> _callback) throws ApiException {
+    public okhttp3.Call getPipelineAsync(String collectionId, String type, String name, String version, String accountId, String view, final ApiCallback<Pipeline> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPipelineValidateBeforeCall(collectionId, type, name, version, view, _callback);
+        okhttp3.Call localVarCall = getPipelineValidateBeforeCall(collectionId, type, name, version, accountId, view, _callback);
         Type localVarReturnType = new TypeToken<Pipeline>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -915,6 +939,7 @@ public class PipelinesApi {
     /**
      * Build call for listPipelines
      * @param collectionId The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param pageSize The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
      * @param pageToken A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. (optional)
      * @param view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)
@@ -932,7 +957,7 @@ public class PipelinesApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listPipelinesCall(String collectionId, Integer pageSize, String pageToken, String view, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listPipelinesCall(String collectionId, String accountId, Integer pageSize, String pageToken, String view, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -971,6 +996,10 @@ public class PipelinesApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("view", view));
         }
 
+        if (accountId != null) {
+            localVarHeaderParams.put("Account-Id", localVarApiClient.parameterToString(accountId));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -992,7 +1021,7 @@ public class PipelinesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listPipelinesValidateBeforeCall(String collectionId, Integer pageSize, String pageToken, String view, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listPipelinesValidateBeforeCall(String collectionId, String accountId, Integer pageSize, String pageToken, String view, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
@@ -1000,7 +1029,7 @@ public class PipelinesApi {
         }
         
 
-        okhttp3.Call localVarCall = listPipelinesCall(collectionId, pageSize, pageToken, view, _callback);
+        okhttp3.Call localVarCall = listPipelinesCall(collectionId, accountId, pageSize, pageToken, view, _callback);
         return localVarCall;
 
     }
@@ -1009,6 +1038,7 @@ public class PipelinesApi {
      * List pipelines
      * Retrieve a list of pipelines in a collection.
      * @param collectionId The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param pageSize The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
      * @param pageToken A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. (optional)
      * @param view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)
@@ -1025,8 +1055,8 @@ public class PipelinesApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ListPipelinesResponse listPipelines(String collectionId, Integer pageSize, String pageToken, String view) throws ApiException {
-        ApiResponse<ListPipelinesResponse> localVarResp = listPipelinesWithHttpInfo(collectionId, pageSize, pageToken, view);
+    public ListPipelinesResponse listPipelines(String collectionId, String accountId, Integer pageSize, String pageToken, String view) throws ApiException {
+        ApiResponse<ListPipelinesResponse> localVarResp = listPipelinesWithHttpInfo(collectionId, accountId, pageSize, pageToken, view);
         return localVarResp.getData();
     }
 
@@ -1034,6 +1064,7 @@ public class PipelinesApi {
      * List pipelines
      * Retrieve a list of pipelines in a collection.
      * @param collectionId The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param pageSize The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
      * @param pageToken A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. (optional)
      * @param view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)
@@ -1050,8 +1081,8 @@ public class PipelinesApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListPipelinesResponse> listPipelinesWithHttpInfo(String collectionId, Integer pageSize, String pageToken, String view) throws ApiException {
-        okhttp3.Call localVarCall = listPipelinesValidateBeforeCall(collectionId, pageSize, pageToken, view, null);
+    public ApiResponse<ListPipelinesResponse> listPipelinesWithHttpInfo(String collectionId, String accountId, Integer pageSize, String pageToken, String view) throws ApiException {
+        okhttp3.Call localVarCall = listPipelinesValidateBeforeCall(collectionId, accountId, pageSize, pageToken, view, null);
         Type localVarReturnType = new TypeToken<ListPipelinesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1060,6 +1091,7 @@ public class PipelinesApi {
      * List pipelines (asynchronously)
      * Retrieve a list of pipelines in a collection.
      * @param collectionId The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param pageSize The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
      * @param pageToken A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. (optional)
      * @param view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)
@@ -1077,9 +1109,9 @@ public class PipelinesApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listPipelinesAsync(String collectionId, Integer pageSize, String pageToken, String view, final ApiCallback<ListPipelinesResponse> _callback) throws ApiException {
+    public okhttp3.Call listPipelinesAsync(String collectionId, String accountId, Integer pageSize, String pageToken, String view, final ApiCallback<ListPipelinesResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listPipelinesValidateBeforeCall(collectionId, pageSize, pageToken, view, _callback);
+        okhttp3.Call localVarCall = listPipelinesValidateBeforeCall(collectionId, accountId, pageSize, pageToken, view, _callback);
         Type localVarReturnType = new TypeToken<ListPipelinesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
