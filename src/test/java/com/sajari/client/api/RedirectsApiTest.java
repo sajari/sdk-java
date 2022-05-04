@@ -42,7 +42,8 @@ public class RedirectsApiTest {
     public void createRedirectTest() throws ApiException {
         String collectionId = null;
         Redirect redirect = null;
-                Redirect response = api.createRedirect(collectionId, redirect);
+        String accountId = null;
+                Redirect response = api.createRedirect(collectionId, redirect, accountId);
         // TODO: test validations
     }
     
@@ -58,7 +59,8 @@ public class RedirectsApiTest {
     public void deleteRedirectTest() throws ApiException {
         String collectionId = null;
         String redirectId = null;
-                Object response = api.deleteRedirect(collectionId, redirectId);
+        String accountId = null;
+                Object response = api.deleteRedirect(collectionId, redirectId, accountId);
         // TODO: test validations
     }
     
@@ -74,7 +76,8 @@ public class RedirectsApiTest {
     public void getRedirectTest() throws ApiException {
         String collectionId = null;
         String redirectId = null;
-                Redirect response = api.getRedirect(collectionId, redirectId);
+        String accountId = null;
+                Redirect response = api.getRedirect(collectionId, redirectId, accountId);
         // TODO: test validations
     }
     
@@ -89,9 +92,10 @@ public class RedirectsApiTest {
     @Test
     public void listRedirectsTest() throws ApiException {
         String collectionId = null;
+        String accountId = null;
         Integer pageSize = null;
         String pageToken = null;
-                ListRedirectsResponse response = api.listRedirects(collectionId, pageSize, pageToken);
+                ListRedirectsResponse response = api.listRedirects(collectionId, accountId, pageSize, pageToken);
         // TODO: test validations
     }
     
@@ -109,7 +113,8 @@ public class RedirectsApiTest {
         String redirectId = null;
         String updateMask = null;
         Redirect redirect = null;
-                Redirect response = api.updateRedirect(collectionId, redirectId, updateMask, redirect);
+        String accountId = null;
+                Redirect response = api.updateRedirect(collectionId, redirectId, updateMask, redirect, accountId);
         // TODO: test validations
     }
     

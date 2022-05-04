@@ -45,7 +45,8 @@ public class PipelinesApiTest {
     public void createPipelineTest() throws ApiException {
         String collectionId = null;
         Pipeline pipeline = null;
-        Pipeline response = api.createPipeline(collectionId, pipeline);
+        String accountId = null;
+        Pipeline response = api.createPipeline(collectionId, pipeline, accountId);
 
         // TODO: test validations
     }
@@ -94,8 +95,9 @@ public class PipelinesApiTest {
         String collectionId = null;
         String type = null;
         String name = null;
+        String accountId = null;
         String view = null;
-        Pipeline response = api.getDefaultVersion(collectionId, type, name, view);
+        Pipeline response = api.getDefaultVersion(collectionId, type, name, accountId, view);
 
         // TODO: test validations
     }
@@ -113,8 +115,9 @@ public class PipelinesApiTest {
         String type = null;
         String name = null;
         String version = null;
+        String accountId = null;
         String view = null;
-        Pipeline response = api.getPipeline(collectionId, type, name, version, view);
+        Pipeline response = api.getPipeline(collectionId, type, name, version, accountId, view);
 
         // TODO: test validations
     }
@@ -129,10 +132,11 @@ public class PipelinesApiTest {
     @Test
     public void listPipelinesTest() throws ApiException {
         String collectionId = null;
+        String accountId = null;
         Integer pageSize = null;
         String pageToken = null;
         String view = null;
-        ListPipelinesResponse response = api.listPipelines(collectionId, pageSize, pageToken, view);
+        ListPipelinesResponse response = api.listPipelines(collectionId, accountId, pageSize, pageToken, view);
 
         // TODO: test validations
     }

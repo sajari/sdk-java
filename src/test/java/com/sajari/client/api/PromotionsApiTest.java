@@ -42,7 +42,8 @@ public class PromotionsApiTest {
     public void createPromotionTest() throws ApiException {
         String collectionId = null;
         Promotion promotion = null;
-                Promotion response = api.createPromotion(collectionId, promotion);
+        String accountId = null;
+                Promotion response = api.createPromotion(collectionId, promotion, accountId);
         // TODO: test validations
     }
     
@@ -58,7 +59,8 @@ public class PromotionsApiTest {
     public void deletePromotionTest() throws ApiException {
         String collectionId = null;
         String promotionId = null;
-                Object response = api.deletePromotion(collectionId, promotionId);
+        String accountId = null;
+                Object response = api.deletePromotion(collectionId, promotionId, accountId);
         // TODO: test validations
     }
     
@@ -74,7 +76,8 @@ public class PromotionsApiTest {
     public void getPromotionTest() throws ApiException {
         String collectionId = null;
         String promotionId = null;
-                Promotion response = api.getPromotion(collectionId, promotionId);
+        String accountId = null;
+                Promotion response = api.getPromotion(collectionId, promotionId, accountId);
         // TODO: test validations
     }
     
@@ -89,10 +92,11 @@ public class PromotionsApiTest {
     @Test
     public void listPromotionsTest() throws ApiException {
         String collectionId = null;
+        String accountId = null;
         Integer pageSize = null;
         String pageToken = null;
         String view = null;
-                ListPromotionsResponse response = api.listPromotions(collectionId, pageSize, pageToken, view);
+                ListPromotionsResponse response = api.listPromotions(collectionId, accountId, pageSize, pageToken, view);
         // TODO: test validations
     }
     
@@ -110,7 +114,8 @@ public class PromotionsApiTest {
         String promotionId = null;
         String updateMask = null;
         Promotion promotion = null;
-                Promotion response = api.updatePromotion(collectionId, promotionId, updateMask, promotion);
+        String accountId = null;
+                Promotion response = api.updatePromotion(collectionId, promotionId, updateMask, promotion, accountId);
         // TODO: test validations
     }
     
