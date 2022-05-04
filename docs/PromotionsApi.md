@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="createPromotion"></a>
 # **createPromotion**
-> Promotion createPromotion(collectionId, promotion)
+> Promotion createPromotion(collectionId, promotion, accountId)
 
 Create promotion
 
@@ -42,8 +42,9 @@ public class Example {
     PromotionsApi apiInstance = new PromotionsApi(defaultClient);
     String collectionId = "collectionId_example"; // String | The collection to create a promotion in, e.g. `my-collection`.
     Promotion promotion = new Promotion(); // Promotion | The promotion to create.
+    String accountId = "accountId_example"; // String | The account that owns the collection, e.g. `1618535966441231024`.
     try {
-      Promotion result = apiInstance.createPromotion(collectionId, promotion);
+      Promotion result = apiInstance.createPromotion(collectionId, promotion, accountId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PromotionsApi#createPromotion");
@@ -62,6 +63,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**| The collection to create a promotion in, e.g. &#x60;my-collection&#x60;. |
  **promotion** | [**Promotion**](Promotion.md)| The promotion to create. |
+ **accountId** | **String**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
 
 ### Return type
 
@@ -88,7 +90,7 @@ Name | Type | Description  | Notes
 
 <a name="deletePromotion"></a>
 # **deletePromotion**
-> Object deletePromotion(collectionId, promotionId)
+> Object deletePromotion(collectionId, promotionId, accountId)
 
 Delete promotion
 
@@ -117,8 +119,9 @@ public class Example {
     PromotionsApi apiInstance = new PromotionsApi(defaultClient);
     String collectionId = "collectionId_example"; // String | The collection the promotion belongs to, e.g. `my-collection`.
     String promotionId = "promotionId_example"; // String | The promotion to delete, e.g. `1234`.
+    String accountId = "accountId_example"; // String | The account that owns the collection, e.g. `1618535966441231024`.
     try {
-      Object result = apiInstance.deletePromotion(collectionId, promotionId);
+      Object result = apiInstance.deletePromotion(collectionId, promotionId, accountId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PromotionsApi#deletePromotion");
@@ -137,6 +140,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**| The collection the promotion belongs to, e.g. &#x60;my-collection&#x60;. |
  **promotionId** | **String**| The promotion to delete, e.g. &#x60;1234&#x60;. |
+ **accountId** | **String**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
 
 ### Return type
 
@@ -163,7 +167,7 @@ Name | Type | Description  | Notes
 
 <a name="getPromotion"></a>
 # **getPromotion**
-> Promotion getPromotion(collectionId, promotionId)
+> Promotion getPromotion(collectionId, promotionId, accountId)
 
 Get promotion
 
@@ -192,8 +196,9 @@ public class Example {
     PromotionsApi apiInstance = new PromotionsApi(defaultClient);
     String collectionId = "collectionId_example"; // String | The collection that owns the promotion, e.g. `my-collection`.
     String promotionId = "promotionId_example"; // String | The promotion to retrieve, e.g. `1234`.
+    String accountId = "accountId_example"; // String | The account that owns the collection, e.g. `1618535966441231024`.
     try {
-      Promotion result = apiInstance.getPromotion(collectionId, promotionId);
+      Promotion result = apiInstance.getPromotion(collectionId, promotionId, accountId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PromotionsApi#getPromotion");
@@ -212,6 +217,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**| The collection that owns the promotion, e.g. &#x60;my-collection&#x60;. |
  **promotionId** | **String**| The promotion to retrieve, e.g. &#x60;1234&#x60;. |
+ **accountId** | **String**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
 
 ### Return type
 
@@ -238,7 +244,7 @@ Name | Type | Description  | Notes
 
 <a name="listPromotions"></a>
 # **listPromotions**
-> ListPromotionsResponse listPromotions(collectionId, pageSize, pageToken, view)
+> ListPromotionsResponse listPromotions(collectionId, accountId, pageSize, pageToken, view)
 
 List promotions
 
@@ -266,11 +272,12 @@ public class Example {
 
     PromotionsApi apiInstance = new PromotionsApi(defaultClient);
     String collectionId = "collectionId_example"; // String | The collection that owns this set of promotions, e.g. `my-collection`.
+    String accountId = "accountId_example"; // String | The account that owns the collection, e.g. `1618535966441231024`.
     Integer pageSize = 56; // Integer | The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000.
     String pageToken = "pageToken_example"; // String | A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token.
     String view = "PROMOTION_VIEW_UNSPECIFIED"; // String | The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `FULL` view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value.
     try {
-      ListPromotionsResponse result = apiInstance.listPromotions(collectionId, pageSize, pageToken, view);
+      ListPromotionsResponse result = apiInstance.listPromotions(collectionId, accountId, pageSize, pageToken, view);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PromotionsApi#listPromotions");
@@ -288,6 +295,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**| The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;. |
+ **accountId** | **String**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
  **pageSize** | **Integer**| The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. | [optional]
  **pageToken** | **String**| A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. | [optional]
  **view** | **String**| The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. | [optional] [default to PROMOTION_VIEW_UNSPECIFIED] [enum: PROMOTION_VIEW_UNSPECIFIED, BASIC, FULL]
@@ -317,7 +325,7 @@ Name | Type | Description  | Notes
 
 <a name="updatePromotion"></a>
 # **updatePromotion**
-> Promotion updatePromotion(collectionId, promotionId, updateMask, promotion)
+> Promotion updatePromotion(collectionId, promotionId, updateMask, promotion, accountId)
 
 Update promotion
 
@@ -348,8 +356,9 @@ public class Example {
     String promotionId = "promotionId_example"; // String | The promotion to update, e.g. `1234`.
     String updateMask = "updateMask_example"; // String | The list of fields to be updated, separated by a comma, e.g. `field1,field2`.  Each field should be in snake case, e.g. `display_name`, `filter_boosts`.  For each field that you want to update, provide a corresponding value in the promotion object containing the new value.
     Promotion promotion = new Promotion(); // Promotion | Details of the promotion to update.
+    String accountId = "accountId_example"; // String | The account that owns the collection, e.g. `1618535966441231024`.
     try {
-      Promotion result = apiInstance.updatePromotion(collectionId, promotionId, updateMask, promotion);
+      Promotion result = apiInstance.updatePromotion(collectionId, promotionId, updateMask, promotion, accountId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PromotionsApi#updatePromotion");
@@ -370,6 +379,7 @@ Name | Type | Description  | Notes
  **promotionId** | **String**| The promotion to update, e.g. &#x60;1234&#x60;. |
  **updateMask** | **String**| The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;, &#x60;filter_boosts&#x60;.  For each field that you want to update, provide a corresponding value in the promotion object containing the new value. |
  **promotion** | [**Promotion**](Promotion.md)| Details of the promotion to update. |
+ **accountId** | **String**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
 
 ### Return type
 

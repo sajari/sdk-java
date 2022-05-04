@@ -187,11 +187,11 @@ public class Event {
   }
 
    /**
-   * The type of event, e.g. &#x60;click&#x60;, &#x60;purchase&#x60;, &#x60;add_to_cart&#x60;.
+   * The type of event, e.g. &#x60;click&#x60;, &#x60;redirect&#x60;, &#x60;purchase&#x60;, &#x60;add_to_cart&#x60;.
    * @return type
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The type of event, e.g. `click`, `purchase`, `add_to_cart`.")
+  @ApiModelProperty(required = true, value = "The type of event, e.g. `click`, `redirect`, `purchase`, `add_to_cart`.")
 
   public String getType() {
     return type;

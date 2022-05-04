@@ -387,6 +387,164 @@ public class SchemaApi {
         return localVarCall;
     }
     /**
+     * Build call for deleteSchemaField
+     * @param collectionId The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;. (required)
+     * @param schemaFieldName The name of the schema field to delete. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteSchemaFieldCall(String collectionId, String schemaFieldName, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v4/collections/{collection_id}/schemaFields/{schema_field_name}"
+            .replaceAll("\\{" + "collection_id" + "\\}", localVarApiClient.escapeString(collectionId.toString()))
+            .replaceAll("\\{" + "schema_field_name" + "\\}", localVarApiClient.escapeString(schemaFieldName.toString()));
+
+        java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+        java.util.List<Pair> localVarCollectionQueryParams = new java.util.ArrayList<Pair>();
+        java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+        java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+        java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BasicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteSchemaFieldValidateBeforeCall(String collectionId, String schemaFieldName, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'collectionId' is set
+        if (collectionId == null) {
+            throw new ApiException("Missing the required parameter 'collectionId' when calling deleteSchemaField(Async)");
+        }
+        
+        // verify the required parameter 'schemaFieldName' is set
+        if (schemaFieldName == null) {
+            throw new ApiException("Missing the required parameter 'schemaFieldName' when calling deleteSchemaField(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = deleteSchemaFieldCall(collectionId, schemaFieldName, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Delete schema field
+     * Deleting a schema field removes it from all records within the collection, however, references to the schema field in pipelines are not removed.  &gt; Note: This operation cannot be reversed.
+     * @param collectionId The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;. (required)
+     * @param schemaFieldName The name of the schema field to delete. (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public Object deleteSchemaField(String collectionId, String schemaFieldName) throws ApiException {
+        ApiResponse<Object> localVarResp = deleteSchemaFieldWithHttpInfo(collectionId, schemaFieldName);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete schema field
+     * Deleting a schema field removes it from all records within the collection, however, references to the schema field in pipelines are not removed.  &gt; Note: This operation cannot be reversed.
+     * @param collectionId The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;. (required)
+     * @param schemaFieldName The name of the schema field to delete. (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Object> deleteSchemaFieldWithHttpInfo(String collectionId, String schemaFieldName) throws ApiException {
+        okhttp3.Call localVarCall = deleteSchemaFieldValidateBeforeCall(collectionId, schemaFieldName, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete schema field (asynchronously)
+     * Deleting a schema field removes it from all records within the collection, however, references to the schema field in pipelines are not removed.  &gt; Note: This operation cannot be reversed.
+     * @param collectionId The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;. (required)
+     * @param schemaFieldName The name of the schema field to delete. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteSchemaFieldAsync(String collectionId, String schemaFieldName, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteSchemaFieldValidateBeforeCall(collectionId, schemaFieldName, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for listSchemaFields
      * @param collectionId The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;. (required)
      * @param pageSize The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
@@ -547,6 +705,181 @@ public class SchemaApi {
 
         okhttp3.Call localVarCall = listSchemaFieldsValidateBeforeCall(collectionId, pageSize, pageToken, _callback);
         Type localVarReturnType = new TypeToken<ListSchemaFieldsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateSchemaField
+     * @param collectionId The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;. (required)
+     * @param schemaFieldName The name of the schema field to update. (required)
+     * @param schemaField The schema field details to update. (required)
+     * @param updateMask The list of fields to update, separated by a comma, e.g. &#x60;name,description&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the schema field object containing the new value. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateSchemaFieldCall(String collectionId, String schemaFieldName, SchemaField schemaField, String updateMask, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = schemaField;
+
+        // create path and map variables
+        String localVarPath = "/v4/collections/{collection_id}/schemaFields/{schema_field_name}"
+            .replaceAll("\\{" + "collection_id" + "\\}", localVarApiClient.escapeString(collectionId.toString()))
+            .replaceAll("\\{" + "schema_field_name" + "\\}", localVarApiClient.escapeString(schemaFieldName.toString()));
+
+        java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+        java.util.List<Pair> localVarCollectionQueryParams = new java.util.ArrayList<Pair>();
+        java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+        java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+        java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+        if (updateMask != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("update_mask", updateMask));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BasicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateSchemaFieldValidateBeforeCall(String collectionId, String schemaFieldName, SchemaField schemaField, String updateMask, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'collectionId' is set
+        if (collectionId == null) {
+            throw new ApiException("Missing the required parameter 'collectionId' when calling updateSchemaField(Async)");
+        }
+        
+        // verify the required parameter 'schemaFieldName' is set
+        if (schemaFieldName == null) {
+            throw new ApiException("Missing the required parameter 'schemaFieldName' when calling updateSchemaField(Async)");
+        }
+        
+        // verify the required parameter 'schemaField' is set
+        if (schemaField == null) {
+            throw new ApiException("Missing the required parameter 'schemaField' when calling updateSchemaField(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = updateSchemaFieldCall(collectionId, schemaFieldName, schemaField, updateMask, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Update schema field
+     * Update the details of a schema field.  Only &#x60;name&#x60; and &#x60;description&#x60; can be updated.
+     * @param collectionId The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;. (required)
+     * @param schemaFieldName The name of the schema field to update. (required)
+     * @param schemaField The schema field details to update. (required)
+     * @param updateMask The list of fields to update, separated by a comma, e.g. &#x60;name,description&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the schema field object containing the new value. (optional)
+     * @return SchemaField
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public SchemaField updateSchemaField(String collectionId, String schemaFieldName, SchemaField schemaField, String updateMask) throws ApiException {
+        ApiResponse<SchemaField> localVarResp = updateSchemaFieldWithHttpInfo(collectionId, schemaFieldName, schemaField, updateMask);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update schema field
+     * Update the details of a schema field.  Only &#x60;name&#x60; and &#x60;description&#x60; can be updated.
+     * @param collectionId The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;. (required)
+     * @param schemaFieldName The name of the schema field to update. (required)
+     * @param schemaField The schema field details to update. (required)
+     * @param updateMask The list of fields to update, separated by a comma, e.g. &#x60;name,description&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the schema field object containing the new value. (optional)
+     * @return ApiResponse&lt;SchemaField&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SchemaField> updateSchemaFieldWithHttpInfo(String collectionId, String schemaFieldName, SchemaField schemaField, String updateMask) throws ApiException {
+        okhttp3.Call localVarCall = updateSchemaFieldValidateBeforeCall(collectionId, schemaFieldName, schemaField, updateMask, null);
+        Type localVarReturnType = new TypeToken<SchemaField>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update schema field (asynchronously)
+     * Update the details of a schema field.  Only &#x60;name&#x60; and &#x60;description&#x60; can be updated.
+     * @param collectionId The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;. (required)
+     * @param schemaFieldName The name of the schema field to update. (required)
+     * @param schemaField The schema field details to update. (required)
+     * @param updateMask The list of fields to update, separated by a comma, e.g. &#x60;name,description&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the schema field object containing the new value. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Returned when the request does not have valid authentication credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Returned when the user does not have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Returned when the resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Returned when the API encounters an internal error. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateSchemaFieldAsync(String collectionId, String schemaFieldName, SchemaField schemaField, String updateMask, final ApiCallback<SchemaField> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateSchemaFieldValidateBeforeCall(collectionId, schemaFieldName, schemaField, updateMask, _callback);
+        Type localVarReturnType = new TypeToken<SchemaField>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

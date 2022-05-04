@@ -340,11 +340,11 @@ public class Promotion {
   }
 
    /**
-   * The conditions applied to the filters passed from the user. A query must match at least one of these in order to trigger the promotion.
+   * The conditions applied to the filters passed from the user. A query must match at least one of these in order to trigger the promotion. A filter condition is comprised of a set of filters of the form &#x60;field &#x3D; value&#x60; and matches a query if all of those filters are present in the query.  For example, a query with the filter &#x60;productType &#x3D; &#39;shirt&#39; AND size &#x3D; &#39;medium&#39;&#x60; triggers a promotion with the filter condition &#x60;productType &#x3D; &#39;shirt&#39;&#x60;, but not one with both &#x60;productType &#x3D; &#39;shirt&#39;, and &#x60;size &#x3D; &#39;small&#39;&#x60;.
    * @return filterConditions
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The conditions applied to the filters passed from the user. A query must match at least one of these in order to trigger the promotion.")
+  @ApiModelProperty(value = "The conditions applied to the filters passed from the user. A query must match at least one of these in order to trigger the promotion. A filter condition is comprised of a set of filters of the form `field = value` and matches a query if all of those filters are present in the query.  For example, a query with the filter `productType = 'shirt' AND size = 'medium'` triggers a promotion with the filter condition `productType = 'shirt'`, but not one with both `productType = 'shirt', and `size = 'small'`.")
 
   public java.util.List<PromotionFilterCondition> getFilterConditions() {
     return filterConditions;

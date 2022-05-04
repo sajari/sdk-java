@@ -42,7 +42,8 @@ public class CollectionsApiTest {
     public void createCollectionTest() throws ApiException {
         String collectionId = null;
         Collection collection = null;
-        Collection response = api.createCollection(collectionId, collection);
+        String accountId = null;
+        Collection response = api.createCollection(collectionId, collection, accountId);
 
         // TODO: test validations
     }
@@ -57,7 +58,8 @@ public class CollectionsApiTest {
     @Test
     public void deleteCollectionTest() throws ApiException {
         String collectionId = null;
-        Object response = api.deleteCollection(collectionId);
+        String accountId = null;
+        Object response = api.deleteCollection(collectionId, accountId);
 
         // TODO: test validations
     }
@@ -72,7 +74,9 @@ public class CollectionsApiTest {
     @Test
     public void getCollectionTest() throws ApiException {
         String collectionId = null;
-        Collection response = api.getCollection(collectionId);
+        String accountId = null;
+        String view = null;
+        Collection response = api.getCollection(collectionId, accountId, view);
 
         // TODO: test validations
     }
@@ -86,9 +90,11 @@ public class CollectionsApiTest {
      */
     @Test
     public void listCollectionsTest() throws ApiException {
+        String accountId = null;
         Integer pageSize = null;
         String pageToken = null;
-        ListCollectionsResponse response = api.listCollections(pageSize, pageToken);
+        String view = null;
+        ListCollectionsResponse response = api.listCollections(accountId, pageSize, pageToken, view);
 
         // TODO: test validations
     }
@@ -121,8 +127,9 @@ public class CollectionsApiTest {
     public void updateCollectionTest() throws ApiException {
         String collectionId = null;
         Collection collection = null;
+        String accountId = null;
         String updateMask = null;
-        Collection response = api.updateCollection(collectionId, collection, updateMask);
+        Collection response = api.updateCollection(collectionId, collection, accountId, updateMask);
 
         // TODO: test validations
     }

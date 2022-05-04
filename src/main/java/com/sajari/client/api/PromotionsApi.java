@@ -74,6 +74,7 @@ public class PromotionsApi {
      * Build call for createPromotion
      * @param collectionId The collection to create a promotion in, e.g. &#x60;my-collection&#x60;. (required)
      * @param promotion The promotion to create. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -88,7 +89,7 @@ public class PromotionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createPromotionCall(String collectionId, Promotion promotion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createPromotionCall(String collectionId, Promotion promotion, String accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -115,6 +116,10 @@ public class PromotionsApi {
         java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
         java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
+        if (accountId != null) {
+            localVarHeaderParams.put("Account-Id", localVarApiClient.parameterToString(accountId));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -136,7 +141,7 @@ public class PromotionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createPromotionValidateBeforeCall(String collectionId, Promotion promotion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createPromotionValidateBeforeCall(String collectionId, Promotion promotion, String accountId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
@@ -149,7 +154,7 @@ public class PromotionsApi {
         }
         
 
-        okhttp3.Call localVarCall = createPromotionCall(collectionId, promotion, _callback);
+        okhttp3.Call localVarCall = createPromotionCall(collectionId, promotion, accountId, _callback);
         return localVarCall;
 
     }
@@ -159,6 +164,7 @@ public class PromotionsApi {
      * Create a new promotion in a collection.
      * @param collectionId The collection to create a promotion in, e.g. &#x60;my-collection&#x60;. (required)
      * @param promotion The promotion to create. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @return Promotion
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -172,8 +178,8 @@ public class PromotionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public Promotion createPromotion(String collectionId, Promotion promotion) throws ApiException {
-        ApiResponse<Promotion> localVarResp = createPromotionWithHttpInfo(collectionId, promotion);
+    public Promotion createPromotion(String collectionId, Promotion promotion, String accountId) throws ApiException {
+        ApiResponse<Promotion> localVarResp = createPromotionWithHttpInfo(collectionId, promotion, accountId);
         return localVarResp.getData();
     }
 
@@ -182,6 +188,7 @@ public class PromotionsApi {
      * Create a new promotion in a collection.
      * @param collectionId The collection to create a promotion in, e.g. &#x60;my-collection&#x60;. (required)
      * @param promotion The promotion to create. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @return ApiResponse&lt;Promotion&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -195,8 +202,8 @@ public class PromotionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Promotion> createPromotionWithHttpInfo(String collectionId, Promotion promotion) throws ApiException {
-        okhttp3.Call localVarCall = createPromotionValidateBeforeCall(collectionId, promotion, null);
+    public ApiResponse<Promotion> createPromotionWithHttpInfo(String collectionId, Promotion promotion, String accountId) throws ApiException {
+        okhttp3.Call localVarCall = createPromotionValidateBeforeCall(collectionId, promotion, accountId, null);
         Type localVarReturnType = new TypeToken<Promotion>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -206,6 +213,7 @@ public class PromotionsApi {
      * Create a new promotion in a collection.
      * @param collectionId The collection to create a promotion in, e.g. &#x60;my-collection&#x60;. (required)
      * @param promotion The promotion to create. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -220,9 +228,9 @@ public class PromotionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createPromotionAsync(String collectionId, Promotion promotion, final ApiCallback<Promotion> _callback) throws ApiException {
+    public okhttp3.Call createPromotionAsync(String collectionId, Promotion promotion, String accountId, final ApiCallback<Promotion> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createPromotionValidateBeforeCall(collectionId, promotion, _callback);
+        okhttp3.Call localVarCall = createPromotionValidateBeforeCall(collectionId, promotion, accountId, _callback);
         Type localVarReturnType = new TypeToken<Promotion>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -231,6 +239,7 @@ public class PromotionsApi {
      * Build call for deletePromotion
      * @param collectionId The collection the promotion belongs to, e.g. &#x60;my-collection&#x60;. (required)
      * @param promotionId The promotion to delete, e.g. &#x60;1234&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -245,7 +254,7 @@ public class PromotionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deletePromotionCall(String collectionId, String promotionId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deletePromotionCall(String collectionId, String promotionId, String accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -272,6 +281,10 @@ public class PromotionsApi {
         java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
         java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
         java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+        if (accountId != null) {
+            localVarHeaderParams.put("Account-Id", localVarApiClient.parameterToString(accountId));
+        }
 
         final String[] localVarAccepts = {
             "application/json"
@@ -294,7 +307,7 @@ public class PromotionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deletePromotionValidateBeforeCall(String collectionId, String promotionId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deletePromotionValidateBeforeCall(String collectionId, String promotionId, String accountId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
@@ -307,7 +320,7 @@ public class PromotionsApi {
         }
         
 
-        okhttp3.Call localVarCall = deletePromotionCall(collectionId, promotionId, _callback);
+        okhttp3.Call localVarCall = deletePromotionCall(collectionId, promotionId, accountId, _callback);
         return localVarCall;
 
     }
@@ -317,6 +330,7 @@ public class PromotionsApi {
      * Delete a promotion and all of its associated data.  &gt; Note: This operation cannot be reversed.
      * @param collectionId The collection the promotion belongs to, e.g. &#x60;my-collection&#x60;. (required)
      * @param promotionId The promotion to delete, e.g. &#x60;1234&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -330,8 +344,8 @@ public class PromotionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public Object deletePromotion(String collectionId, String promotionId) throws ApiException {
-        ApiResponse<Object> localVarResp = deletePromotionWithHttpInfo(collectionId, promotionId);
+    public Object deletePromotion(String collectionId, String promotionId, String accountId) throws ApiException {
+        ApiResponse<Object> localVarResp = deletePromotionWithHttpInfo(collectionId, promotionId, accountId);
         return localVarResp.getData();
     }
 
@@ -340,6 +354,7 @@ public class PromotionsApi {
      * Delete a promotion and all of its associated data.  &gt; Note: This operation cannot be reversed.
      * @param collectionId The collection the promotion belongs to, e.g. &#x60;my-collection&#x60;. (required)
      * @param promotionId The promotion to delete, e.g. &#x60;1234&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -353,8 +368,8 @@ public class PromotionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> deletePromotionWithHttpInfo(String collectionId, String promotionId) throws ApiException {
-        okhttp3.Call localVarCall = deletePromotionValidateBeforeCall(collectionId, promotionId, null);
+    public ApiResponse<Object> deletePromotionWithHttpInfo(String collectionId, String promotionId, String accountId) throws ApiException {
+        okhttp3.Call localVarCall = deletePromotionValidateBeforeCall(collectionId, promotionId, accountId, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -364,6 +379,7 @@ public class PromotionsApi {
      * Delete a promotion and all of its associated data.  &gt; Note: This operation cannot be reversed.
      * @param collectionId The collection the promotion belongs to, e.g. &#x60;my-collection&#x60;. (required)
      * @param promotionId The promotion to delete, e.g. &#x60;1234&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -378,9 +394,9 @@ public class PromotionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deletePromotionAsync(String collectionId, String promotionId, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call deletePromotionAsync(String collectionId, String promotionId, String accountId, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deletePromotionValidateBeforeCall(collectionId, promotionId, _callback);
+        okhttp3.Call localVarCall = deletePromotionValidateBeforeCall(collectionId, promotionId, accountId, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -389,6 +405,7 @@ public class PromotionsApi {
      * Build call for getPromotion
      * @param collectionId The collection that owns the promotion, e.g. &#x60;my-collection&#x60;. (required)
      * @param promotionId The promotion to retrieve, e.g. &#x60;1234&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -403,7 +420,7 @@ public class PromotionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPromotionCall(String collectionId, String promotionId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPromotionCall(String collectionId, String promotionId, String accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -431,6 +448,10 @@ public class PromotionsApi {
         java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
         java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
+        if (accountId != null) {
+            localVarHeaderParams.put("Account-Id", localVarApiClient.parameterToString(accountId));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -452,7 +473,7 @@ public class PromotionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPromotionValidateBeforeCall(String collectionId, String promotionId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPromotionValidateBeforeCall(String collectionId, String promotionId, String accountId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
@@ -465,7 +486,7 @@ public class PromotionsApi {
         }
         
 
-        okhttp3.Call localVarCall = getPromotionCall(collectionId, promotionId, _callback);
+        okhttp3.Call localVarCall = getPromotionCall(collectionId, promotionId, accountId, _callback);
         return localVarCall;
 
     }
@@ -475,6 +496,7 @@ public class PromotionsApi {
      * Retrieve the details of a promotion.
      * @param collectionId The collection that owns the promotion, e.g. &#x60;my-collection&#x60;. (required)
      * @param promotionId The promotion to retrieve, e.g. &#x60;1234&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @return Promotion
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -488,8 +510,8 @@ public class PromotionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public Promotion getPromotion(String collectionId, String promotionId) throws ApiException {
-        ApiResponse<Promotion> localVarResp = getPromotionWithHttpInfo(collectionId, promotionId);
+    public Promotion getPromotion(String collectionId, String promotionId, String accountId) throws ApiException {
+        ApiResponse<Promotion> localVarResp = getPromotionWithHttpInfo(collectionId, promotionId, accountId);
         return localVarResp.getData();
     }
 
@@ -498,6 +520,7 @@ public class PromotionsApi {
      * Retrieve the details of a promotion.
      * @param collectionId The collection that owns the promotion, e.g. &#x60;my-collection&#x60;. (required)
      * @param promotionId The promotion to retrieve, e.g. &#x60;1234&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @return ApiResponse&lt;Promotion&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -511,8 +534,8 @@ public class PromotionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Promotion> getPromotionWithHttpInfo(String collectionId, String promotionId) throws ApiException {
-        okhttp3.Call localVarCall = getPromotionValidateBeforeCall(collectionId, promotionId, null);
+    public ApiResponse<Promotion> getPromotionWithHttpInfo(String collectionId, String promotionId, String accountId) throws ApiException {
+        okhttp3.Call localVarCall = getPromotionValidateBeforeCall(collectionId, promotionId, accountId, null);
         Type localVarReturnType = new TypeToken<Promotion>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -522,6 +545,7 @@ public class PromotionsApi {
      * Retrieve the details of a promotion.
      * @param collectionId The collection that owns the promotion, e.g. &#x60;my-collection&#x60;. (required)
      * @param promotionId The promotion to retrieve, e.g. &#x60;1234&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -536,9 +560,9 @@ public class PromotionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPromotionAsync(String collectionId, String promotionId, final ApiCallback<Promotion> _callback) throws ApiException {
+    public okhttp3.Call getPromotionAsync(String collectionId, String promotionId, String accountId, final ApiCallback<Promotion> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPromotionValidateBeforeCall(collectionId, promotionId, _callback);
+        okhttp3.Call localVarCall = getPromotionValidateBeforeCall(collectionId, promotionId, accountId, _callback);
         Type localVarReturnType = new TypeToken<Promotion>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -546,6 +570,7 @@ public class PromotionsApi {
     /**
      * Build call for listPromotions
      * @param collectionId The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param pageSize The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
      * @param pageToken A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)
      * @param view The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to PROMOTION_VIEW_UNSPECIFIED)
@@ -563,7 +588,7 @@ public class PromotionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listPromotionsCall(String collectionId, Integer pageSize, String pageToken, String view, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listPromotionsCall(String collectionId, String accountId, Integer pageSize, String pageToken, String view, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -602,6 +627,10 @@ public class PromotionsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("view", view));
         }
 
+        if (accountId != null) {
+            localVarHeaderParams.put("Account-Id", localVarApiClient.parameterToString(accountId));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -623,7 +652,7 @@ public class PromotionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listPromotionsValidateBeforeCall(String collectionId, Integer pageSize, String pageToken, String view, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listPromotionsValidateBeforeCall(String collectionId, String accountId, Integer pageSize, String pageToken, String view, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
@@ -631,7 +660,7 @@ public class PromotionsApi {
         }
         
 
-        okhttp3.Call localVarCall = listPromotionsCall(collectionId, pageSize, pageToken, view, _callback);
+        okhttp3.Call localVarCall = listPromotionsCall(collectionId, accountId, pageSize, pageToken, view, _callback);
         return localVarCall;
 
     }
@@ -640,6 +669,7 @@ public class PromotionsApi {
      * List promotions
      * Retrieve a list of promotions in a collection.  Promotion pins, exclusions and filter boosts are not returned in this call.
      * @param collectionId The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param pageSize The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
      * @param pageToken A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)
      * @param view The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to PROMOTION_VIEW_UNSPECIFIED)
@@ -656,8 +686,8 @@ public class PromotionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ListPromotionsResponse listPromotions(String collectionId, Integer pageSize, String pageToken, String view) throws ApiException {
-        ApiResponse<ListPromotionsResponse> localVarResp = listPromotionsWithHttpInfo(collectionId, pageSize, pageToken, view);
+    public ListPromotionsResponse listPromotions(String collectionId, String accountId, Integer pageSize, String pageToken, String view) throws ApiException {
+        ApiResponse<ListPromotionsResponse> localVarResp = listPromotionsWithHttpInfo(collectionId, accountId, pageSize, pageToken, view);
         return localVarResp.getData();
     }
 
@@ -665,6 +695,7 @@ public class PromotionsApi {
      * List promotions
      * Retrieve a list of promotions in a collection.  Promotion pins, exclusions and filter boosts are not returned in this call.
      * @param collectionId The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param pageSize The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
      * @param pageToken A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)
      * @param view The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to PROMOTION_VIEW_UNSPECIFIED)
@@ -681,8 +712,8 @@ public class PromotionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListPromotionsResponse> listPromotionsWithHttpInfo(String collectionId, Integer pageSize, String pageToken, String view) throws ApiException {
-        okhttp3.Call localVarCall = listPromotionsValidateBeforeCall(collectionId, pageSize, pageToken, view, null);
+    public ApiResponse<ListPromotionsResponse> listPromotionsWithHttpInfo(String collectionId, String accountId, Integer pageSize, String pageToken, String view) throws ApiException {
+        okhttp3.Call localVarCall = listPromotionsValidateBeforeCall(collectionId, accountId, pageSize, pageToken, view, null);
         Type localVarReturnType = new TypeToken<ListPromotionsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -691,6 +722,7 @@ public class PromotionsApi {
      * List promotions (asynchronously)
      * Retrieve a list of promotions in a collection.  Promotion pins, exclusions and filter boosts are not returned in this call.
      * @param collectionId The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param pageSize The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
      * @param pageToken A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)
      * @param view The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to PROMOTION_VIEW_UNSPECIFIED)
@@ -708,9 +740,9 @@ public class PromotionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listPromotionsAsync(String collectionId, Integer pageSize, String pageToken, String view, final ApiCallback<ListPromotionsResponse> _callback) throws ApiException {
+    public okhttp3.Call listPromotionsAsync(String collectionId, String accountId, Integer pageSize, String pageToken, String view, final ApiCallback<ListPromotionsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listPromotionsValidateBeforeCall(collectionId, pageSize, pageToken, view, _callback);
+        okhttp3.Call localVarCall = listPromotionsValidateBeforeCall(collectionId, accountId, pageSize, pageToken, view, _callback);
         Type localVarReturnType = new TypeToken<ListPromotionsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -721,6 +753,7 @@ public class PromotionsApi {
      * @param promotionId The promotion to update, e.g. &#x60;1234&#x60;. (required)
      * @param updateMask The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;, &#x60;filter_boosts&#x60;.  For each field that you want to update, provide a corresponding value in the promotion object containing the new value. (required)
      * @param promotion Details of the promotion to update. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -735,7 +768,7 @@ public class PromotionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updatePromotionCall(String collectionId, String promotionId, String updateMask, Promotion promotion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updatePromotionCall(String collectionId, String promotionId, String updateMask, Promotion promotion, String accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -767,6 +800,10 @@ public class PromotionsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("update_mask", updateMask));
         }
 
+        if (accountId != null) {
+            localVarHeaderParams.put("Account-Id", localVarApiClient.parameterToString(accountId));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -788,7 +825,7 @@ public class PromotionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updatePromotionValidateBeforeCall(String collectionId, String promotionId, String updateMask, Promotion promotion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updatePromotionValidateBeforeCall(String collectionId, String promotionId, String updateMask, Promotion promotion, String accountId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
@@ -811,7 +848,7 @@ public class PromotionsApi {
         }
         
 
-        okhttp3.Call localVarCall = updatePromotionCall(collectionId, promotionId, updateMask, promotion, _callback);
+        okhttp3.Call localVarCall = updatePromotionCall(collectionId, promotionId, updateMask, promotion, accountId, _callback);
         return localVarCall;
 
     }
@@ -823,6 +860,7 @@ public class PromotionsApi {
      * @param promotionId The promotion to update, e.g. &#x60;1234&#x60;. (required)
      * @param updateMask The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;, &#x60;filter_boosts&#x60;.  For each field that you want to update, provide a corresponding value in the promotion object containing the new value. (required)
      * @param promotion Details of the promotion to update. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @return Promotion
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -836,8 +874,8 @@ public class PromotionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public Promotion updatePromotion(String collectionId, String promotionId, String updateMask, Promotion promotion) throws ApiException {
-        ApiResponse<Promotion> localVarResp = updatePromotionWithHttpInfo(collectionId, promotionId, updateMask, promotion);
+    public Promotion updatePromotion(String collectionId, String promotionId, String updateMask, Promotion promotion, String accountId) throws ApiException {
+        ApiResponse<Promotion> localVarResp = updatePromotionWithHttpInfo(collectionId, promotionId, updateMask, promotion, accountId);
         return localVarResp.getData();
     }
 
@@ -848,6 +886,7 @@ public class PromotionsApi {
      * @param promotionId The promotion to update, e.g. &#x60;1234&#x60;. (required)
      * @param updateMask The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;, &#x60;filter_boosts&#x60;.  For each field that you want to update, provide a corresponding value in the promotion object containing the new value. (required)
      * @param promotion Details of the promotion to update. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @return ApiResponse&lt;Promotion&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -861,8 +900,8 @@ public class PromotionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Promotion> updatePromotionWithHttpInfo(String collectionId, String promotionId, String updateMask, Promotion promotion) throws ApiException {
-        okhttp3.Call localVarCall = updatePromotionValidateBeforeCall(collectionId, promotionId, updateMask, promotion, null);
+    public ApiResponse<Promotion> updatePromotionWithHttpInfo(String collectionId, String promotionId, String updateMask, Promotion promotion, String accountId) throws ApiException {
+        okhttp3.Call localVarCall = updatePromotionValidateBeforeCall(collectionId, promotionId, updateMask, promotion, accountId, null);
         Type localVarReturnType = new TypeToken<Promotion>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -874,6 +913,7 @@ public class PromotionsApi {
      * @param promotionId The promotion to update, e.g. &#x60;1234&#x60;. (required)
      * @param updateMask The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;, &#x60;filter_boosts&#x60;.  For each field that you want to update, provide a corresponding value in the promotion object containing the new value. (required)
      * @param promotion Details of the promotion to update. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -888,9 +928,9 @@ public class PromotionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updatePromotionAsync(String collectionId, String promotionId, String updateMask, Promotion promotion, final ApiCallback<Promotion> _callback) throws ApiException {
+    public okhttp3.Call updatePromotionAsync(String collectionId, String promotionId, String updateMask, Promotion promotion, String accountId, final ApiCallback<Promotion> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updatePromotionValidateBeforeCall(collectionId, promotionId, updateMask, promotion, _callback);
+        okhttp3.Call localVarCall = updatePromotionValidateBeforeCall(collectionId, promotionId, updateMask, promotion, accountId, _callback);
         Type localVarReturnType = new TypeToken<Promotion>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

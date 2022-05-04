@@ -79,6 +79,7 @@ public class CollectionsApi {
      * Build call for createCollection
      * @param collectionId The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or &#x60;-&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[A-Za-z][A-Za-z0-9\\-]*$&#x60;. (required)
      * @param collection Details of the collection to create. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -95,7 +96,7 @@ public class CollectionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCollectionCall(String collectionId, Collection collection, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createCollectionCall(String collectionId, Collection collection, String accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -125,6 +126,10 @@ public class CollectionsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("collection_id", collectionId));
         }
 
+        if (accountId != null) {
+            localVarHeaderParams.put("Account-Id", localVarApiClient.parameterToString(accountId));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -146,7 +151,7 @@ public class CollectionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createCollectionValidateBeforeCall(String collectionId, Collection collection, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createCollectionValidateBeforeCall(String collectionId, Collection collection, String accountId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
@@ -159,7 +164,7 @@ public class CollectionsApi {
         }
         
 
-        okhttp3.Call localVarCall = createCollectionCall(collectionId, collection, _callback);
+        okhttp3.Call localVarCall = createCollectionCall(collectionId, collection, accountId, _callback);
         return localVarCall;
 
     }
@@ -169,6 +174,7 @@ public class CollectionsApi {
      * Create an empty collection.  Before records can be added to a collection, the schema and pipelines for the collection have to be set up. Consider setting up new collections via the Search.io Console, which handles the creation of the schema and pipelines for you.
      * @param collectionId The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or &#x60;-&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[A-Za-z][A-Za-z0-9\\-]*$&#x60;. (required)
      * @param collection Details of the collection to create. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @return Collection
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -184,8 +190,8 @@ public class CollectionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public Collection createCollection(String collectionId, Collection collection) throws ApiException {
-        ApiResponse<Collection> localVarResp = createCollectionWithHttpInfo(collectionId, collection);
+    public Collection createCollection(String collectionId, Collection collection, String accountId) throws ApiException {
+        ApiResponse<Collection> localVarResp = createCollectionWithHttpInfo(collectionId, collection, accountId);
         return localVarResp.getData();
     }
 
@@ -194,6 +200,7 @@ public class CollectionsApi {
      * Create an empty collection.  Before records can be added to a collection, the schema and pipelines for the collection have to be set up. Consider setting up new collections via the Search.io Console, which handles the creation of the schema and pipelines for you.
      * @param collectionId The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or &#x60;-&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[A-Za-z][A-Za-z0-9\\-]*$&#x60;. (required)
      * @param collection Details of the collection to create. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @return ApiResponse&lt;Collection&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -209,8 +216,8 @@ public class CollectionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Collection> createCollectionWithHttpInfo(String collectionId, Collection collection) throws ApiException {
-        okhttp3.Call localVarCall = createCollectionValidateBeforeCall(collectionId, collection, null);
+    public ApiResponse<Collection> createCollectionWithHttpInfo(String collectionId, Collection collection, String accountId) throws ApiException {
+        okhttp3.Call localVarCall = createCollectionValidateBeforeCall(collectionId, collection, accountId, null);
         Type localVarReturnType = new TypeToken<Collection>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -220,6 +227,7 @@ public class CollectionsApi {
      * Create an empty collection.  Before records can be added to a collection, the schema and pipelines for the collection have to be set up. Consider setting up new collections via the Search.io Console, which handles the creation of the schema and pipelines for you.
      * @param collectionId The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or &#x60;-&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[A-Za-z][A-Za-z0-9\\-]*$&#x60;. (required)
      * @param collection Details of the collection to create. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -236,9 +244,9 @@ public class CollectionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCollectionAsync(String collectionId, Collection collection, final ApiCallback<Collection> _callback) throws ApiException {
+    public okhttp3.Call createCollectionAsync(String collectionId, Collection collection, String accountId, final ApiCallback<Collection> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createCollectionValidateBeforeCall(collectionId, collection, _callback);
+        okhttp3.Call localVarCall = createCollectionValidateBeforeCall(collectionId, collection, accountId, _callback);
         Type localVarReturnType = new TypeToken<Collection>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -246,6 +254,7 @@ public class CollectionsApi {
     /**
      * Build call for deleteCollection
      * @param collectionId The collection to delete, e.g. &#x60;my-collection&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -260,7 +269,7 @@ public class CollectionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCollectionCall(String collectionId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteCollectionCall(String collectionId, String accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -287,6 +296,10 @@ public class CollectionsApi {
         java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
         java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
+        if (accountId != null) {
+            localVarHeaderParams.put("Account-Id", localVarApiClient.parameterToString(accountId));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -308,7 +321,7 @@ public class CollectionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionValidateBeforeCall(String collectionId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionValidateBeforeCall(String collectionId, String accountId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
@@ -316,7 +329,7 @@ public class CollectionsApi {
         }
         
 
-        okhttp3.Call localVarCall = deleteCollectionCall(collectionId, _callback);
+        okhttp3.Call localVarCall = deleteCollectionCall(collectionId, accountId, _callback);
         return localVarCall;
 
     }
@@ -325,6 +338,7 @@ public class CollectionsApi {
      * Delete collection
      * Delete a collection and all of its associated data.  &gt; Note: This operation cannot be reversed.
      * @param collectionId The collection to delete, e.g. &#x60;my-collection&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -338,8 +352,8 @@ public class CollectionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public Object deleteCollection(String collectionId) throws ApiException {
-        ApiResponse<Object> localVarResp = deleteCollectionWithHttpInfo(collectionId);
+    public Object deleteCollection(String collectionId, String accountId) throws ApiException {
+        ApiResponse<Object> localVarResp = deleteCollectionWithHttpInfo(collectionId, accountId);
         return localVarResp.getData();
     }
 
@@ -347,6 +361,7 @@ public class CollectionsApi {
      * Delete collection
      * Delete a collection and all of its associated data.  &gt; Note: This operation cannot be reversed.
      * @param collectionId The collection to delete, e.g. &#x60;my-collection&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -360,8 +375,8 @@ public class CollectionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> deleteCollectionWithHttpInfo(String collectionId) throws ApiException {
-        okhttp3.Call localVarCall = deleteCollectionValidateBeforeCall(collectionId, null);
+    public ApiResponse<Object> deleteCollectionWithHttpInfo(String collectionId, String accountId) throws ApiException {
+        okhttp3.Call localVarCall = deleteCollectionValidateBeforeCall(collectionId, accountId, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -370,6 +385,7 @@ public class CollectionsApi {
      * Delete collection (asynchronously)
      * Delete a collection and all of its associated data.  &gt; Note: This operation cannot be reversed.
      * @param collectionId The collection to delete, e.g. &#x60;my-collection&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -384,9 +400,9 @@ public class CollectionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCollectionAsync(String collectionId, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call deleteCollectionAsync(String collectionId, String accountId, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteCollectionValidateBeforeCall(collectionId, _callback);
+        okhttp3.Call localVarCall = deleteCollectionValidateBeforeCall(collectionId, accountId, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -551,6 +567,8 @@ public class CollectionsApi {
     /**
      * Build call for getCollection
      * @param collectionId The collection to retrieve, e.g. &#x60;my-collection&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
+     * @param view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to VIEW_UNSPECIFIED)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -565,7 +583,7 @@ public class CollectionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCollectionCall(String collectionId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCollectionCall(String collectionId, String accountId, String view, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -592,6 +610,14 @@ public class CollectionsApi {
         java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
         java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
+        if (view != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("view", view));
+        }
+
+        if (accountId != null) {
+            localVarHeaderParams.put("Account-Id", localVarApiClient.parameterToString(accountId));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -613,7 +639,7 @@ public class CollectionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCollectionValidateBeforeCall(String collectionId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCollectionValidateBeforeCall(String collectionId, String accountId, String view, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
@@ -621,7 +647,7 @@ public class CollectionsApi {
         }
         
 
-        okhttp3.Call localVarCall = getCollectionCall(collectionId, _callback);
+        okhttp3.Call localVarCall = getCollectionCall(collectionId, accountId, view, _callback);
         return localVarCall;
 
     }
@@ -630,6 +656,8 @@ public class CollectionsApi {
      * Get collection
      * Retrieve the details of a collection.
      * @param collectionId The collection to retrieve, e.g. &#x60;my-collection&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
+     * @param view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to VIEW_UNSPECIFIED)
      * @return Collection
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -643,8 +671,8 @@ public class CollectionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public Collection getCollection(String collectionId) throws ApiException {
-        ApiResponse<Collection> localVarResp = getCollectionWithHttpInfo(collectionId);
+    public Collection getCollection(String collectionId, String accountId, String view) throws ApiException {
+        ApiResponse<Collection> localVarResp = getCollectionWithHttpInfo(collectionId, accountId, view);
         return localVarResp.getData();
     }
 
@@ -652,6 +680,8 @@ public class CollectionsApi {
      * Get collection
      * Retrieve the details of a collection.
      * @param collectionId The collection to retrieve, e.g. &#x60;my-collection&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
+     * @param view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to VIEW_UNSPECIFIED)
      * @return ApiResponse&lt;Collection&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -665,8 +695,8 @@ public class CollectionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Collection> getCollectionWithHttpInfo(String collectionId) throws ApiException {
-        okhttp3.Call localVarCall = getCollectionValidateBeforeCall(collectionId, null);
+    public ApiResponse<Collection> getCollectionWithHttpInfo(String collectionId, String accountId, String view) throws ApiException {
+        okhttp3.Call localVarCall = getCollectionValidateBeforeCall(collectionId, accountId, view, null);
         Type localVarReturnType = new TypeToken<Collection>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -675,6 +705,8 @@ public class CollectionsApi {
      * Get collection (asynchronously)
      * Retrieve the details of a collection.
      * @param collectionId The collection to retrieve, e.g. &#x60;my-collection&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
+     * @param view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to VIEW_UNSPECIFIED)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -689,17 +721,19 @@ public class CollectionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCollectionAsync(String collectionId, final ApiCallback<Collection> _callback) throws ApiException {
+    public okhttp3.Call getCollectionAsync(String collectionId, String accountId, String view, final ApiCallback<Collection> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCollectionValidateBeforeCall(collectionId, _callback);
+        okhttp3.Call localVarCall = getCollectionValidateBeforeCall(collectionId, accountId, view, _callback);
         Type localVarReturnType = new TypeToken<Collection>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for listCollections
+     * @param accountId The account that owns this set of collections, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param pageSize The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
      * @param pageToken A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)
+     * @param view The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to VIEW_UNSPECIFIED)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -714,7 +748,7 @@ public class CollectionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listCollectionsCall(Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listCollectionsCall(String accountId, Integer pageSize, String pageToken, String view, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -748,6 +782,14 @@ public class CollectionsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("page_token", pageToken));
         }
 
+        if (view != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("view", view));
+        }
+
+        if (accountId != null) {
+            localVarHeaderParams.put("Account-Id", localVarApiClient.parameterToString(accountId));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -769,10 +811,10 @@ public class CollectionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listCollectionsValidateBeforeCall(Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listCollectionsValidateBeforeCall(String accountId, Integer pageSize, String pageToken, String view, final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = listCollectionsCall(pageSize, pageToken, _callback);
+        okhttp3.Call localVarCall = listCollectionsCall(accountId, pageSize, pageToken, view, _callback);
         return localVarCall;
 
     }
@@ -780,8 +822,10 @@ public class CollectionsApi {
     /**
      * List collections
      * Retrieve a list of collections in an account.
+     * @param accountId The account that owns this set of collections, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param pageSize The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
      * @param pageToken A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)
+     * @param view The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to VIEW_UNSPECIFIED)
      * @return ListCollectionsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -795,16 +839,18 @@ public class CollectionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ListCollectionsResponse listCollections(Integer pageSize, String pageToken) throws ApiException {
-        ApiResponse<ListCollectionsResponse> localVarResp = listCollectionsWithHttpInfo(pageSize, pageToken);
+    public ListCollectionsResponse listCollections(String accountId, Integer pageSize, String pageToken, String view) throws ApiException {
+        ApiResponse<ListCollectionsResponse> localVarResp = listCollectionsWithHttpInfo(accountId, pageSize, pageToken, view);
         return localVarResp.getData();
     }
 
     /**
      * List collections
      * Retrieve a list of collections in an account.
+     * @param accountId The account that owns this set of collections, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param pageSize The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
      * @param pageToken A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)
+     * @param view The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to VIEW_UNSPECIFIED)
      * @return ApiResponse&lt;ListCollectionsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -818,8 +864,8 @@ public class CollectionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListCollectionsResponse> listCollectionsWithHttpInfo(Integer pageSize, String pageToken) throws ApiException {
-        okhttp3.Call localVarCall = listCollectionsValidateBeforeCall(pageSize, pageToken, null);
+    public ApiResponse<ListCollectionsResponse> listCollectionsWithHttpInfo(String accountId, Integer pageSize, String pageToken, String view) throws ApiException {
+        okhttp3.Call localVarCall = listCollectionsValidateBeforeCall(accountId, pageSize, pageToken, view, null);
         Type localVarReturnType = new TypeToken<ListCollectionsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -827,8 +873,10 @@ public class CollectionsApi {
     /**
      * List collections (asynchronously)
      * Retrieve a list of collections in an account.
+     * @param accountId The account that owns this set of collections, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param pageSize The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
      * @param pageToken A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)
+     * @param view The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to VIEW_UNSPECIFIED)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -843,9 +891,9 @@ public class CollectionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listCollectionsAsync(Integer pageSize, String pageToken, final ApiCallback<ListCollectionsResponse> _callback) throws ApiException {
+    public okhttp3.Call listCollectionsAsync(String accountId, Integer pageSize, String pageToken, String view, final ApiCallback<ListCollectionsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listCollectionsValidateBeforeCall(pageSize, pageToken, _callback);
+        okhttp3.Call localVarCall = listCollectionsValidateBeforeCall(accountId, pageSize, pageToken, view, _callback);
         Type localVarReturnType = new TypeToken<ListCollectionsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1277,7 +1325,7 @@ public class CollectionsApi {
 
     /**
      * Track event
-     * Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an &#x60;Account-Id&#x60; header.
+     * Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  When tracking redirect events, set &#x60;type&#x60; to &#x60;redirect&#x60;.  Note: You must pass an &#x60;Account-Id&#x60; header.
      * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (required)
      * @param collectionId The collection to track the event against, e.g. &#x60;my-collection&#x60;. (required)
      * @param event The details of the event to track. (required)
@@ -1301,7 +1349,7 @@ public class CollectionsApi {
 
     /**
      * Track event
-     * Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an &#x60;Account-Id&#x60; header.
+     * Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  When tracking redirect events, set &#x60;type&#x60; to &#x60;redirect&#x60;.  Note: You must pass an &#x60;Account-Id&#x60; header.
      * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (required)
      * @param collectionId The collection to track the event against, e.g. &#x60;my-collection&#x60;. (required)
      * @param event The details of the event to track. (required)
@@ -1326,7 +1374,7 @@ public class CollectionsApi {
 
     /**
      * Track event (asynchronously)
-     * Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an &#x60;Account-Id&#x60; header.
+     * Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  When tracking redirect events, set &#x60;type&#x60; to &#x60;redirect&#x60;.  Note: You must pass an &#x60;Account-Id&#x60; header.
      * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (required)
      * @param collectionId The collection to track the event against, e.g. &#x60;my-collection&#x60;. (required)
      * @param event The details of the event to track. (required)
@@ -1355,6 +1403,7 @@ public class CollectionsApi {
      * Build call for updateCollection
      * @param collectionId The collection to update, e.g. &#x60;my-collection&#x60;. (required)
      * @param collection The details of the collection to update. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param updateMask The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1370,7 +1419,7 @@ public class CollectionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCollectionCall(String collectionId, Collection collection, String updateMask, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateCollectionCall(String collectionId, Collection collection, String accountId, String updateMask, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -1401,6 +1450,10 @@ public class CollectionsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("update_mask", updateMask));
         }
 
+        if (accountId != null) {
+            localVarHeaderParams.put("Account-Id", localVarApiClient.parameterToString(accountId));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1422,7 +1475,7 @@ public class CollectionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateCollectionValidateBeforeCall(String collectionId, Collection collection, String updateMask, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateCollectionValidateBeforeCall(String collectionId, Collection collection, String accountId, String updateMask, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
@@ -1435,7 +1488,7 @@ public class CollectionsApi {
         }
         
 
-        okhttp3.Call localVarCall = updateCollectionCall(collectionId, collection, updateMask, _callback);
+        okhttp3.Call localVarCall = updateCollectionCall(collectionId, collection, accountId, updateMask, _callback);
         return localVarCall;
 
     }
@@ -1445,6 +1498,7 @@ public class CollectionsApi {
      * Update the details of a collection.
      * @param collectionId The collection to update, e.g. &#x60;my-collection&#x60;. (required)
      * @param collection The details of the collection to update. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param updateMask The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)
      * @return Collection
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1459,8 +1513,8 @@ public class CollectionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public Collection updateCollection(String collectionId, Collection collection, String updateMask) throws ApiException {
-        ApiResponse<Collection> localVarResp = updateCollectionWithHttpInfo(collectionId, collection, updateMask);
+    public Collection updateCollection(String collectionId, Collection collection, String accountId, String updateMask) throws ApiException {
+        ApiResponse<Collection> localVarResp = updateCollectionWithHttpInfo(collectionId, collection, accountId, updateMask);
         return localVarResp.getData();
     }
 
@@ -1469,6 +1523,7 @@ public class CollectionsApi {
      * Update the details of a collection.
      * @param collectionId The collection to update, e.g. &#x60;my-collection&#x60;. (required)
      * @param collection The details of the collection to update. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param updateMask The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)
      * @return ApiResponse&lt;Collection&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1483,8 +1538,8 @@ public class CollectionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Collection> updateCollectionWithHttpInfo(String collectionId, Collection collection, String updateMask) throws ApiException {
-        okhttp3.Call localVarCall = updateCollectionValidateBeforeCall(collectionId, collection, updateMask, null);
+    public ApiResponse<Collection> updateCollectionWithHttpInfo(String collectionId, Collection collection, String accountId, String updateMask) throws ApiException {
+        okhttp3.Call localVarCall = updateCollectionValidateBeforeCall(collectionId, collection, accountId, updateMask, null);
         Type localVarReturnType = new TypeToken<Collection>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1494,6 +1549,7 @@ public class CollectionsApi {
      * Update the details of a collection.
      * @param collectionId The collection to update, e.g. &#x60;my-collection&#x60;. (required)
      * @param collection The details of the collection to update. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param updateMask The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1509,9 +1565,9 @@ public class CollectionsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCollectionAsync(String collectionId, Collection collection, String updateMask, final ApiCallback<Collection> _callback) throws ApiException {
+    public okhttp3.Call updateCollectionAsync(String collectionId, Collection collection, String accountId, String updateMask, final ApiCallback<Collection> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateCollectionValidateBeforeCall(collectionId, collection, updateMask, _callback);
+        okhttp3.Call localVarCall = updateCollectionValidateBeforeCall(collectionId, collection, accountId, updateMask, _callback);
         Type localVarReturnType = new TypeToken<Collection>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

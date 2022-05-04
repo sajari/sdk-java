@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 <a name="createCollection"></a>
 # **createCollection**
-> Collection createCollection(collectionId, collection)
+> Collection createCollection(collectionId, collection, accountId)
 
 Create collection
 
@@ -46,8 +46,9 @@ public class Example {
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
     String collectionId = "collectionId_example"; // String | The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or `-` characters. Strictly speaking, it must match the regular expression: `^[A-Za-z][A-Za-z0-9\\-]*$`.
     Collection collection = new Collection(); // Collection | Details of the collection to create.
+    String accountId = "accountId_example"; // String | The account that owns the collection, e.g. `1618535966441231024`.
     try {
-      Collection result = apiInstance.createCollection(collectionId, collection);
+      Collection result = apiInstance.createCollection(collectionId, collection, accountId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CollectionsApi#createCollection");
@@ -66,6 +67,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**| The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or &#x60;-&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[A-Za-z][A-Za-z0-9\\-]*$&#x60;. |
  **collection** | [**Collection**](Collection.md)| Details of the collection to create. |
+ **accountId** | **String**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
 
 ### Return type
 
@@ -94,7 +96,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteCollection"></a>
 # **deleteCollection**
-> Object deleteCollection(collectionId)
+> Object deleteCollection(collectionId, accountId)
 
 Delete collection
 
@@ -122,8 +124,9 @@ public class Example {
 
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
     String collectionId = "collectionId_example"; // String | The collection to delete, e.g. `my-collection`.
+    String accountId = "accountId_example"; // String | The account that owns the collection, e.g. `1618535966441231024`.
     try {
-      Object result = apiInstance.deleteCollection(collectionId);
+      Object result = apiInstance.deleteCollection(collectionId, accountId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CollectionsApi#deleteCollection");
@@ -141,6 +144,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**| The collection to delete, e.g. &#x60;my-collection&#x60;. |
+ **accountId** | **String**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
 
 ### Return type
 
@@ -242,7 +246,7 @@ Name | Type | Description  | Notes
 
 <a name="getCollection"></a>
 # **getCollection**
-> Collection getCollection(collectionId)
+> Collection getCollection(collectionId, accountId, view)
 
 Get collection
 
@@ -270,8 +274,10 @@ public class Example {
 
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
     String collectionId = "collectionId_example"; // String | The collection to retrieve, e.g. `my-collection`.
+    String accountId = "accountId_example"; // String | The account that owns the collection, e.g. `1618535966441231024`.
+    String view = "VIEW_UNSPECIFIED"; // String | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from `BASIC`, plus full collection details like disk usage.
     try {
-      Collection result = apiInstance.getCollection(collectionId);
+      Collection result = apiInstance.getCollection(collectionId, accountId, view);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CollectionsApi#getCollection");
@@ -289,6 +295,8 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**| The collection to retrieve, e.g. &#x60;my-collection&#x60;. |
+ **accountId** | **String**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
+ **view** | **String**| The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. | [optional] [default to VIEW_UNSPECIFIED] [enum: VIEW_UNSPECIFIED, BASIC, FULL]
 
 ### Return type
 
@@ -315,7 +323,7 @@ Name | Type | Description  | Notes
 
 <a name="listCollections"></a>
 # **listCollections**
-> ListCollectionsResponse listCollections(pageSize, pageToken)
+> ListCollectionsResponse listCollections(accountId, pageSize, pageToken, view)
 
 List collections
 
@@ -342,10 +350,12 @@ public class Example {
     BasicAuth.setPassword("YOUR PASSWORD");
 
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
+    String accountId = "accountId_example"; // String | The account that owns this set of collections, e.g. `1618535966441231024`.
     Integer pageSize = 56; // Integer | The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100.
     String pageToken = "pageToken_example"; // String | A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token.
+    String view = "VIEW_UNSPECIFIED"; // String | The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from `BASIC`, plus full collection details like disk usage.
     try {
-      ListCollectionsResponse result = apiInstance.listCollections(pageSize, pageToken);
+      ListCollectionsResponse result = apiInstance.listCollections(accountId, pageSize, pageToken, view);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CollectionsApi#listCollections");
@@ -362,8 +372,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **accountId** | **String**| The account that owns this set of collections, e.g. &#x60;1618535966441231024&#x60;. | [optional]
  **pageSize** | **Integer**| The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. | [optional]
  **pageToken** | **String**| A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. | [optional]
+ **view** | **String**| The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. | [optional] [default to VIEW_UNSPECIFIED] [enum: VIEW_UNSPECIFIED, BASIC, FULL]
 
 ### Return type
 
@@ -546,7 +558,7 @@ Name | Type | Description  | Notes
 
 Track event
 
-Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an &#x60;Account-Id&#x60; header.
+Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  When tracking redirect events, set &#x60;type&#x60; to &#x60;redirect&#x60;.  Note: You must pass an &#x60;Account-Id&#x60; header.
 
 ### Example
 ```java
@@ -619,7 +631,7 @@ Name | Type | Description  | Notes
 
 <a name="updateCollection"></a>
 # **updateCollection**
-> Collection updateCollection(collectionId, collection, updateMask)
+> Collection updateCollection(collectionId, collection, accountId, updateMask)
 
 Update collection
 
@@ -648,9 +660,10 @@ public class Example {
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
     String collectionId = "collectionId_example"; // String | The collection to update, e.g. `my-collection`.
     Collection collection = new Collection(); // Collection | The details of the collection to update.
+    String accountId = "accountId_example"; // String | The account that owns the collection, e.g. `1618535966441231024`.
     String updateMask = "updateMask_example"; // String | The list of fields to update, separated by a comma, e.g. `authorized_query_domains,display_name`.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value.
     try {
-      Collection result = apiInstance.updateCollection(collectionId, collection, updateMask);
+      Collection result = apiInstance.updateCollection(collectionId, collection, accountId, updateMask);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CollectionsApi#updateCollection");
@@ -669,6 +682,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**| The collection to update, e.g. &#x60;my-collection&#x60;. |
  **collection** | [**Collection**](Collection.md)| The details of the collection to update. |
+ **accountId** | **String**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
  **updateMask** | **String**| The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. | [optional]
 
 ### Return type

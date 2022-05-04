@@ -118,6 +118,14 @@ paths:
       description: Retrieve a list of collections in an account.
       operationId: ListCollections
       parameters:
+      - description: The account that owns this set of collections, e.g. `1618535966441231024`.
+        explode: false
+        in: header
+        name: Account-Id
+        required: false
+        schema:
+          type: string
+        style: simple
       - description: |-
           The maximum number of collections to return. The service may return fewer
           than this value.
@@ -147,6 +155,29 @@ paths:
         name: page_token
         required: false
         schema:
+          type: string
+        style: form
+      - description: |-
+          The amount of information to include in each retrieved collection.
+
+           - VIEW_UNSPECIFIED: The default / unset value.
+          The API defaults to the `BASIC` view.
+           - BASIC: Include basic information including display name and domains. This is the
+          default value (for both
+          [ListCollections](/docs/api#operation/ListCollections) and
+          [GetCollection](/docs/api#operation/GetCollection)).
+           - FULL: Include the information from `BASIC`, plus full collection details like
+          disk usage.
+        explode: true
+        in: query
+        name: view
+        required: false
+        schema:
+          default: VIEW_UNSPECIFIED
+          enum:
+          - VIEW_UNSPECIFIED
+          - BASIC
+          - FULL
           type: string
         style: form
       responses:
@@ -202,6 +233,14 @@ paths:
         pipelines for you.
       operationId: CreateCollection
       parameters:
+      - description: The account that owns the collection, e.g. `1618535966441231024`.
+        explode: false
+        in: header
+        name: Account-Id
+        required: false
+        schema:
+          type: string
+        style: simple
       - description: |-
           The ID to use for the collection.
 
@@ -310,6 +349,14 @@ paths:
         schema:
           type: string
         style: simple
+      - description: The account that owns the collection, e.g. `1618535966441231024`.
+        explode: false
+        in: header
+        name: Account-Id
+        required: false
+        schema:
+          type: string
+        style: simple
       responses:
         "200":
           content:
@@ -369,6 +416,37 @@ paths:
         schema:
           type: string
         style: simple
+      - description: The account that owns the collection, e.g. `1618535966441231024`.
+        explode: false
+        in: header
+        name: Account-Id
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: |-
+          The amount of information to include in the retrieved pipeline.
+
+           - VIEW_UNSPECIFIED: The default / unset value.
+          The API defaults to the `BASIC` view.
+           - BASIC: Include basic information including display name and domains. This is the
+          default value (for both
+          [ListCollections](/docs/api#operation/ListCollections) and
+          [GetCollection](/docs/api#operation/GetCollection)).
+           - FULL: Include the information from `BASIC`, plus full collection details like
+          disk usage.
+        explode: true
+        in: query
+        name: view
+        required: false
+        schema:
+          default: VIEW_UNSPECIFIED
+          enum:
+          - VIEW_UNSPECIFIED
+          - BASIC
+          - FULL
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -421,6 +499,14 @@ paths:
         in: path
         name: collection_id
         required: true
+        schema:
+          type: string
+        style: simple
+      - description: The account that owns the collection, e.g. `1618535966441231024`.
+        explode: false
+        in: header
+        name: Account-Id
+        required: false
         schema:
           type: string
         style: simple
@@ -503,6 +589,14 @@ paths:
         in: path
         name: collection_id
         required: true
+        schema:
+          type: string
+        style: simple
+      - description: The account that owns the collection, e.g. `1618535966441231024`.
+        explode: false
+        in: header
+        name: Account-Id
+        required: false
         schema:
           type: string
         style: simple
@@ -626,6 +720,14 @@ paths:
         schema:
           type: string
         style: simple
+      - description: The account that owns the collection, e.g. `1618535966441231024`.
+        explode: false
+        in: header
+        name: Account-Id
+        required: false
+        schema:
+          type: string
+        style: simple
       requestBody:
         content:
           application/json:
@@ -740,6 +842,14 @@ paths:
         in: path
         name: version
         required: true
+        schema:
+          type: string
+        style: simple
+      - description: The account that owns the collection, e.g. `1618535966441231024`.
+        explode: false
+        in: header
+        name: Account-Id
+        required: false
         schema:
           type: string
         style: simple
@@ -881,6 +991,14 @@ paths:
         in: path
         name: name
         required: true
+        schema:
+          type: string
+        style: simple
+      - description: The account that owns the collection, e.g. `1618535966441231024`.
+        explode: false
+        in: header
+        name: Account-Id
+        required: false
         schema:
           type: string
         style: simple
@@ -1093,6 +1211,14 @@ paths:
         schema:
           type: string
         style: simple
+      - description: The account that owns the collection, e.g. `1618535966441231024`.
+        explode: false
+        in: header
+        name: Account-Id
+        required: false
+        schema:
+          type: string
+        style: simple
       - description: |-
           The maximum number of promotions to return. The service may return fewer
           than this value.
@@ -1199,6 +1325,14 @@ paths:
         schema:
           type: string
         style: simple
+      - description: The account that owns the collection, e.g. `1618535966441231024`.
+        explode: false
+        in: header
+        name: Account-Id
+        required: false
+        schema:
+          type: string
+        style: simple
       requestBody:
         content:
           application/json:
@@ -1274,6 +1408,14 @@ paths:
         schema:
           type: string
         style: simple
+      - description: The account that owns the collection, e.g. `1618535966441231024`.
+        explode: false
+        in: header
+        name: Account-Id
+        required: false
+        schema:
+          type: string
+        style: simple
       responses:
         "200":
           content:
@@ -1338,6 +1480,14 @@ paths:
         in: path
         name: promotion_id
         required: true
+        schema:
+          type: string
+        style: simple
+      - description: The account that owns the collection, e.g. `1618535966441231024`.
+        explode: false
+        in: header
+        name: Account-Id
+        required: false
         schema:
           type: string
         style: simple
@@ -1428,6 +1578,14 @@ paths:
         in: path
         name: promotion_id
         required: true
+        schema:
+          type: string
+        style: simple
+      - description: The account that owns the collection, e.g. `1618535966441231024`.
+        explode: false
+        in: header
+        name: Account-Id
+        required: false
         schema:
           type: string
         style: simple
@@ -1935,6 +2093,14 @@ paths:
         schema:
           type: string
         style: simple
+      - description: The account that owns the collection, e.g. `1618535966441231024`.
+        explode: false
+        in: header
+        name: Account-Id
+        required: false
+        schema:
+          type: string
+        style: simple
       - description: |-
           The maximum number of redirects to return. The service may return fewer
           than this value.
@@ -2021,6 +2187,14 @@ paths:
         schema:
           type: string
         style: simple
+      - description: The account that owns the collection, e.g. `1618535966441231024`.
+        explode: false
+        in: header
+        name: Account-Id
+        required: false
+        schema:
+          type: string
+        style: simple
       requestBody:
         content:
           application/json:
@@ -2096,6 +2270,14 @@ paths:
         schema:
           type: string
         style: simple
+      - description: The account that owns the collection, e.g. `1618535966441231024`.
+        explode: false
+        in: header
+        name: Account-Id
+        required: false
+        schema:
+          type: string
+        style: simple
       responses:
         "200":
           content:
@@ -2160,6 +2342,14 @@ paths:
         in: path
         name: redirect_id
         required: true
+        schema:
+          type: string
+        style: simple
+      - description: The account that owns the collection, e.g. `1618535966441231024`.
+        explode: false
+        in: header
+        name: Account-Id
+        required: false
         schema:
           type: string
         style: simple
@@ -2249,6 +2439,14 @@ paths:
         in: path
         name: redirect_id
         required: true
+        schema:
+          type: string
+        style: simple
+      - description: The account that owns the collection, e.g. `1618535966441231024`.
+        explode: false
+        in: header
+        name: Account-Id
+        required: false
         schema:
           type: string
         style: simple
@@ -2469,6 +2667,161 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An unexpected error response.
       summary: Create schema field
+      tags:
+      - Schema
+      x-contentType: application/json
+      x-accepts: application/json
+  /v4/collections/{collection_id}/schemaFields/{schema_field_name}:
+    delete:
+      description: |-
+        Deleting a schema field removes it from all records within
+        the collection, however, references to the schema field in
+        pipelines are not removed.
+
+        > Note: This operation cannot be reversed.
+      operationId: DeleteSchemaField
+      parameters:
+      - description: The collection the schema field belongs to, e.g. `my-collection`.
+        explode: false
+        in: path
+        name: collection_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The name of the schema field to delete.
+        explode: false
+        in: path
+        name: schema_field_name
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: A successful response.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Returned when the request does not have valid authentication
+            credentials.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Returned when the user does not have permission to access the
+            resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Returned when the resource does not exist.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Returned when the API encounters an internal error.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: An unexpected error response.
+      summary: Delete schema field
+      tags:
+      - Schema
+      x-accepts: application/json
+    patch:
+      description: |-
+        Update the details of a schema field.
+
+        Only `name` and `description` can be updated.
+      operationId: UpdateSchemaField
+      parameters:
+      - description: The collection the schema field belongs to, e.g. `my-collection`.
+        explode: false
+        in: path
+        name: collection_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The name of the schema field to update.
+        explode: false
+        in: path
+        name: schema_field_name
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: |-
+          The list of fields to update, separated by a comma, e.g. `name,description`.
+
+          Each field should be in snake case.
+
+          For each field that you want to update, provide a corresponding value in the schema field object containing the new value.
+        explode: true
+        in: query
+        name: update_mask
+        required: false
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SchemaField'
+        description: The schema field details to update.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SchemaField'
+          description: A successful response.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Returned when the request does not have valid authentication
+            credentials.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Returned when the user does not have permission to access the
+            resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Returned when the resource does not exist.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Returned when the API encounters an internal error.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: An unexpected error response.
+      summary: Update schema field
       tags:
       - Schema
       x-contentType: application/json
@@ -3083,6 +3436,8 @@ paths:
         - Promotion banners
         - Redirects
 
+        When tracking redirect events, set `type` to `redirect`.
+
         Note: You must pass an `Account-Id` header.
       operationId: TrackEvent
       parameters:
@@ -3165,7 +3520,7 @@ paths:
         the ranking system. Each time you want to record an event on a particular
         search result, use the send event call and provide:
 
-        - The `name` of the event, e.g. `click`, `purchase`.
+        - The `name` of the event, e.g. `click`, `redirect`, `purchase`.
         - The `token` from the search result.
         - The `weight` to assign to the event, e.g. `1`.
         - An object containing any additional `metadata`.
@@ -3186,6 +3541,9 @@ paths:
           }
         }
         ```
+
+        When sending event tokens returned from redirects, set `name` to
+        `redirect`.
 
         Note: You must pass an `Account-Id` header.
       operationId: SendEvent
@@ -3274,7 +3632,7 @@ paths:
         the ranking system. Each time you want to record an event on a particular
         search result, use the send event call and provide:
 
-        - The `name` of the event, e.g. `click`, `purchase`.
+        - The `name` of the event, e.g. `click`, `redirect`, `purchase`.
         - The `token` from the search result.
         - The `weight` to assign to the event, e.g. `1`.
         - An object containing any additional `metadata`.
@@ -3295,6 +3653,9 @@ paths:
           }
         }
         ```
+
+        When sending event tokens returned from redirects, set `name` to
+        `redirect`.
 
         Note: You must pass an `Account-Id` header.
       operationId: SendEvent2
@@ -3857,7 +4218,7 @@ components:
             type: string
           type: array
         create_time:
-          description: Output only. Time the collection was created.
+          description: Output only. The time the collection was created.
           format: date-time
           readOnly: true
           type: string
@@ -3871,6 +4232,19 @@ components:
       required:
       - display_name
       type: object
+    CollectionType:
+      default: TYPE_UNSPECIFIED
+      description: |2-
+         - TYPE_UNSPECIFIED: Type not specified.
+         - WEBSITE: The type for website collections.
+         - SHOPIFY: The type for the collection backing a Shopify account.
+         - CUSTOM: The legacy custom type.
+      enum:
+      - TYPE_UNSPECIFIED
+      - WEBSITE
+      - SHOPIFY
+      - CUSTOM
+      type: string
     DeleteRecordRequest:
       example:
         key:
@@ -3925,7 +4299,7 @@ components:
           description: The identifier of the result the event is about.
           type: string
         type:
-          description: The type of event, e.g. `click`, `purchase`, `add_to_cart`.
+          description: The type of event, e.g. `click`, `redirect`, `purchase`, `add_to_cart`.
           type: string
       required:
       - query_id
@@ -4607,6 +4981,22 @@ components:
         record_pipeline:
           $ref: '#/components/schemas/Pipeline'
       type: object
+    GetCollectionRequestView:
+      default: VIEW_UNSPECIFIED
+      description: |2-
+         - VIEW_UNSPECIFIED: The default / unset value.
+        The API defaults to the `BASIC` view.
+         - BASIC: Include basic information including display name and domains. This is the
+        default value (for both
+        [ListCollections](/docs/api#operation/ListCollections) and
+        [GetCollection](/docs/api#operation/GetCollection)).
+         - FULL: Include the information from `BASIC`, plus full collection details like
+        disk usage.
+      enum:
+      - VIEW_UNSPECIFIED
+      - BASIC
+      - FULL
+      type: string
     GetDefaultPipelineResponse:
       example:
         pipeline: pipeline
@@ -4656,6 +5046,22 @@ components:
       required:
       - key
       type: object
+    ListCollectionsRequestView:
+      default: VIEW_UNSPECIFIED
+      description: |2-
+         - VIEW_UNSPECIFIED: The default / unset value.
+        The API defaults to the `BASIC` view.
+         - BASIC: Include basic information including display name and domains. This is the
+        default value (for both
+        [ListCollections](/docs/api#operation/ListCollections) and
+        [GetCollection](/docs/api#operation/GetCollection)).
+         - FULL: Include the information from `BASIC`, plus full collection details like
+        disk usage.
+      enum:
+      - VIEW_UNSPECIFIED
+      - BASIC
+      - FULL
+      type: string
     ListCollectionsResponse:
       example:
         next_page_token: next_page_token
@@ -5410,7 +5816,14 @@ components:
         filter_conditions:
           description: |-
             The conditions applied to the filters passed from the user. A query must
-            match at least one of these in order to trigger the promotion.
+            match at least one of these in order to trigger the promotion. A filter
+            condition is comprised of a set of filters of the form `field = value` and
+            matches a query if all of those filters are present in the query.
+
+            For example, a query with the filter `productType = 'shirt' AND size =
+            'medium'` triggers a promotion with the filter condition `productType =
+            'shirt'`, but not one with both `productType = 'shirt', and `size =
+            'small'`.
           items:
             $ref: '#/components/schemas/PromotionFilterCondition'
           type: array
@@ -5488,16 +5901,18 @@ components:
       type: object
     PromotionFilterCondition:
       description: |-
-        A set of filters of the form `field = 'value'`. Matches a query if the set of
-        filters in the condition matches exactly the set of filters associated with
-        it.
+        A set of filters of the form `field = 'value'`. Matches a query if all
+        filters are present in that query.
       example:
         filter:
         - filter
         - filter
       properties:
         filter:
-          description: A filter of the form `field = 'value'`.
+          description: |-
+            A filter of the form `field = 'value'`. All of these filters must be
+            present in a query's filter in order for the promotion to be considered
+            active.
           items:
             type: string
           type: array
@@ -6448,7 +6863,7 @@ components:
             - string
           type: object
         name:
-          description: The name of event, e.g. `click`, `purchase`.
+          description: The name of event, e.g. `click`, `redirect`, `purchase`.
           type: string
         token:
           description: |-

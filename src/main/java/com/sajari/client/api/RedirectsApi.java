@@ -74,6 +74,7 @@ public class RedirectsApi {
      * Build call for createRedirect
      * @param collectionId The collection to create a redirect in, e.g. &#x60;my-collection&#x60;. (required)
      * @param redirect The redirect to create. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -88,7 +89,7 @@ public class RedirectsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createRedirectCall(String collectionId, Redirect redirect, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createRedirectCall(String collectionId, Redirect redirect, String accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -115,6 +116,10 @@ public class RedirectsApi {
         java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
         java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
+        if (accountId != null) {
+            localVarHeaderParams.put("Account-Id", localVarApiClient.parameterToString(accountId));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -136,7 +141,7 @@ public class RedirectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createRedirectValidateBeforeCall(String collectionId, Redirect redirect, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createRedirectValidateBeforeCall(String collectionId, Redirect redirect, String accountId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
@@ -149,7 +154,7 @@ public class RedirectsApi {
         }
         
 
-        okhttp3.Call localVarCall = createRedirectCall(collectionId, redirect, _callback);
+        okhttp3.Call localVarCall = createRedirectCall(collectionId, redirect, accountId, _callback);
         return localVarCall;
 
     }
@@ -159,6 +164,7 @@ public class RedirectsApi {
      * Create a new redirect in a collection.
      * @param collectionId The collection to create a redirect in, e.g. &#x60;my-collection&#x60;. (required)
      * @param redirect The redirect to create. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @return Redirect
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -172,8 +178,8 @@ public class RedirectsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public Redirect createRedirect(String collectionId, Redirect redirect) throws ApiException {
-        ApiResponse<Redirect> localVarResp = createRedirectWithHttpInfo(collectionId, redirect);
+    public Redirect createRedirect(String collectionId, Redirect redirect, String accountId) throws ApiException {
+        ApiResponse<Redirect> localVarResp = createRedirectWithHttpInfo(collectionId, redirect, accountId);
         return localVarResp.getData();
     }
 
@@ -182,6 +188,7 @@ public class RedirectsApi {
      * Create a new redirect in a collection.
      * @param collectionId The collection to create a redirect in, e.g. &#x60;my-collection&#x60;. (required)
      * @param redirect The redirect to create. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @return ApiResponse&lt;Redirect&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -195,8 +202,8 @@ public class RedirectsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Redirect> createRedirectWithHttpInfo(String collectionId, Redirect redirect) throws ApiException {
-        okhttp3.Call localVarCall = createRedirectValidateBeforeCall(collectionId, redirect, null);
+    public ApiResponse<Redirect> createRedirectWithHttpInfo(String collectionId, Redirect redirect, String accountId) throws ApiException {
+        okhttp3.Call localVarCall = createRedirectValidateBeforeCall(collectionId, redirect, accountId, null);
         Type localVarReturnType = new TypeToken<Redirect>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -206,6 +213,7 @@ public class RedirectsApi {
      * Create a new redirect in a collection.
      * @param collectionId The collection to create a redirect in, e.g. &#x60;my-collection&#x60;. (required)
      * @param redirect The redirect to create. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -220,9 +228,9 @@ public class RedirectsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createRedirectAsync(String collectionId, Redirect redirect, final ApiCallback<Redirect> _callback) throws ApiException {
+    public okhttp3.Call createRedirectAsync(String collectionId, Redirect redirect, String accountId, final ApiCallback<Redirect> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createRedirectValidateBeforeCall(collectionId, redirect, _callback);
+        okhttp3.Call localVarCall = createRedirectValidateBeforeCall(collectionId, redirect, accountId, _callback);
         Type localVarReturnType = new TypeToken<Redirect>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -231,6 +239,7 @@ public class RedirectsApi {
      * Build call for deleteRedirect
      * @param collectionId The collection the redirect belongs to, e.g. &#x60;my-collection&#x60;. (required)
      * @param redirectId The redirect to delete, e.g. &#x60;1234&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -245,7 +254,7 @@ public class RedirectsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteRedirectCall(String collectionId, String redirectId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteRedirectCall(String collectionId, String redirectId, String accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -272,6 +281,10 @@ public class RedirectsApi {
         java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
         java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
         java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+        if (accountId != null) {
+            localVarHeaderParams.put("Account-Id", localVarApiClient.parameterToString(accountId));
+        }
 
         final String[] localVarAccepts = {
             "application/json"
@@ -294,7 +307,7 @@ public class RedirectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteRedirectValidateBeforeCall(String collectionId, String redirectId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteRedirectValidateBeforeCall(String collectionId, String redirectId, String accountId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
@@ -307,7 +320,7 @@ public class RedirectsApi {
         }
         
 
-        okhttp3.Call localVarCall = deleteRedirectCall(collectionId, redirectId, _callback);
+        okhttp3.Call localVarCall = deleteRedirectCall(collectionId, redirectId, accountId, _callback);
         return localVarCall;
 
     }
@@ -317,6 +330,7 @@ public class RedirectsApi {
      * Delete a redirect and all of its associated data.  &gt; Note: This operation cannot be reversed.
      * @param collectionId The collection the redirect belongs to, e.g. &#x60;my-collection&#x60;. (required)
      * @param redirectId The redirect to delete, e.g. &#x60;1234&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -330,8 +344,8 @@ public class RedirectsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public Object deleteRedirect(String collectionId, String redirectId) throws ApiException {
-        ApiResponse<Object> localVarResp = deleteRedirectWithHttpInfo(collectionId, redirectId);
+    public Object deleteRedirect(String collectionId, String redirectId, String accountId) throws ApiException {
+        ApiResponse<Object> localVarResp = deleteRedirectWithHttpInfo(collectionId, redirectId, accountId);
         return localVarResp.getData();
     }
 
@@ -340,6 +354,7 @@ public class RedirectsApi {
      * Delete a redirect and all of its associated data.  &gt; Note: This operation cannot be reversed.
      * @param collectionId The collection the redirect belongs to, e.g. &#x60;my-collection&#x60;. (required)
      * @param redirectId The redirect to delete, e.g. &#x60;1234&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -353,8 +368,8 @@ public class RedirectsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> deleteRedirectWithHttpInfo(String collectionId, String redirectId) throws ApiException {
-        okhttp3.Call localVarCall = deleteRedirectValidateBeforeCall(collectionId, redirectId, null);
+    public ApiResponse<Object> deleteRedirectWithHttpInfo(String collectionId, String redirectId, String accountId) throws ApiException {
+        okhttp3.Call localVarCall = deleteRedirectValidateBeforeCall(collectionId, redirectId, accountId, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -364,6 +379,7 @@ public class RedirectsApi {
      * Delete a redirect and all of its associated data.  &gt; Note: This operation cannot be reversed.
      * @param collectionId The collection the redirect belongs to, e.g. &#x60;my-collection&#x60;. (required)
      * @param redirectId The redirect to delete, e.g. &#x60;1234&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -378,9 +394,9 @@ public class RedirectsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteRedirectAsync(String collectionId, String redirectId, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call deleteRedirectAsync(String collectionId, String redirectId, String accountId, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteRedirectValidateBeforeCall(collectionId, redirectId, _callback);
+        okhttp3.Call localVarCall = deleteRedirectValidateBeforeCall(collectionId, redirectId, accountId, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -389,6 +405,7 @@ public class RedirectsApi {
      * Build call for getRedirect
      * @param collectionId The collection that owns the redirect, e.g. &#x60;my-collection&#x60;. (required)
      * @param redirectId The redirect to retrieve, e.g. &#x60;1234&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -403,7 +420,7 @@ public class RedirectsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRedirectCall(String collectionId, String redirectId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRedirectCall(String collectionId, String redirectId, String accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -431,6 +448,10 @@ public class RedirectsApi {
         java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
         java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
+        if (accountId != null) {
+            localVarHeaderParams.put("Account-Id", localVarApiClient.parameterToString(accountId));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -452,7 +473,7 @@ public class RedirectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRedirectValidateBeforeCall(String collectionId, String redirectId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRedirectValidateBeforeCall(String collectionId, String redirectId, String accountId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
@@ -465,7 +486,7 @@ public class RedirectsApi {
         }
         
 
-        okhttp3.Call localVarCall = getRedirectCall(collectionId, redirectId, _callback);
+        okhttp3.Call localVarCall = getRedirectCall(collectionId, redirectId, accountId, _callback);
         return localVarCall;
 
     }
@@ -475,6 +496,7 @@ public class RedirectsApi {
      * Retrieve the details of a redirect.
      * @param collectionId The collection that owns the redirect, e.g. &#x60;my-collection&#x60;. (required)
      * @param redirectId The redirect to retrieve, e.g. &#x60;1234&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @return Redirect
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -488,8 +510,8 @@ public class RedirectsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public Redirect getRedirect(String collectionId, String redirectId) throws ApiException {
-        ApiResponse<Redirect> localVarResp = getRedirectWithHttpInfo(collectionId, redirectId);
+    public Redirect getRedirect(String collectionId, String redirectId, String accountId) throws ApiException {
+        ApiResponse<Redirect> localVarResp = getRedirectWithHttpInfo(collectionId, redirectId, accountId);
         return localVarResp.getData();
     }
 
@@ -498,6 +520,7 @@ public class RedirectsApi {
      * Retrieve the details of a redirect.
      * @param collectionId The collection that owns the redirect, e.g. &#x60;my-collection&#x60;. (required)
      * @param redirectId The redirect to retrieve, e.g. &#x60;1234&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @return ApiResponse&lt;Redirect&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -511,8 +534,8 @@ public class RedirectsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Redirect> getRedirectWithHttpInfo(String collectionId, String redirectId) throws ApiException {
-        okhttp3.Call localVarCall = getRedirectValidateBeforeCall(collectionId, redirectId, null);
+    public ApiResponse<Redirect> getRedirectWithHttpInfo(String collectionId, String redirectId, String accountId) throws ApiException {
+        okhttp3.Call localVarCall = getRedirectValidateBeforeCall(collectionId, redirectId, accountId, null);
         Type localVarReturnType = new TypeToken<Redirect>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -522,6 +545,7 @@ public class RedirectsApi {
      * Retrieve the details of a redirect.
      * @param collectionId The collection that owns the redirect, e.g. &#x60;my-collection&#x60;. (required)
      * @param redirectId The redirect to retrieve, e.g. &#x60;1234&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -536,9 +560,9 @@ public class RedirectsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRedirectAsync(String collectionId, String redirectId, final ApiCallback<Redirect> _callback) throws ApiException {
+    public okhttp3.Call getRedirectAsync(String collectionId, String redirectId, String accountId, final ApiCallback<Redirect> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRedirectValidateBeforeCall(collectionId, redirectId, _callback);
+        okhttp3.Call localVarCall = getRedirectValidateBeforeCall(collectionId, redirectId, accountId, _callback);
         Type localVarReturnType = new TypeToken<Redirect>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -546,6 +570,7 @@ public class RedirectsApi {
     /**
      * Build call for listRedirects
      * @param collectionId The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param pageSize The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
      * @param pageToken A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. (optional)
      * @param _callback Callback for upload/download progress
@@ -562,7 +587,7 @@ public class RedirectsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listRedirectsCall(String collectionId, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listRedirectsCall(String collectionId, String accountId, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -597,6 +622,10 @@ public class RedirectsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("page_token", pageToken));
         }
 
+        if (accountId != null) {
+            localVarHeaderParams.put("Account-Id", localVarApiClient.parameterToString(accountId));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -618,7 +647,7 @@ public class RedirectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listRedirectsValidateBeforeCall(String collectionId, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listRedirectsValidateBeforeCall(String collectionId, String accountId, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
@@ -626,7 +655,7 @@ public class RedirectsApi {
         }
         
 
-        okhttp3.Call localVarCall = listRedirectsCall(collectionId, pageSize, pageToken, _callback);
+        okhttp3.Call localVarCall = listRedirectsCall(collectionId, accountId, pageSize, pageToken, _callback);
         return localVarCall;
 
     }
@@ -635,6 +664,7 @@ public class RedirectsApi {
      * List redirects
      * Retrieve a list of redirects in a collection.
      * @param collectionId The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param pageSize The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
      * @param pageToken A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. (optional)
      * @return ListRedirectsResponse
@@ -650,8 +680,8 @@ public class RedirectsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ListRedirectsResponse listRedirects(String collectionId, Integer pageSize, String pageToken) throws ApiException {
-        ApiResponse<ListRedirectsResponse> localVarResp = listRedirectsWithHttpInfo(collectionId, pageSize, pageToken);
+    public ListRedirectsResponse listRedirects(String collectionId, String accountId, Integer pageSize, String pageToken) throws ApiException {
+        ApiResponse<ListRedirectsResponse> localVarResp = listRedirectsWithHttpInfo(collectionId, accountId, pageSize, pageToken);
         return localVarResp.getData();
     }
 
@@ -659,6 +689,7 @@ public class RedirectsApi {
      * List redirects
      * Retrieve a list of redirects in a collection.
      * @param collectionId The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param pageSize The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
      * @param pageToken A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. (optional)
      * @return ApiResponse&lt;ListRedirectsResponse&gt;
@@ -674,8 +705,8 @@ public class RedirectsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListRedirectsResponse> listRedirectsWithHttpInfo(String collectionId, Integer pageSize, String pageToken) throws ApiException {
-        okhttp3.Call localVarCall = listRedirectsValidateBeforeCall(collectionId, pageSize, pageToken, null);
+    public ApiResponse<ListRedirectsResponse> listRedirectsWithHttpInfo(String collectionId, String accountId, Integer pageSize, String pageToken) throws ApiException {
+        okhttp3.Call localVarCall = listRedirectsValidateBeforeCall(collectionId, accountId, pageSize, pageToken, null);
         Type localVarReturnType = new TypeToken<ListRedirectsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -684,6 +715,7 @@ public class RedirectsApi {
      * List redirects (asynchronously)
      * Retrieve a list of redirects in a collection.
      * @param collectionId The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param pageSize The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
      * @param pageToken A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -700,9 +732,9 @@ public class RedirectsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listRedirectsAsync(String collectionId, Integer pageSize, String pageToken, final ApiCallback<ListRedirectsResponse> _callback) throws ApiException {
+    public okhttp3.Call listRedirectsAsync(String collectionId, String accountId, Integer pageSize, String pageToken, final ApiCallback<ListRedirectsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listRedirectsValidateBeforeCall(collectionId, pageSize, pageToken, _callback);
+        okhttp3.Call localVarCall = listRedirectsValidateBeforeCall(collectionId, accountId, pageSize, pageToken, _callback);
         Type localVarReturnType = new TypeToken<ListRedirectsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -713,6 +745,7 @@ public class RedirectsApi {
      * @param redirectId The redirect to update, e.g. &#x60;1234&#x60;. (required)
      * @param updateMask The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;condition&#x60;, &#x60;target&#x60;.  For each field that you want to update, provide a corresponding value in the redirect object containing the new value. (required)
      * @param redirect Details of the redirect to update. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -727,7 +760,7 @@ public class RedirectsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateRedirectCall(String collectionId, String redirectId, String updateMask, Redirect redirect, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateRedirectCall(String collectionId, String redirectId, String updateMask, Redirect redirect, String accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -759,6 +792,10 @@ public class RedirectsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("update_mask", updateMask));
         }
 
+        if (accountId != null) {
+            localVarHeaderParams.put("Account-Id", localVarApiClient.parameterToString(accountId));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -780,7 +817,7 @@ public class RedirectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateRedirectValidateBeforeCall(String collectionId, String redirectId, String updateMask, Redirect redirect, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateRedirectValidateBeforeCall(String collectionId, String redirectId, String updateMask, Redirect redirect, String accountId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
@@ -803,7 +840,7 @@ public class RedirectsApi {
         }
         
 
-        okhttp3.Call localVarCall = updateRedirectCall(collectionId, redirectId, updateMask, redirect, _callback);
+        okhttp3.Call localVarCall = updateRedirectCall(collectionId, redirectId, updateMask, redirect, accountId, _callback);
         return localVarCall;
 
     }
@@ -815,6 +852,7 @@ public class RedirectsApi {
      * @param redirectId The redirect to update, e.g. &#x60;1234&#x60;. (required)
      * @param updateMask The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;condition&#x60;, &#x60;target&#x60;.  For each field that you want to update, provide a corresponding value in the redirect object containing the new value. (required)
      * @param redirect Details of the redirect to update. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @return Redirect
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -828,8 +866,8 @@ public class RedirectsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public Redirect updateRedirect(String collectionId, String redirectId, String updateMask, Redirect redirect) throws ApiException {
-        ApiResponse<Redirect> localVarResp = updateRedirectWithHttpInfo(collectionId, redirectId, updateMask, redirect);
+    public Redirect updateRedirect(String collectionId, String redirectId, String updateMask, Redirect redirect, String accountId) throws ApiException {
+        ApiResponse<Redirect> localVarResp = updateRedirectWithHttpInfo(collectionId, redirectId, updateMask, redirect, accountId);
         return localVarResp.getData();
     }
 
@@ -840,6 +878,7 @@ public class RedirectsApi {
      * @param redirectId The redirect to update, e.g. &#x60;1234&#x60;. (required)
      * @param updateMask The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;condition&#x60;, &#x60;target&#x60;.  For each field that you want to update, provide a corresponding value in the redirect object containing the new value. (required)
      * @param redirect Details of the redirect to update. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @return ApiResponse&lt;Redirect&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -853,8 +892,8 @@ public class RedirectsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Redirect> updateRedirectWithHttpInfo(String collectionId, String redirectId, String updateMask, Redirect redirect) throws ApiException {
-        okhttp3.Call localVarCall = updateRedirectValidateBeforeCall(collectionId, redirectId, updateMask, redirect, null);
+    public ApiResponse<Redirect> updateRedirectWithHttpInfo(String collectionId, String redirectId, String updateMask, Redirect redirect, String accountId) throws ApiException {
+        okhttp3.Call localVarCall = updateRedirectValidateBeforeCall(collectionId, redirectId, updateMask, redirect, accountId, null);
         Type localVarReturnType = new TypeToken<Redirect>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -866,6 +905,7 @@ public class RedirectsApi {
      * @param redirectId The redirect to update, e.g. &#x60;1234&#x60;. (required)
      * @param updateMask The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;condition&#x60;, &#x60;target&#x60;.  For each field that you want to update, provide a corresponding value in the redirect object containing the new value. (required)
      * @param redirect Details of the redirect to update. (required)
+     * @param accountId The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -880,9 +920,9 @@ public class RedirectsApi {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateRedirectAsync(String collectionId, String redirectId, String updateMask, Redirect redirect, final ApiCallback<Redirect> _callback) throws ApiException {
+    public okhttp3.Call updateRedirectAsync(String collectionId, String redirectId, String updateMask, Redirect redirect, String accountId, final ApiCallback<Redirect> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateRedirectValidateBeforeCall(collectionId, redirectId, updateMask, redirect, _callback);
+        okhttp3.Call localVarCall = updateRedirectValidateBeforeCall(collectionId, redirectId, updateMask, redirect, accountId, _callback);
         Type localVarReturnType = new TypeToken<Redirect>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -87,11 +87,11 @@ public class SendEventRequest {
   }
 
    /**
-   * The name of event, e.g. &#x60;click&#x60;, &#x60;purchase&#x60;.
+   * The name of event, e.g. &#x60;click&#x60;, &#x60;redirect&#x60;, &#x60;purchase&#x60;.
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The name of event, e.g. `click`, `purchase`.")
+  @ApiModelProperty(required = true, value = "The name of event, e.g. `click`, `redirect`, `purchase`.")
 
   public String getName() {
     return name;
